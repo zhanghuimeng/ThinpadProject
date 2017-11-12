@@ -1,0 +1,132 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Sun Nov 12 14:40:46 2017
+# Process ID: 8894
+# Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/impl_1
+# Command line: vivado -log MIPS_CPU.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source MIPS_CPU.tcl -notrace
+# Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/impl_1/MIPS_CPU.vdi
+# Journal file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source MIPS_CPU.tcl -notrace
+Design is defaulting to srcset: sources_1
+Design is defaulting to constrset: constrs_1
+INFO: [Project 1-479] Netlist was created with Vivado 2017.1
+INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+link_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1365.617 ; gain = 261.363 ; free physical = 5587 ; free virtual = 25895
+Command: opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t-fgg676'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t-fgg676'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+Command: report_drc (run_mandatory_drcs) for: opt_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 1397.633 ; gain = 32.016 ; free physical = 5584 ; free virtual = 25893
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: b153d99c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: b153d99c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: b153d99c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: b153d99c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
+
+Phase 5 Shift Register Optimization
+Phase 5 Shift Register Optimization | Checksum: b153d99c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+Ending Logic Optimization Task | Checksum: b153d99c
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: b153d99c
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1790.062 ; gain = 0.000 ; free physical = 5195 ; free virtual = 25504
+19 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1790.062 ; gain = 424.445 ; free physical = 5195 ; free virtual = 25504
+INFO: [Common 17-1381] The checkpoint '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/impl_1/MIPS_CPU_opt.dcp' has been generated.
+Command: report_drc -file MIPS_CPU_drc_opted.rpt
+INFO: [DRC 23-27] Running DRC with 4 threads
+INFO: [Coretcl 2-168] The results of DRC are in file /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/impl_1/MIPS_CPU_drc_opted.rpt.
+report_drc completed successfully
+INFO: [Chipscope 16-241] No debug cores found in the current design.
+Before running the implement_debug_core command, either use the Set Up Debug wizard (GUI mode)
+or use the create_debug_core and connect_debug_core Tcl commands to insert debug cores into the design.
+Command: place_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t-fgg676'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t-fgg676'
+Command: report_drc (run_mandatory_drcs) for: incr_eco_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+Command: report_drc (run_mandatory_drcs) for: placer_checks
+INFO: [DRC 23-27] Running DRC with 4 threads
+report_drc (run_mandatory_drcs) completed successfully
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 4 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1826.289 ; gain = 0.000 ; free physical = 5188 ; free virtual = 25497
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 00000000
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1826.289 ; gain = 0.000 ; free physical = 5188 ; free virtual = 25497
+Phase 1 Placer Initialization | Checksum: 00000000
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1826.289 ; gain = 0.000 ; free physical = 5188 ; free virtual = 25497
+ERROR: [Place 30-494] The design is empty
+Resolution: Check if opt_design has removed all the leaf cells of your design.  Check whether you have instantiated and connected all of the top level ports.
+Ending Placer Task | Checksum: 00000000
+
+Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1826.289 ; gain = 0.000 ; free physical = 5188 ; free virtual = 25497
+31 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 12 14:41:13 2017...
