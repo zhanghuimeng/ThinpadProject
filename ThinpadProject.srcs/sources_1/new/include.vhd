@@ -58,17 +58,19 @@ package INCLUDE is
     constant REG_ZERO_DATA : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := x"00000000";
     
     -- Instruction type for EX Module
-    constant OP_TYPE_ARITH :         STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000000";
-    constant OP_TYPE_LOGIC :         STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000001";
-    constant OP_TYPE_MOVE :          STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000010";
-    constant OP_TYPE_BRANCH :        STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000011";
+    constant OP_TYPE_NOP :           STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000000";
+    constant OP_TYPE_ARITH :         STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000001";
+    constant OP_TYPE_LOGIC :         STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000010";
+    constant OP_TYPE_MOVE :          STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000011";
+    constant OP_TYPE_BRANCH :        STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000100";
     
-    -- Instruction subtype for EX Module
+    -- Instruction subtype for EX 
+    constant FUNCT_TYPE_NOP :        STD_LOGIC_VECTOR(6 downto 0) := b"000000";
     -- Arithmetic
     -- Logic
-    constant FUNCT_TYPE_SHIFT_LEFT :         STD_LOGIC_VECTOR(6 downto 0) := b"000000";
+    constant FUNCT_TYPE_SHIFT_LEFT :         STD_LOGIC_VECTOR(6 downto 0) := b"000001";
     
-    constant FUNCT_TYPE_OR :         STD_LOGIC_VECTOR(6 downto 0) := b"000000";
+    constant FUNCT_TYPE_OR :         STD_LOGIC_VECTOR(6 downto 0) := b"000010";
     
     -- Introduction to the MIPS32 Architecture
     -- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)
