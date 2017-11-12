@@ -31,20 +31,38 @@ use IEEE.STD_LOGIC_1164.ALL;
 --library UNISIM;
 --use UNISIM.VComponents.all;
 
+use WORK.INCLUDE.ALL;
+
+-- MEM_to_WB Module in CPU
+
 entity MEM_to_WB is
-    Port ( rst : in STD_LOGIC;
-           clk : in STD_LOGIC;
-           reg_wt_data_i : in STD_LOGIC;
-           reg_wt_addr_i : in STD_LOGIC;
-           reg_wt_en_i : in STD_LOGIC;
-           reg_wt_data_o : in STD_LOGIC;
-           reg_wt_addr_o : in STD_LOGIC;
-           reg_wt_en_o : in STD_LOGIC);
+    Port ( rst :                in STD_LOGIC;                                       -- Reset
+           clk :                in STD_LOGIC;                                       -- Clock
+           reg_wt_en_i :        in STD_LOGIC;                                       -- input register write enable from MEM
+           reg_wt_addr_i :      in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from MEM
+           reg_wt_data_i :      in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register write data from MEM
+           reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to REGISTERS
+           reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to REGISTERS
+           reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output register write data to REGISTERS
 end MEM_to_WB;
 
 architecture Behavioral of MEM_to_WB is
 
 begin
 
+    process (clk'event)
+    begin
+        if rising_edge(clk) then
+            if rst = RST_ENABLE then
+                reg_wt_en_o <= REG_WT_DISABLE;
+                reg_wt_addr_o <= REG_ZERO_ADDR;
+                reg_wt_data_o <= REG_ZERO_DATA;
+            else
+                reg_wt_en_o <= reg_wt_en_i;
+                reg_wt_addr_o <= reg_wt_addr_i;
+                reg_wt_data_o <= reg_wt_data_i;
+            end if;
+        end if;
+    end process;
 
 end Behavioral;
