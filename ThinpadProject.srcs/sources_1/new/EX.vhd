@@ -71,12 +71,17 @@ begin
                         -- or insts
                         when FUNCT_TYPE_OR =>
                             reg_wt_data_o <= operand_1_i or operand_2_i;
+                        
+                        when others =>
                             
                     end case logic_funct;
                 
                 when OP_TYPE_MOVE =>
                 
                 when OP_TYPE_BRANCH =>
+                
+                when others =>
+                
             end case op_code;
         end if;
     end process;
