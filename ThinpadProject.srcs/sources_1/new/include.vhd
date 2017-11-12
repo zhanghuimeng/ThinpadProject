@@ -45,6 +45,7 @@ package INCLUDE is
     constant SHAMT_LEN : integer := 5;
     constant JUMP_ADDR_LEN : integer := 26;
     constant REG_NUM : integer := 32;
+    constant ROM_SIZE : integer := 131072;
     constant RST_ENABLE : STD_LOGIC := '1';
     constant RST_DISABLE : STD_LOGIC := '0';
     constant CHIP_ENABLE : STD_LOGIC := '1';
@@ -65,12 +66,12 @@ package INCLUDE is
     constant OP_TYPE_BRANCH :        STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000100";
     
     -- Instruction subtype for EX 
-    constant FUNCT_TYPE_NOP :        STD_LOGIC_VECTOR(6 downto 0) := b"000000";
+    constant FUNCT_TYPE_NOP :        STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000000";
     -- Arithmetic
     -- Logic
-    constant FUNCT_TYPE_SHIFT_LEFT :         STD_LOGIC_VECTOR(6 downto 0) := b"000001";
+    constant FUNCT_TYPE_SHIFT_LEFT :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000001";
     
-    constant FUNCT_TYPE_OR :         STD_LOGIC_VECTOR(6 downto 0) := b"000010";
+    constant FUNCT_TYPE_OR :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000010";
     
     -- Introduction to the MIPS32 Architecture
     -- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)

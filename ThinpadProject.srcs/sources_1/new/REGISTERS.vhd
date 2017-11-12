@@ -36,30 +36,19 @@ use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use WORK.INCLUDE.ALL;
 
 -- REGISTERS Module in CPU
--- 
--- rst:                 Reset
--- clk:                 Clock
--- reg_rd_en_1_i:       input register 1 read enable from ID
--- reg_rd_en_2_i:       input register 2 read enable from ID
--- reg_rd_addr_1_i:     input register 1 read address from ID
--- reg_rd_addr_2_i:     input register 2 read address from ID
--- reg_wt_en_i:         input register write enable from ID
--- reg_wt_addr_i:       input register write address from ID
--- reg_wt_data_i:       input register write dara from ID
--- reg_rd_data_1_o:     output operand 1 data to ID
--- reg_rd_data_2_o:     output operand 2 data to ID
+
 entity REGISTERS is
-    Port ( rst : in STD_LOGIC;
-           clk : in STD_LOGIC;
-           reg_rd_en_1_i : in STD_LOGIC;
-           reg_rd_en_2_i : in STD_LOGIC;
-           reg_rd_addr_1_i : in STD_LOGIC_VECTOR (REG_ADDR_LEN-1 downto 0);
-           reg_rd_addr_2_i : in STD_LOGIC_VECTOR (REG_ADDR_LEN-1 downto 0);
-           reg_wt_en_i : in STD_LOGIC;
-           reg_wt_addr_i : in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           reg_wt_data_i : in STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);
-           reg_rd_data_1_o : out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);
-           reg_rd_data_2_o : out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0));                      
+    Port ( rst :                in STD_LOGIC;                                          -- Reset
+           clk :                in STD_LOGIC;                                          -- Clock
+           reg_rd_en_1_i :      in STD_LOGIC;                                          -- input register 1 read enable from ID
+           reg_rd_en_2_i :      in STD_LOGIC;                                          -- input register 2 read enable from ID
+           reg_rd_addr_1_i :    in STD_LOGIC_VECTOR (REG_ADDR_LEN-1 downto 0);         -- input register 1 read address from ID
+           reg_rd_addr_2_i :    in STD_LOGIC_VECTOR (REG_ADDR_LEN-1 downto 0);         -- input register 2 read address from ID
+           reg_wt_en_i :        in STD_LOGIC;                                          -- input register write enable from MEM_to_WEB
+           reg_wt_addr_i :      in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);          -- input register write address from MEM_to_WEB
+           reg_wt_data_i :      in STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);         -- input register write address from MEM_to_WEB
+           reg_rd_data_1_o :    out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);        -- output register 1 read data to ID
+           reg_rd_data_2_o :    out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0));       -- output register 2 read data to ID                  
 end REGISTERS;
 
 -- TODO: Solve Data Conflict

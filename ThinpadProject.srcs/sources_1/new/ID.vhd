@@ -56,9 +56,9 @@ end ID;
 
 architecture Behavioral of ID is
     alias op :          STD_LOGIC_VECTOR(OP_LEN-1 downto 0) is inst_i(INST_LEN-1 downto INST_LEN-OP_LEN);
-    alias reg_s :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) is inst_i(INST_LEN-OP_LEN-1 downto INST_LEN-OP_LEN-REG_DATA_LEN);
-    alias reg_t :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0)  is inst_i(INST_LEN-OP_LEN-1 downto INST_LEN-OP_LEN-REG_DATA_LEN);
-    alias reg_d :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0)  is inst_i(INST_LEN-OP_LEN-REG_DATA_LEN-1 downto INST_LEN-OP_LEN-2*REG_DATA_LEN-1);
+    alias reg_s :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) is inst_i(INST_LEN-OP_LEN-1 downto INST_LEN-OP_LEN-REG_ADDR_LEN);
+    alias reg_t :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0)  is inst_i(INST_LEN-OP_LEN-1 downto INST_LEN-OP_LEN-REG_ADDR_LEN);
+    alias reg_d :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0)  is inst_i(INST_LEN-OP_LEN-REG_DATA_LEN-1 downto INST_LEN-OP_LEN-2*REG_ADDR_LEN-1);
     alias shamt :       STD_LOGIC_VECTOR(SHAMT_LEN-1 downto 0) is inst_i(SHAMT_LEN+FUNCT_LEN-1 downto FUNCT_LEN);
     alias funct :       STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) is inst_i(FUNCT_LEN-1 downto 0);
     alias imm :         STD_LOGIC_VECTOR(IMM_LEN-1 downto 0) is inst_i(IMM_LEN-1 downto 0);
@@ -97,6 +97,7 @@ begin
                         
                         when FUNCT_OR =>
                             
+                        when others =>
                             
                     end case special_funct;
                 
@@ -220,7 +221,9 @@ begin
 
                 -- SWR $rt, offset(base)
                 when OP_SWR =>
-                                                             
+                                          
+                when others =>
+                                   
             end case op_code;
             
             
