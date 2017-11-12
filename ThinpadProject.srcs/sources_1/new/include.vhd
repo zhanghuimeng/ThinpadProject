@@ -44,6 +44,7 @@ package INCLUDE is
     constant IMM_LEN : integer := 16;
     constant SHAMT_LEN : integer := 5;
     constant JUMP_ADDR_LEN : integer := 26;
+    constant REG_NUM : integer := 32;
     constant RST_ENABLE : STD_LOGIC := '1';
     constant RST_DISABLE : STD_LOGIC := '0';
     constant CHIP_ENABLE : STD_LOGIC := '1';
