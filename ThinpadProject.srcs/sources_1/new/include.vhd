@@ -46,6 +46,7 @@ package INCLUDE is
     constant JUMP_ADDR_LEN : integer := 26;
     constant REG_NUM : integer := 32;
     constant ROM_SIZE : integer := 131072;
+    constant ROM_SIZE_LOG2 : integer := 17;
     constant RST_ENABLE : STD_LOGIC := '1';
     constant RST_DISABLE : STD_LOGIC := '0';
     constant CHIP_ENABLE : STD_LOGIC := '1';
