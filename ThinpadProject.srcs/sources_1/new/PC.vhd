@@ -37,8 +37,8 @@ use WORK.INCLUDE.ALL;
 -- PC Module in CPU
 -- rst:     Reset
 -- clk:     Clock
--- pc_o:    output program counter(instruction address)
--- en_o:    output enable signal for rom
+-- pc_o:    output program counter(instruction address) to REGISTERS
+-- en_o:    output enable signal for rom to REGISTERS
 entity PC is
     Port ( rst :    in STD_LOGIC;
            clk :    in STD_LOGIC;
