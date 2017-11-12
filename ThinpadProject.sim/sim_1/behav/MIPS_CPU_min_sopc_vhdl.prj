@@ -1,0 +1,17 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/include.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/EX.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/ID.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MEM.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/PC.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/REGISTERS.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sim_1/new/ROM.vhd"
+vhdl xil_defaultlib  "../../../ThinpadProject.srcs/sim_1/new/MIPS_CPU_min_sopc.vhd"
+
+# Do not sort compile order
+nosort

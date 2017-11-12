@@ -41,14 +41,14 @@ use WORK.INCLUDE.ALL;
 
 entity ROM is
     Port ( en_i :       in STD_LOGIC;                                   -- input rom enable from PC
-           addr_i :     in STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);       -- input instruction address from PC
+           addr_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);       -- input instruction address from PC
            inst_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));     -- output instruction to IF/ID
 end ROM;
 
 architecture Behavioral of ROM is
 begin
     
-    process (all)
+    process
     type rom_array_type is array(ROM_SIZE-1 downto 0) of STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
     variable rom_array : rom_array_type;
     file filein : text;
@@ -56,7 +56,7 @@ begin
     variable buf : LINE;
     variable output : LINE;
     variable data : STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-    variable index : STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0) := x"00000000";
+    variable index : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0) := x"00000000";
     begin
         -- In the process, first open the file
         file_open(fstatus, filein, "/home/zhanghuimeng/Computer_Architecture/ThinpadProject/rom.data", read_mode);
@@ -83,15 +83,12 @@ begin
         -- Wait for en_i to change
         loop
             wait on en_i, addr_i;
-            if en_i = ROM_ENABLE then
+            if en_i = CHIP_ENABLE then
                 inst_o <= x"00000000";
             else
                 inst_o <= rom_array(to_integer(unsigned(addr_i)));
             end if;
         end loop;
     end process;
-
-end Behavioral;
-
 
 end Behavioral;

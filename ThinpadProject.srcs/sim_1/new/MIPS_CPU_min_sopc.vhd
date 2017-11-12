@@ -38,33 +38,35 @@ entity MIPS_CPU_min_sopc is
            rst : in STD_LOGIC);
 end MIPS_CPU_min_sopc;
 
+architecture Behavioral of MIPS_CPU_min_sopc is
+
 component MIPS_CPU is
-    Port ( rst :            in STD_LOGIC;                                   -- Reset
-           clk :            in STD_LOGIC;                                   -- Clock
-           inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
-           rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
-           rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));     -- output instruction address to ROM
+    Port ( rst :            in STD_LOGIC;                                           -- Reset
+           clk :            in STD_LOGIC;                                           -- Clock
+           inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);               -- input instruction from ROM
+           rom_en_o :       out STD_LOGIC;                                          -- output enable to ROM
+           rom_addr_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));        -- output instruction address to ROM
 end component;
 
 component ROM is
     Port ( en_i :       in STD_LOGIC;                                   -- input rom enable from PC
-           addr_i :     in STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);       -- input instruction address from PC
+           addr_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  -- input instruction address from PC
            inst_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));     -- output instruction to IF/ID
 end component;
 
-architecture Behavioral of MIPS_CPU_min_sopc is
 signal en: STD_LOGIC;
 signal inst: STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-signal addr: STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);
+signal addr: STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+
 begin
 
-MIPS_CPU0: MIPS_CPU port map(
-    rst => rst, clk => clk,
-    rom_en_o => en, rom_addr_o => addr,
-    inst_i => inst);
-
-ROM_0: ROM port map(
-    en_i => en, addr_i => addr,
-    inst_o => inst);
+    MIPS_CPU0: MIPS_CPU port map(
+        rst => rst, clk => clk,
+        rom_en_o => en, rom_addr_o => addr,
+        inst_i => inst);
+    
+    ROM_0: ROM port map(
+        en_i => en, addr_i => addr,
+        inst_o => inst);
 
 end Behavioral;

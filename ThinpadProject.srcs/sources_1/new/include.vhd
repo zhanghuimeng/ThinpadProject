@@ -169,20 +169,20 @@ package INCLUDE is
     
     -- Introduction to the MIPS32 Architecture
     -- Table A-4 MIPS32 REGIMM Encoding of rt Field (bits 20..16)
-    constant RT_BLTZ :          STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"00000";
-    constant RT_BGEZ :          STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"00001";
-    constant RT_BLTZL :         STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"00010";
-    constant RT_BGEZL :         STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"00011";
-    constant RT_TGEI :          STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"01000";
-    constant RT_TGEIU :         STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"01001";
-    constant RT_TLTI :          STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"01010";
-    constant RT_TLTIU :         STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"01011";
-    constant RT_TEQI :          STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"01100";
-    constant RT_TNEI :          STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"01110";
-    constant RT_BLTZAL :        STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"10000";
-    constant RT_BGEZAL :        STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"10001";
-    constant RT_BLTZALL :       STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"10010";
-    constant RT_BGEZALL :       STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) := b"10011";
+    constant RT_BLTZ :          STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"00000";
+    constant RT_BGEZ :          STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"00001";
+    constant RT_BLTZL :         STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"00010";
+    constant RT_BGEZL :         STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"00011";
+    constant RT_TGEI :          STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01000";
+    constant RT_TGEIU :         STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01001";
+    constant RT_TLTI :          STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01010";
+    constant RT_TLTIU :         STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01011";
+    constant RT_TEQI :          STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01100";
+    constant RT_TNEI :          STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01110";
+    constant RT_BLTZAL :        STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10000";
+    constant RT_BGEZAL :        STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10001";
+    constant RT_BLTZALL :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10010";
+    constant RT_BGEZALL :       STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10011";
     
     -- Introduction to the MIPS32 Architecture
     -- Table A-5 MIPS32 SPECIAL2 Encoding of Function Field (bits 5..0)

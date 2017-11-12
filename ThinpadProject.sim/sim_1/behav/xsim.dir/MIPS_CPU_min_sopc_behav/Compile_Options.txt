@@ -1,0 +1,1 @@
+-wto "6d2578a9ce404dc79a22968225d1e5da" --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "secureip" --snapshot "MIPS_CPU_min_sopc_behav" "xil_defaultlib.MIPS_CPU_min_sopc" -log "elaborate.log" 
