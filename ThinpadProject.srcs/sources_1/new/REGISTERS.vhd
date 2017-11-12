@@ -46,8 +46,8 @@ use WORK.INCLUDE.ALL;
 -- reg_wt_en_i:         input register write enable from ID
 -- reg_wt_addr_i:       input register write address from ID
 -- reg_wt_data_i:       input register write dara from ID
--- reg_rd_data_1_o:     output register 1 read data to ID
--- reg_rd_data_2_o:     output register 2 read data to ID
+-- reg_rd_data_1_o:     output operand 1 data to ID
+-- reg_rd_data_2_o:     output operand 2 data to ID
 entity REGISTERS is
     Port ( rst : in STD_LOGIC;
            clk : in STD_LOGIC;

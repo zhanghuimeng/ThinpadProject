@@ -46,6 +46,8 @@ use WORK.INCLUDE.ALL;
 -- reg_rd_en_2_o:   output register 2 read enable to REGISTERS
 -- reg_rd_addr_1_o: output register 1 read address to REGISTERS
 -- reg_rd_addr_2_o: output register 2 read address to REGISTERS
+-- operand_1_o:     output operand 1 to ID_to_EX
+-- operand_2_o:     output operand 2 to ID_to_EX
 -- reg_wt_en_o:     output register write enable to ID_to_EX
 -- reg_wt_addr_o:   output register write address to ID_to_EX
 entity ID is
@@ -60,8 +62,8 @@ entity ID is
            reg_rd_en_2_o :      out STD_LOGIC;
            reg_rd_addr_1_o :    out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
            reg_rd_addr_2_o :    out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           reg_rd_data_1_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           reg_rd_data_2_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           operand_1_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           operand_2_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
            reg_wt_en_o :        out STD_LOGIC;
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));
 end ID;
@@ -88,12 +90,10 @@ begin
             reg_rd_en_2_o <= REG_RD_DISABLE;
             reg_rd_addr_1_o <= REG_ZERO_ADDR;
             reg_rd_addr_2_o <= REG_ZERO_ADDR;
-            reg_rd_data_1_o <= REG_ZERO_DATA;
-            reg_rd_data_2_o <= REG_ZERO_DATA;
+            operand_1_o <= REG_ZERO_DATA;
+            operand_2_o <= REG_ZERO_DATA;
             
         else
-            reg_rd_data_1_o <= reg_rd_data_1_i;  -- Output the register 1 read from REGISTERS module
-            reg_rd_data_2_o <= reg_rd_data_2_i;  -- Output the register 2 read from REGISTERS module
             
             -- Decide OP type
             op_code: case op is
@@ -244,26 +244,26 @@ begin
     source_reg_1: process (all)
     begin
         if rst = RST_ENABLE then
-            reg_rd_addr_1_o <= REG_ZERO_ADDR;
+            operand_1_o <= REG_ZERO_DATA;
         elsif reg_rd_en_1 = REG_RD_ENABLE then
-            reg_rd_addr_1_o <= reg_s;
+            operand_1_o <= reg_rd_data_1_i;
         elsif reg_rd_en_1 = REG_RD_DISABLE then
-            reg_rd_addr_1_o <= extended_imm;
+            operand_1_o <= extended_imm;
         else
-            reg_rd_addr_1_o <= REG_ZERO_ADDR;
+            operand_1_o <= REG_ZERO_DATA;
         end if;
     end process source_reg_1;
     
     source_reg_2: process (all)
     begin
         if rst = RST_ENABLE then
-            reg_rd_addr_2_o <= REG_ZERO_ADDR;
+            operand_2_o <= REG_ZERO_DATA;
         elsif reg_rd_en_2 = REG_RD_ENABLE then
-            reg_rd_addr_2_o <= reg_s;
-        elsif reg_rd_en_2 = REG_RD_DISABLE then
-            reg_rd_addr_2_o <= extended_imm;
+            operand_2_o <= reg_rd_data_2_i;
+        elsif reg_rd_en_1 = REG_RD_DISABLE then
+            operand_2_o <= extended_imm;
         else
-            reg_rd_addr_2_o <= REG_ZERO_ADDR;
+            operand_2_o <= REG_ZERO_DATA;
         end if;
     end process source_reg_2;
     

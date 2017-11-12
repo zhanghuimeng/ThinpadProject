@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sun Nov 12 20:51:58 2017
-# Process ID: 5339
+# Start of session at: Sun Nov 12 21:59:27 2017
+# Process ID: 9676
 # Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,28 +15,28 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 5354 
+INFO: Helper process launched with PID 9713 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1184.832 ; gain = 75.992 ; free physical = 4696 ; free virtual = 25244
+Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1184.832 ; gain = 75.992 ; free physical = 4802 ; free virtual = 25324
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:42]
 INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (1#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:42]
 WARNING: [Synth 8-3330] design MIPS_CPU has an empty top module
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1226.332 ; gain = 117.492 ; free physical = 4705 ; free virtual = 25254
+Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1226.332 ; gain = 117.492 ; free physical = 4812 ; free virtual = 25334
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1226.332 ; gain = 117.492 ; free physical = 4705 ; free virtual = 25255
+Finished Constraint Validation : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1226.332 ; gain = 117.492 ; free physical = 4813 ; free virtual = 25334
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1234.336 ; gain = 125.496 ; free physical = 4705 ; free virtual = 25255
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1234.336 ; gain = 125.496 ; free physical = 4813 ; free virtual = 25334
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1234.336 ; gain = 125.496 ; free physical = 4705 ; free virtual = 25255
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1234.336 ; gain = 125.496 ; free physical = 4813 ; free virtual = 25334
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -75,7 +75,7 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-3330] design MIPS_CPU has an empty top module
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4562 ; free virtual = 25112
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4648 ; free virtual = 25170
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -88,7 +88,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4562 ; free virtual = 25111
+Finished Timing Optimization : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4643 ; free virtual = 25165
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -100,7 +100,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4562 ; free virtual = 25111
+Finished Technology Mapping : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4641 ; free virtual = 25163
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -124,7 +124,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Finished IO Insertion : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -137,7 +137,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -149,25 +149,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -193,11 +193,11 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
-Synthesis Optimization Complete : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 1337.125 ; gain = 228.277 ; free physical = 4561 ; free virtual = 25111
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.117 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
+Synthesis Optimization Complete : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 1337.125 ; gain = 228.277 ; free physical = 4669 ; free virtual = 25191
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -206,7 +206,7 @@ No Unisim elements were transformed.
 
 8 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1420.148 ; gain = 324.898 ; free physical = 4494 ; free virtual = 25044
+synth_design: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 1420.148 ; gain = 324.898 ; free physical = 4603 ; free virtual = 25124
 INFO: [Common 17-1381] The checkpoint '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.12 . Memory (MB): peak = 1444.160 ; gain = 0.000 ; free physical = 4495 ; free virtual = 25045
-INFO: [Common 17-206] Exiting Vivado at Sun Nov 12 20:52:21 2017...
+report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.12 . Memory (MB): peak = 1444.160 ; gain = 0.000 ; free physical = 4604 ; free virtual = 25125
+INFO: [Common 17-206] Exiting Vivado at Sun Nov 12 21:59:51 2017...
