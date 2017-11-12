@@ -34,19 +34,14 @@ use IEEE.STD_LOGIC_1164.ALL;
 use WORK.INCLUDE.ALL;
 
 -- IF to ID Module in CPU
--- rst:     Reset
--- clk:     Clock
--- pc_i:    input program counter (instruction address)
--- inst_i:  input instruction
--- pc_o:    output program counter (instruction address)
--- inst_o:  output instruction
+
 entity IF_to_ID is
-    Port ( rst :    in STD_LOGIC;
-           clk :    in STD_LOGIC;
-           pc_i :   in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-           inst_i : in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-           pc_o :   out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-           inst_o : out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));
+    Port ( rst :    in STD_LOGIC;                                       -- Reset
+           clk :    in STD_LOGIC;                                       -- Clock
+           pc_i :   in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);      -- input program counter (instruction address) from ROM
+           inst_i : in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from ROM
+           pc_o :   out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ID
+           inst_o : out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));         -- output instruction to ID
 end IF_to_ID;
 
 architecture Behavioral of IF_to_ID is

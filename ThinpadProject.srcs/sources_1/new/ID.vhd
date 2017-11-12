@@ -35,37 +35,23 @@ use WORK.INCLUDE.ALL;
 
 -- ID Module in CPU
 -- Combintational Logic
--- rst:             Reset
--- pc_i:            input program counter (instruction address) from IF_to_ID
--- inst_i:          input instruction
--- reg_rd_data_1_i: input register 1 read data from REGISTERS
--- reg_rd_data_2_i: input register 2 read data from REGISTERS
--- op_o:            output custom op type to ID_to_EX
--- funct_o:         output custom funct type to ID_to_EX
--- reg_rd_en_1_o:   output register 1 read enable to REGISTERS
--- reg_rd_en_2_o:   output register 2 read enable to REGISTERS
--- reg_rd_addr_1_o: output register 1 read address to REGISTERS
--- reg_rd_addr_2_o: output register 2 read address to REGISTERS
--- operand_1_o:     output operand 1 to ID_to_EX
--- operand_2_o:     output operand 2 to ID_to_EX
--- reg_wt_en_o:     output register write enable to ID_to_EX
--- reg_wt_addr_o:   output register write address to ID_to_EX
+
 entity ID is
-    Port ( rst :                in STD_LOGIC;
-           pc_i :               in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-           inst_i :             in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-           reg_rd_data_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           reg_rd_data_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           op_o :               out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);
-           funct_o :            out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);
-           reg_rd_en_1_o :      out STD_LOGIC;
-           reg_rd_en_2_o :      out STD_LOGIC;
-           reg_rd_addr_1_o :    out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           reg_rd_addr_2_o :    out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           operand_1_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           operand_2_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           reg_wt_en_o :        out STD_LOGIC;
-           reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));
+    Port ( rst :                in STD_LOGIC;                                       -- Reset
+           pc_i :               in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);      -- input program counter (instruction address) from IF_to_ID
+           inst_i :             in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from IF_to_ID
+           reg_rd_data_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register 1 read data from REGISTERS
+           reg_rd_data_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register 2 read data from REGISTERS
+           op_o :               out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to ID_to_EX
+           funct_o :            out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to ID_to_EX
+           reg_rd_en_1_o :      out STD_LOGIC;                                      -- output register 1 read enable to REGISTERS
+           reg_rd_en_2_o :      out STD_LOGIC;                                      -- output register 2 read enable to REGISTERS
+           reg_rd_addr_1_o :    out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register 1 read address to REGISTERS
+           reg_rd_addr_2_o :    out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register 2 read address to REGISTERS
+           operand_1_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 to ID_to_EX
+           operand_2_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 to ID_to_EX
+           reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to ID_to_EX
+           reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));     -- output register write address to ID_to_EX
 end ID;
 
 architecture Behavioral of ID is

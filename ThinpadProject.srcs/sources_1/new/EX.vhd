@@ -35,27 +35,18 @@ use WORK.INCLUDE.ALL;
 
 -- EX Module of CPU
 -- Combinatory Logic
--- rst:             Reset
--- op_i:            input custom op type from ID_to_EX
--- funct_i:         input custom funct type from ID_to_EX
--- operand_1_i:     input operand 1 from ID_to_EX
--- operand_2_i:     input operand 2 from ID_to_EX
--- reg_wt_en_i:     input register write enable from ID_to_EX
--- reg_wt_addr_i:   input register write address from ID_to_EX
--- reg_wt_en_o:     output register write enable to EX_to_MEM
--- reg_wt_addr_o:   output register write address to EX_to_MEM
--- reg_wt_data_o:   output register write data to EX_to_MEM
+
 entity EX is
-    Port ( rst : in STD_LOGIC;
-           op_i : in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);
-           funct_i : in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);
-           operand_1_i : in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           operand_2_i : in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           reg_wt_en_i : in STD_LOGIC;
-           reg_wt_addr_i : in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           reg_wt_en_o : out STD_LOGIC;
-           reg_wt_addr_o : out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           reg_wt_data_o : out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));
+    Port ( rst :            in STD_LOGIC;                                       -- Reset
+           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID_to_EX
+           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID_to_EX
+           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID_to_EX
+           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID_to_EX
+           reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID_to_EX
+           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID_to_EX
+           reg_wt_en_o :    out STD_LOGIC;                                      -- output register write enable to EX_to_MEM
+           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX_to_MEM
+           reg_wt_data_o :  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output register write data to EX_to_MEM
 end EX;
 
 architecture Behavioral of EX is

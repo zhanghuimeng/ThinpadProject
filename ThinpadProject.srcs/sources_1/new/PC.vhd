@@ -35,15 +35,12 @@ use IEEE.STD_LOGIC_SIGNED.ALL;
 use WORK.INCLUDE.ALL;
 
 -- PC Module in CPU
--- rst:     Reset
--- clk:     Clock
--- pc_o:    output program counter(instruction address) to REGISTERS
--- en_o:    output enable signal for rom to REGISTERS
+
 entity PC is
-    Port ( rst :    in STD_LOGIC;
-           clk :    in STD_LOGIC;
-           pc_o :   out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-           en_o :   out STD_LOGIC);
+    Port ( rst :    in STD_LOGIC;                                       -- Reset
+           clk :    in STD_LOGIC;                                       -- Clock
+           pc_o :   out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ROM
+           en_o :   out STD_LOGIC);                                     -- output enable signal to ROM
 end PC;
 
 architecture Behavioral of PC is

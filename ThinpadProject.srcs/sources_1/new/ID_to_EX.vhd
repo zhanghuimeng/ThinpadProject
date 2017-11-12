@@ -34,35 +34,22 @@ use IEEE.STD_LOGIC_1164.ALL;
 use WORK.INCLUDE.ALL;
 
 -- ID_to_EX Module in CPU
--- rst:             Reset
--- clk:             Clock
--- op_i:            input custom op type from ID
--- funct_i:         input custom funct type from ID
--- operand_1_i:     input operand 1 data from ID
--- operand_2_i:     input operand 2 read data from ID
--- reg_wt_en_i:     input register write enable from ID
--- reg_wt_addr_i:   input register write address from ID
--- op_o:            output custom op type to EX
--- funct_o:         output custom funct type to EX
--- operand_1_o:     output operand 1 read data to EX
--- operand_2_o:     output operand 2 read data to EX
--- reg_wt_en_o:     output register write enable to EX
--- reg_wt_addr_o:   output register write address to EX
+
 entity ID_to_EX is
-    Port ( rst :            in STD_LOGIC;
-           clk :            in STD_LOGIC;
-           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);
-           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);
-           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           reg_wt_en_i :    in STD_LOGIC;
-           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           op_o :           out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);
-           funct_o :        out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);
-           operand_1_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           operand_2_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-           reg_wt_en_o :    out STD_LOGIC;
-           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));
+    Port ( rst :            in STD_LOGIC;                                       -- Reset
+           clk :            in STD_LOGIC;                                       -- Clock
+           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID
+           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom funct type from ID
+           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 data from ID
+           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 read data from ID
+           reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID
+           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID
+           op_o :           out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to EX
+           funct_o :        out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to EX
+           operand_1_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 read data to EX
+           operand_2_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 read data to EX
+           reg_wt_en_o :    out STD_LOGIC;                                      -- output register write enable to EX
+           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));     -- output register write address to EX
 end ID_to_EX;
 
 architecture Behavioral of ID_to_EX is
