@@ -154,7 +154,7 @@ component REGISTERS is
 end component;
 
 -- PC to IF/ID signals
-signal pc_from_pc : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+signal pc_from_pc : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  -- Need to be mapped to two ports
 
 -- IF/ID to ID signals
 signal pc_to_id : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
@@ -204,9 +204,11 @@ signal reg_wt_data_to_register: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
 begin
 
+    rom_addr_o <= pc_from_pc;
+
     PC_0 : PC port map(
         rst => rst, clk => clk, 
-        pc_o => rom_addr_o, en_o => rom_en_o);
+        pc_o => pc_from_pc, en_o => rom_en_o);
     
     IF_to_ID_0 : IF_to_ID port map(
         rst => rst, clk => clk, 

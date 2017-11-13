@@ -50,7 +50,7 @@ begin
     
     process
     type rom_array_type is array(ROM_SIZE-1 downto 0) of STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-    variable rom_array : rom_array_type;
+    variable rom_array : rom_array_type := (others => (others => '0'));  -- Note the 'others' syntax
     file filein : text;
     variable fstatus : FILE_OPEN_STATUS;
     variable buf : LINE;

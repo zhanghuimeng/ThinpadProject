@@ -44,8 +44,8 @@ entity PC is
 end PC;
 
 architecture Behavioral of PC is
-    signal en : STD_LOGIC;
-    signal pc : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+    signal en : STD_LOGIC := CHIP_DISABLE;
+    signal pc : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0) := x"00000000";
 begin
     process (clk'event)
     begin

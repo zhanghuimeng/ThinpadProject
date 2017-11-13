@@ -21,6 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use STD.TEXTIO.ALL;
+use IEEE.STD_LOGIC_TEXTIO.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -68,6 +70,7 @@ architecture Behavioral of ID is
     signal reg_rd_en_2 : STD_LOGIC;
 begin
     process (all)
+    variable output :       LINE;
     begin
         if rst = RST_ENABLE then
             op_o <= OP_TYPE_NOP;
@@ -78,9 +81,22 @@ begin
             reg_rd_addr_2_o <= REG_ZERO_ADDR;
             operand_1_o <= REG_ZERO_DATA;
             operand_2_o <= REG_ZERO_DATA;
+            reg_wt_en_o <= REG_WT_DISABLE;
+            reg_wt_addr_o <= REG_ZERO_ADDR;
             
         else
             
+            op_o <= OP_TYPE_NOP;
+            funct_o <= FUNCT_TYPE_NOP;
+            reg_rd_en_1_o <= REG_RD_DISABLE;
+            reg_rd_en_2_o <= REG_RD_DISABLE;
+            reg_rd_addr_1_o <= reg_s;
+            reg_rd_addr_2_o <= reg_t;
+            operand_1_o <= REG_ZERO_DATA;
+            operand_2_o <= REG_ZERO_DATA;
+            reg_wt_en_o <= REG_WT_DISABLE;
+            reg_wt_addr_o <= REG_ZERO_ADDR;
+    
             -- Decide OP type
             op_code: case op is
             
@@ -143,6 +159,14 @@ begin
                     -- write rt
                     reg_wt_en_o <= REG_WT_ENABLE;
                     reg_wt_addr_o <= reg_t;
+                    -- deallocate(output);
+                    -- write(output, string'("REG write addr = "));
+                    -- write(output, reg_wt_addr_o);
+                    -- report output.all;
+                    -- report ORI hit
+                    -- deallocate(output);
+                    -- write(output, string'("Hit ORI"));
+                    -- report output.all;
                 
                 -- XORI $rt, $rs, imm
                 when OP_XORI =>
@@ -226,34 +250,24 @@ begin
                                    
             end case op_code;
             
+            if reg_rd_en_1 = REG_RD_ENABLE then
+                operand_1_o <= reg_rd_data_1_i;
+            elsif reg_rd_en_1 = REG_RD_DISABLE then
+                operand_1_o <= extended_imm;
+            else
+                operand_1_o <= REG_ZERO_DATA;
+            end if;
             
+            if rst = RST_ENABLE then
+                operand_2_o <= REG_ZERO_DATA;
+            elsif reg_rd_en_2 = REG_RD_ENABLE then
+                operand_2_o <= reg_rd_data_2_i;
+            elsif reg_rd_en_2 = REG_RD_DISABLE then
+                operand_2_o <= extended_imm;
+            else
+                operand_2_o <= REG_ZERO_DATA;
+        end if;
         end if;
     end process;
-    
-    source_reg_1: process (all)
-    begin
-        if rst = RST_ENABLE then
-            operand_1_o <= REG_ZERO_DATA;
-        elsif reg_rd_en_1 = REG_RD_ENABLE then
-            operand_1_o <= reg_rd_data_1_i;
-        elsif reg_rd_en_1 = REG_RD_DISABLE then
-            operand_1_o <= extended_imm;
-        else
-            operand_1_o <= REG_ZERO_DATA;
-        end if;
-    end process source_reg_1;
-    
-    source_reg_2: process (all)
-    begin
-        if rst = RST_ENABLE then
-            operand_2_o <= REG_ZERO_DATA;
-        elsif reg_rd_en_2 = REG_RD_ENABLE then
-            operand_2_o <= reg_rd_data_2_i;
-        elsif reg_rd_en_1 = REG_RD_DISABLE then
-            operand_2_o <= extended_imm;
-        else
-            operand_2_o <= REG_ZERO_DATA;
-        end if;
-    end process source_reg_2;
     
 end Behavioral;
