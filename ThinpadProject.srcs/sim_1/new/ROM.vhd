@@ -59,7 +59,7 @@ begin
     variable index : STD_LOGIC_VECTOR(ROM_SIZE_LOG2-1 downto 0) := b"00000000000000000";
     begin
         -- In the process, first open the file
-        file_open(fstatus, filein, "/home/zhanghuimeng/Computer_Architecture/ThinpadProject/rom.data", read_mode);
+        file_open(fstatus, filein, "/home/zhanghuimeng/Computer_Architecture/ThinpadProject/asm/rom.data", read_mode);
             while not endfile(filein) loop
                 readline(filein, buf);
                 if buf'length = 0 then
