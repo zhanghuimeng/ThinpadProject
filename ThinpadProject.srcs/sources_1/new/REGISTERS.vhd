@@ -87,14 +87,14 @@ begin
         variable output: LINE;
     begin
         if rising_edge(clk) then
-            deallocate(output);
-            write(output, string'("REG write addr = "));
-            write(output, reg_wt_addr_i);
-            write(output, string'(", REG write enable = "));
-            write(output, reg_wt_en_i);
-            write(output, string'(", REG write data = "));
-            write(output, reg_wt_data_i);
-            report output.all;
+            -- deallocate(output);
+            -- write(output, string'("REG write addr = "));
+            -- write(output, reg_wt_addr_i);
+            -- write(output, string'(", REG write enable = "));
+            -- write(output, reg_wt_en_i);
+            -- write(output, string'(", REG write data = "));
+            -- write(output, reg_wt_data_i);
+            -- report output.all;
             -- Note the priority issue
             if (reg_wt_en_i = REG_WT_ENABLE) and (not (reg_wt_addr_i = REG_ZERO_ADDR)) then
                 reg_array(to_integer(unsigned(reg_wt_addr_i))) <= reg_wt_data_i;

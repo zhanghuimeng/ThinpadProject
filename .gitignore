@@ -26,6 +26,16 @@
 !rom.data
 !*.png
 !*.md
+!*.MD
+!*.out
+!*.cpp
+!*.0
+!*.om
+!*.S
+!Makefile
+!bin2mem
+!*.bin
+!*.asm
 #########
 #IP files
 #########
