@@ -68,9 +68,21 @@ begin
                 
                 when OP_TYPE_LOGIC =>
                     logic_funct: case funct_i is
-                        -- or insts
+                        -- or instructions
+                        when FUNCT_TYPE_AND =>
+                            reg_wt_data_o <= operand_1_i and operand_2_i;
+
+                        -- or instructions
                         when FUNCT_TYPE_OR =>
                             reg_wt_data_o <= operand_1_i or operand_2_i;
+                        
+                        -- or instructions
+                        when FUNCT_TYPE_XOR =>
+                            reg_wt_data_o <= operand_1_i xor operand_2_i;
+                        
+                        -- or instructions
+                        when FUNCT_TYPE_NOR =>
+                            reg_wt_data_o <= operand_1_i nor operand_2_i;
                         
                         when others =>
                             

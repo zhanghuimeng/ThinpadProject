@@ -102,9 +102,9 @@ begin
             reg_rd_en_1 <= REG_RD_DISABLE;
             reg_rd_en_2_o <= REG_RD_DISABLE;
             reg_rd_en_2 <= REG_RD_DISABLE;
-            reg_rd_addr_1_o <= reg_s;
+            reg_rd_addr_1_o <= reg_s;  -- Default read register 1
             reg_rd_addr_1 <= reg_s;
-            reg_rd_addr_2_o <= reg_t;
+            reg_rd_addr_2_o <= reg_t;  -- Default read register 2
             reg_rd_addr_2 <= reg_t;
             operand_1_o <= REG_ZERO_DATA;
             operand_2_o <= REG_ZERO_DATA;
@@ -118,14 +118,163 @@ begin
                 when OP_SPECIAL =>
                     special_funct: case funct is
                     
-                        -- SLL $rd, $rt, imm
+                        -- SLL $rd, $rt, imm        rd ← rt << sa
                         when FUNCT_SLL => 
                         
-                        
+                        -- ?????
                         when FUNCT_MOVCI =>
                         
+                        -- SRL rd, rt, sa           rd ← rt >> sa (logical)
+                        when FUNCT_SRL =>
                         
+                        -- SRA rd, rt, sa           rd ← rt >> sa (arithmatic)
+                        when FUNCT_SRA =>
+                        
+                        -- SLLV rd, rt, rs          rd ← rt << rs
+                        when FUNCT_SLLV =>
+                        
+                        -- SRLV rd, rt, rs          rd ← rt >> rs (logical)
+                        when FUNCT_SRLV =>
+                        
+                        -- SRAV rd, rt, rs          rd ← rt >> rs (arithmetic)
+                        when FUNCT_SRAV => 
+                        
+                        -- JR rs                    PC ← rs
+                        when FUNCT_JR => 
+                        
+                        -- JALR (rd, = 31) rs       rd ← return_addr, PC ← rs
+                        when FUNCT_JALR =>
+                        
+                        -- MOVZ rd, rs, rt          if rt = 0 then rd ← rs
+                        when FUNCT_MOVZ =>
+                        
+                        -- MOVN rd, rs, rt          if rt ≠ 0 then rd ← rs
+                        when FUNCT_MOVN =>
+                        
+                        -- SYSCALL                  A system call exception occurs
+                        when FUNCT_SYSCALL =>
+                        
+                        -- BREAK                    A breakpoint exception occurs
+                        when FUNCT_BREAK =>
+                        
+                        -- SYNC (stype = 0 implied) To order loads and stores.
+                        when FUNCT_SYNC =>
+                        
+                        -- MFHI rd                  rd ← HI
+                        when FUNCT_MFHI =>
+                        
+                        -- MTHI rs                  HI ← rs
+                        when FUNCT_MTHI =>
+                        
+                        -- MFLO rd                  rd ← LO
+                        when FUNCT_MFLO =>
+                        
+                        -- MTLO rs                  LO ← rs
+                        when FUNCT_MTLO =>
+                        
+                        -- MULT rs, rt              (LO, HI) ← rs × rt
+                        when FUNCT_MULT =>
+                        
+                        -- MULTU rs, rt             (LO, HI) ← rs × rt
+                        when FUNCT_MULTU =>
+                        
+                        -- DIV rs, rt               (LO, HI) ← rs / rt
+                        when FUNCT_DIV =>
+                        
+                        -- DIVU rs, rt              (LO, HI) ← rs / rt
+                        when FUNCT_DIVU =>
+                        
+                        -- ADD rd, rs, rt           rd ← rs + rt
+                        when FUNCT_ADD =>
+                        
+                        -- ADDU rd, rs, rt          rd ← rs + rt
+                        when FUNCT_ADDU =>
+                        
+                        -- SUB rd, rs, rt           rd ← rs - rt
+                        when FUNCT_SUB =>
+                        
+                        -- SUBU rd, rs, rt          rd ← rs - rt
+                        when FUNCT_SUBU =>
+                        
+                        -- AND rd, rs, rt           rd ← rs AND rt
+                        when FUNCT_AND =>
+                            op_o <= OP_TYPE_LOGIC;
+                            funct_o <= FUNCT_TYPE_AND;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
+                            -- read rt
+                            reg_rd_en_2_o <= REG_RD_ENABLE; 
+                            reg_rd_en_2 <= REG_RD_ENABLE; 
+                            -- write rd
+                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_addr_o <= reg_d;
+        
+                        -- OR rd, rs, rt            rd ← rs or rt
                         when FUNCT_OR =>
+                            op_o <= OP_TYPE_LOGIC;
+                            funct_o <= FUNCT_TYPE_OR;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
+                            -- read rt
+                            reg_rd_en_2_o <= REG_RD_ENABLE; 
+                            reg_rd_en_2 <= REG_RD_ENABLE; 
+                            -- write rd
+                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_addr_o <= reg_d;
+                                                    
+                        -- XOR rd, rs, rt           rd ← rs XOR rt
+                        when FUNCT_XOR =>
+                            op_o <= OP_TYPE_LOGIC;
+                            funct_o <= FUNCT_TYPE_XOR;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
+                            -- read rt
+                            reg_rd_en_2_o <= REG_RD_ENABLE; 
+                            reg_rd_en_2 <= REG_RD_ENABLE; 
+                            -- write rd
+                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_addr_o <= reg_d;
+                        
+                        -- NOR rd, rs, rt           rd ← rs NOR rt
+                        when FUNCT_NOR =>
+                            op_o <= OP_TYPE_LOGIC;
+                            funct_o <= FUNCT_TYPE_NOR;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
+                            -- read rt
+                            reg_rd_en_2_o <= REG_RD_ENABLE; 
+                            reg_rd_en_2 <= REG_RD_ENABLE; 
+                            -- write rd
+                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_addr_o <= reg_d;
+                        
+                        -- SLT rd, rs, rt           rd ← (rs < rt)
+                        when FUNCT_SLT =>
+                        
+                        -- SLTU rd, rs, rt          rd ← (rs < rt)
+                        when FUNCT_SLTU =>
+                        
+                        -- TGE rs, rt               if rs ≥ rt then Trap
+                        when FUNCT_TGE =>
+                        
+                        -- TGEU rs, rt              if rs ≥ rt then Trap
+                        when FUNCT_TGEU =>
+                        
+                        -- TLT rs, rt               if rs < rt then Trap
+                        when FUNCT_TLT =>
+                        
+                        -- TLTU rs, rt              if rs < rt then Trap
+                        when FUNCT_TLTU =>
+                        
+                        -- TEQ rs, rt               if rs = rt then Trap
+                        when FUNCT_TEQ =>
+                        
+                        -- TNE rs, rt               if rs ≠ rt then Trap
+                        when FUNCT_TNE =>
                             
                         when others =>
                             
