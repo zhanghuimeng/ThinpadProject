@@ -21,6 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -87,6 +89,24 @@ begin
                         when others =>
                             
                     end case logic_funct;
+                
+                when OP_TYPE_SHIFT =>
+                    shift_funct: case funct_i is
+                        -- shift left logic instructions
+                        when FUNCT_TYPE_SHIFT_LEFT_LOGIC =>
+                            reg_wt_data_o <= operand_2_i sll to_integer(unsigned(operand_1_i(4 downto 0)));  
+                        
+                        -- shift right logic instructions
+                        when FUNCT_TYPE_SHIFT_RIGHT_LOGIC =>
+                            reg_wt_data_o <= operand_2_i srl to_integer(unsigned(operand_1_i(4 downto 0)));  
+                        
+                        -- shift right arithmetic instructions
+                        when FUNCT_TYPE_SHIFT_RIGHT_ARITH =>
+                            reg_wt_data_o <= (to_stdlogicvector(to_bitvector(std_logic_vector(operand_2_i)) sra to_integer(unsigned(operand_1_i(4 downto 0)))));
+                    
+                        when others =>
+                    
+                    end case shift_funct;
                 
                 when OP_TYPE_MOVE =>
                 

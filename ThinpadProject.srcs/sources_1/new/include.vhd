@@ -63,18 +63,22 @@ package INCLUDE is
     constant OP_TYPE_NOP :           STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000000";
     constant OP_TYPE_ARITH :         STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000001";
     constant OP_TYPE_LOGIC :         STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000010";
-    constant OP_TYPE_MOVE :          STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000011";
-    constant OP_TYPE_BRANCH :        STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000100";
+    constant OP_TYPE_SHIFT :         STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000011";
+    constant OP_TYPE_MOVE :          STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000100";
+    constant OP_TYPE_BRANCH :        STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000101";
     
     -- Instruction subtype for EX 
     constant FUNCT_TYPE_NOP :        STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000000";
     -- Arithmetic
     -- Logic
-    constant FUNCT_TYPE_SHIFT_LEFT :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000001";
     constant FUNCT_TYPE_AND :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000010";
     constant FUNCT_TYPE_OR :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000011";
     constant FUNCT_TYPE_XOR :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000100";
     constant FUNCT_TYPE_NOR :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000101";
+    -- Shift
+    constant FUNCT_TYPE_SHIFT_LEFT_LOGIC :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000001";
+    constant FUNCT_TYPE_SHIFT_RIGHT_LOGIC :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000010";
+    constant FUNCT_TYPE_SHIFT_RIGHT_ARITH :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000011";
     
     -- Introduction to the MIPS32 Architecture
     -- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)
