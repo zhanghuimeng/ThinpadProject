@@ -20,7 +20,7 @@ all: rom.data rom.asm
 	$(CC) -mips32 $< -o $@  
   
 inst.om: rom.ld $(OBJECTS)
-	$(LD) -T ram.ld $(OBJECTS) -o $@
+	$(LD) -T rom.ld $(OBJECTS) -o $@
   
 rom.bin: inst.om
 	$(OBJCOPY) -O binary $<  $@

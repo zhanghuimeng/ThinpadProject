@@ -44,6 +44,12 @@ entity ID is
            inst_i :             in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from IF_to_ID
            reg_rd_data_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register 1 read data from REGISTERS
            reg_rd_data_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register 2 read data from REGISTERS
+           ex_reg_wt_en_i :     in STD_LOGIC;                                       -- input EX register write enable from EX (push forward data to solve data conflict)
+           ex_reg_wt_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input EX register write address from EX (push forward data to solve data conflict)
+           ex_reg_wt_data_i :   in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input EX register write data from EX (push forward data to solve data conflict)
+           mem_reg_wt_en_i :    in STD_LOGIC;                                       -- input MEM register write enable from MEM (push forward data to solve data conflict)
+           mem_reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input MEM register write address from MEM (push forward data to solve data conflict)
+           mem_reg_wt_data_i :  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input MEM register write data from MEM (push forward data to solve data conflict)
            op_o :               out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to ID_to_EX
            funct_o :            out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to ID_to_EX
            reg_rd_en_1_o :      out STD_LOGIC;                                      -- output register 1 read enable to REGISTERS
@@ -68,6 +74,8 @@ architecture Behavioral of ID is
     signal extended_imm : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     signal reg_rd_en_1 : STD_LOGIC;
     signal reg_rd_en_2 : STD_LOGIC;
+    signal reg_rd_addr_1 :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+    signal reg_rd_addr_2 :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
 begin
     process (all)
     variable output :       LINE;
@@ -78,7 +86,9 @@ begin
             reg_rd_en_1_o <= REG_RD_DISABLE;
             reg_rd_en_2_o <= REG_RD_DISABLE;
             reg_rd_addr_1_o <= REG_ZERO_ADDR;
+            reg_rd_addr_1 <= REG_ZERO_ADDR;
             reg_rd_addr_2_o <= REG_ZERO_ADDR;
+            reg_rd_addr_2 <= REG_ZERO_ADDR;
             operand_1_o <= REG_ZERO_DATA;
             operand_2_o <= REG_ZERO_DATA;
             reg_wt_en_o <= REG_WT_DISABLE;
@@ -89,9 +99,13 @@ begin
             op_o <= OP_TYPE_NOP;
             funct_o <= FUNCT_TYPE_NOP;
             reg_rd_en_1_o <= REG_RD_DISABLE;
+            reg_rd_en_1 <= REG_RD_DISABLE;
             reg_rd_en_2_o <= REG_RD_DISABLE;
+            reg_rd_en_2 <= REG_RD_DISABLE;
             reg_rd_addr_1_o <= reg_s;
+            reg_rd_addr_1 <= reg_s;
             reg_rd_addr_2_o <= reg_t;
+            reg_rd_addr_2 <= reg_t;
             operand_1_o <= REG_ZERO_DATA;
             operand_2_o <= REG_ZERO_DATA;
             reg_wt_en_o <= REG_WT_DISABLE;
@@ -251,22 +265,33 @@ begin
             end case op_code;
             
             if reg_rd_en_1 = REG_RD_ENABLE then
-                operand_1_o <= reg_rd_data_1_i;
+                if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_1) then  -- Solve data conflict
+                    operand_1_o <= ex_reg_wt_data_i;
+                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_1) then  -- Solve data conflict
+                    operand_1_o <= mem_reg_wt_data_i;
+                else
+                    operand_1_o <= reg_rd_data_1_i;
+                end if;
             elsif reg_rd_en_1 = REG_RD_DISABLE then
                 operand_1_o <= extended_imm;
             else
                 operand_1_o <= REG_ZERO_DATA;
             end if;
             
-            if rst = RST_ENABLE then
-                operand_2_o <= REG_ZERO_DATA;
-            elsif reg_rd_en_2 = REG_RD_ENABLE then
-                operand_2_o <= reg_rd_data_2_i;
+            if reg_rd_en_2 = REG_RD_ENABLE then
+                if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_2) then  -- Solve data conflict
+                    operand_2_o <= ex_reg_wt_data_i;
+                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_2) then  -- Solve data conflict
+                    operand_2_o <= mem_reg_wt_data_i;
+                else
+                    operand_2_o <= reg_rd_data_2_i;
+                end if;
             elsif reg_rd_en_2 = REG_RD_DISABLE then
                 operand_2_o <= extended_imm;
             else
                 operand_2_o <= REG_ZERO_DATA;
-        end if;
+            end if;
+            
         end if;
     end process;
     
