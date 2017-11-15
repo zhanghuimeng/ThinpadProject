@@ -118,7 +118,7 @@ begin
                 when OP_SPECIAL =>
                     special_funct: case funct is
                     
-                        -- SLL $rd, $rt, imm        rd ← rt << sa
+                        -- SLL rd, rt, imm        rd ← rt << sa
                         when FUNCT_SLL => 
                         
                         -- ?????
@@ -298,16 +298,29 @@ begin
                 -- COP3 type instructions
                 when OP_COP3 =>
                 
-                -- ADDI $rt, $rs, imm
+                -- ADDI rt, rs, immediate               rt ← rs + immediate
                 when OP_ADDI =>
                 
-                -- ADDIU $rt, $rs, imm
+                -- ADDIU rt, rs, immediate              rt ← rs + immediate
                 when OP_ADDIU =>
                 
-                -- ANDI $rt, $rs, imm
+                -- ANDI rt, rs, immediate               rt ← rs AND immediate
                 when OP_ANDI =>
+                    op_o <= OP_TYPE_LOGIC;
+                    funct_o <= FUNCT_TYPE_AND;
+                    -- read rs
+                    reg_rd_en_1_o <= REG_RD_ENABLE;
+                    reg_rd_en_1 <= REG_RD_ENABLE;
+                    -- do not read rt
+                    reg_rd_en_2_o <= REG_RD_DISABLE; 
+                    reg_rd_en_2 <= REG_RD_DISABLE; 
+                    -- imm
+                    extended_imm <= x"0000" & imm;
+                    -- write rt
+                    reg_wt_en_o <= REG_WT_ENABLE;
+                    reg_wt_addr_o <= reg_t;
                 
-                -- ORI $rt, $rs, imm
+                -- ORI rt, rs, immediate                rt ← rs or immediate
                 when OP_ORI =>
                     op_o <= OP_TYPE_LOGIC;
                     funct_o <= FUNCT_TYPE_OR;
@@ -331,82 +344,108 @@ begin
                     -- write(output, string'("Hit ORI"));
                     -- report output.all;
                 
-                -- XORI $rt, $rs, imm
+                -- XORI rt, rs, immediate               rt ← rs XOR immediate
                 when OP_XORI =>
+                    op_o <= OP_TYPE_LOGIC;
+                    funct_o <= FUNCT_TYPE_XOR;
+                    -- read rs
+                    reg_rd_en_1_o <= REG_RD_ENABLE;
+                    reg_rd_en_1 <= REG_RD_ENABLE;
+                    -- do not read rt
+                    reg_rd_en_2_o <= REG_RD_DISABLE; 
+                    reg_rd_en_2 <= REG_RD_DISABLE; 
+                    -- imm
+                    extended_imm <= x"0000" & imm;
+                    -- write rt
+                    reg_wt_en_o <= REG_WT_ENABLE;
+                    reg_wt_addr_o <= reg_t;
                 
-                -- J target
+                -- LUI rt, immediate                    rt ← immediate || 0^16
+                when OP_LUI =>
+                    op_o <= OP_TYPE_LOGIC;
+                    funct_o <= FUNCT_TYPE_OR;  -- LUI rt, immediate = ORI rt, $0, (immediate || 0^16)  
+                    -- read rs
+                    reg_rd_en_1_o <= REG_RD_ENABLE;
+                    reg_rd_en_1 <= REG_RD_ENABLE;
+                    -- do not read rt
+                    reg_rd_en_2_o <= REG_RD_DISABLE; 
+                    reg_rd_en_2 <= REG_RD_DISABLE; 
+                    -- imm
+                    extended_imm <= imm & x"0000";
+                    -- write rt
+                    reg_wt_en_o <= REG_WT_ENABLE;
+                    reg_wt_addr_o <= reg_t;
+                
+                -- J target                             To branch within the current 256 MB-aligned region
                 when OP_J =>
                 
-                -- JAL target
+                -- JAL target                           To execute a procedure call within the current 256 MB-aligned region
                 when OP_JAL =>
                 
-                -- BEQ $rs, $rt, offset
+                -- BEQ rs, rt, offset                   if rs = rt then branch
                 when OP_BEQ =>
                 
-                -- BNE $rs, $rt, offset
+                -- BNE rs, rt, offset                   if rs ≠ rt then branch
                 when OP_BNE =>
                 
-                -- BLEZ $rs, offset
+                -- BLEZ rs, offset                      if rs ≤ 0 then branch
                 when OP_BLEZ =>
                 
-                -- BGTZ $rs, offset
+                -- BGTZ rs, offset                      if rs > 0 then branch
                 when OP_BGTZ =>
                 
-                -- BEQL $rs, $rt, offset
+                -- BEQL rs, rt, offset                  if rs = rt then branch_likely
                 when OP_BEQL =>
                 
-                -- BNEL $rs, $rt, offset
+                -- BNEL rs, rt, offset                  if rs ≠ rt then branch_likely
                 when OP_BNEL =>
                 
-                -- BLEZL $rs, $rt, offset
+                -- BLEZL rs, rt, offset                 if rs ≤ 0 then branch_likely
                 when OP_BLEZL =>
                 
-                -- BGTZL $rs, $rt, offset
+                -- BGTZL rs, rt, offset                 if rs > 0 then branch_likely
                 when OP_BGTZL =>
                 
-                -- SLTI $rt, $rs, imm
+                -- SLTI rt, rs, immediate               rt ← (rs < immediate)
                 when OP_SLTI =>
                 
-                -- SLTIU $rt, $rs, imm
+                -- SLTIU rt, rs, immediate              rt ← (rs < immediate)
                 when OP_SLTIU =>
-
-                -- LUI $rt, imm
-                when OP_LUI =>
                 
-                -- LB $rt, offset(base)
+                -- LB rt, offset(base)                  rt ← memory[base+offset]
                 when OP_LB =>
                 
-                -- LBU $rt, offset(base)
+                -- LBU rt, offset(base)                 rt ← memory[base+offset]
                 when OP_LBU =>
                 
-                -- LH $rt, offset(base)
+                -- LH rt, offset(base)                  rt ← memory[base+offset]
                 when OP_LH =>
                 
-                -- LHU $rt, offset(base)
+                -- LHU rt, offset(base)                 rt ← memory[base+offset]
                 when OP_LHU =>
                 
-                -- LW $rt, offset(base)
+                -- LW rt, offset(base)                  rt ← memory[base+offset]
                 when OP_LW =>
                 
-                -- LWL $rt, offset(base)
+                -- LWL rt, offset(base)                 rt ← rt MERGE memory[base+offset]
                 when OP_LWL =>
                 
-                -- LWR $rt, offset(base)
+                -- LWR rt, offset(base)                 rt ← rt MERGE memory[base+offset]
                 when OP_LWR =>
                 
-                -- SB $rt, offset(base)
+                -- SB rt, offset(base)                  memory[base+offset] ← rt
                 when OP_SB =>
                 
-                -- SH $rt, offset(base)
+                -- SH rt, offset(base)                  memory[base+offset] ← rt
                 when OP_SH =>
                 
-                -- SW $rt, offset(base)
+                -- SW rt, offset(base)                  memory[base+offset] ← rt
                 when OP_SW =>
                 
-                -- SWL $rt, offset(base)
+                -- SWL rt, offset(base)                 memory[base+offset] ← rt
                 when OP_SWL => 
 
-                -- SWR $rt, offset(base)
+                -- SWR rt, offset(base)                 memory[base+offset] ← rt
                 when OP_SWR =>
                                           
                 when others =>
