@@ -23,6 +23,8 @@ library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
+use STD.TEXTIO.ALL;
+use IEEE.STD_LOGIC_TEXTIO.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -55,6 +57,8 @@ architecture Behavioral of EX is
 
 begin
     process (all)
+    variable output: LINE;
+    variable reg_wt_data: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     begin
         if rst = RST_ENABLE then
             reg_wt_data_o <= REG_ZERO_DATA;
@@ -64,6 +68,7 @@ begin
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
             op_code: case op_i is
+                -- Do nothing
                 when OP_TYPE_NOP =>
                 
                 when OP_TYPE_ARITH =>
@@ -72,19 +77,36 @@ begin
                     logic_funct: case funct_i is
                         -- or instructions
                         when FUNCT_TYPE_AND =>
-                            reg_wt_data_o <= operand_1_i and operand_2_i;
+--                            deallocate(output);
+--                            write(output, string'("AND"));
+--                            report output.all;
+--                            deallocate(output);
+--                            write(output, string'("operand1 = "));
+--                            write(output, operand_1_i);
+--                            report output.all;
+--                            deallocate(output);
+--                            write(output, string'("operand2 = "));
+--                            write(output, operand_2_i);
+--                            report output.all;
+--                            reg_wt_data := (operand_1_i and operand_2_i);
+--                            deallocate(output);
+--                            write(output, string'("result = "));
+--                            write(output, reg_wt_data);
+--                            report output.all;
+
+                            reg_wt_data_o <= (operand_1_i and operand_2_i);
 
                         -- or instructions
                         when FUNCT_TYPE_OR =>
-                            reg_wt_data_o <= operand_1_i or operand_2_i;
+                            reg_wt_data_o <= (operand_1_i or operand_2_i);
                         
                         -- or instructions
                         when FUNCT_TYPE_XOR =>
-                            reg_wt_data_o <= operand_1_i xor operand_2_i;
+                            reg_wt_data_o <= (operand_1_i xor operand_2_i);
                         
                         -- or instructions
                         when FUNCT_TYPE_NOR =>
-                            reg_wt_data_o <= operand_1_i nor operand_2_i;
+                            reg_wt_data_o <= (operand_1_i nor operand_2_i);
                         
                         when others =>
                             
@@ -94,15 +116,15 @@ begin
                     shift_funct: case funct_i is
                         -- shift left logic instructions
                         when FUNCT_TYPE_SHIFT_LEFT_LOGIC =>
-                            reg_wt_data_o <= operand_2_i sll to_integer(unsigned(operand_1_i(4 downto 0)));  
+                            reg_wt_data_o <= (operand_2_i sll to_integer(unsigned(operand_1_i(4 downto 0))));  
                         
                         -- shift right logic instructions
                         when FUNCT_TYPE_SHIFT_RIGHT_LOGIC =>
-                            reg_wt_data_o <= operand_2_i srl to_integer(unsigned(operand_1_i(4 downto 0)));  
+                            reg_wt_data_o <= (operand_2_i srl to_integer(unsigned(operand_1_i(4 downto 0))));  
                         
                         -- shift right arithmetic instructions
                         when FUNCT_TYPE_SHIFT_RIGHT_ARITH =>
-                            reg_wt_data_o <= (to_stdlogicvector(to_bitvector(std_logic_vector(operand_2_i)) sra to_integer(unsigned(operand_1_i(4 downto 0)))));
+                            reg_wt_data_o <= ((to_stdlogicvector(to_bitvector(std_logic_vector(operand_2_i)) sra to_integer(unsigned(operand_1_i(4 downto 0))))));
                     
                         when others =>
                     

@@ -84,7 +84,9 @@ begin
             op_o <= OP_TYPE_NOP;
             funct_o <= FUNCT_TYPE_NOP;
             reg_rd_en_1_o <= REG_RD_DISABLE;
+            reg_rd_en_1 <= REG_RD_DISABLE;
             reg_rd_en_2_o <= REG_RD_DISABLE;
+            reg_rd_en_2 <= REG_RD_DISABLE;
             reg_rd_addr_1_o <= REG_ZERO_ADDR;
             reg_rd_addr_1 <= REG_ZERO_ADDR;
             reg_rd_addr_2_o <= REG_ZERO_ADDR;
@@ -523,6 +525,11 @@ begin
                 when others =>
                                    
             end case op_code;
+            
+            deallocate(output);
+            write(output, string'("reg read enable2 = "));
+            write(output, reg_rd_en_2);
+            report output.all;
             
             if reg_rd_en_1 = REG_RD_ENABLE then
                 if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_1) then  -- Solve data conflict

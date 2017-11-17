@@ -226,7 +226,7 @@ begin
         pc_i => pc_to_id, inst_i => inst_to_id, 
         reg_rd_data_1_i => reg_rd_data_1_from_register, reg_rd_data_2_i => reg_rd_data_2_from_register, 
         ex_reg_wt_en_i => reg_wt_en_from_ex, ex_reg_wt_addr_i => reg_wt_addr_from_ex, ex_reg_wt_data_i => reg_wt_data_from_ex,
-        mem_reg_wt_en_i => reg_wt_en_from_mem, mem_reg_wt_addr_i => reg_wt_addr_from_mem, mem_reg_wt_data_i => reg_wt_data_from_ex,
+        mem_reg_wt_en_i => reg_wt_en_from_mem, mem_reg_wt_addr_i => reg_wt_addr_from_mem, mem_reg_wt_data_i => reg_wt_data_from_mem,
         op_o => op_from_id, funct_o => funct_from_id, 
         reg_rd_en_1_o => reg_rd_en_1_to_register, reg_rd_en_2_o => reg_rd_en_2_to_register, 
         reg_rd_addr_1_o => reg_rd_addr_1_to_register, reg_rd_addr_2_o => reg_rd_addr_2_to_register, 

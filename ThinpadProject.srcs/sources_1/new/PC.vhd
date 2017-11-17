@@ -57,12 +57,6 @@ begin
                 en_o <= CHIP_ENABLE;   -- ROM is enabled in general
                 en <= CHIP_ENABLE;
             end if;
-        end if;
-    end process;
-    
-    process (clk'event)
-    begin
-        if rising_edge(clk) then
             if en = CHIP_DISABLE then   -- When ROM is disabled, PC = 0
                 pc <= x"00000000";
                 pc_o <= x"00000000";
@@ -72,5 +66,5 @@ begin
             end if;
         end if;
     end process;
-
+    
 end Behavioral;

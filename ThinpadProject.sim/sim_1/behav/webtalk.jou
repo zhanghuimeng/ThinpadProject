@@ -2,8 +2,8 @@
 # Webtalk v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Nov 15 20:09:39 2017
-# Process ID: 4165
+# Start of session at: Fri Nov 17 20:44:24 2017
+# Process ID: 6373
 # Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.sim/sim_1/behav
 # Command line: wbtcv -mode batch -source /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.sim/sim_1/behav/xsim.dir/MIPS_CPU_min_sopc_testbench_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.sim/sim_1/behav/webtalk.log
