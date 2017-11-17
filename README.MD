@@ -1,13 +1,14 @@
 # Implementation of one instruction: ORI
 
-## Simulation
+## Simulation Result
 ![Simulation Result 1](ThinpadProject_ori_sim1.png  "Simulation Result 1")
 
 ![Simulation Result 2](ThinpadProject_ori_sim2.png  "Simulation Result 2")
 
 # Implementation of Logic, Shift and Nop Instructions
 
-## Simulation Source
+## Logic Instructions
+### Simulation Source
 
 ```
 lui  $1,0x0101           # $1 = 0x01010000 
@@ -33,6 +34,13 @@ nor  $1,$4,$1            # $1 = $4 ~^ $1    = 0xffff00ff
 | xor  $1,$4,$1 | $4 | 0x0000ff00 | $1 | 0x 00000000 | 0x0000ff00 | 0x00000000 | $1 | 0x0000ff00 | 
 | nor  $1,$4,$1 | $4 | 0x0000ff00 | $1 | 0x0000ff00 | 0x0000ff00 | 0x0000ff00 | $1 | 0xffff00ff | 
 
+### Simulation Result
+
+I deleted 'PREF' instruction from the test, because we do not intend to implement it.
+
+## Shift and Nop Instructions
+
+### Simulation Source
 ```
 lui   $2,0x0404    # $2 = 0x04040000
 ori   $2,$2,0x0404 # $2 = 0x04040000 | 0x0404 = 0x04040404
@@ -45,7 +53,6 @@ sllv  $2,$2,$7     # $2 = 0x04040400 sll 7  = 0x02020000
 srl   $2,$2,8      # $2 = 0x02020000 srl 8  = 0x00020200
 srlv  $2,$2,$5     # $2 = 0x00020200 srl 5  = 0x00001010
 nop
-pref
 sll   $2,$2,19     # $2 = 0x00001010 sll 19 = 0x80800000
 ssnop
 sra   $2,$2,16     # $2 = 0x80800000 sra 16 = 0xffff8080

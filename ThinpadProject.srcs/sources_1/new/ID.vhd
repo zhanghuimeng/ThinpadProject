@@ -135,6 +135,14 @@ begin
                             reg_rd_en_2 <= REG_RD_ENABLE;
                             -- imm
                             extended_imm <= x"000000" & b"000" & shamt;
+                            /*deallocate(output);
+                            write(output, string'("shamt = "));
+                            write(output, shamt);
+                            report output.all;
+                            deallocate(output);
+                            write(output, string'("extended shamt = "));
+                            write(output, extended_imm);
+                            report output.all;*/
                             -- write rd
                             reg_wt_en_o <= REG_WT_ENABLE;
                             reg_wt_addr_o <= reg_d;
@@ -167,6 +175,14 @@ begin
                             reg_rd_en_2 <= REG_RD_ENABLE;
                             -- imm
                             extended_imm <= x"000000" & b"000" & shamt;
+                            /*deallocate(output);
+                            write(output, string'("shamt = "));
+                            write(output, shamt);
+                            report output.all;
+                            deallocate(output);
+                            write(output, string'("extended shamt = "));
+                            write(output, extended_imm);
+                            report output.all;*/
                             -- write rd
                             reg_wt_en_o <= REG_WT_ENABLE;
                             reg_wt_addr_o <= reg_d;
@@ -232,7 +248,18 @@ begin
                         when FUNCT_BREAK =>
                         
                         -- SYNC (stype = 0 implied) To order loads and stores.
+                        -- As NOP
                         when FUNCT_SYNC =>
+                            op_o <= OP_TYPE_NOP;
+                            funct_o <= FUNCT_TYPE_NOP;
+                            -- do not read rs
+                            reg_rd_en_1_o <= REG_RD_DISABLE;
+                            reg_rd_en_1 <= REG_RD_DISABLE;
+                            -- do not read rt
+                            reg_rd_en_2_o <= REG_RD_DISABLE; 
+                            reg_rd_en_2 <= REG_RD_DISABLE; 
+                            -- do not write
+                            reg_wt_en_o <= REG_WT_ENABLE;
                         
                         -- MFHI rd                  rd ← HI
                         when FUNCT_MFHI =>
@@ -526,11 +553,6 @@ begin
                                    
             end case op_code;
             
-            deallocate(output);
-            write(output, string'("reg read enable2 = "));
-            write(output, reg_rd_en_2);
-            report output.all;
-            
             if reg_rd_en_1 = REG_RD_ENABLE then
                 if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_1) then  -- Solve data conflict
                     operand_1_o <= ex_reg_wt_data_i;
@@ -558,6 +580,21 @@ begin
             else
                 operand_2_o <= REG_ZERO_DATA;
             end if;
+            
+            /*
+            deallocate(output);
+            write(output, string'("inst = "));
+            write(output, inst_i);
+            report output.all;
+            deallocate(output);
+            write(output, string'("operand 1 = "));
+            write(output, operand_1_o);
+            report output.all;
+            deallocate(output);
+            write(output, string'("operand 2 = "));
+            write(output, operand_2_o);
+            report output.all;
+            */
             
         end if;
     end process;

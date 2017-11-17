@@ -63,31 +63,27 @@ begin
     -- So as to read register values instantly in ID module
     read_reg_1: process (all)
     begin
-        if rising_edge(clk) then
-            if reg_rd_en_1_i = REG_RD_ENABLE then
-                if reg_rd_addr_1_i = reg_wt_addr_i then  -- Solve data conflict
-                    reg_rd_data_1_o <= reg_wt_data_i;
-                else
-                    reg_rd_data_1_o <= reg_array(to_integer(unsigned(reg_rd_addr_1_i)));
-                end if;
+        if reg_rd_en_1_i = REG_RD_ENABLE then
+            if reg_rd_addr_1_i = reg_wt_addr_i then  -- Solve data conflict
+                reg_rd_data_1_o <= reg_wt_data_i;
             else
-                reg_rd_data_1_o <= REG_ZERO_DATA;
+                reg_rd_data_1_o <= reg_array(to_integer(unsigned(reg_rd_addr_1_i)));
             end if;
+        else
+            reg_rd_data_1_o <= REG_ZERO_DATA;
         end if;
     end process read_reg_1;
     
     read_reg_2: process (all)
     begin
-        if rising_edge(clk) then
-            if reg_rd_en_2_i = REG_RD_ENABLE then
-                if reg_rd_addr_2_i = reg_wt_addr_i then  -- Solve data conflict
-                    reg_rd_data_2_o <= reg_wt_data_i;
-                else
-                    reg_rd_data_2_o <= reg_array(to_integer(unsigned(reg_rd_addr_2_i)));
-                end if;
+        if reg_rd_en_2_i = REG_RD_ENABLE then
+            if reg_rd_addr_2_i = reg_wt_addr_i then  -- Solve data conflict
+                reg_rd_data_2_o <= reg_wt_data_i;
             else
-                reg_rd_data_2_o <= REG_ZERO_DATA;
+                reg_rd_data_2_o <= reg_array(to_integer(unsigned(reg_rd_addr_2_i)));
             end if;
+        else
+            reg_rd_data_2_o <= REG_ZERO_DATA;
         end if;
     end process read_reg_2;
 
