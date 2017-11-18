@@ -37,13 +37,13 @@ use WORK.INCLUDE.ALL;
 -- Timing logic
 
 entity HI_LO is
-    Port ( clk :        in STD_LOGIC;
-           rst :        in STD_LOGIC;
-           en :         in STD_LOGIC;
-           hi_i :       in STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);
-           lo_i :       in STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);
-           hi_o :       out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);
-           lo_o :       out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0));
+    Port ( clk :        in STD_LOGIC;                                               -- Clock
+           rst :        in STD_LOGIC;                                               -- Reset
+           en :         in STD_LOGIC;                                               -- input enable from MEM/WB
+           hi_i :       in STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);              -- input HI data from MEM/WB
+           lo_i :       in STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);              -- input LO data from MEM/WB
+           hi_o :       out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0);             -- output HI data to EX
+           lo_o :       out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0));            -- output LO data to EX
 end HI_LO;
 
 architecture Behavioral of HI_LO is

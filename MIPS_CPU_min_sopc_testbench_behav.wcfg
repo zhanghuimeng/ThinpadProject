@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="385260000fs"></ZoomStartTime>
-      <ZoomEndTime time="546460001fs"></ZoomEndTime>
-      <Cursor1Time time="401660000fs"></Cursor1Time>
+      <ZoomStartTime time="477220000fs"></ZoomStartTime>
+      <ZoomEndTime time="631420001fs"></ZoomEndTime>
+      <Cursor1Time time="579620000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="160"></NameColumnWidth>
+      <NameColumnWidth column_width="195"></NameColumnWidth>
       <ValueColumnWidth column_width="61"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="33" />
+   <WVObjectSize size="36" />
    <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/CLOCK_50">
       <obj_property name="ElementShortName">CLOCK_50</obj_property>
       <obj_property name="ObjectShortName">CLOCK_50</obj_property>
@@ -28,6 +28,8 @@
    <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/rst">
       <obj_property name="ElementShortName">rst</obj_property>
       <obj_property name="ObjectShortName">rst</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/PC_0/pc_o">
       <obj_property name="DisplayName">label</obj_property>
@@ -102,7 +104,7 @@
       <obj_property name="ElementShortName">operand_1_o[31:0]</obj_property>
       <obj_property name="ObjectShortName">operand_1_o[31:0]</obj_property>
       <obj_property name="label">ID operand_1_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/ID_0/operand_2_o">
@@ -110,7 +112,7 @@
       <obj_property name="ElementShortName">operand_2_o[31:0]</obj_property>
       <obj_property name="ObjectShortName">operand_2_o[31:0]</obj_property>
       <obj_property name="label">ID operand_2_o[31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#800080</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/ID_0/reg_rd_addr_1_o">
@@ -131,25 +133,19 @@
       <obj_property name="ObjectShortName">reg_wt_addr_o[4:0]</obj_property>
       <obj_property name="label">ID reg_wt_addr_o[4:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/op_i">
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/reg_wt_en_o">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">op_i[5:0]</obj_property>
-      <obj_property name="ObjectShortName">op_i[5:0]</obj_property>
-      <obj_property name="label">EX op_i[5:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/funct_i">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">funct_i[5:0]</obj_property>
-      <obj_property name="ObjectShortName">funct_i[5:0]</obj_property>
-      <obj_property name="label">EX funct_i[5:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/reg_wt_en_i">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">reg_wt_en_i</obj_property>
-      <obj_property name="ObjectShortName">reg_wt_en_i</obj_property>
-      <obj_property name="label">EX reg_wt_en_i</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="ElementShortName">reg_wt_en_o</obj_property>
+      <obj_property name="ObjectShortName">reg_wt_en_o</obj_property>
+      <obj_property name="label">EX reg_wt_en_o</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/reg_wt_addr_o">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">reg_wt_addr_o[4:0]</obj_property>
+      <obj_property name="ObjectShortName">reg_wt_addr_o[4:0]</obj_property>
+      <obj_property name="label">EX reg_wt_addr_o[4:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/reg_wt_data_o">
       <obj_property name="DisplayName">label</obj_property>
@@ -158,6 +154,26 @@
       <obj_property name="label">EX reg_wt_data_o[31:0]</obj_property>
       <obj_property name="CustomSignalColor">#0000FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/hilo_en_o">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">hilo_en_o</obj_property>
+      <obj_property name="ObjectShortName">hilo_en_o</obj_property>
+      <obj_property name="label">EX hilo_en_o</obj_property>
+      <obj_property name="CustomSignalColor">#FF0000</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/hi_o">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">hi_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hi_o[31:0]</obj_property>
+      <obj_property name="label">EX hi_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/lo_o">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">lo_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo_o[31:0]</obj_property>
+      <obj_property name="label">EX lo_o[31:0]</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/ROM_0/en_i">
       <obj_property name="DisplayName">label</obj_property>
@@ -182,7 +198,7 @@
       <obj_property name="ElementShortName">[0][31:0]</obj_property>
       <obj_property name="ObjectShortName">[0][31:0]</obj_property>
       <obj_property name="label">REG [0][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[1]">
@@ -190,7 +206,7 @@
       <obj_property name="ElementShortName">[1][31:0]</obj_property>
       <obj_property name="ObjectShortName">[1][31:0]</obj_property>
       <obj_property name="label">REG [1][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[2]">
@@ -198,7 +214,7 @@
       <obj_property name="ElementShortName">[2][31:0]</obj_property>
       <obj_property name="ObjectShortName">[2][31:0]</obj_property>
       <obj_property name="label">REG [2][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[3]">
@@ -206,7 +222,7 @@
       <obj_property name="ElementShortName">[3][31:0]</obj_property>
       <obj_property name="ObjectShortName">[3][31:0]</obj_property>
       <obj_property name="label">REG [3][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[4]">
@@ -214,39 +230,37 @@
       <obj_property name="ElementShortName">[4][31:0]</obj_property>
       <obj_property name="ObjectShortName">[4][31:0]</obj_property>
       <obj_property name="label">REG [4][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[5]">
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/HI_LO_0/en">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[5][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[5][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="label">REG [5][31:0]</obj_property>
+      <obj_property name="ElementShortName">en</obj_property>
+      <obj_property name="ObjectShortName">en</obj_property>
+      <obj_property name="label">HILO en</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[6]">
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/HI_LO_0/hi_i">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[6][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[6][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="label">REG [6][31:0]</obj_property>
+      <obj_property name="ElementShortName">hi_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hi_i[31:0]</obj_property>
+      <obj_property name="label">HILO hi_i[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[7]">
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/HI_LO_0/lo_i">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[7][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[7][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="label">REG [7][31:0]</obj_property>
+      <obj_property name="ElementShortName">lo_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo_i[31:0]</obj_property>
+      <obj_property name="label">HILO lo_i[31:0]</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[8]">
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/HI_LO_0/hi_o">
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">[8][31:0]</obj_property>
-      <obj_property name="ObjectShortName">[8][31:0]</obj_property>
-      <obj_property name="CustomSignalColor">#0000FF</obj_property>
-      <obj_property name="UseCustomSignalColor">true</obj_property>
-      <obj_property name="label">REG [8][31:0]</obj_property>
+      <obj_property name="ElementShortName">hi_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">hi_o[31:0]</obj_property>
+      <obj_property name="label">HILO hi_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/HI_LO_0/lo_o">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">lo_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">lo_o[31:0]</obj_property>
+      <obj_property name="label">HILO lo_o[31:0]</obj_property>
    </wvobject>
 </wave_config>

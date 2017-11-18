@@ -65,7 +65,6 @@ entity EX is
 end EX;
 
 architecture Behavioral of EX is
-
 begin
     process (all)
     variable output: LINE;
@@ -82,8 +81,19 @@ begin
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
             hilo_en_o <= CHIP_DISABLE;
+            -- So that the HILO register can immediately?
             hi_o <= hi_i;
+            if mem_hilo_en_i = CHIP_ENABLE then
+                hi_o <= mem_hi_i;
+            elsif wb_hilo_en_i = CHIP_ENABLE then
+                hi_o <= wb_hi_i;
+            end if;
             lo_o <= lo_i;
+            if mem_hilo_en_i = CHIP_ENABLE then
+                lo_o <= mem_lo_i;
+            elsif wb_hilo_en_i = CHIP_ENABLE then
+                lo_o <= wb_lo_i;
+            end if;
             op_code: case op_i is
                 -- Do nothing
                 when OP_TYPE_NOP =>
@@ -134,15 +144,22 @@ begin
                     move_funct: case funct_i is
                         -- MOVZ
                         when FUNCT_TYPE_MOVE_ZERO =>
+                            if operand_2_i = REG_ZERO_DATA then
+                                reg_wt_en_o <= REG_WT_ENABLE;
+                            end if;
                             reg_wt_data_o <= operand_1_i;
                         
                         -- MOVN
-                        when FUNCT_TYPE_MOVE_ZERO =>
+                        when FUNCT_TYPE_MOVE_NOT_ZERO =>
+                            if not(operand_2_i = REG_ZERO_DATA) then
+                                reg_wt_en_o <= REG_WT_ENABLE;
+                            end if;
                             reg_wt_data_o <= operand_1_i;
                         
                         -- MFHI
+                        -- Solve data conflict issue
                         when FUNCT_TYPE_MOVE_FROM_HI =>
-                            reg_wt_data_o <= hi_i;
+                            reg_wt_data_o <= hi_o;
                         
                         -- MTHI
                         when FUNCT_TYPE_MOVE_TO_HI =>
@@ -151,12 +168,12 @@ begin
                         
                         -- MFLO
                         when FUNCT_TYPE_MOVE_FROM_LO =>
-                            reg_wt_data_o <= lo_i;
+                            reg_wt_data_o <= lo_o;
                         
                         -- MTLO
                         when FUNCT_TYPE_MOVE_TO_LO =>
                             hilo_en_o <= CHIP_ENABLE;
-                            lo_o <= operand_1_i
+                            lo_o <= operand_1_i;
                         
                         when others =>
                         

@@ -237,6 +237,7 @@ begin
                         when FUNCT_JALR =>
                         
                         -- MOVZ rd, rs, rt          if rt = 0 then rd ← rs
+                        -- Note data problem
                         when FUNCT_MOVZ =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_ZERO;
@@ -247,11 +248,8 @@ begin
                             reg_rd_en_2_o <= REG_RD_ENABLE; 
                             reg_rd_en_2 <= REG_RD_ENABLE; 
                             -- write rd?
-                            if reg_rd_data_2_i = REG_ZERO_DATA then
-                                reg_wt_en_o <= REG_WT_ENABLE;
-                            else
-                                reg_wt_en_o <= REG_WT_DISABLE;
-                            end if;
+                            reg_wt_en_o <= REG_WT_DISABLE;
+                            reg_wt_addr_o <= reg_d;
                         
                         -- MOVN rd, rs, rt          if rt ≠ 0 then rd ← rs
                         when FUNCT_MOVN =>
@@ -264,11 +262,8 @@ begin
                             reg_rd_en_2_o <= REG_RD_ENABLE; 
                             reg_rd_en_2 <= REG_RD_ENABLE; 
                             -- write rd?
-                            if not(reg_rd_data_2_i = REG_ZERO_DATA) then
-                                reg_wt_en_o <= REG_WT_ENABLE;
-                            else
-                                reg_wt_en_o <= REG_WT_DISABLE;
-                            end if;
+                            reg_wt_en_o <= REG_WT_DISABLE;
+                            reg_wt_addr_o <= reg_d;
                         
                         -- MFHI rd                  rd ← HI
                         when FUNCT_MFHI =>
@@ -282,14 +277,15 @@ begin
                             reg_rd_en_2 <= REG_RD_DISABLE; 
                             -- write rd
                             reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_addr_o <= reg_d;
                         
                         -- MTHI rs                  HI ← rs
                         when FUNCT_MTHI =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_TO_HI;
                             -- read rs
-                            reg_rd_en_1_o <= REG_RD_DISABLE;
-                            reg_rd_en_1 <= REG_RD_DISABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
                             -- do not read rt
                             reg_rd_en_2_o <= REG_RD_DISABLE; 
                             reg_rd_en_2 <= REG_RD_DISABLE; 
@@ -308,6 +304,7 @@ begin
                             reg_rd_en_2 <= REG_RD_DISABLE; 
                             -- write rd
                             reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_addr_o <= reg_d;
                         
                         -- MTLO rs                  LO ← rs
                         when FUNCT_MTLO =>
