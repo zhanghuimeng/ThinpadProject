@@ -41,9 +41,15 @@ entity EX_to_MEM is
            reg_wt_en_i :        in STD_LOGIC;                                       -- input register write enable from EX
            reg_wt_addr_i :      in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from EX
            reg_wt_data_i :      in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register write data from EX
+           hilo_en_i :          in STD_LOGIC;                                       -- input HILO write enable from EX
+           hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from EX
+           lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from EX
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to MEM
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM
-           reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output register write data to MEM
+           reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM
+           hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM
+           hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM
+           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output LO data to MEM
 end EX_to_MEM;
 
 architecture Behavioral of EX_to_MEM is
@@ -57,10 +63,16 @@ begin
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
                 reg_wt_data_o <= REG_ZERO_DATA;
+                hilo_en_o <= CHIP_DISABLE;
+                hi_o <= REG_ZERO_DATA;
+                lo_o <= REG_ZERO_DATA;
             else
                 reg_wt_en_o <= reg_wt_en_i;
                 reg_wt_addr_o <= reg_wt_addr_i;
                 reg_wt_data_o <= reg_wt_data_i;
+                hilo_en_o <= hilo_en_i;
+                hi_o <= hi_i;
+                lo_o <= lo_i;
             end if;
         end if;
     end process;

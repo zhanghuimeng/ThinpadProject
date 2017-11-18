@@ -42,15 +42,26 @@ use WORK.INCLUDE.ALL;
 
 entity EX is
     Port ( rst :            in STD_LOGIC;                                       -- Reset
-           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID_to_EX
-           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID_to_EX
-           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID_to_EX
-           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID_to_EX
-           reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID_to_EX
-           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID_to_EX
-           reg_wt_en_o :    out STD_LOGIC;                                      -- output register write enable to EX_to_MEM
-           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX_to_MEM
-           reg_wt_data_o :  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output register write data to EX_to_MEM
+           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID/EX
+           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
+           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
+           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
+           reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID/EX
+           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
+           hi_i :           in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
+           lo_i :           in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from HI_LO
+           mem_hilo_en_i :  in STD_LOGIC;                                       -- input HI_LO write enable from MEM
+           mem_hi_i :       in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
+           mem_lo_i :       in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
+           wb_hilo_en_i:    in STD_LOGIC;                                       -- input HI_LO write enable from MEM/WB
+           wb_hi_i :        in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM/WB
+           wb_lo_i :        in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM/WB
+           reg_wt_en_o :    out STD_LOGIC;                                      -- output register write enable to EX/MEM
+           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX/MEM
+           reg_wt_data_o :  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
+           hilo_en_o :      out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
+           hi_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
+           lo_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output LO data to EX/MEM
 end EX;
 
 architecture Behavioral of EX is
@@ -64,9 +75,15 @@ begin
             reg_wt_data_o <= REG_ZERO_DATA;
             reg_wt_addr_o <= REG_ZERO_ADDR;
             reg_wt_en_o <= REG_WT_DISABLE;
+            hilo_en_o <= CHIP_DISABLE;
+            hi_o <= REG_ZERO_DATA;
+            lo_o <= REG_ZERO_DATA;
         else
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
+            hilo_en_o <= CHIP_DISABLE;
+            hi_o <= hi_i;
+            lo_o <= lo_i;
             op_code: case op_i is
                 -- Do nothing
                 when OP_TYPE_NOP =>
@@ -77,23 +94,6 @@ begin
                     logic_funct: case funct_i is
                         -- or instructions
                         when FUNCT_TYPE_AND =>
---                            deallocate(output);
---                            write(output, string'("AND"));
---                            report output.all;
---                            deallocate(output);
---                            write(output, string'("operand1 = "));
---                            write(output, operand_1_i);
---                            report output.all;
---                            deallocate(output);
---                            write(output, string'("operand2 = "));
---                            write(output, operand_2_i);
---                            report output.all;
---                            reg_wt_data := (operand_1_i and operand_2_i);
---                            deallocate(output);
---                            write(output, string'("result = "));
---                            write(output, reg_wt_data);
---                            report output.all;
-
                             reg_wt_data_o <= (operand_1_i and operand_2_i);
 
                         -- or instructions
@@ -131,6 +131,36 @@ begin
                     end case shift_funct;
                 
                 when OP_TYPE_MOVE =>
+                    move_funct: case funct_i is
+                        -- MOVZ
+                        when FUNCT_TYPE_MOVE_ZERO =>
+                            reg_wt_data_o <= operand_1_i;
+                        
+                        -- MOVN
+                        when FUNCT_TYPE_MOVE_ZERO =>
+                            reg_wt_data_o <= operand_1_i;
+                        
+                        -- MFHI
+                        when FUNCT_TYPE_MOVE_FROM_HI =>
+                            reg_wt_data_o <= hi_i;
+                        
+                        -- MTHI
+                        when FUNCT_TYPE_MOVE_TO_HI =>
+                            hilo_en_o <= CHIP_ENABLE;
+                            hi_o <= operand_1_i;
+                        
+                        -- MFLO
+                        when FUNCT_TYPE_MOVE_FROM_LO =>
+                            reg_wt_data_o <= lo_i;
+                        
+                        -- MTLO
+                        when FUNCT_TYPE_MOVE_TO_LO =>
+                            hilo_en_o <= CHIP_ENABLE;
+                            lo_o <= operand_1_i
+                        
+                        when others =>
+                        
+                    end case move_funct;
                 
                 when OP_TYPE_BRANCH =>
                 

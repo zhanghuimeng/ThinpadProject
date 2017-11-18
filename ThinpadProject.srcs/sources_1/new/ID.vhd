@@ -37,6 +37,7 @@ use WORK.INCLUDE.ALL;
 
 -- ID Module in CPU
 -- Combintational Logic
+-- Note: we do not read HI/LO registers in this module
 
 entity ID is
     Port ( rst :                in STD_LOGIC;                                       -- Reset
@@ -237,9 +238,89 @@ begin
                         
                         -- MOVZ rd, rs, rt          if rt = 0 then rd ← rs
                         when FUNCT_MOVZ =>
+                            op_o <= OP_TYPE_MOVE;
+                            funct_o <= FUNCT_TYPE_MOVE_ZERO;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
+                            -- read rt
+                            reg_rd_en_2_o <= REG_RD_ENABLE; 
+                            reg_rd_en_2 <= REG_RD_ENABLE; 
+                            -- write rd?
+                            if reg_rd_data_2_i = REG_ZERO_DATA then
+                                reg_wt_en_o <= REG_WT_ENABLE;
+                            else
+                                reg_wt_en_o <= REG_WT_DISABLE;
+                            end if;
                         
                         -- MOVN rd, rs, rt          if rt ≠ 0 then rd ← rs
                         when FUNCT_MOVN =>
+                            op_o <= OP_TYPE_MOVE;
+                            funct_o <= FUNCT_TYPE_MOVE_NOT_ZERO;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
+                            -- read rt
+                            reg_rd_en_2_o <= REG_RD_ENABLE; 
+                            reg_rd_en_2 <= REG_RD_ENABLE; 
+                            -- write rd?
+                            if not(reg_rd_data_2_i = REG_ZERO_DATA) then
+                                reg_wt_en_o <= REG_WT_ENABLE;
+                            else
+                                reg_wt_en_o <= REG_WT_DISABLE;
+                            end if;
+                        
+                        -- MFHI rd                  rd ← HI
+                        when FUNCT_MFHI =>
+                            op_o <= OP_TYPE_MOVE;
+                            funct_o <= FUNCT_TYPE_MOVE_FROM_HI;
+                            -- do not read rs
+                            reg_rd_en_1_o <= REG_RD_DISABLE;
+                            reg_rd_en_1 <= REG_RD_DISABLE;
+                            -- do not read rt
+                            reg_rd_en_2_o <= REG_RD_DISABLE; 
+                            reg_rd_en_2 <= REG_RD_DISABLE; 
+                            -- write rd
+                            reg_wt_en_o <= REG_WT_ENABLE;
+                        
+                        -- MTHI rs                  HI ← rs
+                        when FUNCT_MTHI =>
+                            op_o <= OP_TYPE_MOVE;
+                            funct_o <= FUNCT_TYPE_MOVE_TO_HI;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_DISABLE;
+                            reg_rd_en_1 <= REG_RD_DISABLE;
+                            -- do not read rt
+                            reg_rd_en_2_o <= REG_RD_DISABLE; 
+                            reg_rd_en_2 <= REG_RD_DISABLE; 
+                            -- do not write
+                            reg_wt_en_o <= REG_WT_DISABLE;
+                        
+                        -- MFLO rd                  rd ← LO
+                        when FUNCT_MFLO =>
+                            op_o <= OP_TYPE_MOVE;
+                            funct_o <= FUNCT_TYPE_MOVE_FROM_LO;
+                            -- do not read rs
+                            reg_rd_en_1_o <= REG_RD_DISABLE;
+                            reg_rd_en_1 <= REG_RD_DISABLE;
+                            -- do not read rt
+                            reg_rd_en_2_o <= REG_RD_DISABLE; 
+                            reg_rd_en_2 <= REG_RD_DISABLE; 
+                            -- write rd
+                            reg_wt_en_o <= REG_WT_ENABLE;
+                        
+                        -- MTLO rs                  LO ← rs
+                        when FUNCT_MTLO =>
+                            op_o <= OP_TYPE_MOVE;
+                            funct_o <= FUNCT_TYPE_MOVE_TO_LO;
+                            -- read rs
+                            reg_rd_en_1_o <= REG_RD_ENABLE;
+                            reg_rd_en_1 <= REG_RD_ENABLE;
+                            -- do not read rt
+                            reg_rd_en_2_o <= REG_RD_DISABLE; 
+                            reg_rd_en_2 <= REG_RD_DISABLE; 
+                            -- do not write
+                            reg_wt_en_o <= REG_WT_ENABLE;
                         
                         -- SYSCALL                  A system call exception occurs
                         when FUNCT_SYSCALL =>
@@ -260,19 +341,7 @@ begin
                             reg_rd_en_2 <= REG_RD_DISABLE; 
                             -- do not write
                             reg_wt_en_o <= REG_WT_ENABLE;
-                        
-                        -- MFHI rd                  rd ← HI
-                        when FUNCT_MFHI =>
-                        
-                        -- MTHI rs                  HI ← rs
-                        when FUNCT_MTHI =>
-                        
-                        -- MFLO rd                  rd ← LO
-                        when FUNCT_MFLO =>
-                        
-                        -- MTLO rs                  LO ← rs
-                        when FUNCT_MTLO =>
-                        
+
                         -- MULT rs, rt              (LO, HI) ← rs × rt
                         when FUNCT_MULT =>
                         

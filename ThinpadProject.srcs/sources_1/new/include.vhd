@@ -68,6 +68,7 @@ package INCLUDE is
     constant OP_TYPE_BRANCH :        STD_LOGIC_VECTOR(OP_LEN-1 downto 0) := b"000101";
     
     -- Instruction subtype for EX 
+    -- No Operation
     constant FUNCT_TYPE_NOP :        STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000000";
     -- Arithmetic
     -- Logic
@@ -79,6 +80,13 @@ package INCLUDE is
     constant FUNCT_TYPE_SHIFT_LEFT_LOGIC :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000001";
     constant FUNCT_TYPE_SHIFT_RIGHT_LOGIC :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000010";
     constant FUNCT_TYPE_SHIFT_RIGHT_ARITH :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000011";
+    -- Move
+    constant FUNCT_TYPE_MOVE_ZERO :             STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000001";
+    constant FUNCT_TYPE_MOVE_NOT_ZERO :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000010";
+    constant FUNCT_TYPE_MOVE_FROM_HI :          STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000011";
+    constant FUNCT_TYPE_MOVE_TO_HI :            STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000100";
+    constant FUNCT_TYPE_MOVE_FROM_LO :          STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000101";
+    constant FUNCT_TYPE_MOVE_TO_LO :            STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000110";
     
     -- Introduction to the MIPS32 Architecture
     -- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)
