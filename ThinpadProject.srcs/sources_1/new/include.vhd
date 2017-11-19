@@ -39,6 +39,8 @@ package INCLUDE is
     constant INST_LEN : integer := 32;
     constant REG_ADDR_LEN : integer := 5;
     constant REG_DATA_LEN : integer := 32;
+    constant DATA_LEN : integer := 32;
+    constant DOUBLE_DATA_LEN : integer := 64;
     constant OP_LEN : integer := 6;
     constant FUNCT_LEN : integer := 6;
     constant IMM_LEN : integer := 16;
@@ -71,6 +73,25 @@ package INCLUDE is
     -- No Operation
     constant FUNCT_TYPE_NOP :        STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000000";
     -- Arithmetic
+    constant FUNCT_TYPE_ADD : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000001";
+    constant FUNCT_TYPE_ADDI : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000010";
+    constant FUNCT_TYPE_ADDIU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000011";
+    constant FUNCT_TYPE_ADDU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000100";
+    constant FUNCT_TYPE_SUB : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000101";
+    constant FUNCT_TYPE_SUBU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000110";
+    constant FUNCT_TYPE_CLO : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000111";
+    constant FUNCT_TYPE_CLZ : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001000";
+    constant FUNCT_TYPE_SLT : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001001";
+    constant FUNCT_TYPE_SLTI : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001010";
+    constant FUNCT_TYPE_SLTIU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001011";
+    constant FUNCT_TYPE_SLTU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001100";
+    constant FUNCT_TYPE_MUL : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001101";
+    constant FUNCT_TYPE_MULT : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001110";
+    constant FUNCT_TYPE_MULTU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"001111";
+    constant FUNCT_TYPE_MADD : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"010000";
+    constant FUNCT_TYPE_MADDU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"010001";
+    constant FUNCT_TYPE_MSUB : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"010010";
+    constant FUNCT_TYPE_MSUBU : STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"010011";
     -- Logic
     constant FUNCT_TYPE_AND :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000010";
     constant FUNCT_TYPE_OR :         STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000011";
@@ -208,12 +229,56 @@ package INCLUDE is
     constant FUNCT_MSUBU :      STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"000101";
     constant FUNCT_CLZ :        STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"100000";
     constant FUNCT_CLO :        STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"100001";
-    constant FUNCT_SDBRP :      STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"111111";
+    constant FUNCT_SDBBP :      STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0) := b"111111";
     
     -- Introduction to the MIPS32 Architecture
     -- Table A-6 MIPS32 MOVCI Encoding of tf Bit (bit 16)
     constant TF_MOVF :          STD_LOGIC := '0';
     constant TF_MOVT :          STD_LOGIC := '1';
     
+    function count_leading(vector: STD_LOGIC_VECTOR; b: STD_LOGIC) return natural;
+    
+    function count_leading_ones(vector: STD_LOGIC_VECTOR) return natural;
+    
+    function count_leading_zeros(vector: STD_LOGIC_VECTOR) return natural;
+    
 end INCLUDE;
 
+package body INCLUDE is
+    -- Count leading
+    function count_leading(vector: STD_LOGIC_VECTOR; b: STD_LOGIC) return natural is
+    variable x: natural;
+    variable y: natural;
+    variable upper: STD_LOGIC_VECTOR(vector'length / 2 - 1 downto 0);
+    variable lower: STD_LOGIC_VECTOR(vector'length / 2 - 1 downto 0);
+    begin
+        if vector'length = 1 then
+            if vector(0) = b then
+                return 1;
+            else
+                return 0;
+            end if;
+        end if;
+        -- report("Bit width of vector is " & integer'image(vector'length));
+        upper := vector(vector'length-1 downto vector'length / 2);
+        lower := vector(vector'length / 2 - 1 downto 0);
+        x := count_leading(upper, b);
+        if x = vector'length / 2 then
+            y := count_leading(lower, b);
+            return x + y;
+        else
+            return x;
+        end if;
+    end function count_leading;
+    
+    function count_leading_ones(vector: STD_LOGIC_VECTOR) return natural is
+    begin
+        return count_leading(vector, '1');
+    end function count_leading_ones;
+    
+    function count_leading_zeros(vector: STD_LOGIC_VECTOR) return natural is
+        begin
+            return count_leading(vector, '0');
+        end function count_leading_zeros;
+    
+end INCLUDE;

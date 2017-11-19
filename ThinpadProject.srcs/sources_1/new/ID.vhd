@@ -419,21 +419,66 @@ begin
                 -- SPECIAL2 type instructions
                 when OP_SPECIAL2 =>
                     special2_funct: case funct is
+                        -- MADD rs, rt              (LO,HI) ← (rs x rt) + (LO,HI)
                         when FUNCT_MADD =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_MADD;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
+                        -- MADDU rs, rt             (LO,HI) ← (rs x rt) + (LO,HI)
                         when FUNCT_MADDU =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_MADDU;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
+                        -- MUL rd, rs, rt           rd ← rs × rt
                         when FUNCT_MUL =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_MUL;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
+                        -- MSUB rs, rt              (LO,HI) ← (rs x rt) - (LO,HI)
                         when FUNCT_MSUB =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_MSUB;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
+                        -- MSUBU rs, rt             (LO,HI) ← (rs x rt) - (LO,HI)
                         when FUNCT_MSUBU =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_MSUBU;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
+                        -- CLZ rd, rs               rd ← count_leading_zeros rs
                         when FUNCT_CLZ =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_CLZ;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
+                        -- CLO rd, rs               rd ← count_leading_ones rs
                         when FUNCT_CLO =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_CLO;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
-                        when FUNCT_SDBRP =>
+                        -- SDBBP code
+                        when FUNCT_SDBBP =>
+                        
+                        when others =>
                         
                     end case special2_funct;
                 
