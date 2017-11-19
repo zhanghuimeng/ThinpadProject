@@ -48,8 +48,9 @@ Red signals are enable ones, and blue signals are data.
 
 I deleted 'PREF' instruction from the test, because we do not intend to implement it.
 
-## Shift and Nop Instructions
+# Implementation of Shift and Nop Instructions
 
+## Simulation
 ### Simulation Source
 ```
 lui   $2,0x0404    # $2 = 0x04040000
@@ -87,6 +88,8 @@ srav  $2,$2,$8     # $2 = 0xffff8080 sra 8  = 0xffffff80
 | sra $2,$2,16 | $2 | 0x80800000 | - | - | 0x80800000 | 0x00000016 | $2 | 0xffff8080 |
 | srav $2,$2,$8 | $2 | 0xffff8080 | $8 | 0x00000008 | 0xffff8080 | 0x00000008 | $2 | 0xffffff80 |
 
+### Simulation Result
+
 Red signals are enable ones, and blue signals are data.
 
 ![Simulation Result 1](readme_pics/ThinpadProject_shift_1.png  "Simulation Result 1")
@@ -96,3 +99,6 @@ Red signals are enable ones, and blue signals are data.
 ![Simulation Result 3](readme_pics/ThinpadProject_shift_3.png  "Simulation Result 3")
 
 ![Simulation Result 4](readme_pics/ThinpadProject_shift_4.png  "Simulation Result 4")
+
+# Implementation of Move Instructions
+It is hard to make a good screenshot.
