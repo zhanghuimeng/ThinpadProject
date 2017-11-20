@@ -105,28 +105,32 @@ component ID_to_EX is
 end component;
 
 component EX is
-    Port ( rst :            in STD_LOGIC;                                       -- Reset
-           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID/EX
-           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
-           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
-           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
-           reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID/EX
-           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
-           hi_i :           in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
-           lo_i :           in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from HI_LO
-           mem_hilo_en_i :  in STD_LOGIC;                                       -- input HI_LO write enable from MEM
-           mem_hi_i :       in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
-           mem_lo_i :       in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
-           wb_hilo_en_i:    in STD_LOGIC;                                       -- input HI_LO write enable from MEM/WB
-           wb_hi_i :        in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM/WB
-           wb_lo_i :        in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM/WB
-           reg_wt_en_o :    out STD_LOGIC;                                      -- output register write enable to EX/MEM
-           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX/MEM
-           reg_wt_data_o :  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
-           hilo_en_o :      out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
-           hi_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
-           lo_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
-           pause_o :		out STD_LOGIC);										-- output pause information to PAUSE_CTRL
+    Port ( rst :            	in STD_LOGIC;                                       -- Reset
+           op_i :           	in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID/EX
+           funct_i :        	in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
+           operand_1_i :    	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
+           operand_2_i :    	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
+           reg_wt_en_i :    	in STD_LOGIC;                                       -- input register write enable from ID/EX
+           reg_wt_addr_i :  	in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
+           hi_i :           	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
+           lo_i :           	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from HI_LO
+           mem_hilo_en_i :  	in STD_LOGIC;                                       -- input HI_LO write enable from MEM
+           mem_hi_i :       	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
+           mem_lo_i :       	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
+           wb_hilo_en_i:    	in STD_LOGIC;                                       -- input HI_LO write enable from MEM/WB
+           wb_hi_i :        	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM/WB
+           wb_lo_i :        	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM/WB
+           clock_cycle_cnt_i : 	in STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- input clock cycle count from EX/MEM
+		   mul_cur_result_i : 	in STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- input accumulation result from EX/MEM
+           reg_wt_en_o :    	out STD_LOGIC;                                      -- output register write enable to EX/MEM
+           reg_wt_addr_o :  	out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX/MEM
+           reg_wt_data_o :  	out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
+           hilo_en_o :      	out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
+           hi_o :           	out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
+           lo_o :           	out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
+       	   pause_o :			out STD_LOGIC;										-- output pause information to PAUSE_CTRL
+		   clock_cycle_cnt_o : 	out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
+		   mul_cur_result_o : 	out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0));	-- output accumulation result to EX/MEM
 end component;
 
 component EX_to_MEM is
@@ -139,12 +143,16 @@ component EX_to_MEM is
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from EX
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from EX
            pause_i :			in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           clock_cycle_cnt_i : 	in STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- input clock cycle count from EX
+           mul_cur_result_i : 	in STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- input accumulation result from EX
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to MEM
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM
-           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output LO data to MEM
+           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to MEM
+           clock_cycle_cnt_o : 	out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX
+           mul_cur_result_o : 	out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0));	-- output accumulation result to EX
 end component;
 
 component MEM is
@@ -251,6 +259,8 @@ signal reg_wt_data_from_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal hilo_en_from_ex: STD_LOGIC;
 signal hi_from_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal lo_from_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal clock_cycle_cnt_from_ex: STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);
+signal mul_cur_result_from_ex: STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0); 
 
 -- EX to PAUSE_CTRL signals
 signal ex_pause_from_ex: STD_LOGIC;
@@ -262,6 +272,10 @@ signal reg_wt_data_to_mem: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal hilo_en_to_mem: STD_LOGIC;
 signal hi_to_mem: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal lo_to_mem: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+-- EX/MEM to EX signals
+signal clock_cycle_cnt_to_ex: STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);
+signal mul_cur_result_to_ex: STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0); 
 
 -- MEM to MEM/WB signals
 signal reg_wt_en_from_mem: STD_LOGIC;
@@ -335,17 +349,21 @@ begin
         hi_i => hi_from_hilo, lo_i => lo_from_hilo,
         mem_hilo_en_i => hilo_en_from_mem, mem_hi_i => hi_from_mem, mem_lo_i => lo_from_mem,
         wb_hilo_en_i => hilo_en_to_hilo, wb_hi_i => hi_to_hilo, wb_lo_i => lo_to_hilo,
+        clock_cycle_cnt_i => clock_cycle_cnt_to_ex, mul_cur_result_i => mul_cur_result_to_ex,
         reg_wt_en_o => reg_wt_en_from_ex, reg_wt_addr_o => reg_wt_addr_from_ex, reg_wt_data_o => reg_wt_data_from_ex,
         hilo_en_o => hilo_en_from_ex, hi_o => hi_from_ex, lo_o => lo_from_ex,
-        pause_o => ex_pause_from_ex);
+        pause_o => ex_pause_from_ex,
+        clock_cycle_cnt_o => clock_cycle_cnt_from_ex, mul_cur_result_o => mul_cur_result_from_ex);
     
     EX_to_MEM_0 : EX_to_MEM port map(
         rst => rst, clk => clk,
         reg_wt_en_i => reg_wt_en_from_ex, reg_wt_addr_i => reg_wt_addr_from_ex, reg_wt_data_i => reg_wt_data_from_ex,
         hilo_en_i => hilo_en_from_ex, hi_i => hi_from_ex, lo_i => lo_from_ex,
         pause_i => pause, 
+        clock_cycle_cnt_i => clock_cycle_cnt_from_ex, mul_cur_result_i => mul_cur_result_from_ex,
         reg_wt_en_o => reg_wt_en_to_mem, reg_wt_addr_o => reg_wt_addr_to_mem, reg_wt_data_o => reg_wt_data_to_mem,
-        hilo_en_o => hilo_en_to_mem, hi_o => hi_to_mem, lo_o => lo_to_mem);
+        hilo_en_o => hilo_en_to_mem, hi_o => hi_to_mem, lo_o => lo_to_mem,
+        clock_cycle_cnt_o => clock_cycle_cnt_to_ex, mul_cur_result_o => mul_cur_result_to_ex);
     
     MEM_0 : MEM port map(
         rst => rst, 

@@ -41,28 +41,32 @@ use WORK.INCLUDE.ALL;
 -- Combinatory Logic
 
 entity EX is
-    Port ( rst :            in STD_LOGIC;                                       -- Reset
-           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID/EX
-           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
-           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
-           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
-           reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID/EX
-           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
-           hi_i :           in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
-           lo_i :           in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from HI_LO
-           mem_hilo_en_i :  in STD_LOGIC;                                       -- input HI_LO write enable from MEM
-           mem_hi_i :       in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
-           mem_lo_i :       in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
-           wb_hilo_en_i:    in STD_LOGIC;                                       -- input HI_LO write enable from MEM/WB
-           wb_hi_i :        in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM/WB
-           wb_lo_i :        in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM/WB
-           reg_wt_en_o :    out STD_LOGIC;                                      -- output register write enable to EX/MEM
-           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX/MEM
-           reg_wt_data_o :  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
-           hilo_en_o :      out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
-           hi_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
-           lo_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
-       	   pause_o :		out STD_LOGIC);										-- output pause information to PAUSE_CTRL
+    Port ( rst :            	in STD_LOGIC;                                       -- Reset
+           op_i :           	in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID/EX
+           funct_i :        	in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
+           operand_1_i :    	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
+           operand_2_i :    	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
+           reg_wt_en_i :    	in STD_LOGIC;                                       -- input register write enable from ID/EX
+           reg_wt_addr_i :  	in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
+           hi_i :           	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
+           lo_i :           	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from HI_LO
+           mem_hilo_en_i :  	in STD_LOGIC;                                       -- input HI_LO write enable from MEM
+           mem_hi_i :       	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
+           mem_lo_i :       	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
+           wb_hilo_en_i:    	in STD_LOGIC;                                       -- input HI_LO write enable from MEM/WB
+           wb_hi_i :        	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM/WB
+           wb_lo_i :        	in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM/WB
+           clock_cycle_cnt_i : 	in STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- input clock cycle count from EX/MEM
+		   mul_cur_result_i : 	in STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- input accumulation result from EX/MEM
+           reg_wt_en_o :    	out STD_LOGIC;                                      -- output register write enable to EX/MEM
+           reg_wt_addr_o :  	out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX/MEM
+           reg_wt_data_o :  	out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
+           hilo_en_o :      	out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
+           hi_o :           	out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
+           lo_o :           	out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
+       	   pause_o :			out STD_LOGIC;										-- output pause information to PAUSE_CTRL
+		   clock_cycle_cnt_o : 	out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
+		   mul_cur_result_o : 	out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0));	-- output accumulation result to EX/MEM
 end EX;
 
 architecture Behavioral of EX is
@@ -79,6 +83,7 @@ begin
     variable operand_mul_2: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
     variable mul_sign: STD_LOGIC;
     variable mult_result: STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);
+    variable mult_accum_result: UNSIGNED(DOUBLE_DATA_LEN downto 0);
     begin
         if rst = RST_ENABLE then
             reg_wt_data_o <= REG_ZERO_DATA;
@@ -88,10 +93,14 @@ begin
             hi_o <= REG_ZERO_DATA;
             lo_o <= REG_ZERO_DATA;
             pause_o <= PAUSE_NOT;
+            clock_cycle_cnt_o <= b"00";
+            mul_cur_result_o <= DOUBLE_ZERO_DATA;
         else
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
-            
+            pause_o <= PAUSE_NOT;
+            clock_cycle_cnt_o <= b"00";
+            mul_cur_result_o <= DOUBLE_ZERO_DATA;
             hilo_en_o <= CHIP_DISABLE;
             -- So that the HILO register can immediately get value?
             hi_o <= hi_i;
@@ -139,6 +148,7 @@ begin
             end if;
             
             -- For signed multiply instructions
+            -- You can't multiply 2's implements directly!
             mul_sign := '0';
             if operand_1_i(DATA_LEN-1) = '1' then
                 operand_mul_1 := (not operand_1_i) + b"1";
@@ -152,9 +162,10 @@ begin
             else
                 operand_mul_2 := operand_2_i;
             end if;
-            mult_result := std_logic_vector(signed(operand_mul_1) * signed(operand_mul_2));
-            
-            pause_o <= PAUSE_NOT;  -- Temp fix
+            mult_result := std_logic_vector(unsigned(operand_mul_1) * unsigned(operand_mul_2));
+            if mul_sign = '1' then
+                mult_result := (not mult_result) + b"1";
+            end if;
             
             op_code: case op_i is
                 -- Do nothing
@@ -206,9 +217,6 @@ begin
                             write(output, string'("MUL, mult_result = "));
                             write(output, mult_result);
                             report output.all;
-                            if mul_sign = '1' then
-                                mult_result := (not mult_result) + b"1";
-                            end if;
                             reg_wt_data_o <= mult_result(REG_DATA_LEN-1 downto 0);
                             
                         when FUNCT_TYPE_MULT =>
@@ -216,9 +224,6 @@ begin
                             write(output, string'("MULT, mult_result = "));
                             write(output, mult_result);
                             report output.all;
-                            if mul_sign = '1' then
-                                mult_result := (not mult_result) + b"1";
-                            end if;
                             hilo_en_o <= CHIP_ENABLE;
                             hi_o <= mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
                             lo_o <= mult_result(REG_DATA_LEN-1 downto 0);
@@ -228,6 +233,33 @@ begin
                             hilo_en_o <= CHIP_ENABLE;
                             hi_o <= mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
                             lo_o <= mult_result(REG_DATA_LEN-1 downto 0);
+                        
+                        when FUNCT_TYPE_MADD | FUNCT_TYPE_MADDU | FUNCT_TYPE_MSUB | FUNCT_TYPE_MSUBU =>
+                        	if funct_i = FUNCT_TYPE_MADDU then
+                        		mult_result := std_logic_vector(unsigned(operand_1_i) * unsigned(operand_2_i));
+                        	end if;
+                        	deallocate(output);
+                            write(output, string'("clock cycle = "));
+                            write(output, clock_cycle_cnt_i);
+                            report output.all;
+                        	if clock_cycle_cnt_i = "00" then  -- First cycle: multiply
+                        		mul_cur_result_o <= mult_result;
+                        		clock_cycle_cnt_o <= "01";
+                        		pause_o <= PAUSE;
+                        	elsif clock_cycle_cnt_i = "01" then  -- Second cycle: add
+                        		mult_accum_result := UNSIGNED('0' & hi_o & lo_o);
+                        		if (funct_i = FUNCT_TYPE_MADD) or (funct_i = FUNCT_TYPE_MADDU) then 
+	                        		mult_accum_result := unsigned('0' & mul_cur_result_i) + mult_accum_result;
+	                        	else
+	                        		mult_accum_result := unsigned('0' & ((not mul_cur_result_i) + '1')) + mult_accum_result;
+	                        	end if;
+                        		hilo_en_o <= CHIP_ENABLE;
+                            	hi_o <= STD_LOGIC_VECTOR(mult_accum_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN));
+                            	lo_o <= STD_LOGIC_VECTOR(mult_accum_result(REG_DATA_LEN-1 downto 0));
+                            	mul_cur_result_o <= DOUBLE_ZERO_DATA;
+                        		clock_cycle_cnt_o <= "10";  -- So that the multiply accumulation instruction won't repeat
+                        		pause_o <= PAUSE_NOT;
+                        	end if;  
                         
                         when others =>
                         

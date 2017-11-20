@@ -146,23 +146,17 @@ begin
                         when FUNCT_SLLV =>
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_LEFT_LOGIC;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- SRLV rd, rt, rs          rd ← rt >> rs (logical)
                         when FUNCT_SRLV =>
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_RIGHT_LOGIC;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- SRAV rd, rt, rs          rd ← rt >> rs (arithmetic)
                         when FUNCT_SRAV => 
@@ -183,67 +177,49 @@ begin
                         when FUNCT_MOVZ =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_ZERO;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd?
-                            reg_wt_en_o <= REG_WT_DISABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- write rd? (EX module solves it)
                         
                         -- MOVN rd, rs, rt          if rt ≠ 0 then rd ← rs
                         when FUNCT_MOVN =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_NOT_ZERO;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd?
-                            reg_wt_en_o <= REG_WT_DISABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- write rd? (EX module solves it)
                         
                         -- MFHI rd                  rd ← HI
                         when FUNCT_MFHI =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_FROM_HI;
-                            -- do not read rs
-                            reg_rd_en_1_o <= REG_RD_DISABLE;
-                            -- do not read rt
-                            reg_rd_en_2_o <= REG_RD_DISABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- MTHI rs                  HI ← rs
                         when FUNCT_MTHI =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_TO_HI;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- do not read rt
-                            reg_rd_en_2_o <= REG_RD_DISABLE; 
-                            -- do not write
-                            reg_wt_en_o <= REG_WT_DISABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt               
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
                         -- MFLO rd                  rd ← LO
                         when FUNCT_MFLO =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_FROM_LO;
-                            -- do not read rs
-                            reg_rd_en_1_o <= REG_RD_DISABLE;
-                            -- do not read rt
-                            reg_rd_en_2_o <= REG_RD_DISABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- MTLO rs                  LO ← rs
                         when FUNCT_MTLO =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_TO_LO;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- do not read rt
-                            reg_rd_en_2_o <= REG_RD_DISABLE; 
-                            -- do not write
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- do not write
                         
                         -- SYSCALL                  A system call exception occurs
                         when FUNCT_SYSCALL =>
@@ -256,36 +232,27 @@ begin
                         when FUNCT_SYNC =>
                             op_o <= OP_TYPE_NOP;
                             funct_o <= FUNCT_TYPE_NOP;
-                            -- do not read rs
-                            reg_rd_en_1_o <= REG_RD_DISABLE;
-                            -- do not read rt
-                            reg_rd_en_2_o <= REG_RD_DISABLE; 
-                            -- do not write
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- do not write
 
                         -- MULT rs, rt              (LO, HI) ← rs × rt
                         -- Signed
                         when FUNCT_MULT =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MULT;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- do not write
-                            reg_wt_en_o <= REG_WT_DISABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
                         -- MULTU rs, rt             (LO, HI) ← rs × rt
                         -- Unsigned
                         when FUNCT_MULTU =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MULTU;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- do not write
-                            reg_wt_en_o <= REG_WT_DISABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
                         -- DIV rs, rt               (LO, HI) ← rs / rt
                         when FUNCT_DIV =>
@@ -298,59 +265,44 @@ begin
                         when FUNCT_ADD =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_ADD;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- ADDU rd, rs, rt          rd ← rs + rt
                         -- Do not generate exception
                         when FUNCT_ADDU =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_ADDU;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- SUB rd, rs, rt           rd ← rs - rt
                         -- Generate exception when overflow
                         when FUNCT_SUB =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_SUB;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- SUBU rd, rs, rt          rd ← rs - rt
                         -- Do not generate exception
                         when FUNCT_SUBU =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_SUB;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- AND rd, rs, rt           rd ← rs AND rt
                         when FUNCT_AND =>
                             op_o <= OP_TYPE_LOGIC;
                             funct_o <= FUNCT_TYPE_AND;
-                            -- read rs
-                            reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- read rt
-                            reg_rd_en_2_o <= REG_RD_ENABLE; 
-                            -- write rd
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
         
                         -- OR rd, rs, rt            rd ← rs or rt
                         when FUNCT_OR =>
@@ -438,14 +390,6 @@ begin
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
-                        -- MUL rd, rs, rt           rd ← rs × rt
-                        when FUNCT_MUL =>
-                            op_o <= OP_TYPE_ARITH;
-                            funct_o <= FUNCT_TYPE_MUL;
-                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
-                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
-                        
                         -- MSUB rs, rt              (LO,HI) ← (rs x rt) - (LO,HI)
                         when FUNCT_MSUB =>
                             op_o <= OP_TYPE_ARITH;
@@ -461,6 +405,14 @@ begin
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                        
+                        -- MUL rd, rs, rt           rd ← rs × rt
+                        when FUNCT_MUL =>
+                            op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_MUL;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- CLZ rd, rs               rd ← count_leading_zeros rs
                         when FUNCT_CLZ =>

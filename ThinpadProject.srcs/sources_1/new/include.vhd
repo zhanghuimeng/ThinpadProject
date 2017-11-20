@@ -50,7 +50,8 @@ package INCLUDE is
     constant EX_PAUSE_INDEX  : integer   := 3;
     constant MEM_PAUSE_INDEX : integer   := 4;
     constant WB_PAUSE_INDEX  : integer   := 5;
-    
+    -- Accumulation inst constants
+    constant ACCU_CNT_LEN 	 : integer	 := 2;
     
     constant OP_LEN          : integer   := 6;
 	constant FUNCT_LEN       : integer   := 6;
@@ -71,6 +72,8 @@ package INCLUDE is
 
 	constant REG_ZERO_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00000";
 	constant REG_ZERO_DATA : STD_LOGIC_VECTOR(REG_DATA_LEN - 1 downto 0) := x"00000000";
+	constant ZERO_DATA : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := x"00000000";
+	constant DOUBLE_ZERO_DATA : STD_LOGIC_VECTOR(DOUBLE_DATA_LEN - 1 downto 0) := x"0000000000000000";
 
 	-- Instruction type for EX Module
 	constant OP_TYPE_NOP    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000000";

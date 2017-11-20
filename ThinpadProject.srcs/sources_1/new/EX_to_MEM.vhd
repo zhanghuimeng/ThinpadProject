@@ -45,12 +45,16 @@ entity EX_to_MEM is
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from EX
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from EX
            pause_i :			in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           clock_cycle_cnt_i : 	in STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- input clock cycle count from EX
+           mul_cur_result_i : 	in STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- input accumulation result from EX
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to MEM
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM
-           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output LO data to MEM
+           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to MEM
+           clock_cycle_cnt_o : 	out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX
+           mul_cur_result_o : 	out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0));	-- output accumulation result to EX
 end EX_to_MEM;
 
 architecture Behavioral of EX_to_MEM is
@@ -67,6 +71,8 @@ begin
                 hilo_en_o <= CHIP_DISABLE;
                 hi_o <= REG_ZERO_DATA;
                 lo_o <= REG_ZERO_DATA;
+                clock_cycle_cnt_o <= "00";
+                mul_cur_result_o <= DOUBLE_ZERO_DATA;
             else
             	if (pause_i(EX_PAUSE_INDEX) = PAUSE) and (pause_i(MEM_PAUSE_INDEX) = PAUSE_NOT) then  -- Give empty output
             		reg_wt_en_o <= REG_WT_DISABLE;
@@ -75,6 +81,8 @@ begin
 	                hilo_en_o <= CHIP_DISABLE;
 	                hi_o <= REG_ZERO_DATA;
 	                lo_o <= REG_ZERO_DATA;
+	                clock_cycle_cnt_o <= clock_cycle_cnt_i;
+                	mul_cur_result_o <= mul_cur_result_i;
             	elsif pause_i(MEM_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
 	                reg_wt_en_o <= reg_wt_en_i;
 	                reg_wt_addr_o <= reg_wt_addr_i;
@@ -82,6 +90,11 @@ begin
 	                hilo_en_o <= hilo_en_i;
 	                hi_o <= hi_i;
 	                lo_o <= lo_i;
+	                clock_cycle_cnt_o <= "00";
+                	mul_cur_result_o <= DOUBLE_ZERO_DATA;
+                else  -- Special for EX registers
+                	clock_cycle_cnt_o <= clock_cycle_cnt_i;
+                	mul_cur_result_o <= mul_cur_result_i;
 	            end if;
             end if;
         end if;
