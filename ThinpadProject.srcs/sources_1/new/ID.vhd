@@ -268,21 +268,21 @@ begin
                             -- read rs
                             reg_rd_en_1_o <= REG_RD_ENABLE;
                             -- read rt
-                            reg_rd_en_2_o <= REG_RD_DISABLE; 
+                            reg_rd_en_2_o <= REG_RD_ENABLE; 
                             -- do not write
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_en_o <= REG_WT_DISABLE;
                         
                         -- MULTU rs, rt             (LO, HI) ← rs × rt
                         -- Unsigned
                         when FUNCT_MULTU =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MULTU;
-                            -- do not read rs
+                            -- read rs
                             reg_rd_en_1_o <= REG_RD_ENABLE;
-                            -- do not read rt
+                            -- read rt
                             reg_rd_en_2_o <= REG_RD_ENABLE; 
                             -- do not write
-                            reg_wt_en_o <= REG_WT_ENABLE;
+                            reg_wt_en_o <= REG_WT_DISABLE;
                         
                         -- DIV rs, rt               (LO, HI) ← rs / rt
                         when FUNCT_DIV =>

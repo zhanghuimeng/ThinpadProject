@@ -1,0 +1,6 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  "MIPS_CPU_min_sopc_testbench_time_synth.v"
+verilog xil_defaultlib  "../../../../ThinpadProject.srcs/sim_1/new/MIPS_CPU_min_sopc_testbench.v"
+
+# Do not sort compile order
+nosort

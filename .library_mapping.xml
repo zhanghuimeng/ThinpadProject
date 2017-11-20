@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.sigasi.hdt.vhdl.scoping.librarymapping.model:LibraryMappings xmlns:com.sigasi.hdt.vhdl.scoping.librarymapping.model="com.sigasi.hdt.vhdl.scoping.librarymapping" Version="2">
+  <Mappings Location="" Library="not mapped"/>
+  <Mappings Location="/" Library="not mapped"/>
+  <Mappings Location="Common Libraries" Library="not mapped"/>
+  <Mappings Location="Common Libraries/IEEE" Library="ieee"/>
+  <Mappings Location="Common Libraries/IEEE Synopsys" Library="ieee"/>
+  <Mappings Location="Common Libraries/STD" Library="std"/>
+  <Mappings Location="ThinpadProject.srcs/sim_1/new/MIPS_CPU_min_sopc.vhd" Library="xil_defaultlib"/>
+  <Mappings Location="ThinpadProject.srcs/sim_1/new/MIPS_CPU_min_sopc_testbench.v" Library="xil_defaultlib"/>
+</com.sigasi.hdt.vhdl.scoping.librarymapping.model:LibraryMappings>

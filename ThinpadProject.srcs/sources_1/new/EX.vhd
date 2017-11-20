@@ -69,9 +69,9 @@ architecture Behavioral of EX is
 begin
     process (all)
     variable output: LINE;
-    variable operand_1: SIGNED(DATA_LEN-1 downto 0);
-    variable operand_2: SIGNED(DATA_LEN-1 downto 0);
-    variable sum_result: SIGNED(DATA_LEN downto 0);
+    variable operand_1: UNSIGNED(DATA_LEN-1 downto 0);
+    variable operand_2: UNSIGNED(DATA_LEN-1 downto 0);
+    variable sum_result: UNSIGNED(DATA_LEN downto 0);
     variable overflow: STD_LOGIC;
     variable compare_result: STD_LOGIC;
     variable operand_mul_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
@@ -105,18 +105,20 @@ begin
             end if;
             
             -- For addition, subtraction and signed comparation instructions
-            operand_1 := signed(operand_1_i);
+            operand_1 := unsigned(operand_1_i);
             if (funct_i = FUNCT_TYPE_SUB) or (funct_i = FUNCT_TYPE_SUBU) or (funct_i = FUNCT_TYPE_SLT) or(funct_i = FUNCT_TYPE_SLTI) then
-                operand_2 := signed((not operand_2_i) + b"1");
+            	operand_2 := unsigned((not operand_2_i) + b"1");
+            else
+            	operand_2 := unsigned(operand_2_i);
             end if;
-            sum_result := ('0' & operand_1) + ('0' & operand_2);
+            sum_result := unsigned(b"0" & operand_1) + unsigned(b"0" & operand_2);
             overflow := '0';
             -- Overflow
             if (operand_1(REG_DATA_LEN-1) = '0') and (operand_2(REG_DATA_LEN-1) = '0') and (sum_result(REG_DATA_LEN-1) = '1') then
                 overflow := '1';
             end if;
             if (operand_1(REG_DATA_LEN-1) = '1') and (operand_2(REG_DATA_LEN-1) = '1') and (sum_result(REG_DATA_LEN-1) = '0') then
-                overflow := '0';
+                overflow := '1';
             end if;
             
             compare_result := '0';
@@ -133,7 +135,7 @@ begin
                 end if;
             end if;
             
-            -- For multiply instructions
+            -- For signed multiply instructions
             mul_sign := '0';
             if operand_1_i(DATA_LEN-1) = '1' then
                 operand_mul_1 := (not operand_1_i) + b"1";
@@ -156,7 +158,7 @@ begin
                 when OP_TYPE_ARITH =>
                     arith_funct: case funct_i is
                         -- Addition with exception
-                        when FUNCT_TYPE_ADD | FUNCT_TYPE_ADDI =>
+                    	when FUNCT_TYPE_ADD | FUNCT_TYPE_ADDI =>
                             if overflow = '1' then
                                 reg_wt_en_o <= REG_WT_DISABLE;
                             else
@@ -195,12 +197,20 @@ begin
                             reg_wt_data_o <= x"0000000" & b"000" & compare_result;
                         
                         when FUNCT_TYPE_MUL =>
+                        	deallocate(output);
+                            write(output, string'("MUL, mult_result = "));
+                            write(output, mult_result);
+                            report output.all;
                             if mul_sign = '1' then
                                 mult_result := (not mult_result) + b"1";
                             end if;
                             reg_wt_data_o <= mult_result(REG_DATA_LEN-1 downto 0);
                             
                         when FUNCT_TYPE_MULT =>
+                        	deallocate(output);
+                            write(output, string'("MULT, mult_result = "));
+                            write(output, mult_result);
+                            report output.all;
                             if mul_sign = '1' then
                                 mult_result := (not mult_result) + b"1";
                             end if;
@@ -209,6 +219,7 @@ begin
                             lo_o <= mult_result(REG_DATA_LEN-1 downto 0);
                             
                         when FUNCT_TYPE_MULTU =>
+                        	mult_result := std_logic_vector(unsigned(operand_1_i) * unsigned(operand_2_i));
                             hilo_en_o <= CHIP_ENABLE;
                             hi_o <= mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
                             lo_o <= mult_result(REG_DATA_LEN-1 downto 0);

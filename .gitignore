@@ -36,6 +36,8 @@
 !bin2mem
 !*.bin
 !*.asm
+!*.sh
+!*.csv
 #########
 #IP files
 #########

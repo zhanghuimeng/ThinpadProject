@@ -36,7 +36,7 @@ module MIPS_CPU_min_sopc_testbench();
     initial begin
         rst = 1'b1;
         #195 rst = 1'b0;
-        #1000 $stop;
+        #2000 $stop;
     end
     
     // Instantiate minimal SOPC
