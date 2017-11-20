@@ -36,12 +36,13 @@ use WORK.INCLUDE.ALL;
 -- IF to ID Module in CPU
 
 entity IF_to_ID is
-    Port ( rst :    in STD_LOGIC;                                       -- Reset
-           clk :    in STD_LOGIC;                                       -- Clock
-           pc_i :   in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);      -- input program counter (instruction address) from ROM
-           inst_i : in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from ROM
-           pc_o :   out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ID
-           inst_o : out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));         -- output instruction to ID
+    Port ( rst :    	in STD_LOGIC;                                       -- Reset
+           clk :    	in STD_LOGIC;                                       -- Clock
+           pc_i :   	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);      -- input program counter (instruction address) from ROM
+           inst_i : 	in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from ROM
+           pause_i :	in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           pc_o :   	out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ID
+           inst_o : 	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));         -- output instruction to ID
 end IF_to_ID;
 
 architecture Behavioral of IF_to_ID is
@@ -55,8 +56,13 @@ begin
                 pc_o <= x"00000000";
                 inst_o <= x"00000000";
             else
-                pc_o <= pc_i;
-                inst_o <= inst_i;
+            	if (pause_i(IF_PAUSE_INDEX) = PAUSE) and (pause_i(ID_PAUSE_INDEX) = PAUSE_NOT) then  -- Give nop instructions
+            		pc_o <= x"00000000";
+                	inst_o <= x"00000000";
+                elsif pause_i(IF_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
+	                pc_o <= pc_i;
+	                inst_o <= inst_i;
+	            end if;  -- Keep the output same
             end if;
         end if;
     end process;

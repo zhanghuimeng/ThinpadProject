@@ -44,6 +44,7 @@ entity ID_to_EX is
            operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 read data from ID
            reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID
            reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID
+           pause_i :		in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            op_o :           out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to EX
            funct_o :        out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to EX
            operand_1_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 read data to EX
@@ -66,12 +67,21 @@ begin
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
             else
-                op_o <= op_i;
-                funct_o <= funct_i;
-                operand_1_o <= operand_1_i;
-                operand_2_o <= operand_2_i;
-                reg_wt_en_o <= reg_wt_en_i;
-                reg_wt_addr_o <= reg_wt_addr_i;
+            	if (pause_i(ID_PAUSE_INDEX) = PAUSE) and (pause_i(EX_PAUSE_INDEX) = PAUSE_NOT) then  -- Give empty output
+            		op_o <= OP_TYPE_NOP;
+	                funct_o <= FUNCT_TYPE_NOP;
+	                operand_1_o <= REG_ZERO_DATA;
+	                operand_2_o <= REG_ZERO_DATA;
+	                reg_wt_en_o <= REG_WT_DISABLE;
+	                reg_wt_addr_o <= REG_ZERO_ADDR;
+                elsif pause_i(EX_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
+	                op_o <= op_i;
+	                funct_o <= funct_i;
+	                operand_1_o <= operand_1_i;
+	                operand_2_o <= operand_2_i;
+	                reg_wt_en_o <= reg_wt_en_i;
+	                reg_wt_addr_o <= reg_wt_addr_i;
+	            end if;
             end if;
         end if;
     end process;

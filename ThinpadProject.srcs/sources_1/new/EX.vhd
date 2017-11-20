@@ -61,7 +61,8 @@ entity EX is
            reg_wt_data_o :  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
            hilo_en_o :      out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
            hi_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
-           lo_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output LO data to EX/MEM
+           lo_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
+       	   pause_o :		out STD_LOGIC);										-- output pause information to PAUSE_CTRL
 end EX;
 
 architecture Behavioral of EX is
@@ -86,9 +87,11 @@ begin
             hilo_en_o <= CHIP_DISABLE;
             hi_o <= REG_ZERO_DATA;
             lo_o <= REG_ZERO_DATA;
+            pause_o <= PAUSE_NOT;
         else
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
+            
             hilo_en_o <= CHIP_DISABLE;
             -- So that the HILO register can immediately get value?
             hi_o <= hi_i;
@@ -121,8 +124,8 @@ begin
                 overflow := '1';
             end if;
             
-            compare_result := '0';
             -- For compare instructions (less than)
+            compare_result := '0';
             if (funct_i = FUNCT_TYPE_SLT) or (funct_i = FUNCT_TYPE_SLTI) then  -- signed comparation
                 if (operand_1_i(DATA_LEN-1) = '1') and (operand_2_i(DATA_LEN-1) = '0') then
                     compare_result := '1';
@@ -150,6 +153,8 @@ begin
                 operand_mul_2 := operand_2_i;
             end if;
             mult_result := std_logic_vector(signed(operand_mul_1) * signed(operand_mul_2));
+            
+            pause_o <= PAUSE_NOT;  -- Temp fix
             
             op_code: case op_i is
                 -- Do nothing

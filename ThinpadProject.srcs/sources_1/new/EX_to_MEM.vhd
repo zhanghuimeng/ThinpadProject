@@ -44,6 +44,7 @@ entity EX_to_MEM is
            hilo_en_i :          in STD_LOGIC;                                       -- input HILO write enable from EX
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from EX
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from EX
+           pause_i :			in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to MEM
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM
@@ -67,12 +68,21 @@ begin
                 hi_o <= REG_ZERO_DATA;
                 lo_o <= REG_ZERO_DATA;
             else
-                reg_wt_en_o <= reg_wt_en_i;
-                reg_wt_addr_o <= reg_wt_addr_i;
-                reg_wt_data_o <= reg_wt_data_i;
-                hilo_en_o <= hilo_en_i;
-                hi_o <= hi_i;
-                lo_o <= lo_i;
+            	if (pause_i(EX_PAUSE_INDEX) = PAUSE) and (pause_i(MEM_PAUSE_INDEX) = PAUSE_NOT) then  -- Give empty output
+            		reg_wt_en_o <= REG_WT_DISABLE;
+	                reg_wt_addr_o <= REG_ZERO_ADDR;
+	                reg_wt_data_o <= REG_ZERO_DATA;
+	                hilo_en_o <= CHIP_DISABLE;
+	                hi_o <= REG_ZERO_DATA;
+	                lo_o <= REG_ZERO_DATA;
+            	elsif pause_i(MEM_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
+	                reg_wt_en_o <= reg_wt_en_i;
+	                reg_wt_addr_o <= reg_wt_addr_i;
+	                reg_wt_data_o <= reg_wt_data_i;
+	                hilo_en_o <= hilo_en_i;
+	                hi_o <= hi_i;
+	                lo_o <= lo_i;
+	            end if;
             end if;
         end if;
     end process;

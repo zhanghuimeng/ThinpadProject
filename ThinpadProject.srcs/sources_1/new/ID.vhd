@@ -60,7 +60,8 @@ entity ID is
            operand_1_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 to ID_to_EX
            operand_2_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 to ID_to_EX
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to ID_to_EX
-           reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));     -- output register write address to ID_to_EX
+           reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to ID_to_EX
+           pause_o :			out STD_LOGIC);										-- output pause information to PAUSE_CTRL
 end ID;
 
 architecture Behavioral of ID is
@@ -88,6 +89,7 @@ begin
             operand_2_o <= REG_ZERO_DATA;
             reg_wt_en_o <= REG_WT_DISABLE;
             reg_wt_addr_o <= REG_ZERO_ADDR;
+            pause_o <= PAUSE_NOT;
             
         else
             
@@ -101,6 +103,7 @@ begin
             operand_2_o <= REG_ZERO_DATA;
             reg_wt_en_o <= REG_WT_DISABLE;
             reg_wt_addr_o <= reg_d;
+            pause_o <= PAUSE_NOT;  -- temp
     
             -- Decide OP type
             op_code: case op is

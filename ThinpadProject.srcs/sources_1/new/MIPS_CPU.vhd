@@ -44,19 +44,21 @@ end MIPS_CPU;
 architecture Behavioral of MIPS_CPU is
 
 component PC
-    Port ( rst :    in STD_LOGIC;                                       -- Reset
-           clk :    in STD_LOGIC;                                       -- Clock
-           pc_o :   out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ROM
-           en_o :   out STD_LOGIC);                                     -- output enable signal to ROM
+    Port ( rst :    	in STD_LOGIC;                                       -- Reset
+           clk :    	in STD_LOGIC;                                       -- Clock
+           pause_i :	in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           pc_o :   	out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ROM
+           en_o :   	out STD_LOGIC);                                     -- output enable signal to ROM                                 -- output enable signal to ROM
 end component;
 
 component IF_to_ID is
-    Port ( rst :    in STD_LOGIC;                                       -- Reset
-           clk :    in STD_LOGIC;                                       -- Clock
-           pc_i :   in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);      -- input program counter (instruction address) from ROM
-           inst_i : in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from ROM
-           pc_o :   out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ID
-           inst_o : out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));         -- output instruction to ID
+    Port ( rst :    	in STD_LOGIC;                                       -- Reset
+           clk :    	in STD_LOGIC;                                       -- Clock
+           pc_i :   	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);      -- input program counter (instruction address) from ROM
+           inst_i : 	in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from ROM
+           pause_i :	in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           pc_o :   	out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ID
+           inst_o : 	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));         -- output instruction to ID
 end component;
 
 component ID is
@@ -80,7 +82,8 @@ component ID is
            operand_1_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 to ID_to_EX
            operand_2_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 to ID_to_EX
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to ID_to_EX
-           reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));     -- output register write address to ID_to_EX
+           reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to ID_to_EX
+           pause_o :			out STD_LOGIC);										-- output pause information to PAUSE_CTRL
 end component;
 
 component ID_to_EX is
@@ -92,6 +95,7 @@ component ID_to_EX is
            operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 read data from ID
            reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID
            reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID
+           pause_i :		in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            op_o :           out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to EX
            funct_o :        out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to EX
            operand_1_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 read data to EX
@@ -121,7 +125,8 @@ component EX is
            reg_wt_data_o :  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
            hilo_en_o :      out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
            hi_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
-           lo_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output LO data to EX/MEM
+           lo_o :           out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
+           pause_o :		out STD_LOGIC);										-- output pause information to PAUSE_CTRL
 end component;
 
 component EX_to_MEM is
@@ -133,6 +138,7 @@ component EX_to_MEM is
            hilo_en_i :          in STD_LOGIC;                                       -- input HILO write enable from EX
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from EX
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from EX
+           pause_i :			in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to MEM
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM
@@ -166,6 +172,7 @@ component MEM_to_WB is
            hilo_en_i :          in STD_LOGIC;                                       -- input HILO enable from MEM
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
+           pause_i :			in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to REGISTERS
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to REGISTERS
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to REGISTERS
@@ -198,6 +205,13 @@ component HI_LO is
            lo_o :       out STD_LOGIC_VECTOR (REG_DATA_LEN-1 downto 0));            -- output LO data to EX
 end component;
 
+component PAUSE_CTRL is
+    Port ( rst : in STD_LOGIC;													-- Reset
+           id_pause_i : in STD_LOGIC;											-- Input pause information from ID
+           ex_pause_i : in STD_LOGIC;											-- Input pause information from EX
+           pause_o : 	out STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0));		-- Output pause information to PC, IF/ID, ID/EX, EX/MEM, MEM_WB
+end component;
+
 -- PC to IF/ID signals
 signal pc_from_pc : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  -- Need to be mapped to two ports
 
@@ -219,6 +233,9 @@ signal oprand_2_from_id: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal reg_wt_en_from_id: STD_LOGIC;
 signal reg_wt_addr_from_id: STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
 
+-- ID to PAUSE_CTRL signals
+signal id_pause_from_id: STD_LOGIC;
+
 -- ID/EX to EX signals
 signal op_to_ex: STD_LOGIC_VECTOR(OP_LEN-1 downto 0);
 signal funct_to_ex: STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);
@@ -234,6 +251,9 @@ signal reg_wt_data_from_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal hilo_en_from_ex: STD_LOGIC;
 signal hi_from_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal lo_from_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+-- EX to PAUSE_CTRL signals
+signal ex_pause_from_ex: STD_LOGIC;
 
 -- EX/MEM to MEM signals
 signal reg_wt_en_to_mem: STD_LOGIC;
@@ -267,17 +287,21 @@ signal lo_to_hilo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal hi_from_hilo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal lo_from_hilo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
+-- PAUSE_CTRL to PC, IF/ID, ID/EX, EX/MEM, MEM/WB signal
+signal pause: STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);
+
 begin
 
     rom_addr_o <= pc_from_pc;  -- Output 
 
     PC_0 : PC port map(
-        rst => rst, clk => clk, 
+        rst => rst, clk => clk, pause_i => pause, 
         pc_o => pc_from_pc, en_o => rom_en_o);
     
     IF_to_ID_0 : IF_to_ID port map(
         rst => rst, clk => clk, 
         pc_i => pc_from_pc, inst_i => inst_i, 
+        pause_i => pause, 
         pc_o => pc_to_id, inst_o => inst_to_id);
     
     ID_0 : ID port map(
@@ -290,13 +314,15 @@ begin
         reg_rd_en_1_o => reg_rd_en_1_to_register, reg_rd_en_2_o => reg_rd_en_2_to_register, 
         reg_rd_addr_1_o => reg_rd_addr_1_to_register, reg_rd_addr_2_o => reg_rd_addr_2_to_register, 
         operand_1_o => oprand_1_from_id, operand_2_o => oprand_2_from_id, 
-        reg_wt_en_o => reg_wt_en_from_id, reg_wt_addr_o => reg_wt_addr_from_id);
+        reg_wt_en_o => reg_wt_en_from_id, reg_wt_addr_o => reg_wt_addr_from_id,
+        pause_o => id_pause_from_id);
 
     ID_to_EX_0 : ID_to_EX port map(
         rst => rst, clk => clk,
         op_i => op_from_id, funct_i => funct_from_id,
         operand_1_i => oprand_1_from_id, operand_2_i => oprand_2_from_id,
         reg_wt_en_i => reg_wt_en_from_id, reg_wt_addr_i => reg_wt_addr_from_id,
+        pause_i => pause, 
         op_o => op_to_ex, funct_o => funct_to_ex,
         operand_1_o => oprand_1_to_ex, operand_2_o => oprand_2_to_ex,
         reg_wt_en_o => reg_wt_en_to_ex, reg_wt_addr_o => reg_wt_addr_to_ex);
@@ -310,12 +336,14 @@ begin
         mem_hilo_en_i => hilo_en_from_mem, mem_hi_i => hi_from_mem, mem_lo_i => lo_from_mem,
         wb_hilo_en_i => hilo_en_to_hilo, wb_hi_i => hi_to_hilo, wb_lo_i => lo_to_hilo,
         reg_wt_en_o => reg_wt_en_from_ex, reg_wt_addr_o => reg_wt_addr_from_ex, reg_wt_data_o => reg_wt_data_from_ex,
-        hilo_en_o => hilo_en_from_ex, hi_o => hi_from_ex, lo_o => lo_from_ex);
+        hilo_en_o => hilo_en_from_ex, hi_o => hi_from_ex, lo_o => lo_from_ex,
+        pause_o => ex_pause_from_ex);
     
     EX_to_MEM_0 : EX_to_MEM port map(
         rst => rst, clk => clk,
         reg_wt_en_i => reg_wt_en_from_ex, reg_wt_addr_i => reg_wt_addr_from_ex, reg_wt_data_i => reg_wt_data_from_ex,
         hilo_en_i => hilo_en_from_ex, hi_i => hi_from_ex, lo_i => lo_from_ex,
+        pause_i => pause, 
         reg_wt_en_o => reg_wt_en_to_mem, reg_wt_addr_o => reg_wt_addr_to_mem, reg_wt_data_o => reg_wt_data_to_mem,
         hilo_en_o => hilo_en_to_mem, hi_o => hi_to_mem, lo_o => lo_to_mem);
     
@@ -330,6 +358,7 @@ begin
         rst => rst, clk => clk,
         reg_wt_en_i => reg_wt_en_from_mem, reg_wt_addr_i => reg_wt_addr_from_mem, reg_wt_data_i => reg_wt_data_from_mem,
         hilo_en_i => hilo_en_from_mem, hi_i => hi_from_mem, lo_i => lo_from_mem,
+        pause_i => pause, 
         reg_wt_en_o => reg_wt_en_to_register, reg_wt_addr_o => reg_wt_addr_to_register, reg_wt_data_o => reg_wt_data_to_register,
         hilo_en_o => hilo_en_to_hilo, hi_o => hi_to_hilo, lo_o => lo_to_hilo);
     
@@ -344,5 +373,11 @@ begin
         rst => rst, clk => clk,
         en => hilo_en_to_hilo, hi_i => hi_to_hilo, lo_i => lo_to_hilo,
         hi_o => hi_from_hilo, lo_o => lo_from_hilo);
+    
+    PAUSE_CTRL_0 : PAUSE_CTRL port map (
+    	rst => rst,
+    	id_pause_i => id_pause_from_id, ex_pause_i => ex_pause_from_ex,
+    	pause_o => pause
+    );
         
 end Behavioral;
