@@ -106,6 +106,8 @@ package INCLUDE is
 	constant FUNCT_TYPE_MADDU             : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010001";
 	constant FUNCT_TYPE_MSUB              : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010010";
 	constant FUNCT_TYPE_MSUBU             : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010011";
+	constant FUNCT_TYPE_DIV               : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010100";
+	constant FUNCT_TYPE_DIVU              : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010101";
 	-- Logic
 	constant FUNCT_TYPE_AND               : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";
 	constant FUNCT_TYPE_OR                : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011";

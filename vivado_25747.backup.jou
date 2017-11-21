@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Nov 22 03:45:11 2017
-# Process ID: 28558
+# Start of session at: Mon Nov 20 23:17:19 2017
+# Process ID: 25747
 # Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject
 # Command line: vivado -mode batch -source ./sigasi_scripts/SigasiProjectCreator/src/convertVivadoProjectToCsv.tcl ThinpadProject.xpr
 # Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/vivado.log

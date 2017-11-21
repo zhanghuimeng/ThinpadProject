@@ -255,10 +255,20 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
                         -- DIV rs, rt               (LO, HI) ← rs / rt
-                        when FUNCT_DIV =>
+                    	when FUNCT_DIV =>
+                    		op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_DIV;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
                         -- DIVU rs, rt              (LO, HI) ← rs / rt
-                        when FUNCT_DIVU =>
+                    	when FUNCT_DIVU =>
+                    		op_o <= OP_TYPE_ARITH;
+                            funct_o <= FUNCT_TYPE_DIVU;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                         
                         -- ADD rd, rs, rt           rd ← rs + rt
                         -- Generate exception when overflow

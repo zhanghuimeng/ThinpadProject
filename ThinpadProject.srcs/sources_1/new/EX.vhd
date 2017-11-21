@@ -25,6 +25,7 @@ use IEEE.NUMERIC_STD.ALL;
 use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use STD.TEXTIO.ALL;
 use IEEE.STD_LOGIC_TEXTIO.ALL;
+-- use work.fixed_generic_pkg_mod.all; TODO
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -89,6 +90,10 @@ begin
     variable mult_accum_result: UNSIGNED(DOUBLE_DATA_LEN downto 0);
     variable hi: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     variable lo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+    -- TODO Add division support
+    -- variable dividend_float: sfixed(REG_DATA_LEN-1 downto 0);
+    -- variable divisor_float: sfixed(REG_DATA_LEN-1 downto 0);
+    -- variable quotient_float: sfixed(DOUBLE_DATA_LEN-1 downto 0);
     begin
         if rst = RST_ENABLE then
             reg_wt_data_o <= REG_ZERO_DATA;
@@ -248,10 +253,6 @@ begin
                         		mul_cur_result_o <= mult_result;
                         		clock_cycle_cnt_o <= "01";
                         		pause_o <= PAUSE;
-                        		deallocate(output);
-                            	write(output, string'("mul res = "));
-                            	write(output, mul_cur_result_o);
-                            	report output.all;
                         	elsif clock_cycle_cnt_i = "01" then  -- Second cycle: add
                         		mult_accum_result := UNSIGNED('0' & hi & lo);
                         		if (funct_i = FUNCT_TYPE_MADD) or (funct_i = FUNCT_TYPE_MADDU) then 
@@ -269,6 +270,20 @@ begin
                         		pause_o <= PAUSE_NOT;
 								                        		
                         	end if;  
+                        
+                        when FUNCT_TYPE_DIV =>
+                        	-- TODO
+--                        	dividend_float := to_sfixed(signed(operand_1_i), REG_DATA_LEN-1, 0);
+--    						divisor_float := to_sfixed(signed(operand_2_i), REG_DATA_LEN-1, 0);
+--    						quotient_float := dividend_float / divisor_float;
+--    						deallocate(output);
+--                        	write(output, string'("dividend = "));
+--                        	write(output, to_integer(dividend_float));
+--                        	write(output, string'("divisor = "));
+--                        	write(output, to_integer(divisor_float));
+--                        	write(output, string'("quotient = "));
+--                        	write(output, to_integer(quotient_float));
+--                        	report output.all;
                         
                         when others =>
                         
