@@ -75,7 +75,7 @@ begin
 	                hilo_en_o <= CHIP_DISABLE;
 	                hi_o <= REG_ZERO_DATA;
 	                lo_o <= REG_ZERO_DATA;
-            	elsif pause_i(WB_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
+            	elsif pause_i(MEM_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
 	                reg_wt_en_o <= reg_wt_en_i;
 	                reg_wt_addr_o <= reg_wt_addr_i;
 	                reg_wt_data_o <= reg_wt_data_i;

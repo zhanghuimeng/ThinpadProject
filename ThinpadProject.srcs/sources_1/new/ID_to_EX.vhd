@@ -74,7 +74,7 @@ begin
 	                operand_2_o <= REG_ZERO_DATA;
 	                reg_wt_en_o <= REG_WT_DISABLE;
 	                reg_wt_addr_o <= REG_ZERO_ADDR;
-                elsif pause_i(EX_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
+                elsif pause_i(ID_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
 	                op_o <= op_i;
 	                funct_o <= funct_i;
 	                operand_1_o <= operand_1_i;

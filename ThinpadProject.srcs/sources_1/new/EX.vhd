@@ -72,7 +72,10 @@ end EX;
 architecture Behavioral of EX is
     
 begin
-    process (all)
+	-- process (all)
+	process (rst, op_i, funct_i, operand_1_i, operand_2_i, reg_wt_en_i, reg_wt_addr_i, hi_i, lo_i, 
+		mem_hilo_en_i, mem_hi_i, mem_lo_i, wb_hilo_en_i, wb_hi_i, wb_lo_i, clock_cycle_cnt_i, mul_cur_result_i
+	)
     variable output: LINE;
     variable operand_1: UNSIGNED(DATA_LEN-1 downto 0);
     variable operand_2: UNSIGNED(DATA_LEN-1 downto 0);
@@ -220,10 +223,10 @@ begin
                             reg_wt_data_o <= mult_result(REG_DATA_LEN-1 downto 0);
                             
                         when FUNCT_TYPE_MULT =>
-                        	deallocate(output);
+                        	/* deallocate(output);
                             write(output, string'("MULT, mult_result = "));
                             write(output, mult_result);
-                            report output.all;
+                            report output.all; */
                             hilo_en_o <= CHIP_ENABLE;
                             hi_o <= mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
                             lo_o <= mult_result(REG_DATA_LEN-1 downto 0);
@@ -238,27 +241,42 @@ begin
                         	if funct_i = FUNCT_TYPE_MADDU then
                         		mult_result := std_logic_vector(unsigned(operand_1_i) * unsigned(operand_2_i));
                         	end if;
-                        	deallocate(output);
-                            write(output, string'("clock cycle = "));
-                            write(output, clock_cycle_cnt_i);
-                            report output.all;
+--                        	deallocate(output);
+--                            write(output, string'("clock cycle = "));
+--                            write(output, clock_cycle_cnt_i);
+--                            report output.all;
                         	if clock_cycle_cnt_i = "00" then  -- First cycle: multiply
                         		mul_cur_result_o <= mult_result;
                         		clock_cycle_cnt_o <= "01";
                         		pause_o <= PAUSE;
                         	elsif clock_cycle_cnt_i = "01" then  -- Second cycle: add
                         		mult_accum_result := UNSIGNED('0' & hi_o & lo_o);
+--                        		deallocate(output);
+--                            	write(output, string'("mult_accum_result = "));
+--                            	write(output, mult_accum_result);
+--                            	report output.all;
                         		if (funct_i = FUNCT_TYPE_MADD) or (funct_i = FUNCT_TYPE_MADDU) then 
-	                        		mult_accum_result := unsigned('0' & mul_cur_result_i) + mult_accum_result;
+	                        		mult_accum_result := UNSIGNED('0' & mul_cur_result_i) + mult_accum_result;
 	                        	else
-	                        		mult_accum_result := unsigned('0' & ((not mul_cur_result_i) + '1')) + mult_accum_result;
+	                        		mult_accum_result := UNSIGNED('0' & ((not mul_cur_result_i) + '1')) + mult_accum_result;
 	                        	end if;
+	                        	deallocate(output);
+                            	write(output, string'("mult_accum_result after = "));
+                            	write(output, mult_accum_result);
+                            	report output.all;
                         		hilo_en_o <= CHIP_ENABLE;
                             	hi_o <= STD_LOGIC_VECTOR(mult_accum_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN));
                             	lo_o <= STD_LOGIC_VECTOR(mult_accum_result(REG_DATA_LEN-1 downto 0));
                             	mul_cur_result_o <= DOUBLE_ZERO_DATA;
                         		clock_cycle_cnt_o <= "10";  -- So that the multiply accumulation instruction won't repeat
                         		pause_o <= PAUSE_NOT;
+								deallocate(output);
+                            	write(output, string'("hi_o = "));
+                            	write(output, hi_o);
+                            	write(output, string'(", lo_o = "));
+                            	write(output, lo_o);
+								report output.all;
+                        		
                         	end if;  
                         
                         when others =>

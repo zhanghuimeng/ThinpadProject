@@ -21,6 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use STD.TEXTIO.ALL;
+use IEEE.STD_LOGIC_TEXTIO.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -44,6 +46,7 @@ architecture Behavioral of PAUSE_CTRL is
 
 begin
 	process (all)
+		variable output: LINE;
 	begin
 		if rst = RST_ENABLE then
 			pause_o <= b"000000";
@@ -55,6 +58,14 @@ begin
 			else
 				pause_o <= b"000000";
 			end if;
+			/* deallocate(output);
+            write(output, string'("ID pause = "));
+            write(output, id_pause_i);
+            write(output, string'(", EX pause = "));
+            write(output, ex_pause_i);
+            write(output, string'(", pause vector = "));
+            write(output, pause_o);
+            report output.all; */
 		end if;
 	end process;
 

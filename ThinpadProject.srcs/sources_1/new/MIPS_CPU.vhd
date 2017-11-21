@@ -395,7 +395,6 @@ begin
     PAUSE_CTRL_0 : PAUSE_CTRL port map (
     	rst => rst,
     	id_pause_i => id_pause_from_id, ex_pause_i => ex_pause_from_ex,
-    	pause_o => pause
-    );
+    	pause_o => pause);
         
 end Behavioral;
