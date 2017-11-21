@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Nov 22 00:50:34 2017
-# Process ID: 11354
+# Start of session at: Wed Nov 22 01:41:51 2017
+# Process ID: 15228
 # Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,18 +15,22 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11374 
+INFO: Helper process launched with PID 15257 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1184.836 ; gain = 75.984 ; free physical = 915 ; free virtual = 19580
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1184.836 ; gain = 75.984 ; free physical = 733 ; free virtual = 19423
 ---------------------------------------------------------------------------------
-ERROR: [Synth 8-1031] conv_std_logic_vector is not declared [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:268]
-ERROR: [Synth 8-1031] conv_std_logic_vector is not declared [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:269]
+ERROR: [Synth 8-2778] type error near %s ; expected type %s
+ERROR: [Synth 8-2029] formal b has no actual or default value [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:272]
+INFO: [Synth 8-994] b is declared here [./vhdl_packages/2008/src/std_logic_1164_2008.vhd:188]
+INFO: [Synth 8-994] b is declared here [./vhdl_packages/2008/src/std_logic_1164_2008.vhd:188]
+ERROR: [Synth 8-2778] type error near mult_accum_result ; expected type natural [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:272]
+ERROR: [Synth 8-2234] indexed name is not a std_logic_vector [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:272]
 INFO: [Synth 8-2810] unit behavioral ignored due to previous errors [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:72]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1225.336 ; gain = 116.484 ; free physical = 926 ; free virtual = 19590
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1225.336 ; gain = 116.484 ; free physical = 669 ; free virtual = 19358
 ---------------------------------------------------------------------------------
 synthesize failed
-2 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+4 Infos, 0 Warnings, 0 Critical Warnings and 5 Errors encountered.
 synth_design failed
 ERROR: [Common 17-69] Command failed: Vivado Synthesis failed
-INFO: [Common 17-206] Exiting Vivado at Wed Nov 22 00:50:54 2017...
+INFO: [Common 17-206] Exiting Vivado at Wed Nov 22 01:42:12 2017...

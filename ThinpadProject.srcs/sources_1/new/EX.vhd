@@ -87,6 +87,8 @@ begin
     variable mul_sign: STD_LOGIC;
     variable mult_result: STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);
     variable mult_accum_result: UNSIGNED(DOUBLE_DATA_LEN downto 0);
+    variable hi: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+    variable lo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     begin
         if rst = RST_ENABLE then
             reg_wt_data_o <= REG_ZERO_DATA;
@@ -105,18 +107,19 @@ begin
             clock_cycle_cnt_o <= b"00";
             mul_cur_result_o <= DOUBLE_ZERO_DATA;
             hilo_en_o <= CHIP_DISABLE;
+            
             -- So that the HILO register can immediately get value?
-            hi_o <= hi_i;
+            hi := hi_i;
             if mem_hilo_en_i = CHIP_ENABLE then
-                hi_o <= mem_hi_i;
+                hi := mem_hi_i;
             elsif wb_hilo_en_i = CHIP_ENABLE then
-                hi_o <= wb_hi_i;
+                hi := wb_hi_i;
             end if;
-            lo_o <= lo_i;
+            lo := lo_i;
             if mem_hilo_en_i = CHIP_ENABLE then
-                lo_o <= mem_lo_i;
+                lo := mem_lo_i;
             elsif wb_hilo_en_i = CHIP_ENABLE then
-                lo_o <= wb_lo_i;
+                lo := wb_lo_i;
             end if;
             
             -- For addition, subtraction and signed comparation instructions
@@ -228,55 +231,43 @@ begin
                             write(output, mult_result);
                             report output.all; */
                             hilo_en_o <= CHIP_ENABLE;
-                            hi_o <= mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
-                            lo_o <= mult_result(REG_DATA_LEN-1 downto 0);
+                            hi := mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
+                            lo := mult_result(REG_DATA_LEN-1 downto 0);
                             
                         when FUNCT_TYPE_MULTU =>
                         	mult_result := std_logic_vector(unsigned(operand_1_i) * unsigned(operand_2_i));
                             hilo_en_o <= CHIP_ENABLE;
-                            hi_o <= mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
-                            lo_o <= mult_result(REG_DATA_LEN-1 downto 0);
+                            hi := mult_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN);
+                            lo := mult_result(REG_DATA_LEN-1 downto 0);
                         
                         when FUNCT_TYPE_MADD | FUNCT_TYPE_MADDU | FUNCT_TYPE_MSUB | FUNCT_TYPE_MSUBU =>
-                        	if funct_i = FUNCT_TYPE_MADDU then
+                        	if (funct_i = FUNCT_TYPE_MADDU) or (funct_i = FUNCT_TYPE_MSUBU) then
                         		mult_result := std_logic_vector(unsigned(operand_1_i) * unsigned(operand_2_i));
                         	end if;
---                        	deallocate(output);
---                            write(output, string'("clock cycle = "));
---                            write(output, clock_cycle_cnt_i);
---                            report output.all;
                         	if clock_cycle_cnt_i = "00" then  -- First cycle: multiply
                         		mul_cur_result_o <= mult_result;
                         		clock_cycle_cnt_o <= "01";
                         		pause_o <= PAUSE;
+                        		deallocate(output);
+                            	write(output, string'("mul res = "));
+                            	write(output, mul_cur_result_o);
+                            	report output.all;
                         	elsif clock_cycle_cnt_i = "01" then  -- Second cycle: add
-                        		mult_accum_result := UNSIGNED('0' & hi_o & lo_o);
---                        		deallocate(output);
---                            	write(output, string'("mult_accum_result = "));
---                            	write(output, mult_accum_result);
---                            	report output.all;
+                        		mult_accum_result := UNSIGNED('0' & hi & lo);
                         		if (funct_i = FUNCT_TYPE_MADD) or (funct_i = FUNCT_TYPE_MADDU) then 
 	                        		mult_accum_result := UNSIGNED('0' & mul_cur_result_i) + mult_accum_result;
 	                        	else
 	                        		mult_accum_result := UNSIGNED('0' & ((not mul_cur_result_i) + '1')) + mult_accum_result;
 	                        	end if;
-	                        	deallocate(output);
-                            	write(output, string'("mult_accum_result after = "));
-                            	write(output, mult_accum_result);
-                            	report output.all;
-                        		hilo_en_o <= CHIP_ENABLE;
-                            	hi_o <= STD_LOGIC_VECTOR(mult_accum_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN));
-                            	lo_o <= STD_LOGIC_VECTOR(mult_accum_result(REG_DATA_LEN-1 downto 0));
+	                        	hilo_en_o <= CHIP_ENABLE;
+                        		-- I dont know what is the fucking problem with this output
+                        		-- The fucking problem is that I confused signal with variable
+                        		hi := STD_LOGIC_VECTOR(mult_accum_result(DOUBLE_DATA_LEN-1 downto REG_DATA_LEN));
+                            	lo := STD_LOGIC_VECTOR(mult_accum_result(REG_DATA_LEN-1 downto 0));
                             	mul_cur_result_o <= DOUBLE_ZERO_DATA;
                         		clock_cycle_cnt_o <= "10";  -- So that the multiply accumulation instruction won't repeat
                         		pause_o <= PAUSE_NOT;
-								deallocate(output);
-                            	write(output, string'("hi_o = "));
-                            	write(output, hi_o);
-                            	write(output, string'(", lo_o = "));
-                            	write(output, lo_o);
-								report output.all;
-                        		
+								                        		
                         	end if;  
                         
                         when others =>
@@ -367,6 +358,10 @@ begin
                 when others =>
                 
             end case op_code;
+            
+            -- Use signal to give hi/lo output a correct value
+            hi_o <= hi;
+            lo_o <= lo;
         end if;
     end process;
 
