@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Wed Nov 22 03:35:25 2017
+| Date         : Wed Nov 22 20:46:47 2017
 | Host         : zhanghuimeng-ThinkPad-T430 running 64-bit Ubuntu 16.04.3 LTS
 | Command      : report_utilization -file MIPS_CPU_utilization_synth.rpt -pb MIPS_CPU_utilization_synth.pb
 | Design       : MIPS_CPU
@@ -27,18 +27,20 @@ Table of Contents
 1. Slice Logic
 --------------
 
-+-------------------------+------+-------+-----------+-------+
-|        Site Type        | Used | Fixed | Available | Util% |
-+-------------------------+------+-------+-----------+-------+
-| Slice LUTs*             |   57 |     0 |     63400 |  0.09 |
-|   LUT as Logic          |   57 |     0 |     63400 |  0.09 |
-|   LUT as Memory         |    0 |     0 |     19000 |  0.00 |
-| Slice Registers         |   80 |     0 |    126800 |  0.06 |
-|   Register as Flip Flop |   80 |     0 |    126800 |  0.06 |
-|   Register as Latch     |    0 |     0 |    126800 |  0.00 |
-| F7 Muxes                |    0 |     0 |     31700 |  0.00 |
-| F8 Muxes                |    0 |     0 |     15850 |  0.00 |
-+-------------------------+------+-------+-----------+-------+
++----------------------------+------+-------+-----------+-------+
+|          Site Type         | Used | Fixed | Available | Util% |
++----------------------------+------+-------+-----------+-------+
+| Slice LUTs*                | 1863 |     0 |     63400 |  2.94 |
+|   LUT as Logic             | 1815 |     0 |     63400 |  2.86 |
+|   LUT as Memory            |   48 |     0 |     19000 |  0.25 |
+|     LUT as Distributed RAM |   48 |     0 |           |       |
+|     LUT as Shift Register  |    0 |     0 |           |       |
+| Slice Registers            |  607 |     0 |    126800 |  0.48 |
+|   Register as Flip Flop    |  511 |     0 |    126800 |  0.40 |
+|   Register as Latch        |   96 |     0 |    126800 |  0.08 |
+| F7 Muxes                   |    4 |     0 |     31700 |  0.01 |
+| F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
++----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
 
 
@@ -55,9 +57,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 0     |          Yes |           - |        Reset |
+| 96    |          Yes |           - |        Reset |
 | 0     |          Yes |         Set |            - |
-| 80    |          Yes |       Reset |            - |
+| 511   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -77,11 +79,12 @@ Table of Contents
 3. DSP
 ------
 
-+-----------+------+-------+-----------+-------+
-| Site Type | Used | Fixed | Available | Util% |
-+-----------+------+-------+-----------+-------+
-| DSPs      |    0 |     0 |       240 |  0.00 |
-+-----------+------+-------+-----------+-------+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| DSPs           |    8 |     0 |       240 |  3.33 |
+|   DSP48E1 only |    8 |       |           |       |
++----------------+------+-------+-----------+-------+
 
 
 4. IO and GT Specific
@@ -90,7 +93,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |   47 |     0 |       300 | 15.67 |
+| Bonded IOB                  |   67 |     0 |       300 | 22.33 |
 | Bonded IPADs                |    0 |     0 |        26 |  0.00 |
 | Bonded OPADs                |    0 |     0 |        16 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
@@ -115,7 +118,7 @@ Table of Contents
 +------------+------+-------+-----------+-------+
 |  Site Type | Used | Fixed | Available | Util% |
 +------------+------+-------+-----------+-------+
-| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
+| BUFGCTRL   |    4 |     0 |        32 | 12.50 |
 | BUFIO      |    0 |     0 |        24 |  0.00 |
 | MMCME2_ADV |    0 |     0 |         6 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |         6 |  0.00 |
@@ -149,17 +152,22 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |   80 |        Flop & Latch |
+| LUT6     |  856 |                 LUT |
+| FDRE     |  511 |        Flop & Latch |
+| LUT4     |  325 |                 LUT |
+| LUT2     |  305 |                 LUT |
+| LUT5     |  249 |                 LUT |
+| LUT1     |  172 |                 LUT |
+| LUT3     |  147 |                 LUT |
+| CARRY4   |  123 |          CarryLogic |
+| LDCE     |   96 |        Flop & Latch |
+| RAMD32   |   72 |  Distributed Memory |
+| IBUF     |   34 |                  IO |
 | OBUF     |   33 |                  IO |
-| LUT1     |   32 |                 LUT |
-| LUT6     |   18 |                 LUT |
-| IBUF     |   14 |                  IO |
-| CARRY4   |    8 |          CarryLogic |
-| LUT3     |    4 |                 LUT |
-| LUT5     |    2 |                 LUT |
-| LUT4     |    2 |                 LUT |
-| LUT2     |    1 |                 LUT |
-| BUFG     |    1 |               Clock |
+| RAMS32   |   24 |  Distributed Memory |
+| DSP48E1  |    8 |    Block Arithmetic |
+| MUXF7    |    4 |               MuxFx |
+| BUFG     |    4 |               Clock |
 +----------+------+---------------------+
 
 

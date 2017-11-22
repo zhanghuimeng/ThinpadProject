@@ -36,21 +36,27 @@ use WORK.INCLUDE.ALL;
 -- ID_to_EX Module in CPU
 
 entity ID_to_EX is
-    Port ( rst :            in STD_LOGIC;                                       -- Reset
-           clk :            in STD_LOGIC;                                       -- Clock
-           op_i :           in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID
-           funct_i :        in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom funct type from ID
-           operand_1_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 data from ID
-           operand_2_i :    in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 read data from ID
-           reg_wt_en_i :    in STD_LOGIC;                                       -- input register write enable from ID
-           reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID
-           pause_i :		in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
-           op_o :           out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to EX
-           funct_o :        out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to EX
-           operand_1_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 read data to EX
-           operand_2_o :    out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 read data to EX
-           reg_wt_en_o :    out STD_LOGIC;                                      -- output register write enable to EX
-           reg_wt_addr_o :  out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0));     -- output register write address to EX
+    Port ( rst :            			in STD_LOGIC;                                       -- Reset
+           clk :            			in STD_LOGIC;                                       -- Clock
+           op_i :           			in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID
+           funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom funct type from ID
+           operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 data from ID
+           operand_2_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 read data from ID
+           reg_wt_en_i :    			in STD_LOGIC;                                       -- input register write enable from ID
+           reg_wt_addr_i :  			in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID
+           pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           is_in_delayslot_i :			in STD_LOGIC;										-- input the current instruction in delay slot from ID
+		   next_inst_in_delayslot_i :	in STD_LOGIC;										-- input the next instruction in delay slot from ID
+		   link_addr_i :				in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);		-- output the return address to save from ID
+           op_o :           			out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to EX
+           funct_o :        			out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to EX
+           operand_1_o :    			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 read data to EX
+           operand_2_o :    			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 read data to EX
+           reg_wt_en_o :    			out STD_LOGIC;                                      -- output register write enable to EX
+           reg_wt_addr_o :  			out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX
+           is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to EX
+		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the next instruction in delay slot to ID
+		   link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));		-- output the register address to save return address to EX
 end ID_to_EX;
 
 architecture Behavioral of ID_to_EX is
@@ -66,6 +72,9 @@ begin
                 operand_2_o <= REG_ZERO_DATA;
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
+                is_in_delayslot_o <= DELAYSLOT_NOT;
+                next_inst_in_delayslot_o <= DELAYSLOT_NOT;
+                link_addr_o <= INST_ZERO_ADDR;
             else
             	if (pause_i(ID_PAUSE_INDEX) = PAUSE) and (pause_i(EX_PAUSE_INDEX) = PAUSE_NOT) then  -- Give empty output
             		op_o <= OP_TYPE_NOP;
@@ -74,6 +83,9 @@ begin
 	                operand_2_o <= REG_ZERO_DATA;
 	                reg_wt_en_o <= REG_WT_DISABLE;
 	                reg_wt_addr_o <= REG_ZERO_ADDR;
+	                is_in_delayslot_o <= DELAYSLOT_NOT;
+	                next_inst_in_delayslot_o <= DELAYSLOT_NOT;
+	                link_addr_o <= INST_ZERO_ADDR;
                 elsif pause_i(ID_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
 	                op_o <= op_i;
 	                funct_o <= funct_i;
@@ -81,6 +93,9 @@ begin
 	                operand_2_o <= operand_2_i;
 	                reg_wt_en_o <= reg_wt_en_i;
 	                reg_wt_addr_o <= reg_wt_addr_i;
+	                is_in_delayslot_o <= is_in_delayslot_i;
+	                next_inst_in_delayslot_o <= next_inst_in_delayslot_i;
+	                link_addr_o <= link_addr_i;
 	            end if;
             end if;
         end if;

@@ -21,6 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
 use STD.TEXTIO.ALL;
 use IEEE.STD_LOGIC_TEXTIO.ALL;
 
@@ -51,6 +53,7 @@ entity ID is
            mem_reg_wt_en_i :    in STD_LOGIC;                                       -- input MEM register write enable from MEM (push forward data to solve data conflict)
            mem_reg_wt_addr_i :  in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input MEM register write address from MEM (push forward data to solve data conflict)
            mem_reg_wt_data_i :  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input MEM register write data from MEM (push forward data to solve data conflict)
+           is_in_delayslot_i :	in STD_LOGIC;										-- input if the current instruction is in delay slot from ID/EX
            op_o :               out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to ID_to_EX
            funct_o :            out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to ID_to_EX
            reg_rd_en_1_o :      out STD_LOGIC;                                      -- output register 1 read enable to REGISTERS
@@ -61,7 +64,12 @@ entity ID is
            operand_2_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 to ID_to_EX
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to ID_to_EX
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to ID_to_EX
-           pause_o :			out STD_LOGIC);										-- output pause information to PAUSE_CTRL
+           pause_o :			out STD_LOGIC;										-- output pause information to PAUSE_CTRL
+		   branch_o :			out STD_LOGIC;										-- output if the next instruction is in delay slot
+		   branch_target_addr_o : out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);	-- output the branch target address to PC
+		   is_in_delayslot_o :	out STD_LOGIC;										-- output the current instruction in delay slot to ID/EX
+		   next_inst_in_delayslot_o :	out STD_LOGIC;								-- output the current instruction in delay slot to ID/EX
+		   link_addr_o :		out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));		-- output the return address to save to ID/EX
 end ID;
 
 architecture Behavioral of ID is
@@ -77,6 +85,8 @@ architecture Behavioral of ID is
 begin
     process (all)
     variable output :       LINE;
+    variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+    variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
     begin
         if rst = RST_ENABLE then
             op_o <= OP_TYPE_NOP;
@@ -90,6 +100,11 @@ begin
             reg_wt_en_o <= REG_WT_DISABLE;
             reg_wt_addr_o <= REG_ZERO_ADDR;
             pause_o <= PAUSE_NOT;
+            branch_o <= BRANCH_NOT;
+            branch_target_addr_o <= INST_ZERO_ADDR;
+            is_in_delayslot_o <= DELAYSLOT_NOT;
+            next_inst_in_delayslot_o <= DELAYSLOT_NOT;
+            link_addr_o <= INST_ZERO_ADDR;
             
         else
             
@@ -104,7 +119,14 @@ begin
             reg_wt_en_o <= REG_WT_DISABLE;
             reg_wt_addr_o <= reg_d;
             pause_o <= PAUSE_NOT;  -- temp
-    
+    		branch_o <= BRANCH_NOT;
+            is_in_delayslot_o <= DELAYSLOT_NOT;
+            next_inst_in_delayslot_o <= DELAYSLOT_NOT;
+            next_pc := pc_i + b"100";
+            branch_addr_offset(IMM_LEN+1 downto 0) := imm & b"00";
+            -- sign extend branch_addr_offset
+            branch_addr_offset(INST_ADDR_LEN-1 downto IMM_LEN+2) := (others => branch_addr_offset(IMM_LEN+1));
+
             -- Decide OP type
             op_code: case op is
             
@@ -167,10 +189,27 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- JR rs                    PC ← rs
-                        when FUNCT_JR => 
+                    	when FUNCT_JR => 
+                    		op_o <= OP_TYPE_BRANCH;
+                            funct_o <= FUNCT_TYPE_JR;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                            branch_o <= BRANCH;
+                            branch_target_addr_o <= reg_rd_data_1_i;
+                            next_inst_in_delayslot_o <= DELAYSLOT;
                         
                         -- JALR (rd, = 31) rs       rd ← return_addr, PC ← rs
-                        when FUNCT_JALR =>
+	                    when FUNCT_JALR =>
+	                    	op_o <= OP_TYPE_BRANCH;
+                            funct_o <= FUNCT_TYPE_JALR;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
+                            branch_o <= BRANCH;
+                            branch_target_addr_o <= reg_rd_data_1_i;
+                            next_inst_in_delayslot_o <= DELAYSLOT;
+                            link_addr_o <= pc_i + b"1000";
                         
                         -- MOVZ rd, rs, rt          if rt = 0 then rd ← rs
                         -- Note data problem
@@ -379,7 +418,98 @@ begin
                     end case special_funct;
                 
                 -- REGIMM type instructions
-                when OP_REGIMM =>
+            	when OP_REGIMM =>
+            		regimm_rt: case reg_t is
+            			
+	            		-- BLTZ rs, offset					if rs < 0 then branch
+	            		when RT_BLTZ =>
+	            			op_o <= OP_TYPE_BRANCH;
+                            funct_o <= FUNCT_TYPE_BLTZ;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                            if SIGNED(reg_rd_data_1_i) < 0 then
+                            	branch_o <= BRANCH;
+                            	branch_target_addr_o <= branch_addr_offset + next_pc;
+                            	next_inst_in_delayslot_o <= DELAYSLOT;
+                            end if;
+	            		
+	            		-- BGEZ rs, offset					if rs ≥ 0 then branch
+	            		when RT_BGEZ =>
+	            			op_o <= OP_TYPE_BRANCH;
+                            funct_o <= FUNCT_TYPE_BGEZ;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                            if SIGNED(reg_rd_data_1_i) >= 0 then
+                            	branch_o <= BRANCH;
+                            	branch_target_addr_o <= branch_addr_offset + next_pc;
+                            	next_inst_in_delayslot_o <= DELAYSLOT;
+                            end if;
+	            		
+	            		-- BLTZL rs, offset					if rs < 0 then branch_likely
+	            		when RT_BLTZL =>
+	            		
+	            		-- BGEZL rs, offset					if rs ≥ 0 then branch_likely
+	            		when RT_BGEZL =>
+	            		
+	            		-- TGEI rs, immediate				if rs ≥ immediate then Trap
+	            		when RT_TGEI =>
+	            		
+	            		-- TGEIU rs, immediate				if rs ≥ immediate then Trap
+	            		when RT_TGEIU =>
+	            		
+	            		-- TLTI rs, immediate				if rs < immediate then Trap
+	            		when RT_TLTI =>
+	            		
+	            		-- TLTIU rs, immediate				if rs < immediate then Trap
+	            		when RT_TLTIU =>
+						
+						-- TEQI rs, immediate				if rs = immediate then Trap
+						when RT_TEQI =>
+						
+						-- TNEI rs, immediate				if rs ≠ immediate then Trap
+						when RT_TNEI =>
+						
+						-- BLTZAL rs, offset				if rs < 0 then procedure_call
+						when RT_BLTZAL =>
+							op_o <= OP_TYPE_BRANCH;
+                            funct_o <= FUNCT_TYPE_BLTZAL;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write $31
+                            reg_wt_addr_o <= REG_31_ADDR;
+                            if SIGNED(reg_rd_data_1_i) < 0 then
+                            	branch_o <= BRANCH;
+                            	branch_target_addr_o <= branch_addr_offset + next_pc;
+                            	link_addr_o <= pc_i + b"1000";
+                            	next_inst_in_delayslot_o <= DELAYSLOT;
+                            end if;
+						
+						-- BGEZAL rs, offset				if rs ≥ 0 then procedure_call
+						when RT_BGEZAL =>
+							op_o <= OP_TYPE_BRANCH;
+                            funct_o <= FUNCT_TYPE_BGEZAL;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write $31
+                            reg_wt_addr_o <= REG_31_ADDR;
+                            if SIGNED(reg_rd_data_1_i) >= 0 then
+                            	branch_o <= BRANCH;
+                            	branch_target_addr_o <= branch_addr_offset + next_pc;
+                            	link_addr_o <= pc_i + b"1000";
+                            	next_inst_in_delayslot_o <= DELAYSLOT;
+                            end if;
+						
+						-- BLTZALL rs, offset				if rs < 0 then procedure_call_likely
+						when RT_BLTZALL =>
+	
+						-- BGEZALL rs, offset				if rs ≥ 0 then procedure_call_likely
+						when RT_BGEZALL =>
+							
+						when others =>
+	            		
+	            	end case regimm_rt;
                 
                 -- SPECIAL2 type instructions
                 when OP_SPECIAL2 =>
@@ -525,23 +655,80 @@ begin
                     reg_wt_addr_o <= reg_t;
                 
                 -- J target                             To branch within the current 256 MB-aligned region
-                when OP_J =>
+            	when OP_J =>
+            		op_o <= OP_TYPE_BRANCH;
+                    funct_o <= FUNCT_TYPE_J;
+                    reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                    reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                    reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                    branch_o <= BRANCH;
+                    branch_target_addr_o <= next_pc(31 downto 28) & jump_addr & b"00";
+                    next_inst_in_delayslot_o <= DELAYSLOT;
                 
                 -- JAL target                           To execute a procedure call within the current 256 MB-aligned region
                 when OP_JAL =>
-                
+                	op_o <= OP_TYPE_BRANCH;
+                    funct_o <= FUNCT_TYPE_JAL;
+                    reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                    reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                    reg_wt_en_o <= REG_WT_ENABLE;  -- write $31
+                    reg_wt_addr_o <= REG_31_ADDR;
+                    branch_o <= BRANCH;
+                    branch_target_addr_o <= next_pc(31 downto 28) & jump_addr & b"00";
+                    next_inst_in_delayslot_o <= DELAYSLOT;
+                	
                 -- BEQ rs, rt, offset                   if rs = rt then branch
-                when OP_BEQ =>
+	            when OP_BEQ =>
+	            	op_o <= OP_TYPE_BRANCH;
+                    funct_o <= FUNCT_TYPE_BEQ;
+                    reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                    reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                    reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                    if reg_rd_data_1_i = reg_rd_data_2_i then
+                    	branch_o <= BRANCH;
+                    	branch_target_addr_o <= branch_addr_offset + next_pc;
+                    	next_inst_in_delayslot_o <= DELAYSLOT;
+                    end if;
                 
                 -- BNE rs, rt, offset                   if rs ≠ rt then branch
                 when OP_BNE =>
+                	op_o <= OP_TYPE_BRANCH;
+                    funct_o <= FUNCT_TYPE_BNE;
+                    reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                    reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                    reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                    if not(reg_rd_data_1_i = reg_rd_data_2_i) then
+                    	branch_o <= BRANCH;
+                    	branch_target_addr_o <= branch_addr_offset + next_pc;
+                    	next_inst_in_delayslot_o <= DELAYSLOT;
+                    end if;
                 
                 -- BLEZ rs, offset                      if rs ≤ 0 then branch
-                when OP_BLEZ =>
+           	 	when OP_BLEZ =>
+            		op_o <= OP_TYPE_BRANCH;
+                    funct_o <= FUNCT_TYPE_BEQ;
+                    reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                    reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                    reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                    if SIGNED(reg_rd_data_1_i) <= 0 then
+                    	branch_o <= BRANCH;
+                    	branch_target_addr_o <= branch_addr_offset + next_pc;
+                    	next_inst_in_delayslot_o <= DELAYSLOT;
+                    end if;
                 
                 -- BGTZ rs, offset                      if rs > 0 then branch
                 when OP_BGTZ =>
-                
+                	op_o <= OP_TYPE_BRANCH;
+                    funct_o <= FUNCT_TYPE_BEQ;
+                    reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                    reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                    reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
+                    if SIGNED(reg_rd_data_1_i) > 0 then
+                    	branch_o <= BRANCH;
+                    	branch_target_addr_o <= branch_addr_offset + next_pc;
+                    	next_inst_in_delayslot_o <= DELAYSLOT;
+                    end if;
+                    
                 -- BEQL rs, rt, offset                  if rs = rt then branch_likely
                 when OP_BEQL =>
                 

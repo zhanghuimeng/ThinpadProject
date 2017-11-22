@@ -53,6 +53,11 @@ package INCLUDE is
     -- Accumulation inst constants
     constant ACCU_CNT_LEN 	 : integer	 := 2;
     
+    constant BRANCH			 : STD_LOGIC := '1';
+    constant BRANCH_NOT		 : STD_LOGIC := '0';
+    constant DELAYSLOT		 : STD_LOGIC := '1';
+    constant DELAYSLOT_NOT	 : STD_LOGIC := '0';
+    
     constant OP_LEN          : integer   := 6;
 	constant FUNCT_LEN       : integer   := 6;
 	constant IMM_LEN         : integer   := 16;
@@ -71,8 +76,10 @@ package INCLUDE is
 	constant REG_WT_DISABLE  : STD_LOGIC := '0';
 
 	constant REG_ZERO_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00000";
+	constant REG_31_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"11111";
 	constant REG_ZERO_DATA : STD_LOGIC_VECTOR(REG_DATA_LEN - 1 downto 0) := x"00000000";
 	constant ZERO_DATA : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := x"00000000";
+	constant INST_ZERO_ADDR : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := x"00000000";
 	constant DOUBLE_ZERO_DATA : STD_LOGIC_VECTOR(DOUBLE_DATA_LEN - 1 downto 0) := x"0000000000000000";
 
 	-- Instruction type for EX Module
@@ -124,6 +131,21 @@ package INCLUDE is
 	constant FUNCT_TYPE_MOVE_TO_HI        : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";
 	constant FUNCT_TYPE_MOVE_FROM_LO      : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";
 	constant FUNCT_TYPE_MOVE_TO_LO        : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000110";
+	-- Branch
+	constant FUNCT_TYPE_JR				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
+	constant FUNCT_TYPE_JALR			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";
+	constant FUNCT_TYPE_J				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011";
+	constant FUNCT_TYPE_JAL				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";
+	constant FUNCT_TYPE_B				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";
+	constant FUNCT_TYPE_BAL				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000110";
+	constant FUNCT_TYPE_BEQ				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000111";
+	constant FUNCT_TYPE_BGEZ			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001000";
+	constant FUNCT_TYPE_BGEZAL			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001001";
+	constant FUNCT_TYPE_BGTZ			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001010";
+	constant FUNCT_TYPE_BLEZ			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011";
+	constant FUNCT_TYPE_BLTZ			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001100";
+	constant FUNCT_TYPE_BLTZAL			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001101";
+	constant FUNCT_TYPE_BNE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001110";
 
 	-- Introduction to the MIPS32 Architecture
 	-- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)
@@ -238,13 +260,13 @@ package INCLUDE is
 
 	-- Introduction to the MIPS32 Architecture
 	-- Table A-5 MIPS32 SPECIAL2 Encoding of Function Field (bits 5..0)
-	constant FUNCT_MADD  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000000";
-	constant FUNCT_MADDU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
-	constant FUNCT_MUL   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";
-	constant FUNCT_MSUB  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";
-	constant FUNCT_MSUBU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";
-	constant FUNCT_CLZ   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100000";
-	constant FUNCT_CLO   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100001";
+	constant FUNCT_MADD  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000000";	-- MADD rs, rt              (LO,HI) ← (rs x rt) + (LO,HI)
+	constant FUNCT_MADDU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";	-- MADDU rs, rt             (LO,HI) ← (rs x rt) + (LO,HI)
+	constant FUNCT_MUL   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";	-- MUL rd, rs, rt           rd ← rs × rt
+	constant FUNCT_MSUB  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";	-- MSUB rs, rt              (LO,HI) ← (rs x rt) - (LO,HI)
+	constant FUNCT_MSUBU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";	-- MSUBU rs, rt             (LO,HI) ← (rs x rt) - (LO,HI)
+	constant FUNCT_CLZ   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100000";	-- CLZ rd, rs               rd ← count_leading_zeros rs
+	constant FUNCT_CLO   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100001";	-- CLO rd, rs               rd ← count_leading_ones rs
 	constant FUNCT_SDBBP : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"111111";
 
 	-- Introduction to the MIPS32 Architecture
