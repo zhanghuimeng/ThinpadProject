@@ -675,6 +675,7 @@ begin
                     reg_wt_addr_o <= REG_31_ADDR;
                     branch_o <= BRANCH;
                     branch_target_addr_o <= next_pc(31 downto 28) & jump_addr & b"00";
+                    link_addr_o <= pc_i + b"1000";
                     next_inst_in_delayslot_o <= DELAYSLOT;
                 	
                 -- BEQ rs, rt, offset                   if rs = rt then branch
@@ -809,7 +810,11 @@ begin
                 elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_1_o) then  -- Solve data conflict
                     operand_1_o <= mem_reg_wt_data_i;
                 else
-                    operand_1_o <= reg_rd_data_1_i;
+                	operand_1_o <= reg_rd_data_1_i;
+                	-- Special case for $0
+                	if reg_rd_addr_1_o = REG_ZERO_ADDR then
+                		operand_1_o <= ZERO_DATA;
+                	end if;
                 end if;
             elsif reg_rd_en_1_o = REG_RD_DISABLE then
                 operand_1_o <= extended_imm;
@@ -823,7 +828,11 @@ begin
                 elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_2_o) then  -- Solve data conflict
                     operand_2_o <= mem_reg_wt_data_i;
                 else
-                    operand_2_o <= reg_rd_data_2_i;
+                	operand_2_o <= reg_rd_data_2_i;
+                	-- Special case for $0
+                	if reg_rd_addr_2_o = REG_ZERO_ADDR then
+                		operand_2_o <= ZERO_DATA;
+                	end if;
                 end if;
             elsif reg_rd_en_2_o = REG_RD_DISABLE then
                 operand_2_o <= extended_imm;

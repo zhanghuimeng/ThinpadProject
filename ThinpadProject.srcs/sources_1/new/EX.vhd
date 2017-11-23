@@ -76,8 +76,10 @@ architecture Behavioral of EX is
     
 begin
 	-- process (all)
+	-- Remeber to add all signals
 	process (rst, op_i, funct_i, operand_1_i, operand_2_i, reg_wt_en_i, reg_wt_addr_i, hi_i, lo_i, 
-		mem_hilo_en_i, mem_hi_i, mem_lo_i, wb_hilo_en_i, wb_hi_i, wb_lo_i, clock_cycle_cnt_i, mul_cur_result_i
+		mem_hilo_en_i, mem_hi_i, mem_lo_i, wb_hilo_en_i, wb_hi_i, wb_lo_i, clock_cycle_cnt_i, mul_cur_result_i,
+		is_in_delayslot_i, link_addr_i
 	)
     variable output: LINE;
     variable operand_1: UNSIGNED(DATA_LEN-1 downto 0);

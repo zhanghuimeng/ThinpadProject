@@ -374,7 +374,7 @@ begin
         reg_wt_en_i => reg_wt_en_from_id, reg_wt_addr_i => reg_wt_addr_from_id,
         pause_i => pause, 
         is_in_delayslot_i => is_in_delayslot_from_id, next_inst_in_delayslot_i => next_inst_in_delayslot_from_id,
-        link_addr_i => link_addr_to_ex,
+        link_addr_i => link_addr_from_id,
         op_o => op_to_ex, funct_o => funct_to_ex,
         operand_1_o => oprand_1_to_ex, operand_2_o => oprand_2_to_ex,
         reg_wt_en_o => reg_wt_en_to_ex, reg_wt_addr_o => reg_wt_addr_to_ex,

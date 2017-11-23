@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="10535807565fs"></ZoomEndTime>
-      <Cursor1Time time="390000000fs"></Cursor1Time>
+      <ZoomStartTime time="248260000fs"></ZoomStartTime>
+      <ZoomEndTime time="406460001fs"></ZoomEndTime>
+      <Cursor1Time time="254460000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="187"></NameColumnWidth>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
       <ValueColumnWidth column_width="61"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="44" />
+   <WVObjectSize size="47" />
    <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/CLOCK_50">
       <obj_property name="ElementShortName">CLOCK_50</obj_property>
       <obj_property name="ObjectShortName">CLOCK_50</obj_property>
@@ -36,6 +36,8 @@
       <obj_property name="ElementShortName">pc_o[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc_o[31:0]</obj_property>
       <obj_property name="label">PC pc_o[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/PC_0/en_o">
       <obj_property name="DisplayName">label</obj_property>
@@ -48,6 +50,8 @@
       <obj_property name="ElementShortName">pc_o[31:0]</obj_property>
       <obj_property name="ObjectShortName">pc_o[31:0]</obj_property>
       <obj_property name="label">IF/ID pc_o[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/IF_to_ID_0/inst_o">
       <obj_property name="DisplayName">label</obj_property>
@@ -132,6 +136,22 @@
       <obj_property name="ElementShortName">reg_wt_addr_o[4:0]</obj_property>
       <obj_property name="ObjectShortName">reg_wt_addr_o[4:0]</obj_property>
       <obj_property name="label">ID reg_wt_addr_o[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/ID_0/link_addr_o">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">link_addr_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">link_addr_o[31:0]</obj_property>
+      <obj_property name="label">ID link_addr_o[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/link_addr_i">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">link_addr_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">link_addr_i[31:0]</obj_property>
+      <obj_property name="label">EX link_addr_i[31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FF00FF</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
    <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/reg_wt_en_o">
       <obj_property name="DisplayName">label</obj_property>
@@ -262,6 +282,14 @@
       <obj_property name="ElementShortName">[4][31:0]</obj_property>
       <obj_property name="ObjectShortName">[4][31:0]</obj_property>
       <obj_property name="label">REG [4][31:0]</obj_property>
+      <obj_property name="CustomSignalColor">#FFFF00</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[31]">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">[31][31:0]</obj_property>
+      <obj_property name="ObjectShortName">[31][31:0]</obj_property>
+      <obj_property name="label">REG [31][31:0]</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>

@@ -56,6 +56,7 @@ begin
             else
                 en_o <= CHIP_ENABLE;   -- ROM is enabled in general
             end if;
+            -- If I rewrite it, the first instruction might not be read
             if en_o = CHIP_DISABLE then   -- When ROM is disabled, PC = 0
                 pc_o <= x"00000000";
             else                        -- When ROM is enabled, PC increase by 4 every clock cycle
