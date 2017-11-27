@@ -64,6 +64,10 @@ entity EX is
            reg_wt_en_o :    			out STD_LOGIC;                                      -- output register write enable to EX/MEM
            reg_wt_addr_o :  			out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX/MEM
            reg_wt_data_o :  			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
+           is_load_store_o :			out STD_LOGIC;										-- output load/store to EX/MEM
+           funct_o :					out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);			-- output load/store type to EX/MEM
+           load_store_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output load/store memory address to EX/MEM
+           store_data_o :				out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output store data to EX/MEM
            hilo_en_o :      			out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
            hi_o :           			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to EX/MEM
            lo_o :           			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
@@ -103,6 +107,10 @@ begin
             reg_wt_data_o <= REG_ZERO_DATA;
             reg_wt_addr_o <= REG_ZERO_ADDR;
             reg_wt_en_o <= REG_WT_DISABLE;
+            is_load_store_o <= NOT_LOAD_STORE;
+          	funct_o <= FUNCT_TYPE_NOP;
+           	load_store_addr_o <= ZERO_ADDR;
+           	store_data_o <= ZERO_DATA;
             hilo_en_o <= CHIP_DISABLE;
             hi_o <= REG_ZERO_DATA;
             lo_o <= REG_ZERO_DATA;
@@ -112,6 +120,10 @@ begin
         else
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
+            is_load_store_o <= NOT_LOAD_STORE;
+          	funct_o <= FUNCT_TYPE_NOP;
+           	load_store_addr_o <= ZERO_ADDR;
+           	store_data_o <= ZERO_DATA;
             pause_o <= PAUSE_NOT;
             clock_cycle_cnt_o <= b"00";
             mul_cur_result_o <= DOUBLE_ZERO_DATA;
@@ -381,7 +393,30 @@ begin
 	                	when others =>
                 		
                 	end case branch_funct;
-                	
+                
+                when OP_TYPE_LOAD_STORE =>
+                	load_store_funct: case funct_i is
+                		
+                		-- Load: operand1 = base, offset = extended_offset
+                		
+                		when FUNCT_TYPE_LB | FUNCT_TYPE_LBU | FUNCT_TYPE_LH | FUNCT_TYPE_LHU | FUNCT_TYPE_LW | FUNCT_TYPE_LWL| FUNCT_TYPE_LWR =>
+	                		is_load_store_o <= IS_LOAD_STORE;
+				          	funct_o <= funct_i;
+				           	load_store_addr_o <= operand_1_i + extended_offset_i;
+				           	-- store_data_o <= ZERO_DATA;
+				           	store_data_o <= operand_2_i; -- for LWL and LWR instructions
+                		
+                		-- Store: operand1 = base, operand2 = rt, offset = extended_offset
+                		
+                		when FUNCT_TYPE_SB | FUNCT_TYPE_SH | FUNCT_TYPE_SW | FUNCT_TYPE_SWL | FUNCT_TYPE_SWR =>
+                			is_load_store_o <= IS_LOAD_STORE;
+				          	funct_o <= funct_i;
+				           	load_store_addr_o <= operand_1_i + extended_offset_i;
+				           	store_data_o <= operand_2_i;
+				        
+				        when others =>
+                		
+                	end case load_store_funct;
                 when others =>
                 
             end case op_code;

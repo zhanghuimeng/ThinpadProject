@@ -40,7 +40,8 @@ package INCLUDE is
 	constant REG_DATA_LEN    : integer   := 32;
 	constant DATA_LEN        : integer   := 32;
 	constant DOUBLE_DATA_LEN : integer   := 64;
-	-- Pause constants
+	
+	-- Pause
 	constant CTRL_PAUSE_LEN  : integer   := 6;
 	constant PAUSE			 : STD_LOGIC := '1';
     constant PAUSE_NOT		 : STD_LOGIC := '0';
@@ -50,9 +51,19 @@ package INCLUDE is
     constant EX_PAUSE_INDEX  : integer   := 3;
     constant MEM_PAUSE_INDEX : integer   := 4;
     constant WB_PAUSE_INDEX  : integer   := 5;
+    
     -- Accumulation inst constants
     constant ACCU_CNT_LEN 	 : integer	 := 2;
     
+    -- Load/Store
+    constant BYTE_IN_DATA	 : integer	 := 4;
+    constant IS_READ		 : STD_LOGIC := '1';
+    constant IS_WRITE		 : STD_LOGIC := '0';
+    constant BYTE_LEN		 : integer   := 8;
+    constant HALF_LEN		 : integer   := 16;
+    constant WORD_LEN		 : integer   := 32;
+    
+    -- Branch/Jump
     constant BRANCH			 : STD_LOGIC := '1';
     constant BRANCH_NOT		 : STD_LOGIC := '0';
     constant DELAYSLOT		 : STD_LOGIC := '1';
@@ -74,12 +85,15 @@ package INCLUDE is
 	constant REG_RD_DISABLE  : STD_LOGIC := '0';
 	constant REG_WT_ENABLE   : STD_LOGIC := '1';
 	constant REG_WT_DISABLE  : STD_LOGIC := '0';
+	constant IS_LOAD_STORE	 : STD_LOGIC := '1';
+	constant NOT_LOAD_STORE	 : STD_LOGIC := '0';
 
 	constant REG_ZERO_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00000";
 	constant REG_31_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"11111";
 	constant REG_ZERO_DATA : STD_LOGIC_VECTOR(REG_DATA_LEN - 1 downto 0) := x"00000000";
 	constant ZERO_DATA : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := x"00000000";
 	constant INST_ZERO_ADDR : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := x"00000000";
+	constant ZERO_INST : STD_LOGIC_VECTOR(INST_LEN - 1 downto 0) := x"00000000";
 	constant DOUBLE_ZERO_DATA : STD_LOGIC_VECTOR(DOUBLE_DATA_LEN - 1 downto 0) := x"0000000000000000";
 
 	-- Instruction type for EX Module
@@ -89,6 +103,7 @@ package INCLUDE is
 	constant OP_TYPE_SHIFT  : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000011";
 	constant OP_TYPE_MOVE   : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000100";
 	constant OP_TYPE_BRANCH : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000101";
+	constant OP_TYPE_LOAD_STORE : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000110";
 
 	-- Instruction subtype for EX 
 	-- No Operation
@@ -146,6 +161,19 @@ package INCLUDE is
 	constant FUNCT_TYPE_BLTZ			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001100";
 	constant FUNCT_TYPE_BLTZAL			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001101";
 	constant FUNCT_TYPE_BNE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001110";
+	-- Load/Store
+	constant FUNCT_TYPE_LB				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
+	constant FUNCT_TYPE_LBU				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";
+	constant FUNCT_TYPE_LH				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011";
+	constant FUNCT_TYPE_LHU				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";
+	constant FUNCT_TYPE_LW				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";
+	constant FUNCT_TYPE_LWL				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000110";
+	constant FUNCT_TYPE_LWR				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000111";
+	constant FUNCT_TYPE_SB				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001000";
+	constant FUNCT_TYPE_SH				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001001";
+	constant FUNCT_TYPE_SW				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001010";
+	constant FUNCT_TYPE_SWL				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011";
+	constant FUNCT_TYPE_SWR				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011";
 
 	-- Introduction to the MIPS32 Architecture
 	-- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)
@@ -279,6 +307,10 @@ package INCLUDE is
 	function count_leading_ones(vector : STD_LOGIC_VECTOR) return natural;
 
 	function count_leading_zeros(vector : STD_LOGIC_VECTOR) return natural;
+		
+	function sign_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR;
+		
+	function zero_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR;
 
 end INCLUDE;
 
@@ -319,4 +351,26 @@ package body INCLUDE is
 		return count_leading(vector, '0');
 	end function count_leading_zeros;
 
+	function sign_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR is
+		variable extended: STD_LOGIC_VECTOR(newLen-1 downto 0);
+	begin
+		if newLen < vector'lenth then
+			return vector(newLen-1 downto 0);
+		end if;
+		extended(newLen-1 downto vector'length) := (others => vector(vector'length-1));
+        extended(vector'length-1 downto 0) := vector;  -- sign extend vector
+        return extended;
+	end function sign_extend;
+	
+	function zero_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR is
+		variable extended: STD_LOGIC_VECTOR(newLen-1 downto 0);
+	begin
+		if newLen < vector'lenth then
+			return vector(newLen-1 downto 0);
+		end if;
+		extended(newLen-1 downto vector'length) := (others => '0');
+        extended(vector'length-1 downto 0) := vector;  -- sign extend vector
+        return extended;
+	end function zero_extend;
+	
 end INCLUDE;

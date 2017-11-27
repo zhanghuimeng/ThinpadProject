@@ -42,6 +42,7 @@ entity ID_to_EX is
            funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom funct type from ID
            operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 data from ID
            operand_2_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 read data from ID
+           extended_offset_i :			in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- input extended offset from ID
            reg_wt_en_i :    			in STD_LOGIC;                                       -- input register write enable from ID
            reg_wt_addr_i :  			in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID
            pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
@@ -52,6 +53,7 @@ entity ID_to_EX is
            funct_o :        			out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to EX
            operand_1_o :    			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 read data to EX
            operand_2_o :    			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 read data to EX
+           extended_offset_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output extended offset to EX
            reg_wt_en_o :    			out STD_LOGIC;                                      -- output register write enable to EX
            reg_wt_addr_o :  			out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX
            is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to EX
@@ -70,6 +72,7 @@ begin
                 funct_o <= FUNCT_TYPE_NOP;
                 operand_1_o <= REG_ZERO_DATA;
                 operand_2_o <= REG_ZERO_DATA;
+                extended_offset_o <= REG_ZERO_DATA;
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
                 is_in_delayslot_o <= DELAYSLOT_NOT;
@@ -81,6 +84,7 @@ begin
 	                funct_o <= FUNCT_TYPE_NOP;
 	                operand_1_o <= REG_ZERO_DATA;
 	                operand_2_o <= REG_ZERO_DATA;
+	                extended_offset_o <= REG_ZERO_DATA;
 	                reg_wt_en_o <= REG_WT_DISABLE;
 	                reg_wt_addr_o <= REG_ZERO_ADDR;
 	                is_in_delayslot_o <= DELAYSLOT_NOT;
@@ -91,6 +95,7 @@ begin
 	                funct_o <= funct_i;
 	                operand_1_o <= operand_1_i;
 	                operand_2_o <= operand_2_i;
+	                extended_offset_o <= extended_offset_i;
 	                reg_wt_en_o <= reg_wt_en_i;
 	                reg_wt_addr_o <= reg_wt_addr_i;
 	                is_in_delayslot_o <= is_in_delayslot_i;

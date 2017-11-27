@@ -41,6 +41,10 @@ entity EX_to_MEM is
            reg_wt_en_i :        in STD_LOGIC;                                       -- input register write enable from EX
            reg_wt_addr_i :      in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from EX
            reg_wt_data_i :      in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register write data from EX
+           is_load_store_i :	in STD_LOGIC;										-- input load/store from EX
+           funct_i :			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);			-- input load/store type from EX
+           load_store_addr_i :	in STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- input load/store memory address from EX
+           store_data_i :		in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- input store data from EX
            hilo_en_i :          in STD_LOGIC;                                       -- input HILO write enable from EX
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from EX
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from EX
@@ -50,6 +54,10 @@ entity EX_to_MEM is
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to MEM
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM
+           is_load_store_o :	out STD_LOGIC;										-- output load/store to MEM
+           funct_o :			out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);			-- output load/store type to MEM
+           load_store_addr_o :	out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output load/store memory address to MEM
+           store_data_o :		out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output store data to MEM
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM
            lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to MEM
@@ -68,6 +76,10 @@ begin
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
                 reg_wt_data_o <= REG_ZERO_DATA;
+                is_load_store_o <= NOT_LOAD_STORE;
+	          	funct_o <= FUNCT_TYPE_NOP;
+	           	load_store_addr_o <= ZERO_ADDR;
+	           	store_data_o <= ZERO_DATA;
                 hilo_en_o <= CHIP_DISABLE;
                 hi_o <= REG_ZERO_DATA;
                 lo_o <= REG_ZERO_DATA;
@@ -78,6 +90,10 @@ begin
             		reg_wt_en_o <= REG_WT_DISABLE;
 	                reg_wt_addr_o <= REG_ZERO_ADDR;
 	                reg_wt_data_o <= REG_ZERO_DATA;
+	                is_load_store_o <= NOT_LOAD_STORE;
+		          	funct_o <= FUNCT_TYPE_NOP;
+		           	load_store_addr_o <= ZERO_ADDR;
+		           	store_data_o <= ZERO_DATA;
 	                hilo_en_o <= CHIP_DISABLE;
 	                hi_o <= REG_ZERO_DATA;
 	                lo_o <= REG_ZERO_DATA;
@@ -87,6 +103,10 @@ begin
 	                reg_wt_en_o <= reg_wt_en_i;
 	                reg_wt_addr_o <= reg_wt_addr_i;
 	                reg_wt_data_o <= reg_wt_data_i;
+	                is_load_store_o <= is_load_store_i;
+          			funct_o <= funct_i;
+           			load_store_addr_o <= load_store_addr_i;
+           			store_data_o <= store_data_i;
 	                hilo_en_o <= hilo_en_i;
 	                hi_o <= hi_i;
 	                lo_o <= lo_i;
