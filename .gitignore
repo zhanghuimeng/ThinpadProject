@@ -101,6 +101,12 @@
 !*.elf
 !*.bmm
 !*.xmp
+#########
+#pdf documents
+#########
+/documents/*.out
+!/documents/*.tex
+!/documents/*.pdf
 
 # End of https://www.gitignore.io/api/xilinxvivado
 
