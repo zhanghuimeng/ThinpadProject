@@ -60,16 +60,16 @@ entity ID is
            reg_rd_en_2_o :      		out STD_LOGIC;                                      -- output register 2 read enable to REGISTERS
            reg_rd_addr_1_o :    		out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register 1 read address to REGISTERS
            reg_rd_addr_2_o :    		out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register 2 read address to REGISTERS
-           operand_1_o :        		out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 to ID/EX
-           operand_2_o :        		out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 to ID/EX
+           operand_1_o :        		out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);          -- output operand 1 to ID/EX
+           operand_2_o :        		out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);          -- output operand 2 to ID/EX
            extended_offset_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output extended offset to ID/EX
            reg_wt_en_o :        		out STD_LOGIC;                                      -- output register write enable to ID_to_EX
            reg_wt_addr_o :      		out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to ID_to_EX
            pause_o :					out STD_LOGIC;										-- output pause information to PAUSE_CTRL
-		   branch_o :					out STD_LOGIC;										-- output if the next instruction is in delay slot
+		   branch_o :					out STD_LOGIC;										-- output if the next instruction is in delay slot to ID/EX
 		   branch_target_addr_o : 		out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);		-- output the branch target address to PC
 		   is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to ID/EX
-		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the current instruction in delay slot to ID/EX
+		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the next instruction in delay slot to ID/EX
 		   link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));	-- output the return address to save to ID/EX
 end ID;
 
