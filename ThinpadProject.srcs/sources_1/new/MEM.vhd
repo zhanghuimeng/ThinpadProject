@@ -41,7 +41,7 @@ entity MEM is
            reg_wt_en_i :        in STD_LOGIC;                                       -- input register write enable from EX/MEM
            reg_wt_addr_i :      in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from EX/MEM
            reg_wt_data_i :      in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register write data from EX/MEM
-           ram_rd_data_i :		in STD_LOGIC;										-- input data read from RAM
+           ram_rd_data_i :		in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- input data read from RAM
            is_load_store_i :	in STD_LOGIC;										-- input load/store from EX/MEM
            funct_i :			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);			-- input load/store type from EX/MEM
            load_store_addr_i :	in STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- input load/store memory address from EX/MEM
@@ -293,7 +293,9 @@ begin
 							when others =>
 								ram_data_sel_o <= "0000";
 						end case swr_addr;
-						
+					
+					when others =>
+					
 				end case load_store_type;
 			end if;
         end if;

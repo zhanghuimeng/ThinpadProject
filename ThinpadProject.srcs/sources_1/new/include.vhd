@@ -39,6 +39,7 @@ package INCLUDE is
 	constant REG_ADDR_LEN    : integer   := 5;
 	constant REG_DATA_LEN    : integer   := 32;
 	constant DATA_LEN        : integer   := 32;
+	constant ADDR_LEN        : integer   := 32;
 	constant DOUBLE_DATA_LEN : integer   := 64;
 	
 	-- Pause
@@ -92,6 +93,7 @@ package INCLUDE is
 	constant REG_31_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"11111";
 	constant REG_ZERO_DATA : STD_LOGIC_VECTOR(REG_DATA_LEN - 1 downto 0) := x"00000000";
 	constant ZERO_DATA : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := x"00000000";
+	constant ZERO_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"00000000";
 	constant INST_ZERO_ADDR : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := x"00000000";
 	constant ZERO_INST : STD_LOGIC_VECTOR(INST_LEN - 1 downto 0) := x"00000000";
 	constant DOUBLE_ZERO_DATA : STD_LOGIC_VECTOR(DOUBLE_DATA_LEN - 1 downto 0) := x"0000000000000000";
@@ -173,7 +175,7 @@ package INCLUDE is
 	constant FUNCT_TYPE_SH				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001001";
 	constant FUNCT_TYPE_SW				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001010";
 	constant FUNCT_TYPE_SWL				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011";
-	constant FUNCT_TYPE_SWR				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011";
+	constant FUNCT_TYPE_SWR				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001100";
 
 	-- Introduction to the MIPS32 Architecture
 	-- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)
@@ -353,11 +355,13 @@ package body INCLUDE is
 
 	function sign_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR is
 		variable extended: STD_LOGIC_VECTOR(newLen-1 downto 0);
+		variable bit: STD_LOGIC;
 	begin
-		if newLen < vector'lenth then
+		if newLen <= vector'length then
 			return vector(newLen-1 downto 0);
 		end if;
-		extended(newLen-1 downto vector'length) := (others => vector(vector'length-1));
+		bit := vector(vector'length-1);
+		extended(newLen-1 downto vector'length) := (others => bit);
         extended(vector'length-1 downto 0) := vector;  -- sign extend vector
         return extended;
 	end function sign_extend;
@@ -365,7 +369,7 @@ package body INCLUDE is
 	function zero_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR is
 		variable extended: STD_LOGIC_VECTOR(newLen-1 downto 0);
 	begin
-		if newLen < vector'lenth then
+		if newLen <= vector'length then
 			return vector(newLen-1 downto 0);
 		end if;
 		extended(newLen-1 downto vector'length) := (others => '0');

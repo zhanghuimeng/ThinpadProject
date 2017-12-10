@@ -42,8 +42,8 @@ entity PC is
            pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            branch_i :					in STD_LOGIC;										-- input branch or not from ID
            branch_target_address_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	-- input branch target address from ID
-           pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ROM
-           en_o :   					out STD_LOGIC);                                     -- output enable signal to ROM
+           en_o :   					out STD_LOGIC;                                      -- output enable signal to ROM
+           pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));    -- output program counter (instruction address) to ROM           
 end PC;
 
 architecture Behavioral of PC is
