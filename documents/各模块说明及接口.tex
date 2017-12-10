@@ -1,0 +1,446 @@
+% !Mode:: "TeX:UTF-8"
+\documentclass{article}
+\usepackage[hyperref, UTF8]{ctex}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[top=1in, bottom=1in, left=0.8in, right=0.8in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{listings}
+\usepackage[section]{placeins} % 避免浮动体越过subsection
+\usepackage{pgfplotstable}
+\usepackage{pgfplots}
+\usepackage{fontspec}
+\usepackage{underscore} % 使用下划线
+\usepackage[english]{babel} % bug fix
+\usepackage{booktabs} % 表格上的不同横线
+\usepackage{supertabular} % 分页表格
+\usepackage{comment} % 用于插入大段注释（喵喵喵？还有这种操作？）
+\setmonofont[Mapping={}]{Consolas}	%英文引号之类的正常显示，相当于设置英文字体
+\setsansfont{Consolas} %设置英文字体 Monaco, Consolas,  Fantasque Sans Mono
+\setmainfont{Consolas} %设置英文字体
+
+\definecolor{mygreen}{rgb}{0,0.6,0}
+\definecolor{mygray}{rgb}{0.5,0.5,0.5}
+\definecolor{mymauve}{rgb}{0.58,0,0.82}
+\lstset{ %
+    backgroundcolor=\color{white},   % choose the background color
+    basicstyle=\footnotesize\ttfamily,        % size of fonts used for the code
+    columns=fullflexible,
+    breaklines=true,                 % automatic line breaking only at whitespace
+    captionpos=b,                    % sets the caption-position to bottom
+    tabsize=4,
+    backgroundcolor=\color[RGB]{245,245,244},            % 设定背景颜色
+    commentstyle=\color{mygreen},    % comment style
+    escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+    keywordstyle=\color{blue},       % keyword style
+    stringstyle=\color{mymauve}\ttfamily,     % string literal style
+    showstringspaces=false,                % 不显示字符串中的空格
+    frame=none,
+    rulesepcolor=\color{red!20!green!20!blue!20},
+    % identifierstyle=\color{red},
+    language=c++,
+}
+
+% 设置hyperlink的颜色
+\newcommand\myshade{85}
+\colorlet{mylinkcolor}{violet}
+\colorlet{mycitecolor}{YellowOrange}
+\colorlet{myurlcolor}{Aquamarine}
+
+\hypersetup{
+  linkcolor  = mylinkcolor!\myshade!black,
+  citecolor  = mycitecolor!\myshade!black,
+  urlcolor   = myurlcolor!\myshade!black,
+  colorlinks = true,
+}
+
+\title{CPU各模块及接口说明}
+\author{喵喵喵喵喵？}
+
+\begin{document}
+
+\begin{comment}
+普通的tabular环境：
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{lllllp{2cm}}
+    \toprule
+    方向 & 名称 & 类型 & 宽度 & 连接到 & 详细描述 \\ \midrule
+    in & rst\label{REGISTERS:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & clk\label{REGISTERS:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
+
+    \bottomrule
+    \end{tabular}
+    \caption {PC的接口}
+\end{table}
+
+可以换页的tabular环境：
+\begin{center}
+    \tablecaption{PC的接口}
+
+    \tablefirsthead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tablehead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tabletail{
+        \bottomrule
+        \multicolumn{6}{c}{接下页} \\}
+
+    \tablelasttail{\bottomrule}
+
+    \small
+    \begin{supertabular}{lllllp{2cm}}
+
+    in & rst\label{REGISTERS:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & clk\label{REGISTERS:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
+
+    \end{supertabular}
+\end{center}
+\end{comment}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\section{PC}
+\label{sec:PC}
+
+\subsection{简介}
+
+\FloatBarrier
+\subsection{接口定义}
+
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{lllllp{1.5cm}}
+    \toprule
+    方向 & 名称 & 类型 & 宽度 & 连接到 & 详细描述 \\ \midrule
+    in & rst\label{PC:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & clk\label{PC:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
+    in & pause_i\label{PC:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL} & 此模块是否暂停 \\
+    in & branch_i\label{PC:branch_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 是否跳转 \\
+    in & branch_target_address_i\label{PC:branch_target_address_i} & STD_LOGIC_VECTOR  & \nameref{const:INST_ADDR_LEN}  & \nameref{sec:ID} & 如果跳转，跳到什么位置    \\
+    out & en_o\label{PC:en_o} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 是否读指令 \\
+    out & pc_o\label{PC:pc_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN}  & \nameref{sec:MIPS_CPU} & 下一条指令的位置 \\
+    \bottomrule
+    \end{tabular}
+    \caption {PC模块的接口}
+\end{table}
+\FloatBarrier
+
+\section{IF/ID}
+\label{sec:IF/ID}
+
+\subsection{简介}
+
+\FloatBarrier
+\subsection{接口定义}
+
+\begin{table}
+    \centering
+    \small
+    \begin{tabular}{lllllp{2cm}}
+    \toprule
+    方向 & 名称 & 类型 & 宽度 & 连接到 & 详细描述 \\ \midrule
+    in & rst\label{IF/ID:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & clk\label{IF/ID:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
+    in & pc_i\label{IF/ID:pc_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & 指令地址 \\
+    in & inst_i\label{IF/ID:inst_i} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & 指令 \\
+    in & pause_i\label{IF/ID:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & 是否暂停 \\
+    out & pc_o\label{IF/ID:pc_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & 指令地址 \\
+    out & inst_o\label{IF/ID:inst_o} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & 指令 \\
+    \bottomrule
+    \end{tabular}
+    \caption {IF/ID模块的接口}
+\end{table}
+\FloatBarrier
+
+\section{ID}
+\label{sec:ID}
+
+\subsection{简介}
+
+\FloatBarrier
+\subsection{接口定义}
+
+\begin{center}
+    \tablecaption{ID模块的接口}
+
+    \tablefirsthead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tablehead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tabletail{
+        \bottomrule
+        \multicolumn{6}{c}{接下页} \\}
+
+    \tablelasttail{\bottomrule}
+
+    \small
+    \begin{supertabular}{lllllp{2cm}}
+    in & rst\label{ID:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & pc_i & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:IF/ID} & 指令地址 \\
+    in & inst_i & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:IF/ID} & 指令 \\
+    in & reg_rd_data_1_i & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:REGISTERS} & 寄存器1读出数据 \\
+    in & reg_rd_data_2_i & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:REGISTERS} & 寄存器2读出数据 \\
+    in & ex_reg_wt_en_i & STD_LOGIC & 1 & \nameref{sec:EX} & EX模块是否写寄存器 \\
+    in & ex_reg_wt_addr_i & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX} & EX模块写寄存器地址 \\
+    in & ex_reg_wt_data_i & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & EX模块写寄存器数据 \\
+    in & mem_reg_wt_en_i & STD_LOGIC & 1 & \nameref{sec:MEM} & MEM模块是否写寄存器 \\
+    in & mem_reg_wt_addr_i & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM} & MEM模块写寄存器地址 \\
+    in & mem_reg_wt_data_i & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & MEM模块写寄存器数据 \\
+    in & is_in_delayslot_i & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 当前指令是否在延迟槽内 \\
+    out & op_o & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID/EX} & 指令操作类型 \\
+    out & funct_o & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID/EX} & 指令子操作类型 \\
+    out & reg_rd_en_1_o & STD_LOGIC & 1 & \nameref{sec:REGISTERS} & 寄存器1读使能 \\
+    out & reg_rd_en_2_o & STD_LOGIC & 1 & \nameref{sec:REGISTERS} & 寄存器2读使能 \\
+    out & reg_rd_addr_1_o & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:REGISTERS} & 寄存器1读地址 \\
+    out & reg_rd_addr_2_o & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:REGISTERS} & 寄存器2读地址 \\
+    out & operand_1_o & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX} & 指令操作数1 \\
+    out & operand_2_o & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX} & 指令操作数2 \\
+    out & extended_offset_o & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX} & 扩展后立即数 \\
+    out & reg_wt_en_o & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 寄存器写使能 \\
+    out & reg_wt_addr_o & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID/EX} & 寄存器写地址 \\
+    out & pause_o & STD_LOGIC & 1 & \nameref{sec:PAUSE_CTRL} & 是否需要暂停 \\
+    out & branch_o & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 当前是否为分支跳转指令 \\
+    out & branch_target_addr_o & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:PC} & 跳转地址 \\
+    out & is_in_delayslot_o & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 当前指令是否在延迟槽内 \\
+    out & next_inst_in_delayslot_o & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 下一条指令是否在延迟槽内 \\
+    out & link_addr_o & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID/EX} & 跳转指令的返回地址 \\
+    \end{supertabular}
+\end{center}
+\FloatBarrier
+
+\section{ID/EX}
+\label{sec:ID/EX}
+
+\subsection{简介}
+
+\FloatBarrier
+\subsection{接口定义}
+
+\begin{center}
+    \tablecaption{PC的接口}
+
+    \tablefirsthead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tablehead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tabletail{
+        \bottomrule
+        \multicolumn{6}{c}{接下页} \\}
+
+    \tablelasttail{\bottomrule}
+
+    \small
+    \begin{supertabular}{lllllp{2cm}}
+
+    in & rst\label{ID/EX:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & clk\label{ID/EX:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
+    in & op_i\label{ID/EX:op_i} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID} & 指令操作类型 \\
+    in & funct_i\label{ID/EX:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID} & 指令子操作类型 \\
+    in & operand_1_i\label{ID/EX:operand_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 指令操作数1 \\
+    in & operand_2_i\label{ID/EX:operand_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 指令操作数2 \\
+    in & extended_offset_i\label{ID/EX:extended_offset_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID} & 扩展后立即数 \\
+    in & reg_wt_en_i\label{ID/EX:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 寄存器写使能 \\
+    in & reg_wt_addr_i\label{ID/EX:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID} & 寄存器写地址 \\
+    in & pause_i\label{ID/EX:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL} & 是否暂停 \\
+    in & is_in_delayslot_i\label{ID/EX:is_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 当前指令是否在延迟槽中 \\
+    in & next_inst_in_delayslot_i\label{ID/EX:next_inst_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 下一条指令是否在延迟槽中 \\
+    in & link_addr_i\label{ID/EX:link_addr_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID} & 跳转指令的返回地址 \\
+    out & op_o\label{ID/EX:op_o} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:EX} & 指令操作类型 \\
+    out & funct_o\label{ID/EX:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX} & 指令子操作类型 \\
+    out & operand_1_o\label{ID/EX:operand_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 指令操作数1 \\
+    out & operand_2_o\label{ID/EX:operand_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 指令操作数2 \\
+    out & extended_offset_o\label{ID/EX:extended_offset_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX} & 扩展后立即数 \\
+    out & reg_wt_en_o\label{ID/EX:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:EX} & 寄存器写使能 \\
+    out & reg_wt_addr_o\label{ID/EX:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX} & 寄存器写地址 \\
+    out & is_in_delayslot_o\label{ID/EX:is_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:EX} & 当前指令是否在延迟槽中 \\
+    out & next_inst_in_delayslot_o\label{ID/EX:next_inst_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:ID} & 下一条指令是否在延迟槽中 \\
+    out & link_addr_o\label{ID/EX:link_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:EX} & 跳转指令的返回地址 \\
+    \end{supertabular}
+\end{center}
+\FloatBarrier
+
+\section{EX}
+\label{sec:EX}
+
+\subsection{简介}
+
+\subsection{接口定义}
+
+\section{EX/MEM}
+\label{sec:EX/MEM}
+
+\subsection{简介}
+
+\subsection{接口定义}
+
+\section{MEM}
+\label{sec:MEM}
+
+\subsection{简介}
+
+\subsection{接口定义}
+
+\section{MEM/WB}
+\label{sec:MEM/WB}
+
+\subsection{简介}
+
+\subsection{接口定义}
+
+\section{REGISTERS}
+\label{sec:REGISTERS}
+
+\subsection{简介}
+
+\FloatBarrier
+\subsection{接口定义}
+
+\begin{table}
+    \centering
+    \begin{tabular}{llllllp{2cm}}
+    \toprule
+    方向 & 名称 & 类型 & 宽度 & 连接到 & 详细描述 \\ \midrule
+    in & rst\label{REGISTERS:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号    \\
+    in & clk\label{REGISTERS:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号    \\
+    in & reg_rd_en_1_i\label{REGISTERS:reg_rd_en_1_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 寄存器1读使能 \\
+    in & reg_rd_en_2_i\label{REGISTERS:reg_rd_en_2_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 寄存器2读使能 \\
+    in & reg_rd_addr_1_i\label{REGISTERS:reg_rd_addr_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID} & 寄存器1读地址 \\
+    in & reg_rd_addr_2_i\label{REGISTERS:reg_rd_addr_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID} & 寄存器2读地址 \\
+    in & reg_wt_en_i\label{REGISTERS:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM/WB} & 寄存器写使能 \\
+    in & reg_wt_addr_i\label{REGISTERS:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM/WB} & 寄存器写地址 \\
+    in & reg_wt_data_i\label{REGISTERS:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & 寄存器写数据 \\
+    out & reg_rd_data_1_o\label{REGISTERS:reg_rd_data_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 寄存器1读出数据 \\
+    out & reg_rd_data_2_o\label{REGISTERS:reg_rd_data_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 寄存器2读出数据 \\
+    \bottomrule
+    \end{tabular}
+    \caption {PC的接口}
+\end{table}
+\FloatBarrier
+
+\section{HI_LO}
+\label{sec:HI_LO}
+
+\subsection{简介}
+
+\FloatBarrier
+\subsection{接口定义}
+
+\begin{table}
+    \centering
+    \begin{tabular}{llllllp{2cm}}
+    \toprule
+    方向 & 名称 & 类型 & 宽度 & 连接到 & 详细描述 \\ \midrule
+    in & rst\label{HI/LO:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & clk\label{HI/LO:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
+    in & en\label{HI/LO:en} & STD_LOGIC & 1 & \nameref{sec:MEM/WB} & 使能 \\
+    in & hi_i\label{HI/LO:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & HI \\
+    in & lo_i\label{HI/LO:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & LO \\
+    out & hi_o\label{HI/LO:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & HI \\
+    out & lo_o\label{HI/LO:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & LO \\
+    \bottomrule
+    \end{tabular}
+    \caption {PC的接口}
+\end{table}
+\FloatBarrier
+
+\section{PAUSE_CTRL}
+\label{sec:PAUSE_CTRL}
+
+\subsection{简介}
+
+\FloatBarrier
+\subsection{接口定义}
+
+\begin{table}
+    \centering
+    \begin{tabular}{llllp{2cm}p{2cm}}
+    \toprule
+    方向 & 名称 & 类型 & 宽度 & 连接到 & 详细描述 \\ \midrule
+    in & rst\label{PAUSE_CTRL:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
+    in & id_pause_i\label{PAUSE_CTRL:id_pause_i} & STD_LOGIC & 1 & \nameref{sec:ID} & ID模块是否暂停 \\
+    in & ex_pause_i\label{PAUSE_CTRL:ex_pause_i} & STD_LOGIC & 1 & \nameref{sec:EX} & EX模块是否暂停 \\
+    out & pause_o\label{PAUSE_CTRL:pause_o} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PC}, \nameref{sec:IF/ID}, \nameref{sec:ID/EX}, \nameref{sec:EX/MEM}, \nameref{sec:MEM/WB} & 各模块是否暂停 \\
+    \bottomrule
+    \end{tabular}
+    \caption {PC的接口}
+\end{table}
+\FloatBarrier
+
+\section{MIPS_CPU}
+\label{sec:MIPS_CPU}
+
+\subsection{简介}
+
+\subsection{接口定义}
+
+\appendix
+\section{常数和宏定义}
+
+\subsection{INTEGER类型的常数}
+
+\begin{description}
+  \item[INST_ADDR_LEN\label{const:INST_ADDR_LEN}] 32
+  \item[INST_LEN\label{const:INST_LEN}] 32
+  \item[REG_ADDR_LEN\label{const:REG_ADDR_LEN}] 5
+  \item[REG_DATA_LEN\label{const:REG_DATA_LEN}] 32
+  \item[DATA_LEN\label{const:DATA_LEN}] 32
+  \item[CTRL_PAUSE_LEN\label{const:CTRL_PAUSE_LEN}] 6
+  \item[OP_LEN\label{const:OP_LEN}] 6
+  \item[FUNCT_LEN\label{const:FUNCT_LEN}] 6
+\end{description}
+
+\end{document}
