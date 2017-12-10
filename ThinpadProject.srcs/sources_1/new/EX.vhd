@@ -47,6 +47,7 @@ entity EX is
            funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
            operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
            operand_2_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
+           extended_offset_i :          in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);           -- input extended offset from ID/EX
            reg_wt_en_i :    			in STD_LOGIC;                                       -- input register write enable from ID/EX
            reg_wt_addr_i :  			in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
            hi_i :           			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
