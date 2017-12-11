@@ -138,6 +138,8 @@
 
 \subsection{简介}
 
+取指模块。然后好像没什么好说的了。
+
 \FloatBarrier
 \subsection{接口定义}
 
@@ -171,15 +173,14 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
-
-    in & rst\label{PC:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & clk\label{PC:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
-    in & pause_i\label{PC:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL} & 此模块是否暂停 \\
-    in & branch_i\label{PC:branch_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 是否跳转 \\
-    in & branch_target_address_i\label{PC:branch_target_address_i} & STD_LOGIC_VECTOR  & \nameref{const:INST_ADDR_LEN}  & \nameref{sec:ID} & 如果跳转，跳到什么位置    \\
-    out & en_o\label{PC:en_o} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 是否读指令 \\
-    out & pc_o\label{PC:pc_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN}  & \nameref{sec:MIPS_CPU} & 下一条指令的位置 \\
+    \begin{supertabular}{llllp{3.5cm}p{2cm}}
+    in & \labelname{rst}\newtag{rst}{PC:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{clk}\newtag{clk}{PC:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:clk} & 时钟信号 \\
+    in & \labelname{pause_i}\newtag{pause_i}{PC:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:pause_o} & 此模块是否暂停 \\
+    in & \labelname{branch_i}\newtag{branch_i}{PC:branch_i} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:branch_o} & 是否跳转 \\
+    in & \labelname{branch_target_addr_i}\newtag{branch_target_addr_i}{PC:branch_target_addr_i} & STD_LOGIC_VECTOR  & \nameref{const:INST_ADDR_LEN}  & \nameref{sec:ID}.\nameref{ID:branch_target_addr_o} & 如果跳转，跳到什么位置    \\
+    out & \labelname{en_o}\newtag{en_o}{PC:en_o} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rom_en_o} & 是否读指令 \\
+    out & \labelname{pc_o}\newtag{pc_o}{PC:pc_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN}  & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rom_addr_o}, \nameref{sec:IF/ID}.\nameref{IF/ID:pc_i} & 下一条指令的位置 \\
 
     \end{supertabular}
 \end{center}
@@ -222,15 +223,15 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
+    \begin{supertabular}{llllp{3.5cm}p{2cm}}
 
-    in & rst\label{IF/ID:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & clk\label{IF/ID:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
-    in & pc_i\label{IF/ID:pc_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:MIPS_CPU} & 指令地址 \\
-    in & inst_i\label{IF/ID:inst_i} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:MIPS_CPU} & 指令 \\
-    in & pause_i\label{IF/ID:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL} & 是否暂停 \\
-    out & pc_o\label{IF/ID:pc_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID} & 指令地址 \\
-    out & inst_o\label{IF/ID:inst_o} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:ID}  & 指令 \\
+    in & \labelname{rst}\newtag{rst}{IF/ID:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{clk}\newtag{clk}{IF/ID:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:clk} & 时钟信号 \\
+    in & \labelname{pc_i}\newtag{pc_i}{IF/ID:pc_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:PC}.\nameref{PC:pc_o} & 指令地址 \\
+    in & \labelname{inst_i}\newtag{inst_i}{IF/ID:inst_i} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:inst_i} & 指令 \\
+    in & \labelname{pause_i}\newtag{pause_i}{IF/ID:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:pause_o} & 是否暂停 \\
+    out & \labelname{pc_o}\newtag{pc_o}{IF/ID:pc_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID}.\nameref{ID:pc_i} & 指令地址 \\
+    out & \labelname{inst_o}\newtag{inst_o}{IF/ID:inst_o} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:ID}.\nameref{ID:inst_i}  & 指令 \\
 
     \end{supertabular}
 \end{center}
@@ -240,6 +241,20 @@
 \label{sec:ID}
 
 \subsection{简介}
+
+译码模块。主要工作流程是，先根据op确定指令类型，再根据special_funct确定具体是什么指令，然后根据指令类型进行译码。
+\begin{description}
+  \item [SPECIAL类指令]
+
+    \begin{description}
+      \item[SHIFT类指令] 读rt，扩展shamt，写rd
+      \item[待写]
+    \end{description}
+
+  \item 待写
+\end{description}
+
+在译码结束之后，最后还有一段，根据EX和MEM阶段写寄存器的情况解决数据冲突，然后确定指令对应的两个操作数operand_1_o和operand_2_o。
 
 \FloatBarrier
 \subsection{接口定义}
@@ -274,36 +289,36 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
-    in & rst\label{ID:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & pc_i\label{ID:pc_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:IF/ID} & 指令地址 \\
-    in & inst_i\label{ID:inst_i} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:IF/ID} & 指令 \\
-    in & reg_rd_data_1_i\label{ID:reg_rd_data_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:REGISTERS} & 寄存器1读出数据 \\
-    in & reg_rd_data_2_i\label{ID:reg_rd_data_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:REGISTERS} & 寄存器2读出数据 \\
-    in & ex_reg_wt_en_i\label{ID:ex_reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:EX} & EX模块是否写寄存器 \\
-    in & ex_reg_wt_addr_i\label{ID:ex_reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX} & EX模块写寄存器地址 \\
-    in & ex_reg_wt_data_i\label{ID:ex_reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & EX模块写寄存器数据 \\
-    in & mem_reg_wt_en_i\label{ID:mem_reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM} & MEM模块是否写寄存器 \\
-    in & mem_reg_wt_addr_i\label{ID: mem_reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM} & MEM模块写寄存器地址 \\
-    in & mem_reg_wt_data_i\label{ID:mem_reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & MEM模块写寄存器数据 \\
-    in & is_in_delayslot_i\label{ID:is_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 当前指令是否在延迟槽内 \\
-    out & op_o\label{ID:op_o} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID/EX} & 指令操作类型 \\
-    out & funct_o\label{ID:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID/EX} & 指令子操作类型 \\
-    out & reg_rd_en_1_o\label{ID:reg_rd_en_1_o} & STD_LOGIC & 1 & \nameref{sec:REGISTERS} & 寄存器1读使能 \\
-    out & reg_rd_en_2_o\label{ID:reg_rd_en_2_o} & STD_LOGIC & 1 & \nameref{sec:REGISTERS} & 寄存器2读使能 \\
-    out & reg_rd_addr_1_o\label{ID:reg_rd_addr_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:REGISTERS} & 寄存器1读地址 \\
-    out & reg_rd_addr_2_o\label{ID:reg_rd_addr_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:REGISTERS} & 寄存器2读地址 \\
-    out & operand_1_o\label{ID:operand_1_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX} & 指令操作数1 \\
-    out & operand_2_o\label{ID:operand_2_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX} & 指令操作数2 \\
-    out & extended_offset_o\label{ID:extended_offset_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX} & 扩展后立即数 \\
-    out & reg_wt_en_o\label{ID:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 寄存器写使能 \\
-    out & reg_wt_addr_o\label{ID:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID/EX} & 寄存器写地址 \\
-    out & pause_o\label{ID:pause_o} & STD_LOGIC & 1 & \nameref{sec:PAUSE_CTRL} & 是否需要暂停 \\
-    out & branch_o\label{ID:branch_o} & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 当前是否为分支跳转指令 \\
-    out & branch_target_addr_o\label{ID:branch_target_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:PC} & 跳转地址 \\
-    out & is_in_delayslot_o\label{ID:is_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 当前指令是否在延迟槽内 \\
-    out & next_inst_in_delayslot_o\label{ID:next_inst_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 下一条指令是否在延迟槽内 \\
-    out & link_addr_o\label{ID:link_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID/EX} & 跳转指令的返回地址 \\
+    \begin{supertabular}{lp{3cm}llp{4cm}p{2cm}}
+    in & \labelname{rst}\newtag{rst}{ID:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{pc_i}\newtag{pc_i}{ID:pc_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:IF/ID}.\nameref{IF/ID:pc_o} & 指令地址 \\
+    in & \labelname{inst_i}\newtag{inst_i}{ID:inst_i} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:IF/ID}.\nameref{IF/ID:inst_o} & 指令 \\
+    in & \labelname{reg_rd_data_1_i}\newtag{reg_rd_data_1_i}{ID:reg_rd_data_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_rd_data_1_o} & 寄存器1读出数据 \\
+    in & \labelname{reg_rd_data_2_i}\newtag{reg_rd_data_2_i}{ID:reg_rd_data_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_rd_data_2_o} & 寄存器2读出数据 \\
+    in & \labelname{ex_reg_wt_en_i}\newtag{ex_reg_wt_en_i}{ID:ex_reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:EX}.\nameref{EX:reg_wt_en_o} & EX 模块是否写寄存器 \\
+    in & \labelname{ex_reg_wt_addr_i}\newtag{ex_reg_wt_addr_i}{ID:ex_reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX}.\nameref{EX:reg_wt_addr_o} & EX 模块写寄存器地址 \\
+    in & \labelname{ex_reg_wt_data_i}\newtag{ex_reg_wt_data_i}{ID:ex_reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:reg_wt_data_o} & EX 模块写寄存器数据 \\
+    in & \labelname{mem_reg_wt_en_i}\newtag{mem_reg_wt_en_i}{ID:mem_reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:reg_wt_en_o} & MEM 模块是否写寄存器 \\
+    in & \labelname{mem_reg_wt_addr_i}\newtag{mem_reg_wt_addr_i}{ID: mem_reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM}.\nameref{MEM:reg_wt_addr_o} & MEM 模块写寄存器地址 \\
+    in & \labelname{mem_reg_wt_data_i}\newtag{mem_reg_wt_data_i}{ID:mem_reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:reg_wt_data_o} & MEM 模块写寄存器数据 \\
+    in & \labelname{is_in_delayslot_i}\newtag{is_in_delayslot_i}{ID:is_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID/EX}.\nameref{ID/EX:is_in_delayslot_o} & 当前指令是否在延迟槽内 \\
+    out & \labelname{op_o}\newtag{op_o}{ID:op_o} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:op_i} & 指令操作类型 \\
+    out & \labelname{funct_o}\newtag{funct_o}{ID:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:funct_i} & 指令子操作类型 \\
+    out & \labelname{reg_rd_en_1_o}\newtag{reg_rd_en_1_o}{ID:reg_rd_en_1_o} & STD_LOGIC & 1 & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_rd_en_1_i} & 寄存器1 读使能 \\
+    out & \labelname{reg_rd_en_2_o}\newtag{reg_rd_en_2_o}{ID:reg_rd_en_2_o} & STD_LOGIC & 1 & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_rd_en_2_i} & 寄存器2读使能 \\
+    out & \labelname{reg_rd_addr_1_o}\newtag{reg_rd_addr_1_o}{ID:reg_rd_addr_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_rd_addr_1_i} & 寄存器1读地址 \\
+    out & \labelname{reg_rd_addr_2_o}\newtag{reg_rd_addr_2_o}{ID:reg_rd_addr_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_rd_addr_2_i} & 寄存器2读地址 \\
+    out & \labelname{operand_1_o}\newtag{operand_1_o}{ID:operand_1_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:operand_1_i} & 指令操作数1 \\
+    out & \labelname{operand_2_o}\newtag{operand_2_o}{ID:operand_2_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:operand_2_i} & 指令操作数2 \\
+    out & \labelname{extended_offset_o}\newtag{extended_offset_o}{ID:extended_offset_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:extended_offset_i} & 扩展后立即数 \\
+    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{ID:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:ID/EX}.\nameref{ID/EX:reg_wt_en_i} & 寄存器写使能 \\
+    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{ID:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:reg_wt_addr_i} & 寄存器写地址 \\
+    out & \labelname{pause_o}\newtag{pause_o}{ID:pause_o} & STD_LOGIC & 1 & \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:id_pause_i} & 是否需要暂停 \\
+    out & \labelname{branch_o}\newtag{branch_o}{ID:branch_o} & STD_LOGIC & 1 & \nameref{sec:PC}.\nameref{PC:branch_i} & 当前是否为分支跳转指令 \\
+    out & \labelname{branch_target_addr_o}\newtag{branch_target_addr_o}{ID:branch_target_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:PC}.\nameref{PC:branch_target_addr_i} & 跳转地址 \\
+    out & \labelname{is_in_delayslot_o}\newtag{is_in_delayslot_o}{ID:is_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:ID/EX}.\nameref{ID/EX:is_in_delayslot_i} & 当前指令是否在延迟槽内 \\
+    out & \labelname{next_inst_in_delayslot_o}\newtag{next_inst_in_delayslot_o}{ID:next_inst_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:ID/EX}.\nameref{ID/EX:next_inst_in_delayslot_i} & 下一条指令是否在延迟槽内 \\
+    out & \labelname{link_addr_o}\newtag{link_addr_o}{ID:link_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:link_addr_i} & 跳转指令的返回地址 \\
     \end{supertabular}
 \end{center}
 \FloatBarrier
@@ -346,31 +361,31 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
+    \begin{supertabular}{lp{2.5cm}llp{4cm}p{2cm}}
 
-    in & rst\label{ID/EX:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & clk\label{ID/EX:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
-    in & op_i\label{ID/EX:op_i} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID} & 指令操作类型 \\
-    in & funct_i\label{ID/EX:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID} & 指令子操作类型 \\
-    in & operand_1_i\label{ID/EX:operand_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 指令操作数1 \\
-    in & operand_2_i\label{ID/EX:operand_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 指令操作数2 \\
-    in & extended_offset_i\label{ID/EX:extended_offset_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID} & 扩展后立即数 \\
-    in & reg_wt_en_i\label{ID/EX:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 寄存器写使能 \\
-    in & reg_wt_addr_i\label{ID/EX:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID} & 寄存器写地址 \\
-    in & pause_i\label{ID/EX:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL} & 是否暂停 \\
-    in & is_in_delayslot_i\label{ID/EX:is_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 当前指令是否在延迟槽中 \\
-    in & next_inst_in_delayslot_i\label{ID/EX:next_inst_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 下一条指令是否在延迟槽中 \\
-    in & link_addr_i\label{ID/EX:link_addr_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID} & 跳转指令的返回地址 \\
-    out & op_o\label{ID/EX:op_o} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:EX} & 指令操作类型 \\
-    out & funct_o\label{ID/EX:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX} & 指令子操作类型 \\
-    out & operand_1_o\label{ID/EX:operand_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 指令操作数1 \\
-    out & operand_2_o\label{ID/EX:operand_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 指令操作数2 \\
-    out & extended_offset_o\label{ID/EX:extended_offset_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX} & 扩展后立即数 \\
-    out & reg_wt_en_o\label{ID/EX:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:EX} & 寄存器写使能 \\
-    out & reg_wt_addr_o\label{ID/EX:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX} & 寄存器写地址 \\
-    out & is_in_delayslot_o\label{ID/EX:is_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:EX} & 当前指令是否在延迟槽中 \\
-    out & next_inst_in_delayslot_o\label{ID/EX:next_inst_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:ID} & 下一条指令是否在延迟槽中 \\
-    out & link_addr_o\label{ID/EX:link_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:EX} & 跳转指令的返回地址 \\
+    in & \labelname{rst}\newtag{rst}{ID/EX:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{clk}\newtag{clk}{ID/EX:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:clk} & 时钟信号 \\
+    in & \labelname{op_i}\newtag{op_i}{ID/EX:op_i} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID}.\nameref{ID:op_o} & 指令操作类型 \\
+    in & \labelname{funct_i}\newtag{funct_i}{ID/EX:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID}.\nameref{ID:funct_o} & 指令子操作类型 \\
+    in & \labelname{operand_1_i}\newtag{operand_1_i}{ID/EX:operand_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID}.\nameref{ID:operand_1_o} & 指令操作数1 \\
+    in & \labelname{operand_2_i}\newtag{operand_2_i}{ID/EX:operand_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID}.\nameref{ID:operand_2_o} & 指令操作数2 \\
+    in & \labelname{extended_offset_i}\newtag{extended_offset_i}{ID/EX:extended_offset_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID}.\nameref{ID:extended_offset_o} & 扩展后立即数 \\
+    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{ID/EX:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:reg_wt_en_o} & 寄存器写使能 \\
+    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{ID/EX:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID}.\nameref{ID:reg_wt_addr_o} & 寄存器写地址 \\
+    in & \labelname{pause_i}\newtag{pause_i}{ID/EX:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:pause_o} & 是否暂停 \\
+    in & \labelname{is_in_delayslot_i}\newtag{is_in_delayslot_i}{ID/EX:is_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:is_in_delayslot_o} & 当前指令是否在延迟槽中 \\
+    in & \labelname{next_inst_in_delayslot_i}\newtag{next_inst_in_delayslot_i}{ID/EX:next_inst_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:next_inst_in_delayslot_o} & 下一条指令是否在延迟槽中 \\
+    in & \labelname{link_addr_i}\newtag{link_addr_i}{ID/EX:link_addr_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID}.\nameref{ID:link_addr_o} & 跳转指令的返回地址 \\
+    out & \labelname{op_o}\newtag{op_o}{ID/EX:op_o} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:EX}.\nameref{EX:op_i} & 指令操作类型 \\
+    out & \labelname{funct_o}\newtag{funct_o}{ID/EX:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX}.\nameref{EX:funct_i} & 指令子操作类型 \\
+    out & \labelname{operand_1_o}\newtag{operand_1_o}{ID/EX:operand_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:operand_1_i} & 指令操作数1 \\
+    out & \labelname{operand_2_o}\newtag{operand_2_o}{ID/EX:operand_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:operand_2_i} & 指令操作数2 \\
+    out & \labelname{extended_offset_o}\newtag{extended_offset_o}{ID/EX:extended_offset_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX}.\nameref{EX:extended_offset_i} & 扩展后立即数 \\
+    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{ID/EX:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:EX}.\nameref{EX:reg_wt_en_i} & 寄存器写使能 \\
+    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{ID/EX:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX}.\nameref{EX:reg_wt_addr_i} & 寄存器写地址 \\
+    out & \labelname{is_in_delayslot_o}\newtag{is_in_delayslot_o}{ID/EX:is_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:EX}.\nameref{EX:is_in_delayslot_i} & 当前指令是否在延迟槽中 \\
+    out & \labelname{next_inst_in_delayslot_o}\newtag{next_inst_in_delayslot_o}{ID/EX:next_inst_in_delayslot_o} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:is_in_delayslot_i} & 下一条指令是否在延迟槽中 \\
+    out & \labelname{link_addr_o}\newtag{link_addr_o}{ID/EX:link_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:EX}.\nameref{EX:link_addr_i} & 跳转指令的返回地址 \\
     \end{supertabular}
 \end{center}
 \FloatBarrier
@@ -412,41 +427,41 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
+    \begin{supertabular}{llllp{4cm}p{2cm}}
 
-    in & rst\label{EX:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & op_i\label{EX:op_i} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID/EX} & 指令操作类型 \\
-    in & funct_i\label{EX:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID/EX} & 指令子操作类型 \\
-    in & operand_1_i\label{EX:operand_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID/EX} & 指令操作数1 \\
-    in & operand_2_i\label{EX:operand_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID/EX} & 指令操作数2 \\
-    in & \newtag{extended_offset_i}{EX:extended_offset_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX} & 扩展后立即数 \\
-    in & reg_wt_en_i\label{EX:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 寄存器写使能 \\
-    in & reg_wt_addr_i\label{EX:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID/EX} & 寄存器写地址 \\
-    in & hi_i\label{EX:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:HI_LO} & HI寄存器 \\
-    in & lo_i\label{EX:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:HI_LO} & LO寄存器 \\
-    in & mem_hilo_en_i\label{EX:mem_hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM} & MEM阶段的指令是否写HILO \\
-    in & mem_hi_i\label{EX:mem_hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & MEM阶段的指令写HI的数据 \\
-    in & mem_lo_i\label{EX:mem_lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & MEM阶段的指令写LO的数据 \\
-    in & wb_hilo_en_i\label{EX:wb_hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM/WB} & WB阶段的指令是否写HILO \\
-    in & wb_hi_i\label{EX:wb_hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & WB阶段的指令写HI的数据 \\
-    in & wb_lo_i\label{EX:wb_lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & WB阶段的指令写LO的数据 \\
-    in & clock_cycle_cnt_i\label{EX:clock_cycle_cnt_i} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX/MEM} & 进行到了乘累加指令的第几个周期 \\
-    in & mul_cur_result_i\label{EX:mul_cur_result_i} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX/MEM} & 乘累加指令当前结果 \\
-    in & is_in_delayslot_i\label{EX:is_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID/EX} & 当前指令是否在延迟槽内 \\
-    in & link_addr_i\label{EX:link_addr_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID/EX} & 跳转指令的返回地址 \\
-    out & reg_wt_en_o\label{EX:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:EX/MEM} & 寄存器写使能 \\
-    out & reg_wt_addr_o\label{EX:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX/MEM} & 寄存器写地址 \\
-    out & reg_wt_data_o\label{EX:reg_wt_data_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM} & 寄存器写数据 \\
-    out & is_load_store_o\label{EX:is_load_store_o} & STD_LOGIC & 1 & \nameref{sec:EX/MEM} & 当前指令是否为访存指令 \\
-    out & funct_o\label{EX:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX/MEM} & 访存指令子操作类型 \\
-    out & load_store_addr_o\label{EX:load_store_addr_o} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:EX/MEM} & 访存指令访问的地址 \\
-    out & store_data_o\label{EX:store_data_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX/MEM} & store指令要存储的数据 \\
-    out & hilo_en_o\label{EX:hilo_en_o} & STD_LOGIC & 1 & \nameref{sec:EX/MEM} & 写HILO使能 \\
-    out & hi_o\label{EX:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM} & 写HI数据 \\
-    out & lo_o\label{EX:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM} & 写LO数据 \\
-    out & pause_o\label{EX:pause_o} & STD_LOGIC & 1 & \nameref{sec:PAUSE_CTRL} & 是否需要暂停 \\
-    out & clock_cycle_cnt_o\label{EX:clock_cycle_cnt_o} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX/MEM} & 进行到了乘累加指令的第几个周期 \\
-    out & mul_cur_result_o\label{EX:mul_cur_result_o} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX/MEM} & 乘累加指令当前结果 \\
+    in & \labelname{rst}\newtag{rst}{EX:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{op_i}\newtag{op_i}{EX:op_i} & STD_LOGIC_VECTOR & \nameref{const:OP_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:op_o} & 指令操作类型 \\
+    in & \labelname{funct_i}\newtag{funct_i}{EX:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:funct_o} & 指令子操作类型 \\
+    in & \labelname{operand_1_i}\newtag{operand_1_i}{EX:operand_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:operand_1_o} & 指令操作数1 \\
+    in & \labelname{operand_2_i}\newtag{operand_2_i}{EX:operand_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:operand_2_o} & 指令操作数2 \\
+    in & \labelname{extended_offset_i}\newtag{extended_offset_i}{EX:extended_offset_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:extended_offset_o} & 扩展后立即数 \\
+    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{EX:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:ID/EX}.\nameref{ID/EX:reg_wt_en_o} & 寄存器写使能 \\
+    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{EX:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:reg_wt_addr_o} & 寄存器写地址 \\
+    in & \labelname{hi_i}\newtag{hi_i}{EX:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:HI_LO}.\nameref{HI_LO:hi_o} & HI寄存器 \\
+    in & \labelname{lo_i}\newtag{lo_i}{EX:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:HI_LO}.\nameref{HI_LO:lo_o} & LO寄存器 \\
+    in & \labelname{mem_hilo_en_i}\newtag{mem_hilo_en_i}{EX:mem_hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:hilo_en_o} & MEM阶段的指令是否写HILO \\
+    in & \labelname{mem_hi_i}\newtag{mem_hi_i}{EX:mem_hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:hi_o} & MEM阶段的指令写HI的数据 \\
+    in & \labelname{mem_lo_i}\newtag{mem_lo_i}{EX:mem_lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:lo_o} & MEM阶段的指令写LO 的数据 \\
+    in & \labelname{wb_hilo_en_i}\newtag{wb_hilo_en_i}{EX:wb_hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM/WB}.\nameref{MEM/WB:hilo_en_o} & WB 阶段的指令是否写HILO \\
+    in & \labelname{wb_hi_i}\newtag{wb_hi_i}{EX:wb_hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:hi_o} & WB 阶段的指令写HI的数据 \\
+    in & \labelname{wb_lo_i}\newtag{wb_lo_i}{EX:wb_lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:lo_o} & WB 阶段的指令写LO的数据 \\
+    in & \labelname{clock_cycle_cnt_i}\newtag{clock_cycle_cnt_i}{EX:clock_cycle_cnt_i} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:clock_cycle_cnt_o} & 进行到了乘累加指令的第几个周期 \\
+    in & \labelname{mul_cur_result_i}\newtag{mul_cur_result_i}{EX:mul_cur_result_i} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:mul_cur_result_o} & 乘累加指令当前结果 \\
+    in & \labelname{is_in_delayslot_i}\newtag{is_in_delayslot_i}{EX:is_in_delayslot_i} & STD_LOGIC & 1 & \nameref{sec:ID/EX}.\nameref{ID/EX:is_in_delayslot_o} & 当前指令是否在延迟槽内 \\
+    in & \labelname{link_addr_i}\newtag{link_addr_i}{EX:link_addr_i} & STD_LOGIC_VECTOR & \nameref{const:INST_ADDR_LEN} & \nameref{sec:ID/EX}.\nameref{ID/EX:link_addr_o} & 跳转指令的返回地址 \\
+    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{EX:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:EX/MEM}.\nameref{EX/MEM:reg_wt_en_i} & 寄存器写使能 \\
+    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{EX:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:reg_wt_addr_i} & 寄存器写地址 \\
+    out & \labelname{reg_wt_data_o}\newtag{reg_wt_data_o}{EX:reg_wt_data_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:reg_wt_data_i} & 寄存器写数据 \\
+    out & \labelname{is_load_store_o}\newtag{is_load_store_o}{EX:is_load_store_o} & STD_LOGIC & 1 & \nameref{sec:EX/MEM}.\nameref{EX/MEM:is_load_store_i} & 当前指令是否为访存指令 \\
+    out & \labelname{funct_o}\newtag{funct_o}{EX:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:funct_i} & 访存指令子操作类型 \\
+    out & \labelname{load_store_addr_o}\newtag{load_store_addr_o}{EX:load_store_addr_o} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:load_store_addr_i} & 访存指令访问的地址 \\
+    out & \labelname{store_data_o}\newtag{store_data_o}{EX:store_data_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:store_data_i} & store 指令要存储的数据 \\
+    out & \labelname{hilo_en_o}\newtag{hilo_en_o}{EX:hilo_en_o} & STD_LOGIC & 1 & \nameref{sec:EX/MEM}.\nameref{EX/MEM:hilo_en_i} & 写HILO 使能 \\
+    out & \labelname{hi_o}\newtag{hi_o}{EX:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:hi_i} & 写HI 数据 \\
+    out & \labelname{lo_o}\newtag{lo_o}{EX:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:lo_i} & 写LO 数据 \\
+    out & \labelname{pause_o}\newtag{pause_o}{EX:pause_o} & STD_LOGIC & 1 & \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:ex_pause_i} & 是否需要暂停 \\
+    out & \labelname{clock_cycle_cnt_o}\newtag{clock_cycle_cnt_o}{EX:clock_cycle_cnt_o} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:clock_cycle_cnt_i} & 进行到了乘累加指令的第几个周期 \\
+    out & \labelname{mul_cur_result_o}\newtag{mul_cur_result_o}{EX:mul_cur_result_o} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:mul_cur_result_i} & 乘累加指令当前结果 \\
     \end{supertabular}
 \end{center}
 \FloatBarrier
@@ -488,35 +503,35 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
+    \begin{supertabular}{lllllp{2.5cm}}
 
-    in & \labelname{rst}\newtag{rst}{EX/MEM:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & \labelname{clk}\newtag{clk}{EX/MEM:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
-    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{EX/MEM:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:EX} & 寄存器写使能 \\
-    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{EX/MEM:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX} & 寄存器写地址 \\
-    in & \labelname{reg_wt_data_i}\newtag{reg_wt_data_i}{EX/MEM:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 寄存器写数据 \\
-    in & \labelname{is_load_store_i}\newtag{is_load_store_i}{EX/MEM:is_load_store_i} & STD_LOGIC & 1 & \nameref{sec:EX} & 当前指令是否为访存指令 \\
-    in & \labelname{funct_i}\newtag{funct_i}{EX/MEM:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX} & 访存指令子操作类型 \\
-    in & \labelname{load_store_addr_i}\newtag{load_store_addr_i}{EX/MEM:load_store_addr_i} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:EX} & 访存指令访问的地址 \\
-    in & \labelname{store_data_i}\newtag{store_data_i}{EX/MEM:store_data_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX} & store指令要存储的数据 \\
-    in & \labelname{hilo_en_i}\newtag{hilo_en_i}{EX/MEM:hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:EX} & 写HILO使能 \\
-    in & \labelname{hi_i}\newtag{hi_i}{EX/MEM:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 写HI 数据 \\
-    in & \labelname{lo_i}\newtag{lo_i}{EX/MEM:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 写LO 数据 \\
-    in & \labelname{pause_i}\newtag{pause_i}{EX/MEM:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL} & 流水线当前阶段是否需要暂停 \\
-    in & \labelname{clock_cycle_cnt_i}\newtag{clock_cycle_cnt_i}{EX/MEM:clock_cycle_cnt_i} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX} & 进行到了乘累加指令的第几个周期 \\ 
-    in & \labelname{mul_cur_result_i}\newtag{mul_cur_result_i}{EX/MEM:mul_cur_result_i} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX} & 乘累加指令当前结果 \\
-    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{EX/MEM:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM} & 寄存器写使能 \\
-    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{EX/MEM:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM} & 寄存器写地址 \\
-    out & \labelname{reg_wt_data_o}\newtag{reg_wt_data_o}{EX/MEM:reg_wt_data_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & 寄存器写数据 \\
-    out & \labelname{is_load_store_o}\newtag{is_load_store_o}{EX/MEM:is_load_store_o} & STD_LOGIC & 1 & \nameref{sec:MEM} & 当前指令是否为访存指令 \\
-    out & \labelname{funct_o}\newtag{funct_o}{EX/MEM:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:MEM} & 访存指令子操作类型 \\
-    out & \labelname{load_store_addr_o}\newtag{load_store_addr_o}{EX/MEM:load_store_addr_o} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:MEM} & 访存指令访问的地址 \\
-    out & \labelname{store_data_o}\newtag{store_data_o}{EX/MEM:store_data_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:MEM} & store指令要存储的数据 \\
-    out & \labelname{hilo_en_o}\newtag{hilo_en_o}{EX/MEM:hilo_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM} & 写HILO使能 \\
-    out & \labelname{hi_o}\newtag{hi_o}{EX/MEM:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & 写HI数据 \\
-    out & \labelname{lo_o}\newtag{lo_o}{EX/MEM:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & 写LO数据 \\
-    out & \labelname{clock_cycle_cnt_o}\newtag{clock_cycle_cnt_o}{EX/MEM:clock_cycle_cnt_o} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX} & 进行到了乘累加指令的第几个周期 \\
-    out & \labelname{mul_cur_result_o}\newtag{mul_cur_result_o}{EX/MEM:mul_cur_result_o} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX} & 乘累加指令当前结果 \\
+    in & \labelname{rst}\newtag{rst}{EX/MEM:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{clk}\newtag{clk}{EX/MEM:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:clk} & 时钟信号 \\
+    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{EX/MEM:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:EX}.\nameref{EX:reg_wt_en_o} & 寄存器写使能 \\
+    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{EX/MEM:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX}.\nameref{EX:reg_wt_addr_o} & 寄存器写地址 \\
+    in & \labelname{reg_wt_data_i}\newtag{reg_wt_data_i}{EX/MEM:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:reg_wt_data_o} & 寄存器写数据 \\
+    in & \labelname{is_load_store_i}\newtag{is_load_store_i}{EX/MEM:is_load_store_i} & STD_LOGIC & 1 & \nameref{sec:EX}.\nameref{EX:is_load_store_o} & 当前指令是否为访存指令 \\
+    in & \labelname{funct_i}\newtag{funct_i}{EX/MEM:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX}.\nameref{EX:funct_o} & 访存指令子操作类型 \\
+    in & \labelname{load_store_addr_i}\newtag{load_store_addr_i}{EX/MEM:load_store_addr_i} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:EX}.\nameref{EX:load_store_addr_o} & 访存指令访问的地址 \\
+    in & \labelname{store_data_i}\newtag{store_data_i}{EX/MEM:store_data_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX}.\nameref{EX:store_data_o} & store指令要存储的数据 \\
+    in & \labelname{hilo_en_i}\newtag{hilo_en_i}{EX/MEM:hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:EX}.\nameref{EX:hilo_en_o} & 写HILO 使能 \\
+    in & \labelname{hi_i}\newtag{hi_i}{EX/MEM:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:hi_o} & 写HI 数据 \\
+    in & \labelname{lo_i}\newtag{lo_i}{EX/MEM:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:lo_o} & 写LO 数据 \\
+    in & \labelname{pause_i}\newtag{pause_i}{EX/MEM:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:pause_o} & 流水线当前阶段是否需要暂停 \\
+    in & \labelname{clock_cycle_cnt_i}\newtag{clock_cycle_cnt_i}{EX/MEM:clock_cycle_cnt_i} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX}.\nameref{EX:clock_cycle_cnt_i} & 进行到了乘累加指令的第几个周期 \\
+    in & \labelname{mul_cur_result_i}\newtag{mul_cur_result_i}{EX/MEM:mul_cur_result_i} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:mul_cur_result_o} & 乘累加指令当前结果 \\
+    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{EX/MEM:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:reg_wt_en_i} & 寄存器写使能 \\
+    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{EX/MEM:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM}.\nameref{MEM:reg_wt_addr_i} & 寄存器写地址 \\
+    out & \labelname{reg_wt_data_o}\newtag{reg_wt_data_o}{EX/MEM:reg_wt_data_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:reg_wt_data_i} & 寄存器写数据 \\
+    out & \labelname{is_load_store_o}\newtag{is_load_store_o}{EX/MEM:is_load_store_o} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:is_load_store_i} & 当前指令是否为访存指令 \\
+    out & \labelname{funct_o}\newtag{funct_o}{EX/MEM:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:MEM}.\nameref{MEM:funct_i} & 访存指令子操作类型 \\
+    out & \labelname{load_store_addr_o}\newtag{load_store_addr_o}{EX/MEM:load_store_addr_o} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:MEM}.\nameref{MEM:load_store_addr_i} & 访存指令访问的地址 \\
+    out & \labelname{store_data_o}\newtag{store_data_o}{EX/MEM:store_data_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:store_data_i} & store指令要存储的数据 \\
+    out & \labelname{hilo_en_o}\newtag{hilo_en_o}{EX/MEM:hilo_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:hilo_en_i} & 写HILO 使能 \\
+    out & \labelname{hi_o}\newtag{hi_o}{EX/MEM:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:hi_i} & 写HI数据 \\
+    out & \labelname{lo_o}\newtag{lo_o}{EX/MEM:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:lo_i} & 写LO数据 \\
+    out & \labelname{clock_cycle_cnt_o}\newtag{clock_cycle_cnt_o}{EX/MEM:clock_cycle_cnt_o} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX}.\nameref{EX:clock_cycle_cnt_i} & 进行到了乘累加指令的第几个周期 \\
+    out & \labelname{mul_cur_result_o}\newtag{mul_cur_result_o}{EX/MEM:mul_cur_result_o} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:mul_cur_result_o} & 乘累加指令当前结果 \\
     \end{supertabular}
 \end{center}
 \FloatBarrier
@@ -524,6 +539,8 @@
 \section{MEM\label{sec:MEM}}
 
 \subsection{简介}
+
+现在正在研究要不要写暂停。但是可能就不写了，因为可以抄别的组的文档。
 
 \FloatBarrier
 \subsection{接口定义}
@@ -557,34 +574,31 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
+    \begin{supertabular}{llllp{3.5cm}p{3cm}}
 
-    in & \labelname{rst}\newtag{rst}{MEM:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{MEM:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:EX/MEM} & 寄存器写使能 \\
-    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{MEM:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX/MEM} & 寄存器写地址 \\
-    in & \labelname{reg_wt_data_i}\newtag{reg_wt_data_i}{MEM:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM} & 寄存器写数据 \\
-    in & \labelname{is_load_store_i}\newtag{is_load_store_i}{EX/MEM:is_load_store_i} & STD_LOGIC & 1 & \nameref{sec:EX} & 当前指令是否为访存指令 \\
-    in & \labelname{funct_i}\newtag{funct_i}{EX/MEM:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX} & 访存指令子操作类型 \\
-    in & \labelname{load_store_addr_i}\newtag{load_store_addr_i}{EX/MEM:load_store_addr_i} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:EX} & 访存指令访问的地址 \\
-    in & \labelname{store_data_i}\newtag{store_data_i}{EX/MEM:store_data_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX} & store指令要存储的数据 \\
-    in & \labelname{hilo_en_i}\newtag{hilo_en_i}{EX/MEM:hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:EX} & 写HILO使能 \\
-    in & \labelname{hi_i}\newtag{hi_i}{EX/MEM:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 写HI 数据 \\
-    in & \labelname{lo_i}\newtag{lo_i}{EX/MEM:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & 写LO 数据 \\
-    in & \labelname{pause_i}\newtag{pause_i}{EX/MEM:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL} & 流水线当前阶段是否需要暂停 \\
-    in & \labelname{clock_cycle_cnt_i}\newtag{clock_cycle_cnt_i}{EX/MEM:clock_cycle_cnt_i} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX} & 进行到了乘累加指令的第几个周期 \\
-    in & \labelname{mul_cur_result_i}\newtag{mul_cur_result_i}{EX/MEM:mul_cur_result_i} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX} & 乘累加指令当前结果 \\
-    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{EX/MEM:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM} & 寄存器写使能 \\
-    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{EX/MEM:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM} & 寄存器写地址 \\
-    out & \labelname{reg_wt_data_o}\newtag{reg_wt_data_o}{EX/MEM:reg_wt_data_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & 寄存器写数据 \\
-    out & \labelname{is_load_store_o}\newtag{is_load_store_o}{EX/MEM:is_load_store_o} & STD_LOGIC & 1 & \nameref{sec:MEM} & 当前指令是否为访存指令 \\
-    out & \labelname{funct_o}\newtag{funct_o}{EX/MEM:funct_o} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:MEM} & 访存指令子操作类型 \\
-    out & \labelname{load_store_addr_o}\newtag{load_store_addr_o}{EX/MEM:load_store_addr_o} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:MEM} & 访存指令访问的地址 \\
-    out & \labelname{store_data_o}\newtag{store_data_o}{EX/MEM:store_data_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:MEM} & store指令要存储的数据 \\
-    out & \labelname{hilo_en_o}\newtag{hilo_en_o}{EX/MEM:hilo_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM} & 写HILO使能 \\
-    out & \labelname{hi_o}\newtag{hi_o}{EX/MEM:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & 写HI数据 \\
-    out & \labelname{lo_o}\newtag{lo_o}{EX/MEM:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM} & 写LO数据 \\
-    out & \labelname{clock_cycle_cnt_o}\newtag{clock_cycle_cnt_o}{EX/MEM:clock_cycle_cnt_o} & STD_LOGIC_VECTOR & \nameref{const:ACCU_CNT_LEN} & \nameref{sec:EX} & 进行到了乘累加指令的第几个周期 \\
-    out & \labelname{mul_cur_result_o}\newtag{mul_cur_result_o}{EX/MEM:mul_cur_result_o} & STD_LOGIC_VECTOR & \nameref{const:DOUBLE_DATA_LEN} & \nameref{sec:EX} & 乘累加指令当前结果 \\
+    in & \labelname{rst}\newtag{rst}{MEM:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{MEM:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:EX/MEM}.\nameref{EX/MEM:reg_wt_en_o} & 寄存器写使能 \\
+    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{MEM:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:reg_wt_addr_o} & 寄存器写地址 \\
+    in & \labelname{reg_wt_data_i}\newtag{reg_wt_data_i}{MEM:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:reg_wt_data_o} & 寄存器写数据 \\
+    in & \labelname{ram_rd_data_i}\newtag{ram_rd_data_i}{MEM:ram_rd_data_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:ram_data_o} & 从外部读取的数据 \\
+    in & \labelname{is_load_store_i}\newtag{is_load_store_i}{MEM:is_load_store_i} & STD_LOGIC & 1 & \nameref{sec:EX/MEM}.\nameref{EX/MEM:is_load_store_o} & 当前指令是否为访存指令 \\
+    in & \labelname{funct_i}\newtag{funct_i}{MEM:funct_i} & STD_LOGIC_VECTOR & \nameref{const:FUNCT_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:funct_o} & 访存指令子操作类型 \\
+    in & \labelname{load_store_addr_i}\newtag{load_store_addr_i}{MEM:load_store_addr_i} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:load_store_addr_o} & 访存指令访问的地址 \\
+    in & \labelname{store_data_i}\newtag{store_data_i}{MEM:store_data_i} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:store_data_o} & store指令要存储的数据 \\
+    in & \labelname{hilo_en_i}\newtag{hilo_en_i}{MEM:hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:EX/MEM}.\nameref{EX/MEM:hilo_en_o} & 写HILO 使能 \\
+    in & \labelname{hi_i}\newtag{hi_i}{MEM:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:hi_o} & 写HI数据 \\
+    in & \labelname{lo_i}\newtag{lo_i}{MEM:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX/MEM}.\nameref{EX/MEM:lo_o} & 写LO数据 \\
+    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{MEM:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM/WB}.\nameref{MEM/WB:reg_wt_en_i} & 寄存器写使能 \\
+    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{MEM:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:reg_wt_addr_i} & 寄存器写地址 \\
+    out & \labelname{reg_wt_data_o}\newtag{reg_wt_data_o}{MEM:reg_wt_data_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:reg_wt_data_i} & 寄存器写数据 \\
+    out & \labelname{ram_en_o}\newtag{ram_en_o}{MEM:ram_en_o} & STD_LOGIC & 1 &\nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:ram_en_o} & RAM 读写使能 \\
+    out & \labelname{ram_is_read_o}\newtag{ram_is_read_o}{MEM:ram_is_read_o} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:ram_is_read_o} & RAM 是否为读 \\
+    out & \labelname{ram_addr_o}\newtag{ram_addr_o}{MEM:ram_addr_o} & STD_LOGIC_VECTOR & \nameref{const:ADDR_LEN} & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:ram_addr_o} & RAM的访问地址 \\
+    out & \labelname{ram_data_o}\newtag{ram_data_o}{MEM:ram_data_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:ram_data_o} & RAM的写数据 \\
+    out & \labelname{ram_data_sel_o}\newtag{ram_data_sel_o}{MEM:ram_data_sel_o} & STD_LOGIC_VECTOR & \nameref{const:BYTE_IN_DATA} & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:ram_data_sel_o} & RAM数据选择 \\
+    out & \labelname{hilo_en_o}\newtag{hilo_en_o}{MEM:hilo_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM/WB}.\nameref{MEM/WB:hilo_en_i}, \nameref{sec:EX}.\nameref{EX:mem_hilo_en_i} & 写HILO 使能 \\
+    out & \labelname{hi_o}\newtag{hi_o}{MEM:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:hi_i}, \nameref{sec:EX}.\nameref{EX:mem_hi_i} & 写HI数据 \\
+    out & \labelname{lo_o}\newtag{lo_o}{MEM:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:lo_i}, \nameref{sec:EX}.\nameref{EX:mem_lo_i} & 写LO数据 \\
     \end{supertabular}
 \end{center}
 \FloatBarrier
@@ -596,6 +610,55 @@
 \FloatBarrier
 \subsection{接口定义}
 
+\begin{center}
+    \tablecaption{PC的接口}
+
+    \tablefirsthead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tablehead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tabletail{
+        \bottomrule
+        \multicolumn{6}{c}{接下页} \\}
+
+    \tablelasttail{\bottomrule}
+
+    \small
+    \begin{supertabular}{lllllp{2cm}}
+
+    in & \labelname{rst}\newtag{rst}{MEM/WB:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{clk}\newtag{clk}{MEM/WB:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:clk} & 时钟信号 \\
+    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{MEM/WB:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:reg_wt_en_o} & 寄存器写使能 \\
+    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{MEM/WB:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM}.\nameref{MEM:reg_wt_addr_o} & 寄存器写地址 \\
+    in & \labelname{reg_wt_data_i}\newtag{reg_wt_data_i}{MEM/WB:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:reg_wt_data_o} & 寄存器写数据 \\
+    in & \labelname{hilo_en_i}\newtag{hilo_en_i}{MEM/WB:hilo_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:hilo_en_o} & 写HILO 使能 \\
+    in & \labelname{hi_i}\newtag{hi_i}{MEM/WB:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:hi_o} & 写HI数据 \\
+    in & \labelname{lo_i}\newtag{lo_i}{MEM/WB:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:lo_o} & 写LO数据 \\
+    in & \labelname{pause_i}\newtag{pause_i}{MEM/WB:pause_i} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:pause_o} & 是否暂停 \\
+    out & \labelname{reg_wt_en_o}\newtag{reg_wt_en_o}{MEM/WB:reg_wt_en_o} & STD_LOGIC & 1 & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_wt_en_i} & 寄存器写使能 \\
+    out & \labelname{reg_wt_addr_o}\newtag{reg_wt_addr_o}{MEM/WB:reg_wt_addr_o} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_wt_addr_i} & 寄存器写地址 \\
+    out & \labelname{reg_wt_data_o}\newtag{reg_wt_data_o}{MEM/WB:reg_wt_data_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:REGISTERS}.\nameref{REGISTERS:reg_wt_data_i} & 寄存器写数据 \\
+    out & \labelname{hilo_en_o}\newtag{hilo_en_o}{MEM/WB:hilo_en_o} & STD_LOGIC & 1 & \nameref{sec:HI_LO}.\nameref{HI_LO:en}, \nameref{sec:EX}.\nameref{EX:wb_hilo_en_i} & 写HILO 使能 \\
+    out & \labelname{hi_o}\newtag{hi_o}{MEM/WB:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:HI_LO}.\nameref{HI_LO:hi_i}, \nameref{sec:EX}.\nameref{EX:wb_hi_i} & 写HI数据 \\
+    out & \labelname{lo_o}\newtag{lo_o}{MEM/WB:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:HI_LO}.\nameref{HI_LO:lo_i}, \nameref{sec:EX}.\nameref{EX:wb_lo_i} & 写LO 数据 \\
+    \end{supertabular}
+\end{center}
 \FloatBarrier
 
 \section{REGISTERS\label{sec:REGISTERS}}
@@ -635,19 +698,19 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
+    \begin{supertabular}{llllp{4cm}p{3cm}}
 
-    in & rst\label{REGISTERS:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号    \\
-    in & clk\label{REGISTERS:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号    \\
-    in & reg_rd_en_1_i\label{REGISTERS:reg_rd_en_1_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 寄存器1读使能 \\
-    in & reg_rd_en_2_i\label{REGISTERS:reg_rd_en_2_i} & STD_LOGIC & 1 & \nameref{sec:ID} & 寄存器2读使能 \\
-    in & reg_rd_addr_1_i\label{REGISTERS:reg_rd_addr_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID} & 寄存器1读地址 \\
-    in & reg_rd_addr_2_i\label{REGISTERS:reg_rd_addr_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID} & 寄存器2读地址 \\
-    in & reg_wt_en_i\label{REGISTERS:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM/WB} & 寄存器写使能 \\
-    in & reg_wt_addr_i\label{REGISTERS:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM/WB} & 寄存器写地址 \\
-    in & reg_wt_data_i\label{REGISTERS:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & 寄存器写数据 \\
-    out & reg_rd_data_1_o\label{REGISTERS:reg_rd_data_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 寄存器1读出数据 \\
-    out & reg_rd_data_2_o\label{REGISTERS:reg_rd_data_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID} & 寄存器2读出数据 \\
+    in & \labelname{rst}\newtag{rst}{REGISTERS:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号    \\
+    in & \labelname{clk}\newtag{clk}{REGISTERS:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:clk} & 时钟信号    \\
+    in & \labelname{reg_rd_en_1_i}\newtag{reg_rd_en_1_i}{REGISTERS:reg_rd_en_1_i} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:reg_rd_en_1_o} & 寄存器1 读使能 \\
+    in & \labelname{reg_rd_en_2_i}\newtag{reg_rd_en_2_i}{REGISTERS:reg_rd_en_2_i} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:reg_rd_en_2_o} & 寄存器2读使能 \\
+    in & \labelname{reg_rd_addr_1_i}\newtag{reg_rd_addr_1_i}{REGISTERS:reg_rd_addr_1_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID}.\nameref{ID:reg_rd_addr_1_o} & 寄存器1读地址 \\
+    in & \labelname{reg_rd_addr_2_i}\newtag{reg_rd_addr_2_i}{REGISTERS:reg_rd_addr_2_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:ID}.\nameref{ID:reg_rd_addr_2_o} & 寄存器2读地址 \\
+    in & \labelname{reg_wt_en_i}\newtag{reg_wt_en_i}{REGISTERS:reg_wt_en_i} & STD_LOGIC & 1 & \nameref{sec:MEM/WB}.\nameref{MEM/WB:reg_wt_en_o} & 寄存器写使能 \\
+    in & \labelname{reg_wt_addr_i}\newtag{reg_wt_addr_i}{REGISTERS:reg_wt_addr_i} & STD_LOGIC_VECTOR & \nameref{const:REG_ADDR_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:reg_wt_addr_o} & 寄存器写地址 \\
+    in & \labelname{reg_wt_data_i}\newtag{reg_wt_data_i}{REGISTERS:reg_wt_data_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:reg_wt_data_o} & 寄存器写数据 \\
+    out & \labelname{reg_rd_data_1_o}\newtag{reg_rd_data_1_o}{REGISTERS:reg_rd_data_1_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID}.\nameref{ID:reg_rd_data_1_i} & 寄存器1读出数据 \\
+    out & \labelname{reg_rd_data_2_o}\newtag{reg_rd_data_2_o}{REGISTERS:reg_rd_data_2_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:ID}.\nameref{ID:reg_rd_data_2_i} & 寄存器2读出数据 \\
 
     \end{supertabular}
 \end{center}
@@ -693,14 +756,14 @@
     \small
     \begin{supertabular}{lllllp{2cm}}
 
-    in & rst\label{HI/LO:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 复位信号 \\
-    in & clk\label{HI/LO:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU} & 时钟信号 \\
-    in & en\label{HI/LO:en} & STD_LOGIC & 1 & \nameref{sec:MEM/WB} & 使能 \\
-    in & hi_i\label{HI/LO:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & HI \\
-    in & lo_i\label{HI/LO:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB} & LO \\
-    out & hi_o\label{HI/LO:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & HI \\
-    out & lo_o\label{HI/LO:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX} & LO \\
-    
+    in & \labelname{rst}\newtag{rst}{HI_LO:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:rst} & 复位信号 \\
+    in & \labelname{clk}\newtag{clk}{HI_LO:clk} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{MIPS_CPU:clk} & 时钟信号 \\
+    in & \labelname{en}\newtag{en}{HI_LO:en} & STD_LOGIC & 1 & \nameref{sec:MEM/WB}.\nameref{MEM/WB:hilo_en_o} & 使能 \\
+    in & \labelname{hi_i}\newtag{hi_i}{HI_LO:hi_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:hi_o} & HI \\
+    in & \labelname{lo_i}\newtag{lo_i}{HI_LO:lo_i} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:MEM/WB}.\nameref{MEM/WB:lo_o} & LO \\
+    out & \labelname{hi_o}\newtag{hi_o}{HI_LO:hi_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:hi_i} & HI \\
+    out & \labelname{lo_o}\newtag{lo_o}{HI_LO:lo_o} & STD_LOGIC_VECTOR & \nameref{const:REG_DATA_LEN} & \nameref{sec:EX}.\nameref{EX:hi_o} & LO \\
+
     \end{supertabular}
 \end{center}
 \FloatBarrier
@@ -743,12 +806,12 @@
     \tablelasttail{\bottomrule}
 
     \small
-    \begin{supertabular}{lllllp{2cm}}
+    \begin{supertabular}{llllp{5cm}p{2cm}}
 
-    in & rst\label{PAUSE_CTRL:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{EX:extended_offset_i} & 复位信号 \\
-    in & id_pause_i\label{PAUSE_CTRL:id_pause_i} & STD_LOGIC & 1 & \nameref{sec:ID} & ID模块是否暂停 \\
-    in & ex_pause_i\label{PAUSE_CTRL:ex_pause_i} & STD_LOGIC & 1 & \nameref{sec:EX} & EX模块是否暂停 \\
-    out & pause_o\label{PAUSE_CTRL:pause_o} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PC}, \nameref{sec:IF/ID}, \nameref{sec:ID/EX}, \nameref{sec:EX/MEM}, \nameref{sec:MEM/WB} & 各模块是否暂停 \\
+    in & \labelname{rst}\newtag{rst}{PAUSE_CTRL:rst} & STD_LOGIC & 1 & \nameref{sec:MIPS_CPU}.\nameref{EX:extended_offset_i} & 复位信号 \\
+    in & \labelname{id_pause_i}\newtag{id_pause_i}{PAUSE_CTRL:id_pause_i} & STD_LOGIC & 1 & \nameref{sec:ID}.\nameref{ID:pause_o} & ID 模块是否暂停 \\
+    in & \labelname{ex_pause_i}\newtag{ex_pause_i}{PAUSE_CTRL:ex_pause_i} & STD_LOGIC & 1 & \nameref{sec:EX}.\nameref{EX:pause_o} & EX 模块是否暂停 \\
+    out & \labelname{pause_o}\newtag{pause_o}{PAUSE_CTRL:pause_o} & STD_LOGIC_VECTOR & \nameref{const:CTRL_PAUSE_LEN} & \nameref{sec:PC}.\nameref{PC:pause_i}, \nameref{sec:IF/ID}.\nameref{IF/ID:pause_i}, \nameref{sec:ID/EX}.\nameref{ID/EX:pause_i}, \nameref{sec:EX/MEM}.\nameref{EX/MEM:pause_i}, \nameref{sec:MEM/WB}.\nameref{MEM/WB:pause_i} & 各模块是否暂停 \\
 
     \end{supertabular}
 \end{center}
@@ -759,7 +822,56 @@
 
 \subsection{简介}
 
+\FloatBarrier
 \subsection{接口定义}
+
+\begin{center}
+    \tablecaption{MIPS_CPU模块的接口}
+
+    \tablefirsthead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tablehead{
+        \toprule
+        \multicolumn{1}{l}{方向} &
+        \multicolumn{1}{l}{名称} &
+        \multicolumn{1}{l}{类型} &
+        \multicolumn{1}{l}{宽度} &
+        \multicolumn{1}{l}{连接到} &
+        \multicolumn{1}{l}{详细描述} \\
+        \midrule }
+
+    \tabletail{
+        \bottomrule
+        \multicolumn{6}{c}{接下页} \\}
+
+    \tablelasttail{\bottomrule}
+
+    \small
+    \begin{supertabular}{llllp{4.5cm}p{2.5cm}}
+
+    in & \labelname{rst}\newtag{rst}{MIPS_CPU:rst} & STD_LOGIC & 1 & \nameref{sec:PC}.\nameref{PC:rst}, \nameref{sec:IF/ID}.\nameref{IF/ID:rst}, \nameref{sec:ID}.\nameref{ID:rst}, \nameref{sec:ID/EX}.\nameref{ID/EX:rst}, \nameref{sec:EX}.\nameref{EX:rst}, \nameref{sec:EX/MEM}.\nameref{EX/MEM:rst}, \nameref{sec:MEM}.\nameref{MEM:rst}, \nameref{sec:MEM/WB}.\nameref{MEM/WB:rst}, \nameref{sec:REGISTERS}.\nameref{REGISTERS:rst}, \nameref{sec:HI_LO}.\nameref{HI_LO:rst}, \nameref{sec:PAUSE_CTRL}.\nameref{PAUSE_CTRL:rst} & 复位信号 \\
+    in & \labelname{clk}\newtag{clk}{MIPS_CPU:clk} & STD_LOGIC & 1 & \nameref{sec:PC}.\nameref{PC:clk}, \nameref{sec:IF/ID}.\nameref{IF/ID:clk}, \nameref{sec:ID/EX}.\nameref{ID/EX:clk}, \nameref{sec:EX/MEM}.\nameref{EX/MEM:clk}, \nameref{sec:MEM/WB}.\nameref{MEM/WB:clk}, \nameref{sec:REGISTERS}.\nameref{REGISTERS:clk}, \nameref{sec:HI_LO}.\nameref{HI_LO:clk} & 时钟信号 \\
+    in & \labelname{inst_i}\newtag{inst_i}{MIPS_CPU:inst_i} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:IF/ID}.\nameref{IF/ID:inst_i}, ROM & 输入指令 \\
+    in & \labelname{ram_rd_data_i}\newtag{ram_rd_data_i}{MIPS_CPU:ram_rd_data_i} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:MEM}.\nameref{MEM:ram_rd_data_i}, RAM & 输入数据 \\
+    out & \labelname{rom_en_o}\newtag{rom_en_o}{MIPS_CPU:rom_en_o} & STD_LOGIC & 1 & \nameref{sec:PC}.\nameref{PC:en_o}, ROM & ROM 使能 \\
+    out & \labelname{rom_addr_o}\newtag{rom_addr_o}{MIPS_CPU:rom_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:PC}.\nameref{PC:pc_o}, ROM & 指令地址 \\
+    out & \labelname{ram_en_o}\newtag{ram_en_o}{MIPS_CPU:ram_en_o} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:ram_en_o}, RAM & RAM 使能 \\
+    out & \labelname{ram_is_read_o}\newtag{ram_is_read_o}{MIPS_CPU:ram_is_read_o} & STD_LOGIC & 1 & \nameref{sec:MEM}.\nameref{MEM:ram_is_read_o}, RAM & RAM是否是读 \\
+    out & \labelname{ram_addr_o}\newtag{ram_addr_o}{MIPS_CPU:ram_addr_o} & STD_LOGIC_VECTOR & \nameref{const:INST_LEN} & \nameref{sec:MEM}.\nameref{MEM:ram_addr_o}, RAM & 读写RAM 的地址 \\
+    out & \labelname{ram_data_o}\newtag{ram_data_o}{MIPS_CPU:ram_data_o} & STD_LOGIC_VECTOR & \nameref{const:DATA_LEN} & \nameref{sec:MEM}.\nameref{MEM:ram_data_o}, RAM & 写RAM 的数据 \\
+    out & \labelname{ram_data_sel_o}\newtag{ram_data_sel_o}{MIPS_CPU:ram_data_sel_o} & STD_LOGIC_VECTOR & \nameref{const:BYTE_IN_DATA} & \nameref{sec:MEM}.\nameref{MEM:ram_data_sel_o}, RAM & 读写内容选择 \\
+
+    \end{supertabular}
+\end{center}
+\FloatBarrier
 
 \appendix
 \section{常数和宏定义}
@@ -802,7 +914,8 @@
     \labelname{OP_LEN}\newtag{OP_LEN}{const:OP_LEN} & 6 & 指令操作码长度 \\
     \labelname{FUNCT_LEN}\newtag{FUNCT_LEN}{const:FUNCT_LEN} & 6 & 指令子操作码长度 \\
     \labelname{ACCU_CNT_LEN}\newtag{ACCU_CNT_LEN}{const:ACCU_CNT_LEN} & 2 & 乘累加/减指令周期数 \\
-    
+    \labelname{BYTE_IN_DATA}\newtag{BYTE_IN_DATA}{const:BYTE_IN_DATA} & 4 & 一个普通的数据中有多少字节 \\
+
     \end{supertabular}
 \end{center}
 \end{document}
