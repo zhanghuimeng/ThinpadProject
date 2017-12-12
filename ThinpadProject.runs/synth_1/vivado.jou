@@ -1,12 +1,12 @@
 #-----------------------------------------------------------
 # Vivado v2017.1 (64-bit)
-# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Fri Nov 24 00:46:32 2017
-# Process ID: 4189
-# Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1
-# Command line: vivado -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
-# Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
-# Journal file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/vivado.jou
+# Start of session at: Sun Dec 10 16:27:14 2017
+# Process ID: 13788
+# Current directory: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1
+# Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
+# Log file: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
+# Journal file: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source MIPS_CPU.tcl -notrace

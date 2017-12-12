@@ -39,6 +39,8 @@ entity PAUSE_CTRL is
     Port ( rst : in STD_LOGIC;													-- Reset
            id_pause_i : in STD_LOGIC;											-- Input pause information from ID
            ex_pause_i : in STD_LOGIC;											-- Input pause information from EX
+           if_pause_i : in STD_LOGIC;
+           mem_pause_i: in STD_LOGIC;
            pause_o : 	out STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0));		-- Output pause information to PC, IF/ID, ID/EX, EX/MEM, MEM_WB
 end PAUSE_CTRL;
 
@@ -51,10 +53,14 @@ begin
 		if rst = RST_ENABLE then
 			pause_o <= b"000000";
 		else
-			if ex_pause_i = PAUSE then  -- pause IF, ID and EX
+		    if mem_pause_i = PAUSE then
+                pause_o <= b"011111"; 
+            elsif ex_pause_i = PAUSE then  -- pause IF, ID and EX
 				pause_o <= b"001111";
 			elsif id_pause_i = PAUSE then  -- pause IF and ID
 				pause_o <= b"000111";
+			elsif if_pause_i = PAUSE then
+			    pause_o <= b"000111"; 
 			else
 				pause_o <= b"000000";
 			end if;

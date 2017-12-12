@@ -1,13 +1,23 @@
 #-----------------------------------------------------------
 # Vivado v2017.1 (64-bit)
-# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Nov 22 03:45:11 2017
-# Process ID: 28558
-# Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject
-# Command line: vivado -mode batch -source ./sigasi_scripts/SigasiProjectCreator/src/convertVivadoProjectToCsv.tcl ThinpadProject.xpr
-# Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/vivado.log
-# Journal file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/vivado.jou
+# Start of session at: Sun Dec 10 14:56:28 2017
+# Process ID: 1004
+# Current directory: E:/THU/ThinpadProject
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent4168 E:\THU\ThinpadProject\ThinpadProject.xpr
+# Log file: E:/THU/ThinpadProject/vivado.log
+# Journal file: E:/THU/ThinpadProject\vivado.jou
 #-----------------------------------------------------------
-open_project ThinpadProject.xpr
-source ./sigasi_scripts/SigasiProjectCreator/src/convertVivadoProjectToCsv.tcl
+start_gui
+open_project E:/THU/ThinpadProject/ThinpadProject.xpr
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+file mkdir E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1
+file mkdir E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new
+close [ open E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc w ]
+add_files -fileset constrs_1 E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc
+close [ open E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd w ]
+add_files E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd
+set_property file_type {VHDL 2008} [get_files  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd]

@@ -38,7 +38,20 @@ entity MIPS_CPU is
            clk :            in STD_LOGIC;                                   -- Clock
            inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
            rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
-           rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));     -- output instruction address to ROM
+           rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     -- output instruction address to ROM
+           
+           ram1_ce_n_o : out STD_LOGIC;
+           ram1_oe_n_o : out STD_LOGIC;
+           ram1_we_n_o : out STD_LOGIC;
+           ram1_be_n_o : out STD_LOGIC_VECTOR(3 downto 0);
+           ram1_addr_o : out STD_LOGIC_VECTOR(19 downto 0);
+           ram1_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+           ram2_ce_n_o : out STD_LOGIC;
+           ram2_oe_n_o : out STD_LOGIC;
+           ram2_we_n_o : out STD_LOGIC;
+           ram2_be_n_o : out STD_LOGIC_VECTOR(3 downto 0);
+           ram2_addr_o : out STD_LOGIC_VECTOR(19 downto 0);
+           ram2_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
 end MIPS_CPU;
 
 architecture Behavioral of MIPS_CPU is
@@ -84,6 +97,7 @@ component ID is
            reg_rd_addr_2_o :    out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register 2 read address to REGISTERS
            operand_1_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 to ID_to_EX
            operand_2_o :        out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 to ID_to_EX
+           extended_offset_o :	out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output extended offset from ID
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to ID_to_EX
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to ID_to_EX
            pause_o :			out STD_LOGIC;										-- output pause information to PAUSE_CTRL
@@ -101,6 +115,7 @@ component ID_to_EX is
            funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom funct type from ID
            operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 data from ID
            operand_2_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 read data from ID
+           extended_offset_i :			in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- input extended offset from ID
            reg_wt_en_i :    			in STD_LOGIC;                                       -- input register write enable from ID
            reg_wt_addr_i :  			in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID
            pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
@@ -111,6 +126,7 @@ component ID_to_EX is
            funct_o :        			out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to EX
            operand_1_o :    			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 1 read data to EX
            operand_2_o :    			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output operand 2 read data to EX
+           extended_offset_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output extended offset from ID
            reg_wt_en_o :    			out STD_LOGIC;                                      -- output register write enable to EX
            reg_wt_addr_o :  			out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX
            is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to EX
@@ -124,6 +140,7 @@ component EX is
            funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
            operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
            operand_2_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
+           extended_offset_i :          in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);        -- input offset from ID/EX for load/store
            reg_wt_en_i :    			in STD_LOGIC;                                       -- input register write enable from ID/EX
            reg_wt_addr_i :  			in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
            hi_i :           			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
@@ -176,12 +193,18 @@ component MEM is
            reg_wt_en_i :        in STD_LOGIC;                                       -- input register write enable from EX/MEM
            reg_wt_addr_i :      in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from EX/MEM
            reg_wt_data_i :      in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register write data from EX/MEM
+           ram_rd_data_i :		in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			   -- input data read from RAM
            hilo_en_i :          in STD_LOGIC;                                       -- input HILO enable from EX/MEM
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from EX/MEM
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from EX/MEM
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to MEM/WB
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM/WB
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM/WB
+           ram_en_o :			out STD_LOGIC;										-- output RAM enable to RAM
+           ram_is_read_o :        out STD_LOGIC;                                        -- output RAM read to RAM
+           ram_addr_o :            out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);            -- output RAM address to RAM
+           ram_data_o :            out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);            -- output RAM data to RAM
+           ram_data_sel_o :     out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0);        -- output RAM data selection to RAM
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM/WB
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM/WB
            lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output lo data to MEM/WB
@@ -233,7 +256,86 @@ component PAUSE_CTRL is
     Port ( rst : in STD_LOGIC;													-- Reset
            id_pause_i : in STD_LOGIC;											-- Input pause information from ID
            ex_pause_i : in STD_LOGIC;											-- Input pause information from EX
+           if_pause_i : in STD_LOGIC;
+           mem_pause_i:in STD_LOGIC;
            pause_o : 	out STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0));		-- Output pause information to PC, IF/ID, ID/EX, EX/MEM, MEM_WB
+end component;
+
+component MEM_CONTROLL is 
+    Port(
+        rst : in STD_LOGIC;
+        clk : in STD_LOGIC;
+        pause_i : in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN - 1 downto 0); -- input pause from PAUSE CTRL
+        inst_ce_i : in STD_LOGIC;                                    -- input instruction read enable from PC
+        inst_addr_i : in STD_LOGIC_VECTOR(INST_ADDR_LEN - 1 downto 0); -- input read address
+        mem_ce_i : in STD_LOGIC;                                     -- input data read enable from MEM
+        mem_is_read_i : in STD_LOGIC;                                -- input read/write signal from MEM
+        mem_sel_i : in STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0); -- input byte select
+        mem_addr_i : in STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);    -- input data address
+        mem_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);    -- input written data
+        inst_data_o : out STD_LOGIC_VECTOR(INST_LEN - 1 downto 0);  -- output instruction to IF/ID
+        inst_pause_o : out STD_LOGIC;                                -- output pause from sram when get instruction
+        mem_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);   -- output data to MEM
+        mem_pause_o : out STD_LOGIC;                                 -- output pause from sram when read/write data
+                
+        ack_i : in STD_LOGIC;                                    -- input ack signal from SRAM CONTROLL
+        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);    -- input data from SRAM CONTROLL
+        
+        ce_o : out STD_LOGIC;                                    -- output enable signal to SRAM CONTROLL 
+        we_o : out STD_LOGIC;                                    -- output write/read signal to SRAM CONTROLL
+        sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);-- output byte select to SRAM CONTROLL
+        addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);   -- output address to SRAM CONTROLL
+        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));  -- output data to SRAM CONTROLL
+end component;
+
+component MMU is
+    Port (
+        rst : in STD_LOGIC;
+        ce_i : in STD_LOGIC;
+        we_i : in STD_LOGIC;
+        sel_i : in STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+        addr_i : in STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
+        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+            
+        ram1_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        ram1_ack_i : in STD_LOGIC;
+        ram1_ce_o : out STD_LOGIC;
+        ram1_we_o : out STD_LOGIC;
+        ram1_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        ram1_addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
+        ram1_sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+        
+        ram2_data_i : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        ram2_ack_i : out STD_LOGIC;
+        ram2_ce_o : out STD_LOGIC;
+        ram2_we_o : out STD_LOGIC;
+        ram2_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        ram2_addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
+        ram2_sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+            
+        ack_o : out STD_LOGIC;
+        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
+end component;
+
+component SRAM_CONTROLL is
+    Port(
+        clk : in STD_LOGIC;
+        rst : in STD_LOGIC;
+        ce_i : in STD_LOGIC;
+        we_i : in STD_LOGIC;
+        addr_i : in STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
+        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        sel_i : in STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+            
+        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        ack_o : out STD_LOGIC;
+            
+        ram_ce_n_o : out STD_LOGIC;
+        ram_oe_n_o : out STD_LOGIC;
+        ram_we_n_o : out STD_LOGIC;
+        ram_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA downto 0);
+        ram_addr_o : out STD_LOGIC_VECTOR(19 - 1 downto 0);
+        ram_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
 end component;
 
 -- PC to IF/ID signals
@@ -248,6 +350,7 @@ signal op_from_id: STD_LOGIC_VECTOR(OP_LEN-1 downto 0);
 signal funct_from_id: STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);
 signal oprand_1_from_id: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal oprand_2_from_id: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal extended_offset_from_id: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 signal reg_wt_en_from_id: STD_LOGIC;
 signal reg_wt_addr_from_id: STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
 signal branch_from_id: STD_LOGIC;
@@ -272,6 +375,7 @@ signal op_to_ex: STD_LOGIC_VECTOR(OP_LEN-1 downto 0);
 signal funct_to_ex: STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);
 signal oprand_1_to_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal oprand_2_to_ex: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal extended_offset_to_ex: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
 signal reg_wt_en_to_ex: STD_LOGIC;
 signal reg_wt_addr_to_ex: STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
 signal is_in_delayslot_to_ex: STD_LOGIC;
@@ -336,6 +440,52 @@ signal lo_from_hilo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 -- PAUSE_CTRL to PC, IF/ID, ID/EX, EX/MEM, MEM/WB signal
 signal pause: STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);
 
+signal data_from_ram: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+
+signal en_from_mem: STD_LOGIC;
+signal is_read_from_mem: STD_LOGIC;
+signal addr_from_mem: STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
+signal data_from_mem: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+signal sel_from_mem: STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+
+signal ack_from_sram_controll: STD_LOGIC;
+signal data_from_sram_controll: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0); -- Data read from sram to mem controll
+signal inst_from_mem_controll: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0); -- Instruction from mem controll to IF/ID
+signal mem_data_from_mem_controll: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0); -- Data from mem controll to MEM
+
+-- Signal from mem controll to MMU
+signal ce_from_mem_controll: STD_LOGIC; -- ram ce signal from mem controll to sram controll
+signal we_from_mem_controll: STD_LOGIC; -- ram we signal from mem controll to sram controll
+signal sel_from_mem_controll: STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0); -- ram sel signal from mem controll to sram controll
+signal addr_from_mem_controll: STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0); -- ram addr from mem controll to sram controll
+signal data_from_mem_controll: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0); -- data from mem controll written to sram controll
+
+-- Signal from MMU to mem controll
+signal ack_from_mmu : STD_LOGIC;
+signal data_from_mmu : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+
+-- Signal from MMU to base RAM
+signal data_from_ram1 : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+signal ack_from_ram1 : STD_LOGIC;
+signal ce_to_ram1 : STD_LOGIC;
+signal we_to_ram1 : STD_LOGIC;
+signal data_to_ram1 : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+signal addr_to_ram1 : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
+signal sel_to_ram1 : STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+
+-- Signal from MMU to extend RAM
+signal data_from_ram2 : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+signal ack_from_ram2 : STD_LOGIC;
+signal ce_to_ram2 : STD_LOGIC;
+signal we_to_ram2 : STD_LOGIC;
+signal data_to_ram2 : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+signal addr_to_ram2 : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
+signal sel_to_ram2 : STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+
+-- Signal from mem controll to pause ctrl
+signal inst_pause_from_mem_controll: STD_LOGIC;
+signal mem_pause_from_mem_controll: STD_LOGIC;
+
 begin
 
     rom_addr_o <= pc_from_pc;  -- Output 
@@ -347,7 +497,7 @@ begin
     
     IF_to_ID_0 : IF_to_ID port map(
         rst => rst, clk => clk, 
-        pc_i => pc_from_pc, inst_i => inst_i, 
+        pc_i => pc_from_pc, inst_i => inst_from_mem_controll, 
         pause_i => pause, 
         pc_o => pc_to_id, inst_o => inst_to_id);
     
@@ -362,6 +512,7 @@ begin
         reg_rd_en_1_o => reg_rd_en_1_to_register, reg_rd_en_2_o => reg_rd_en_2_to_register, 
         reg_rd_addr_1_o => reg_rd_addr_1_to_register, reg_rd_addr_2_o => reg_rd_addr_2_to_register, 
         operand_1_o => oprand_1_from_id, operand_2_o => oprand_2_from_id, 
+        extended_offset_o => extended_offset_from_id,
         reg_wt_en_o => reg_wt_en_from_id, reg_wt_addr_o => reg_wt_addr_from_id,
         pause_o => id_pause_from_id,
         branch_o => branch_from_id, branch_target_addr_o => branch_target_addr_from_id, 
@@ -371,12 +522,14 @@ begin
         rst => rst, clk => clk,
         op_i => op_from_id, funct_i => funct_from_id,
         operand_1_i => oprand_1_from_id, operand_2_i => oprand_2_from_id,
+        extended_offset_i => extended_offset_from_id,
         reg_wt_en_i => reg_wt_en_from_id, reg_wt_addr_i => reg_wt_addr_from_id,
         pause_i => pause, 
         is_in_delayslot_i => is_in_delayslot_from_id, next_inst_in_delayslot_i => next_inst_in_delayslot_from_id,
         link_addr_i => link_addr_from_id,
         op_o => op_to_ex, funct_o => funct_to_ex,
         operand_1_o => oprand_1_to_ex, operand_2_o => oprand_2_to_ex,
+        extended_offset_o => extended_offset_to_ex,
         reg_wt_en_o => reg_wt_en_to_ex, reg_wt_addr_o => reg_wt_addr_to_ex,
         is_in_delayslot_o => is_in_delayslot_to_ex, next_inst_in_delayslot_o => next_inst_in_delayslot_to_id, link_addr_o => link_addr_to_ex);
     
@@ -384,6 +537,7 @@ begin
         rst => rst,
         op_i => op_to_ex, funct_i => funct_to_ex,
         operand_1_i => oprand_1_to_ex, operand_2_i => oprand_2_to_ex,
+        extended_offset_i => extended_offset_to_ex,
         reg_wt_en_i => reg_wt_en_to_ex, reg_wt_addr_i => reg_wt_addr_to_ex,
         hi_i => hi_from_hilo, lo_i => lo_from_hilo,
         mem_hilo_en_i => hilo_en_from_mem, mem_hi_i => hi_from_mem, mem_lo_i => lo_from_mem,
@@ -408,9 +562,15 @@ begin
     MEM_0 : MEM port map(
         rst => rst, 
         reg_wt_en_i => reg_wt_en_to_mem, reg_wt_addr_i => reg_wt_addr_to_mem, reg_wt_data_i => reg_wt_data_to_mem,
+        ram_rd_data_i => data_from_mem_controll,
         hilo_en_i => hilo_en_to_mem, hi_i => hi_to_mem, lo_i => lo_to_mem,
         reg_wt_en_o => reg_wt_en_from_mem, reg_wt_addr_o => reg_wt_addr_from_mem, reg_wt_data_o => reg_wt_data_from_mem,
-        hilo_en_o => hilo_en_from_mem, hi_o => hi_from_mem, lo_o => lo_from_mem);
+        hilo_en_o => hilo_en_from_mem, hi_o => hi_from_mem, lo_o => lo_from_mem,
+        ram_en_o => en_from_mem,
+        ram_is_read_o => is_read_from_mem,
+        ram_addr_o => addr_from_mem,
+        ram_data_o => data_from_mem,
+        ram_data_sel_o => sel_from_mem);
     
     MEM_to_WB_0 : MEM_to_WB port map(
         rst => rst, clk => clk,
@@ -435,6 +595,96 @@ begin
     PAUSE_CTRL_0 : PAUSE_CTRL port map (
     	rst => rst,
     	id_pause_i => id_pause_from_id, ex_pause_i => ex_pause_from_ex,
+    	if_pause_i => inst_pause_from_mem_controll,
+    	mem_pause_i => mem_pause_from_mem_controll,
     	pause_o => pause);
+    
+    MEM_CONTROLL_0 : MEM_CONTROLL port map (
+        rst => rst,
+        clk => clk,
+        pause_i => pause,
+        inst_ce_i => rom_en_o,
+        inst_addr_i => rom_addr_o,
+        mem_ce_i => en_from_mem,
+        mem_is_read_i => is_read_from_mem,
+        mem_sel_i => sel_from_mem,
+        mem_addr_i => addr_from_mem,
+        mem_data_i => data_from_mem,
         
+        ack_i => ack_from_mmu,
+        data_i => data_from_mmu,
+        
+        inst_data_o => inst_from_mem_controll,
+        mem_data_o => mem_data_from_mem_controll,
+        inst_pause_o => inst_pause_from_mem_controll,
+        mem_pause_o => mem_pause_from_mem_controll,
+        
+        ce_o => ce_from_mem_controll,
+        we_o => we_from_mem_controll,
+        sel_o => sel_from_mem_controll,
+        addr_o => addr_from_mem_controll,
+        data_o => data_from_mem_controll);
+        
+    MMU_0 : MMU port map(
+        rst => rst,
+        ce_i => ce_from_mem_controll,
+        we_i => we_from_mem_controll,
+        sel_i => sel_from_mem_controll,
+        addr_i => addr_from_mem_controll,
+        data_i => data_from_mem_controll,
+        
+        ram1_data_i => data_from_ram1,
+        ram1_ack_i => ack_from_ram1,
+        ram1_ce_o => ce_to_ram1,
+        ram1_we_o => we_to_ram1,
+        ram1_data_o => data_to_ram1,
+        ram1_addr_o => addr_to_ram1,
+        ram1_sel_o => sel_to_ram1,
+        
+        ram2_data_i => data_from_ram2,
+        ram2_ack_i => ack_from_ram2,
+        ram2_ce_o => ce_to_ram2,
+        ram2_we_o => we_to_ram2,
+        ram2_data_o => data_to_ram2,
+        ram2_addr_o => addr_to_ram2,
+        ram2_sel_o => sel_to_ram2,
+                
+        ack_o => ack_from_mmu,
+        data_o => data_from_mmu);
+                
+    BASE_SRAM_CONTROLL : SRAM_CONTROLL port map(
+        clk => clk, rst => rst,
+        ce_i => ce_to_ram1,
+        we_i => we_to_ram1,
+        addr_i => addr_to_ram1,
+        data_i => data_to_ram1,
+        sel_i => sel_to_ram1,
+        
+        data_o => data_from_ram1,
+        ack_o => ack_from_ram1,
+            
+        ram_ce_n_o => ram1_ce_n_o,
+        ram_oe_n_o => ram1_oe_n_o,
+        ram_we_n_o => ram1_we_n_o,
+        ram_be_n_o => ram1_be_n_o,
+        ram_addr_o => ram1_addr_o,
+        ram_data => ram1_data);
+        
+    EXTEND_RAM_CONTROLL : SRAM_CONTROLL port map(
+        clk => clk, rst => rst,
+        ce_i => ce_to_ram2,
+        we_i => we_to_ram2,
+        addr_i => addr_to_ram2,
+        data_i => data_to_ram2,
+        sel_i => sel_to_ram2,
+            
+        data_o => data_from_ram2,
+        ack_o => ack_from_ram2,
+                
+        ram_ce_n_o => ram2_ce_n_o,
+        ram_oe_n_o => ram2_oe_n_o,
+        ram_we_n_o => ram2_we_n_o,
+        ram_be_n_o => ram2_be_n_o,
+        ram_addr_o => ram2_addr_o,
+        ram_data => ram2_data);
 end Behavioral;

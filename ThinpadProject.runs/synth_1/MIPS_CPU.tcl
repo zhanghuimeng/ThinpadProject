@@ -7,26 +7,28 @@ create_project -in_memory -part xc7a100tfgg676-2L
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.cache/wt [current_project]
-set_property parent.project_path /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.xpr [current_project]
+set_property webtalk.parent_dir E:/THU/ThinpadProject/ThinpadProject.cache/wt [current_project]
+set_property parent.project_path E:/THU/ThinpadProject/ThinpadProject.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
-set_property ip_output_repo /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.cache/ip [current_project]
+set_property ip_output_repo e:/THU/ThinpadProject/ThinpadProject.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_vhdl -vhdl2008 -library xil_defaultlib {
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd
-  /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
