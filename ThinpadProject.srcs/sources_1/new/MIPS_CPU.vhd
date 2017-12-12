@@ -37,21 +37,23 @@ entity MIPS_CPU is
     Port ( rst :            in STD_LOGIC;                                   -- Reset
            clk :            in STD_LOGIC;                                   -- Clock
            inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
-           rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
-           rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     -- output instruction address to ROM
+           -- rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
+           -- rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     -- output instruction address to ROM
            
            ram1_ce_n_o : out STD_LOGIC;
            ram1_oe_n_o : out STD_LOGIC;
            ram1_we_n_o : out STD_LOGIC;
-           ram1_be_n_o : out STD_LOGIC_VECTOR(3 downto 0);
-           ram1_addr_o : out STD_LOGIC_VECTOR(19 downto 0);
+           ram1_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+           ram1_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
            ram1_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
            ram2_ce_n_o : out STD_LOGIC;
            ram2_oe_n_o : out STD_LOGIC;
            ram2_we_n_o : out STD_LOGIC;
-           ram2_be_n_o : out STD_LOGIC_VECTOR(3 downto 0);
-           ram2_addr_o : out STD_LOGIC_VECTOR(19 downto 0);
-           ram2_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
+           ram2_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+           ram2_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
+           ram2_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+           
+           leds : out STD_LOGIC_VECTOR(31 downto 0));
 end MIPS_CPU;
 
 architecture Behavioral of MIPS_CPU is
@@ -354,8 +356,15 @@ component SRAM_CONTROLL is
         ram_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
 end component;
 
+component SEG7_LUT is
+    Port (
+        iDIG : in STD_LOGIC_VECTOR(3 downto 0);
+        oSEG1 : out STD_LOGIC_VECTOR(7 downto 0));
+end component;
+
 -- PC to IF/ID signals
 signal pc_from_pc : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  -- Need to be mapped to two ports
+signal inst_en_from_pc : STD_LOGIC;
 
 -- IF/ID to ID signals
 signal pc_to_id : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
@@ -510,15 +519,20 @@ signal sel_to_ram2 : STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
 signal inst_pause_from_mem_controll: STD_LOGIC;
 signal mem_pause_from_mem_controll: STD_LOGIC;
 
+-- Signal for leds
+signal number : STD_LOGIC_VECTOR(7 downto 0); -- The byte to display in 7-segment display decoder
+signal osegl : STD_LOGIC_VECTOR(7 downto 0);
+signal osegh : STD_LOGIC_VECTOR(7 downto 0);
+
 begin
 
-    rom_addr_o <= pc_from_pc;  -- Output 
+    -- rom_addr_o <= pc_from_pc;  -- Output 
 
     PC_0 : PC port map(
         rst => rst, clk => clk, pause_i => pause, 
         branch_i => branch_from_id, branch_target_address_i => branch_target_addr_from_id,
         
-        pc_o => pc_from_pc, en_o => rom_en_o);
+        pc_o => pc_from_pc, en_o => inst_en_from_pc);
     
     IF_to_ID_0 : IF_to_ID port map(
         rst => rst, clk => clk, 
@@ -645,8 +659,8 @@ begin
         rst => rst,
         clk => clk,
         pause_i => pause,
-        inst_ce_i => rom_en_o,
-        inst_addr_i => rom_addr_o,
+        inst_ce_i => inst_en_from_pc,
+        inst_addr_i => pc_from_pc,
         mem_ce_i => en_from_mem,
         mem_is_read_i => is_read_from_mem,
         mem_sel_i => sel_from_mem,
@@ -729,4 +743,24 @@ begin
         ram_be_n_o => ram2_be_n_o,
         ram_addr_o => ram2_addr_o,
         ram_data => ram2_data);
+        
+    segL : SEG7_LUT port map(
+         oSEG1 => osegl,
+         iDIG => number(3 downto 0));
+                
+    segH : SEG7_LUT port map(
+         oSEG1 => osegh,
+         iDIG => number(7 downto 4));
+                
+    leds(23 downto 22) <= osegl(7 downto 6);
+    leds(19 downto 17) <= osegl(5 downto 3);
+    leds(20) <= osegl(2);
+    leds(21) <= osegl(1);
+    leds(16) <= osegl(0);
+    leds(31 downto 30) <= osegh(7 downto 6);
+    leds(27 downto 25) <= osegh(5 downto 3);
+    leds(28) <= osegh(2);
+    leds(29) <= osegh(1);
+    leds(24) <= osegh(0);    
+    
 end Behavioral;

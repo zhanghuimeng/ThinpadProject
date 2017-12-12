@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Tue Dec 12 20:51:46 2017
+| Date         : Tue Dec 12 21:12:25 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_methodology -file MIPS_CPU_methodology_drc_routed.rpt -rpx MIPS_CPU_methodology_drc_routed.rpx
 | Design       : MIPS_CPU
@@ -23,13 +23,12 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 144
+             Violations found: 88
 +-----------+----------+---------------------------------------------+------------+
 | Rule      | Severity | Description                                 | Violations |
 +-----------+----------+---------------------------------------------+------------+
 | TIMING-14 | Warning  | LUT on the clock tree                       | 3          |
-| TIMING-15 | Warning  | Large hold violation on inter-clock path    | 23         |
-| TIMING-18 | Warning  | Missing input or output delay               | 74         |
+| TIMING-18 | Warning  | Missing input or output delay               | 41         |
 | TIMING-20 | Warning  | Non-clocked latch                           | 43         |
 | TIMING-35 | Warning  | No common node in paths with the same clock | 1          |
 +-----------+----------+---------------------------------------------+------------+
@@ -49,121 +48,6 @@ Related violations: <none>
 TIMING-14#3 Warning
 LUT on the clock tree  
 The LUT PC_0/n_1_102_BUFG_inst_i_1 has been found on the clock tree. Run opt_design to optimize the clock trees, then re-run report_methodology. If LUT(s) are still present in the clock trees, modify the RTL or the synthesis options accordingly to move the clock gating logic to dedicated clock enable resources. Keep in mind that post-opt_design database cannot be used for pin-planning tasks
-Related violations: <none>
-
-TIMING-15#1 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.663 ns between clk (clocked by clk) and MEM_CONTROLL_0/ce_o_reg/D (clocked by clk) that results in large hold timing violation(s) of -3.873 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#2 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.741 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[30]/D (clocked by clk) that results in large hold timing violation(s) of -3.910 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#3 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.741 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[31]/D (clocked by clk) that results in large hold timing violation(s) of -4.149 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#4 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.741 ns between clk (clocked by clk) and MEM_CONTROLL_0/state_reg[1]/D (clocked by clk) that results in large hold timing violation(s) of -3.212 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#5 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.742 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[26]/D (clocked by clk) that results in large hold timing violation(s) of -3.793 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#6 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.742 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[27]/D (clocked by clk) that results in large hold timing violation(s) of -3.794 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#7 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.744 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[22]/D (clocked by clk) that results in large hold timing violation(s) of -3.951 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#8 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.744 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[24]/D (clocked by clk) that results in large hold timing violation(s) of -3.692 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#9 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.744 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[25]/D (clocked by clk) that results in large hold timing violation(s) of -4.168 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#10 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.746 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[16]/D (clocked by clk) that results in large hold timing violation(s) of -3.876 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#11 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.746 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[17]/D (clocked by clk) that results in large hold timing violation(s) of -3.863 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#12 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.746 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[18]/D (clocked by clk) that results in large hold timing violation(s) of -3.722 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#13 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.747 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[14]/D (clocked by clk) that results in large hold timing violation(s) of -3.919 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#14 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.747 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[15]/D (clocked by clk) that results in large hold timing violation(s) of -3.807 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#15 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.748 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[12]/D (clocked by clk) that results in large hold timing violation(s) of -3.872 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#16 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.748 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[13]/D (clocked by clk) that results in large hold timing violation(s) of -3.863 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#17 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.749 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[1]/D (clocked by clk) that results in large hold timing violation(s) of -3.798 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#18 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.750 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[2]/D (clocked by clk) that results in large hold timing violation(s) of -3.876 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#19 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.750 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[3]/D (clocked by clk) that results in large hold timing violation(s) of -3.907 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#20 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.750 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[4]/D (clocked by clk) that results in large hold timing violation(s) of -3.742 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#21 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.752 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[10]/D (clocked by clk) that results in large hold timing violation(s) of -3.964 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#22 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.752 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[6]/D (clocked by clk) that results in large hold timing violation(s) of -3.883 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
-Related violations: <none>
-
-TIMING-15#23 Warning
-Large hold violation on inter-clock path  
-There is a large inter-clock skew of 10.752 ns between clk (clocked by clk) and MEM_CONTROLL_0/addr_o_reg[8]/D (clocked by clk) that results in large hold timing violation(s) of -3.908 ns. Fixing large hold violations during routing might impact setup slack and result in more difficult timing closure
 Related violations: <none>
 
 TIMING-18#1 Warning
@@ -369,171 +253,6 @@ Related violations: <none>
 TIMING-18#41 Warning
 Missing input or output delay  
 An output delay is missing on ram2_addr_o[9] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#42 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[0] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#43 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[10] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#44 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[11] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#45 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[12] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#46 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[13] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#47 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[14] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#48 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[15] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#49 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[16] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#50 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[17] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#51 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[18] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#52 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[19] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#53 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[1] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#54 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[20] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#55 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[21] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#56 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[22] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#57 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[23] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#58 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[24] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#59 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[25] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#60 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[26] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#61 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[27] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#62 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[28] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#63 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[29] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#64 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[2] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#65 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[30] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#66 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[31] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#67 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[3] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#68 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[4] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#69 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[5] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#70 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[6] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#71 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[7] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#72 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[8] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#73 Warning
-Missing input or output delay  
-An output delay is missing on rom_addr_o[9] relative to clock(s) clk 
-Related violations: <none>
-
-TIMING-18#74 Warning
-Missing input or output delay  
-An output delay is missing on rom_en_o relative to clock(s) clk 
 Related violations: <none>
 
 TIMING-20#1 Warning
