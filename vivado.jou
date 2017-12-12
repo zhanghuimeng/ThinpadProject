@@ -21,3 +21,9 @@ add_files -fileset constrs_1 E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1
 close [ open E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd w ]
 add_files E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd
 set_property file_type {VHDL 2008} [get_files  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd]
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1

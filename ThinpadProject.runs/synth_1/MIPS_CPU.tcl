@@ -29,6 +29,7 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
   E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd
   E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd
   E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd
+  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
@@ -38,6 +39,9 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
 foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
+read_xdc E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc
+set_property used_in_implementation false [get_files E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+
 
 synth_design -top MIPS_CPU -part xc7a100tfgg676-2L
 
