@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
+<<<<<<< HEAD
 	<Run Id="synth_1" LaunchDir="E:/THU/ThinpadProject/ThinpadProject.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+=======
+	<Run Id="synth_1" LaunchDir="/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+>>>>>>> 23a4bbfcdc2e9cbd3390b314cf35694e469ba0f4
 </Runs>
 

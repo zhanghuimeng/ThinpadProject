@@ -35,6 +35,7 @@ use WORK.INCLUDE.ALL;
 entity SRAM_CONTROLL is
     Port(
         clk : in STD_LOGIC;
+        rst : in STD_LOGIC;
         ce_i : in STD_LOGIC;
         we_i : in STD_LOGIC;
         addr_i : in STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
@@ -47,8 +48,8 @@ entity SRAM_CONTROLL is
         ram_ce_n_o : out STD_LOGIC;
         ram_oe_n_o : out STD_LOGIC;
         ram_we_n_o : out STD_LOGIC;
-        ram_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA downto 0);
-        ram_addr_o : out STD_LOGIC_VECTOR(19 - 1 downto 0);
+        ram_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+        ram_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
         ram_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
 end SRAM_CONTROLL;
 
@@ -59,36 +60,27 @@ begin
 
     process (clk'event)
     begin
-        if (rising_edge(clk)) then
+        if (clk = '1') then -- rising edge
             able <= '0';
-            ram_data <= HIGH_Z;
-        else 
+        else
             able <= '1';
-            if state = SRAM_READ then
-                data_o <= ram_data;
-                ram_ce_n_o <= '1';
-                ram_oe_n_o <= '1';
-                ack_o <= ACK;
-                state <= SRAM_IDLE;
-            elsif state = SRAM_WRITE then 
-                ram_oe_n_o <= '1';
-                ram_ce_n_o <= '1';
-                ram_we_n_o <= '1';
-                ram_be_n_o <= b"0000";
-                ack_o <= ACK;
-                state <= SRAM_IDLE;
-            end if;
         end if;
     end process;
 
     process (all)
     begin
-        if (able = '1') then
-            if (state = SRAM_IDLE and ce_i = CE_ENABLE) then
-                ack_o <= ACK;
+        if (able = '0') then -- half period after rising edge
+            ram_data <= HIGH_Z;
+            ram_ce_n_o <= '1';
+            ram_oe_n_o <= '1';
+            ram_be_n_o <= b"1111";
+            ram_we_n_o <= '1';
+            state <= SRAM_IDLE;
+        else -- execute read/write
+            if (ce_i = CE_ENABLE) then
                 if (we_i = '1') then
                     state <= SRAM_WRITE;
-                    ram_addr_o <= zero_extend(addr_i, 20);
+                    ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
                     ram_data <= data_i;
                     ram_oe_n_o <= '0';
                     ram_ce_n_o <= '0';
@@ -96,7 +88,8 @@ begin
                     ram_be_n_o <= not sel_i;
                 else 
                     state <= SRAM_READ;
-                    ram_addr_o <= zero_extend(addr_i, 20);
+                    ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
+                    ram_be_n_o <= b"0000";
                     ram_we_n_o <= '1';
                     ram_oe_n_o <= '0';
                     ram_ce_n_o <= '0';
@@ -105,5 +98,7 @@ begin
             end if;
         end if;
     end process;
+    
+    ack_o <= ACK;
 
 end Behavioral;

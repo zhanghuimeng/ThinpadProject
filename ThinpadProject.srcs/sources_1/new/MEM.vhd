@@ -57,9 +57,9 @@ entity MEM is
            ram_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output RAM address to RAM
            ram_data_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output RAM data to RAM
            ram_data_sel_o : 	out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0);		-- output RAM data selection to RAM
-           hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM/WB
-           hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM/WB
-           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output lo data to MEM/WB
+           hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM/WB and EX
+           hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM/WB and EX
+           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output lo data to MEM/WB and EX
 end MEM;
 
 architecture Behavioral of MEM is
@@ -293,7 +293,9 @@ begin
 							when others =>
 								ram_data_sel_o <= "0000";
 						end case swr_addr;
-						
+					
+					when others =>
+					
 				end case load_store_type;
 			end if;
         end if;

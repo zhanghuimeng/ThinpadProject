@@ -61,7 +61,6 @@ end MEM_CONTROLL;
 
 architecture Behavioral of MEM_CONTROLL is
     signal state : STD_LOGIC_VECTOR(STATE_LEN - 1 downto 0) := STATE_IDLE;
-    signal buf : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 begin
 
     process (clk'event)
@@ -72,12 +71,9 @@ begin
             sel_o <= b"0000";
             addr_o <= ZERO_DATA;
             data_o <= ZERO_DATA;
-            inst_pause_o <= PAUSE_NOT;
-            mem_pause_o <= PAUSE_NOT;
             state <= STATE_IDLE;
-            buf <= ZERO_DATA;
         else
-            if (rising_edge(clk)) then
+            if (clk = '1') then -- rising edge
                 if (state = STATE_DATA) then
                     if (ack_i = '1') then
                         ce_o <= '0';
@@ -85,7 +81,6 @@ begin
                         sel_o <= b"0000";
                         addr_o <= ZERO_DATA;
                         data_o <= ZERO_DATA;
-                        mem_pause_o <= PAUSE_NOT;
                         state <= STATE_IDLE;
                     end if;
                 elsif (state = STATE_INST) then
@@ -95,7 +90,6 @@ begin
                         sel_o <= b"0000";
                         addr_o <= ZERO_DATA;
                         data_o <= ZERO_DATA;
-                        inst_pause_o <= PAUSE_NOT;
                         state <= STATE_IDLE;
                     end if;
                 end if ;
@@ -111,10 +105,6 @@ begin
                         else
                             data_o <= mem_data_i;
                         end if;
-                        if (inst_ce_i = CE_ENABLE) then
-                            inst_pause_o <= PAUSE;
-                        end if;
-                        mem_pause_o <= PAUSE;
                         state <= STATE_DATA;
                     elsif (inst_ce_i = CE_ENABLE) then
                         ce_o <= '1';
@@ -122,16 +112,7 @@ begin
                         sel_o <= b"1111";
                         addr_o <= inst_addr_i;
                         data_o <= HIGH_Z;
-                        inst_pause_o <= PAUSE;
                         state <= STATE_INST;
-                    end if;
-                elsif (state = STATE_INST) then
-                    if (mem_ce_i = CE_ENABLE) then
-                        mem_pause_o <= PAUSE;
-                    end if;
-                elsif (state = STATE_DATA) then
-                    if (inst_ce_i = CE_ENABLE) then
-                        inst_pause_o <= PAUSE;
                     end if;
                 end if;
             end if;
@@ -141,14 +122,8 @@ begin
     process (all)
     begin
         if (rst = RST_ENABLE) then
-            ce_o <= '0';
-            we_o <= '0';
-            sel_o <= b"0000";
-            addr_o <= ZERO_DATA;
-            data_o <= ZERO_DATA;
             inst_pause_o <= PAUSE_NOT;
             mem_pause_o <= PAUSE_NOT;
-            state <= STATE_IDLE;
         else 
             if (state = STATE_DATA) then
                 if (ack_i = '1') then
@@ -156,11 +131,21 @@ begin
                         mem_data_o <= data_i;
                     end if;
                     mem_pause_o <= PAUSE_NOT;
+                else
+                    mem_pause_o <= PAUSE;
+                end if;
+                if (inst_ce_i = CE_ENABLE) then
+                    inst_pause_o <= PAUSE;
                 end if;
             elsif (state = STATE_INST) then
                 if (ack_i = '1') then
                     inst_data_o <= data_i;
                     inst_pause_o <= PAUSE_NOT; 
+                else
+                    inst_pause_o <= PAUSE;
+                end if;
+                if (mem_ce_i = CE_ENABLE) then
+                    mem_pause_o <= PAUSE;
                 end if;
             end if;
         end if;

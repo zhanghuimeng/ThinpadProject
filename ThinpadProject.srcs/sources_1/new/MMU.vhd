@@ -49,8 +49,8 @@ entity MMU is
         ram1_addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
         ram1_sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
         
-        ram2_data_i : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        ram2_ack_i : out STD_LOGIC;
+        ram2_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        ram2_ack_i : in STD_LOGIC;
         ram2_ce_o : out STD_LOGIC;
         ram2_we_o : out STD_LOGIC;
         ram2_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);

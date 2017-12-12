@@ -47,17 +47,17 @@ entity EX is
            funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
            operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
            operand_2_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 2 from ID/EX
-           extended_offset_i :          in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);        -- input offset from ID/EX for load/store
+           extended_offset_i :          in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);           -- input extended offset from ID/EX
            reg_wt_en_i :    			in STD_LOGIC;                                       -- input register write enable from ID/EX
            reg_wt_addr_i :  			in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from ID/EX
-           hi_i :           			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
-           lo_i :           			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from HI_LO
+           hi_i :           			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from HI_LO
+           lo_i :           			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from HI_LO
            mem_hilo_en_i :  			in STD_LOGIC;                                       -- input HI_LO write enable from MEM
-           mem_hi_i :       			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
-           mem_lo_i :       			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
+           mem_hi_i :       			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
+           mem_lo_i :       			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
            wb_hilo_en_i:    			in STD_LOGIC;                                       -- input HI_LO write enable from MEM/WB
-           wb_hi_i :        			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM/WB
-           wb_lo_i :        			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM/WB
+           wb_hi_i :        			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM/WB
+           wb_lo_i :        			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM/WB
            clock_cycle_cnt_i : 			in STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- input clock cycle count from EX/MEM
 		   mul_cur_result_i : 			in STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- input accumulation result from EX/MEM
            is_in_delayslot_i :			in STD_LOGIC;										-- input the current instruction in delay slot from ID/EX
