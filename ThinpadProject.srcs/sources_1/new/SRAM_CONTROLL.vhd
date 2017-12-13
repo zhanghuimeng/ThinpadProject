@@ -54,47 +54,31 @@ entity SRAM_CONTROLL is
 end SRAM_CONTROLL;
 
 architecture Behavioral of SRAM_CONTROLL is
-    signal able : STD_LOGIC := '0';
-    signal state : STD_LOGIC_VECTOR(SRAM_STATE_LEN - 1 downto 0) := SRAM_IDLE;
 begin
-
-    process (clk'event)
-    begin
-        if (clk = '1') then -- rising edge
-            able <= '0';
-        else
-            able <= '1';
-        end if;
-    end process;
 
     process (all)
     begin
-        if (able = '0') then -- half period after rising edge
+        if (clk = '1' or ce_i = CE_DISABLE) then -- half period after rising edge
             ram_data <= HIGH_Z;
             ram_ce_n_o <= '1';
             ram_oe_n_o <= '1';
             ram_be_n_o <= b"1111";
             ram_we_n_o <= '1';
-            state <= SRAM_IDLE;
         else -- execute read/write
-            if (ce_i = CE_ENABLE) then
-                if (we_i = '1') then
-                    state <= SRAM_WRITE;
-                    ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
-                    ram_data <= data_i;
-                    ram_oe_n_o <= '0';
-                    ram_ce_n_o <= '0';
-                    ram_we_n_o <= '0';
-                    ram_be_n_o <= not sel_i;
-                else 
-                    state <= SRAM_READ;
-                    ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
-                    ram_be_n_o <= b"0000";
-                    ram_we_n_o <= '1';
-                    ram_oe_n_o <= '0';
-                    ram_ce_n_o <= '0';
-                    data_o <= ram_data;
-                end if;
+            if (we_i = '1') then
+                ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
+                ram_data <= data_i;
+                ram_oe_n_o <= '0';
+                ram_ce_n_o <= '0';
+                ram_we_n_o <= '0';
+                ram_be_n_o <= not sel_i;
+            else 
+                ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
+                ram_be_n_o <= b"0000";
+                ram_we_n_o <= '1';
+                ram_oe_n_o <= '0';
+                ram_ce_n_o <= '0';
+                data_o <= ram_data;
             end if;
         end if;
     end process;

@@ -36,7 +36,6 @@ entity MEM_CONTROLL is
     Port(
         rst : in STD_LOGIC;
         clk : in STD_LOGIC;
-        pause_i : in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN - 1 downto 0); -- input pause from PAUSE CTRL
         inst_ce_i : in STD_LOGIC;                                    -- input instruction read enable from PC
         inst_addr_i : in STD_LOGIC_VECTOR(INST_ADDR_LEN - 1 downto 0); -- input read address
         mem_ce_i : in STD_LOGIC;                                     -- input data read enable from MEM
@@ -49,8 +48,8 @@ entity MEM_CONTROLL is
         mem_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);   -- output data to MEM
         mem_pause_o : out STD_LOGIC;                                 -- output pause from sram when read/write data
             
-        ack_i : in STD_LOGIC;                                    -- input ack signal from SRAM CONTROLL
-        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);    -- input data from SRAM CONTROLL
+        ack_i : in STD_LOGIC;                                    -- input ack signal from MMU
+        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);    -- input data from MMU
         
         ce_o : out STD_LOGIC;                                    -- output enable signal to SRAM CONTROLL 
         we_o : out STD_LOGIC;                                    -- output write/read signal to SRAM CONTROLL
@@ -73,8 +72,8 @@ begin
             data_o <= ZERO_DATA;
             state <= STATE_IDLE;
         else
-            if (clk = '1') then -- rising edge
-                if (state = STATE_DATA) then
+            if rising_edge(clk) then -- rising edge
+                if not(state = STATE_IDLE) then
                     if (ack_i = '1') then
                         ce_o <= '0';
                         we_o <= '0';
@@ -83,35 +82,23 @@ begin
                         data_o <= ZERO_DATA;
                         state <= STATE_IDLE;
                     end if;
-                elsif (state = STATE_INST) then
-                    if (ack_i = '1') then
-                        ce_o <= '0';
-                        we_o <= '0';
-                        sel_o <= b"0000";
-                        addr_o <= ZERO_DATA;
-                        data_o <= ZERO_DATA;
-                        state <= STATE_IDLE;
-                    end if;
-                end if ;
-            else
+                end if;
+            end if;
+			if falling_edge(clk) then
                 if (state = STATE_IDLE) then
                     if (mem_ce_i = CE_ENABLE) then
                         ce_o <= '1';
                         we_o <= not mem_is_read_i;
                         sel_o <= mem_sel_i;
                         addr_o <= mem_addr_i;
-                        if (mem_is_read_i = IS_READ) then
-                            data_o <= HIGH_Z;
-                        else
-                            data_o <= mem_data_i;
-                        end if;
+                        data_o <= mem_data_i;
                         state <= STATE_DATA;
                     elsif (inst_ce_i = CE_ENABLE) then
                         ce_o <= '1';
                         we_o <= '0';
                         sel_o <= b"1111";
                         addr_o <= inst_addr_i;
-                        data_o <= HIGH_Z;
+                        data_o <= ZERO_DATA;
                         state <= STATE_INST;
                     end if;
                 end if;
@@ -124,6 +111,8 @@ begin
         if (rst = RST_ENABLE) then
             inst_pause_o <= PAUSE_NOT;
             mem_pause_o <= PAUSE_NOT;
+			inst_data_o <= ZERO_DATA;
+			mem_data_o <= ZERO_DATA;
         else 
             if (state = STATE_DATA) then
                 if (ack_i = '1') then

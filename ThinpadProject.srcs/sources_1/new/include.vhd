@@ -328,15 +328,19 @@ package INCLUDE is
     constant WORD_SEL : STD_LOGIC_VECTOR(1 downto 0) := b"11";
     constant WORD_SEL_NOT : STD_LOGIC_VECTOR(1 downto 0) := b"00";
     
-    constant TYPE_LEN : integer := 2;
-    constant TYPE_NULL : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"00";
-    constant TYPE_BASE_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"01";
-    constant TYPE_EXTEND_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"10";
+    constant TYPE_LEN : integer := 3;
+    constant TYPE_NULL : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"000";
+    constant TYPE_BASE_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"001";
+    constant TYPE_EXTEND_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"010";
+    constant TYPE_LED : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"011";
+    constant TYPE_NUM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"100";
     
     constant BASE_RAM_ADDR_MIN : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"80000000";
     constant BASE_RAM_ADDR_MAX : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"803FFFFF";
     constant EXTEND_RAM_ADDR_MIN : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"80400000";
     constant EXTEND_RAM_ADDR_MAX : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"807FFFFF";
+    constant LED_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"bfd0f000"; -- For test
+    constant NUM_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"bfd0f010"; -- For test
     
 	function count_leading(vector : STD_LOGIC_VECTOR; b : STD_LOGIC) return natural;
 

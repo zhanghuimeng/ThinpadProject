@@ -7,8 +7,15 @@ create_clock -period 20.000 -name clk -waveform {0.000 10.000} [get_ports clk]
 create_clock -period 90.422 -name clk_uart_in -waveform {0.000 45.211} [get_ports clk_uart_in]
 
 #Touch Button
-set_property IOSTANDARD LVCMOS33 [get_ports rst]
-set_property PACKAGE_PIN F22 [get_ports rst] ;#BTN6
+set_property IOSTANDARD LVCMOS33 [get_ports touch_btn[*]]
+set_property PACKAGE_PIN J19 [get_ports touch_btn[0]] ;#BTN1
+set_property PACKAGE_PIN E25 [get_ports touch_btn[1]] ;#BTN2
+set_property PACKAGE_PIN F23 [get_ports touch_btn[2]] ;#BTN3
+set_property PACKAGE_PIN E23 [get_ports touch_btn[3]] ;#BTN4
+set_property PACKAGE_PIN H19 [get_ports touch_btn[4]] ;#BTN5
+set_property PACKAGE_PIN F22 [get_ports touch_btn[5]] ;#BTN6
+
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets touch_btn_IBUF[5]]
 
 #required if touch_btn[4] used as manual clock source
 set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets touch_btn_IBUF[4]]
@@ -344,4 +351,3 @@ set_property PACKAGE_PIN U16 [get_ports ram2_we_n_o]
 
 set_property CFGBVS VCCO [current_design]
 set_property CONFIG_VOLTAGE 3.3 [current_design]
-
