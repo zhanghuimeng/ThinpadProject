@@ -53,9 +53,9 @@ entity MEM is
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to MEM/WB
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to MEM/WB
            ram_en_o :			out STD_LOGIC;										-- output RAM enable to RAM
-           ram_is_read_o :		out STD_LOGIC;										-- output RAM read to RAM
-           ram_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output RAM address to RAM
-           ram_data_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output RAM data to RAM
+           ram_is_read_o :		out STD_LOGIC;										-- output if this instruction is reading to RAM
+           ram_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output data address to RAM
+           ram_data_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output data to write to RAM
            ram_data_sel_o : 	out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0);		-- output RAM data selection to RAM
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM/WB and EX
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM/WB and EX
@@ -117,6 +117,8 @@ begin
 							when "11" =>
 								ram_data_sel_o <= "0001";
 								reg_wt_data_o <= sign_extend(ram_rd_data_i(BYTE_LEN-1 downto 0), REG_DATA_LEN);
+						    when others =>
+						        reg_wt_data_o <= REG_ZERO_DATA;   -- 为什么要置0呢？不知道，随便写的，反正应该错了。
 						end case lb_addr;
 						
 					when FUNCT_TYPE_LBU =>

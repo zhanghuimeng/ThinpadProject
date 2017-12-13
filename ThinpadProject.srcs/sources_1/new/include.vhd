@@ -78,6 +78,8 @@ package INCLUDE is
 	constant REG_NUM         : integer   := 32;
 	constant ROM_SIZE        : integer   := 131072;
 	constant ROM_SIZE_LOG2   : integer   := 17;
+	constant RAM_SIZE        : integer   := 131072;
+    constant RAM_SIZE_LOG2   : integer   := 17;
 	constant RST_ENABLE      : STD_LOGIC := '1';
 	constant RST_DISABLE     : STD_LOGIC := '0';
 	constant CHIP_ENABLE     : STD_LOGIC := '1';
@@ -88,6 +90,11 @@ package INCLUDE is
 	constant REG_WT_DISABLE  : STD_LOGIC := '0';
 	constant IS_LOAD_STORE	 : STD_LOGIC := '1';
 	constant NOT_LOAD_STORE	 : STD_LOGIC := '0';
+	
+	-- RAM simulation source
+	constant IS_READ_RAM	 : STD_LOGIC := '1';
+    constant IS_WRITE_RAM    : STD_LOGIC := '0';
+    constant IS_SELECTED     : STD_LOGIC := '1';
 
 	constant REG_ZERO_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00000";
 	constant REG_31_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"11111";
@@ -360,7 +367,7 @@ package body INCLUDE is
 		if newLen <= vector'length then
 			return vector(newLen-1 downto 0);
 		end if;
-		bit := vector(vector'length-1);
+		bit := vector(vector'high);  -- 注意这里的语法，如果直接写vector(vector'length-1)会挂掉。。
 		extended(newLen-1 downto vector'length) := (others => bit);
         extended(vector'length-1 downto 0) := vector;  -- sign extend vector
         return extended;

@@ -12,6 +12,7 @@ vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MEM_to_WB.v
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/PC.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sim_1/new/RAM.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/REGISTERS.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sim_1/new/ROM.vhd"
 

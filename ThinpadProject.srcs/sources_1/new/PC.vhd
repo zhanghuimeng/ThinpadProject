@@ -41,7 +41,7 @@ entity PC is
            clk :    					in STD_LOGIC;                                       -- Clock
            pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            branch_i :					in STD_LOGIC;										-- input branch or not from ID
-           branch_target_address_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	-- input branch target address from ID
+           branch_target_addr_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	    -- input branch target address from ID
            en_o :   					out STD_LOGIC;                                      -- output enable signal to ROM
            pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));    -- output program counter (instruction address) to ROM           
 end PC;
@@ -62,7 +62,7 @@ begin
             else                        -- When ROM is enabled, PC increase by 4 every clock cycle
             	if pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
             		if branch_i = BRANCH then
-            			pc_o <= branch_target_address_i;
+            			pc_o <= branch_target_addr_i;
             		else
             			pc_o <= pc_o + x"00000004";  -- IEEE.STD_LOGIC_SIGNED library
             		end if;

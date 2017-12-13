@@ -66,7 +66,7 @@ entity ID is
            reg_wt_en_o :        		out STD_LOGIC;                                      -- output register write enable to ID_to_EX
            reg_wt_addr_o :      		out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to ID_to_EX
            pause_o :					out STD_LOGIC;										-- output pause information to PAUSE_CTRL
-		   branch_o :					out STD_LOGIC;										-- output if the next instruction is in delay slot to ID/EX
+		   branch_o :					out STD_LOGIC;										-- output if the current instruction needs to branch
 		   branch_target_addr_o : 		out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);		-- output the branch target address to PC
 		   is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to ID/EX
 		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the next instruction in delay slot to ID/EX
@@ -659,11 +659,12 @@ begin
                     reg_wt_addr_o <= reg_t;
                 
                 -- LUI rt, immediate                    rt ← immediate || 0^16
+                -- TODO：搞明白最近的bug是怎么回事
                 when OP_LUI =>
                     op_o <= OP_TYPE_LOGIC;
                     funct_o <= FUNCT_TYPE_OR;  -- LUI rt, immediate = ORI rt, $0, (immediate || 0^16)  
-                    reg_rd_en_1_o <= REG_RD_DISABLE;  -- read rs
-                    reg_rd_en_2_o <= REG_RD_ENABLE;  -- do not read rt
+                    reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                    reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     extended_imm := imm & x"0000";  -- zero extend imm
                     -- write rt
                     reg_wt_en_o <= REG_WT_ENABLE;

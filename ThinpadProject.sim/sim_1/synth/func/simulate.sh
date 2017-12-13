@@ -1,5 +1,5 @@
 #!/bin/bash -f
-xv_path="/user_program/Xlinx/Vivado/2017.1"
+bin_path="/user_program/intelFPGA/17.1/modelsim_ase/bin"
 ExecStep()
 {
 "$@"
@@ -9,4 +9,4 @@ then
 exit $RETVAL
 fi
 }
-ExecStep $xv_path/bin/xsim MIPS_CPU_min_sopc_testbench_func_synth -key {Post-Synthesis:sim_1:Functional:MIPS_CPU_min_sopc_testbench} -tclbatch MIPS_CPU_min_sopc_testbench.tcl -view /home/zhanghuimeng/Computer_Architecture/ThinpadProject/MIPS_CPU_min_sopc_testbench_behav.wcfg -log simulate.log
+ExecStep $bin_path/vsim -64  -do "do {MIPS_CPU_min_sopc_testbench_simulate.do}" -l simulate.log

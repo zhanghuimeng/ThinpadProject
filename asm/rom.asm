@@ -5,40 +5,43 @@ inst.om:     file format elf32-tradbigmips
 Disassembly of section .text:
 
 00000000 <_start>:
-   0:	34010001 	li	at,0x1
-   4:	08000008 	j	20 <_start+0x20>
-   8:	34010002 	li	at,0x2
-   c:	34011111 	li	at,0x1111
-  10:	34011100 	li	at,0x1100
-	...
-  20:	34010003 	li	at,0x3
-  24:	0c000010 	jal	40 <_start+0x40>
-  28:	003f0825 	or	at,at,ra
-  2c:	34010005 	li	at,0x5
-  30:	34010006 	li	at,0x6
-  34:	08000018 	j	60 <_start+0x60>
-  38:	00000000 	nop
-  3c:	00000000 	nop
-  40:	03e01009 	jalr	v0,ra
-  44:	00400825 	move	at,v0
-  48:	34010009 	li	at,0x9
-  4c:	3401000a 	li	at,0xa
-  50:	08000020 	j	80 <_start+0x80>
-  54:	00000000 	nop
-	...
-  60:	34010007 	li	at,0x7
-  64:	00400008 	jr	v0
-  68:	34010008 	li	at,0x8
-  6c:	34011111 	li	at,0x1111
-  70:	34011100 	li	at,0x1100
-	...
+   0:	3403eeff 	li	v1,0xeeff
+   4:	a0030003 	sb	v1,3(zero)
+   8:	00031a02 	srl	v1,v1,0x8
+   c:	a0030002 	sb	v1,2(zero)
+  10:	3403ccdd 	li	v1,0xccdd
+  14:	a0030001 	sb	v1,1(zero)
+  18:	00031a02 	srl	v1,v1,0x8
+  1c:	a0030000 	sb	v1,0(zero)
+  20:	80010003 	lb	at,3(zero)
+  24:	90010002 	lbu	at,2(zero)
+  28:	3403aabb 	li	v1,0xaabb
+  2c:	a4030004 	sh	v1,4(zero)
+  30:	94010004 	lhu	at,4(zero)
+  34:	84010004 	lh	at,4(zero)
+  38:	34038899 	li	v1,0x8899
+  3c:	a4030006 	sh	v1,6(zero)
+  40:	84010006 	lh	at,6(zero)
+  44:	94010006 	lhu	at,6(zero)
+  48:	34034455 	li	v1,0x4455
+  4c:	00031c00 	sll	v1,v1,0x10
+  50:	34636677 	ori	v1,v1,0x6677
+  54:	ac030008 	sw	v1,8(zero)
+  58:	8c010008 	lw	at,8(zero)
+  5c:	88010005 	lwl	at,5(zero)
+  60:	98010008 	lwr	at,8(zero)
+  64:	00000000 	nop
+  68:	b8010002 	swr	at,2(zero)
+  6c:	a8010007 	swl	at,7(zero)
+  70:	8c010000 	lw	at,0(zero)
+  74:	8c010004 	lw	at,4(zero)
 
-00000084 <_loop>:
-  84:	08000021 	j	84 <_loop>
-  88:	00000000 	nop
+00000078 <_loop>:
+  78:	0800001e 	j	78 <_loop>
+  7c:	00000000 	nop
 
 Disassembly of section .reginfo:
 
 00000000 <.reginfo>:
-   0:	80000006 	lb	zero,6(zero)
+   0:	0000000a 	movz	zero,zero,zero
 	...

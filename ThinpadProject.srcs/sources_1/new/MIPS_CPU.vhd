@@ -41,9 +41,9 @@ entity MIPS_CPU is
            rom_en_o :       	out STD_LOGIC;                                  	-- output enable to ROM
            rom_addr_o :     	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     		-- output instruction address to ROM
            ram_en_o :			out STD_LOGIC;										-- output RAM enable to RAM
-           ram_is_read_o :		out STD_LOGIC;										-- output RAM read to RAM
-           ram_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output RAM address to RAM
-           ram_data_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output RAM data to RAM
+           ram_is_read_o :		out STD_LOGIC;										-- output if this instruction is reading to RAM
+           ram_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output data address to RAM
+           ram_data_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output data to write to RAM
            ram_data_sel_o : 	out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0));		-- output RAM data selection to RAM
 end MIPS_CPU;
 
@@ -54,7 +54,7 @@ component PC
            clk :    					in STD_LOGIC;                                       -- Clock
            pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            branch_i :					in STD_LOGIC;										-- input branch or not from ID
-           branch_target_address_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	-- input branch target address from ID
+           branch_target_addr_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	    -- input branch target address from ID
            pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ROM
            en_o :   					out STD_LOGIC);                                     -- output enable signal to ROM
 end component;
@@ -384,7 +384,7 @@ begin
 
     PC_0 : PC port map(
         rst => rst, clk => clk, pause_i => pause, 
-        branch_i => branch_from_id, branch_target_address_i => branch_target_addr_from_id,
+        branch_i => branch_from_id, branch_target_addr_i => branch_target_addr_from_id,
         
         pc_o => pc_from_pc, en_o => rom_en_o);
     
