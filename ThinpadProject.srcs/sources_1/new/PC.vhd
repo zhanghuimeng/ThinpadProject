@@ -58,7 +58,7 @@ begin
             end if;
             -- If I rewrite it, the first instruction might not be read
             if en_o = CHIP_DISABLE then   -- When ROM is disabled, PC = 0
-                pc_o <= x"00000000";
+                pc_o <= x"80000000";
             else                        -- When ROM is enabled, PC increase by 4 every clock cycle
             	if pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
             		if branch_i = BRANCH then

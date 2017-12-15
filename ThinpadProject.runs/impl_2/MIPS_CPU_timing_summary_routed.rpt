@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Wed Dec 13 21:36:20 2017
+| Date         : Fri Dec 15 21:00:51 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file MIPS_CPU_timing_summary_routed.rpt -rpx MIPS_CPU_timing_summary_routed.rpx
 | Design       : MIPS_CPU
@@ -52,7 +52,315 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 0 register/latch pins with no clock.
+ There are 984 register/latch pins with no clock driven by root clock pin: touch_btn[4] (HIGH)
+
+ There are 367 register/latch pins with no clock driven by root clock pin: touch_btn[5] (HIGH)
+
+ There are 103 register/latch pins with no clock driven by root clock pin: EX_to_MEM_0/funct_o_reg[0]/Q (HIGH)
+
+ There are 103 register/latch pins with no clock driven by root clock pin: EX_to_MEM_0/funct_o_reg[1]/Q (HIGH)
+
+ There are 103 register/latch pins with no clock driven by root clock pin: EX_to_MEM_0/funct_o_reg[2]/Q (HIGH)
+
+ There are 103 register/latch pins with no clock driven by root clock pin: EX_to_MEM_0/funct_o_reg[3]/Q (HIGH)
+
+ There are 103 register/latch pins with no clock driven by root clock pin: EX_to_MEM_0/is_load_store_o_reg/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/funct_o_reg[0]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/funct_o_reg[1]_rep/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/funct_o_reg[2]_rep/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/funct_o_reg[3]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/funct_o_reg[4]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/op_o_reg[0]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/op_o_reg[1]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/op_o_reg[2]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[0]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[10]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[11]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[12]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[13]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[14]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[15]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[16]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[17]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[18]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[19]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[1]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[20]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[21]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[22]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[23]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[24]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[25]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[26]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[27]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[28]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[29]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[2]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[30]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[31]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[3]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[4]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[5]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[6]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[7]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[8]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_1_o_reg[9]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[0]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[10]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[11]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[12]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[13]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[14]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[15]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[16]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[17]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[18]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[19]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[1]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[20]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[21]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[22]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[23]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[24]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[25]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[26]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[27]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[28]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[29]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[2]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[30]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[31]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[3]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[4]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[5]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[6]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[7]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[8]/Q (HIGH)
+
+ There are 32 register/latch pins with no clock driven by root clock pin: ID_to_EX_0/operand_2_o_reg[9]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[0]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[16]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[17]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[18]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[19]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[1]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[20]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[21]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[22]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[23]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[24]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[25]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[26]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[27]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[28]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[29]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[2]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[30]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[31]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[3]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[4]/Q (HIGH)
+
+ There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[5]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[23]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[24]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[25]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[26]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[27]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[28]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[29]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[30]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[31]/Q (HIGH)
+
+ There are 52 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/ce_o_reg/Q (HIGH)
+
+ There are 134 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/state_reg[0]/Q (HIGH)
+
+ There are 134 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/state_reg[1]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_addr_o_reg[0]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_addr_o_reg[1]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_addr_o_reg[2]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_addr_o_reg[3]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_addr_o_reg[4]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[0]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[10]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[11]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[12]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[13]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[14]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[15]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[16]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[17]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[18]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[19]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[1]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[20]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[21]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[22]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[23]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[24]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[25]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[26]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[27]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[28]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[29]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[2]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[30]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[31]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[3]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[4]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[5]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[6]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[7]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[8]/Q (HIGH)
+
+ There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[9]/Q (HIGH)
+
+ There are 85 register/latch pins with no clock driven by root clock pin: MMU_0/ram1_ce_o_reg/Q (HIGH)
+
+ There are 65 register/latch pins with no clock driven by root clock pin: MMU_0/ram1_we_o_reg/Q (HIGH)
+
+ There are 85 register/latch pins with no clock driven by root clock pin: MMU_0/ram2_ce_o_reg/Q (HIGH)
+
+ There are 65 register/latch pins with no clock driven by root clock pin: MMU_0/ram2_we_o_reg/Q (HIGH)
+
+ There are 71 register/latch pins with no clock driven by root clock pin: PC_0/en_o_reg/Q (HIGH)
 
 
 2. checking constant_clock
@@ -67,21 +375,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 0 pins that are not constrained for maximum delay.
+ There are 3480 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There are 0 input ports with no input delay specified.
+ There are 66 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 0 ports with no output delay specified.
+ There are 134 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -129,17 +437,13 @@ Table of Contents
          NA           NA                     NA                   NA           NA           NA                     NA                   NA           NA           NA                      NA                    NA  
 
 
-All user specified timing constraints are met.
+There are no user specified timing constraints.
 
 
 ------------------------------------------------------------------------------------------------
 | Clock Summary
 | -------------
 ------------------------------------------------------------------------------------------------
-
-Clock  Waveform(ns)       Period(ns)      Frequency(MHz)
------  ------------       ----------      --------------
-clk    {0.000 10.000}     20.000          50.000          
 
 
 ------------------------------------------------------------------------------------------------

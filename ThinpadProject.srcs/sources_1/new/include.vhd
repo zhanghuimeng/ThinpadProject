@@ -308,6 +308,7 @@ package INCLUDE is
 	constant STATE_IDLE : STD_LOGIC_VECTOR(STATE_LEN - 1 downto 0) := b"00";
 	constant STATE_DATA : STD_LOGIC_VECTOR(STATE_LEN - 1 downto 0) := b"01";
 	constant STATE_INST : STD_LOGIC_VECTOR(STATE_LEN - 1 downto 0) := b"10";
+	constant STATE_DEBUG : STD_LOGIC_VECTOR(STATE_LEN - 1 downto 0) := b"11";
 	constant CE_ENABLE : STD_LOGIC := '1';
 	constant CE_DISABLE : STD_LOGIC := '0';
 	constant ACK : STD_LOGIC := '1';
@@ -322,7 +323,6 @@ package INCLUDE is
 	constant SRAM_BYTE_CHOOSE_NOT : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"11111111";
     constant SRAM_BYTE_CHOOSE : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"00000000";
     constant SRAM_BYTE_HIGH_Z : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"ZZZZZZZZ";
-    constant SRAM_WORD_HIGH_Z : STD_LOGIC_VECTOR(WORD_LEN - 1 downto 0) := b"ZZZZZZZZZZZZZZZZ";
     constant BYTE_SEL : STD_LOGIC := '1';
     constant BYTE_SEL_NOT : STD_LOGIC := '0';
     constant WORD_SEL : STD_LOGIC_VECTOR(1 downto 0) := b"11";

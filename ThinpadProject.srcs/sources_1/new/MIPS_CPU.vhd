@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use WORK.INCLUDE.ALL;
 
 entity MIPS_CPU is
-    Port ( clk :            in STD_LOGIC;                                   -- Clock
+    Port ( -- clk :            in STD_LOGIC;                                   -- Clock
            touch_btn :      in STD_LOGIC_VECTOR(5 downto 0);
            -- inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
            -- rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
@@ -307,6 +307,7 @@ end component;
 
 component MMU is
     Port (
+        rst : in STD_LOGIC;
         ce_i : in STD_LOGIC;
         we_i : in STD_LOGIC;
         sel_i : in STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
@@ -530,7 +531,11 @@ signal osegh : STD_LOGIC_VECTOR(7 downto 0);
 
 signal input_rst : STD_LOGIC;
 
+-- for debug
+signal clk : STD_LOGIC;
+
 begin
+    clk <= touch_btn(4);
 
     -- rom_addr_o <= pc_from_pc;  -- Output 
     input_rst <= touch_btn(5);
@@ -661,7 +666,7 @@ begin
     	if_pause_i => inst_pause_from_mem_controll,
     	mem_pause_i => mem_pause_from_mem_controll,
     	pause_o => pause);
-    
+
     MEM_CONTROLL_0 : MEM_CONTROLL port map (
         rst => input_rst,
         clk => clk,
@@ -688,6 +693,7 @@ begin
         data_o => data_from_mem_controll);
         
     MMU_0 : MMU port map(
+        rst => input_rst,
         ce_i => ce_from_mem_controll,
         we_i => we_from_mem_controll,
         sel_i => sel_from_mem_controll,
@@ -751,27 +757,39 @@ begin
         ram_be_n_o => ram2_be_n_o,
         ram_addr_o => ram2_addr_o,
         ram_data => ram2_data);
-    
-    number(7 downto 0) <= num_to_leds(7 downto 0);
-    leds(15 downto 0) <= leds_to_leds(15 downto 0);
+		
+		leds(15 downto 0) <= addr_to_ram1(15 downto 0);
         
-    segL : SEG7_LUT port map(
-         oSEG1 => osegl,
-         iDIG => number(3 downto 0));
+    -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
+   -- leds(15) <= ce_from_mem_controll;
+   --leds(14 downto 11) <= sel_from_mem_controll; 
+    -- leds(10 downto 9) <= state_from_mem_controll; 
+    
+--    number(7 downto 0) <= num_to_leds(7 downto 0);
+--    leds(15 downto 0) <= leds_to_leds(15 downto 0);
+        
+--    segL : SEG7_LUT port map(
+--         oSEG1 => osegl,
+--         iDIG => number(3 downto 0));
                 
-    segH : SEG7_LUT port map(
-         oSEG1 => osegh,
-         iDIG => number(7 downto 4));
+--    segH : SEG7_LUT port map(
+--         oSEG1 => osegh,
+--         iDIG => number(7 downto 4));
                 
-    leds(23 downto 22) <= osegl(7 downto 6);
-    leds(19 downto 17) <= osegl(5 downto 3);
-    leds(20) <= osegl(2);
-    leds(21) <= osegl(1);
-    leds(16) <= osegl(0);
-    leds(31 downto 30) <= osegh(7 downto 6);
-    leds(27 downto 25) <= osegh(5 downto 3);
-    leds(28) <= osegh(2);
-    leds(29) <= osegh(1);
-    leds(24) <= osegh(0);    
+--    leds(23 downto 22) <= osegl(7 downto 6);
+--    leds(19 downto 17) <= osegl(5 downto 3);
+--    leds(20) <= osegl(2);
+--    leds(21) <= osegl(1);
+--    leds(16) <= osegl(0);
+--    leds(31 downto 30) <= osegh(7 downto 6);
+--    leds(27 downto 25) <= osegh(5 downto 3);
+--    leds(28) <= osegh(2);
+--    leds(29) <= osegh(1);
+--    leds(24) <= osegh(0);   
+    
+--    leds(15) <= ce_to_ram1;
+--    leds(14) <= '1';
+--    leds(13) <= we_to_ram1;
+--    leds(12 downto 9) <= sel_to_ram1;
     
 end Behavioral;

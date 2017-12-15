@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Dec 13 21:34:01 2017
-# Process ID: 1236
+# Start of session at: Fri Dec 15 20:57:49 2017
+# Process ID: 8972
 # Current directory: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,29 +15,29 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 6700 
+INFO: Helper process launched with PID 9892 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 347.742 ; gain = 82.945
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 347.582 ; gain = 82.902
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:59]
-INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:538]
+INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:543]
 INFO: [Synth 8-638] synthesizing module 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:51]
 INFO: [Synth 8-256] done synthesizing module 'PC' (1#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
-INFO: [Synth 8-3491] module 'IF_to_ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:544]
+INFO: [Synth 8-3491] module 'IF_to_ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:549]
 INFO: [Synth 8-638] synthesizing module 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'IF_to_ID' (2#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
-INFO: [Synth 8-3491] module 'ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:551]
+INFO: [Synth 8-3491] module 'ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:556]
 INFO: [Synth 8-638] synthesizing module 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:76]
 WARNING: [Synth 8-6014] Unused sequential element next_pc_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:140]
 WARNING: [Synth 8-6014] Unused sequential element next_inst_in_delayslot_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:121]
 INFO: [Synth 8-256] done synthesizing module 'ID' (3#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:76]
-INFO: [Synth 8-3491] module 'ID_to_EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:569]
+INFO: [Synth 8-3491] module 'ID_to_EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:574]
 INFO: [Synth 8-638] synthesizing module 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'ID_to_EX' (4#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
-INFO: [Synth 8-3491] module 'EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:585]
+INFO: [Synth 8-3491] module 'EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:590]
 INFO: [Synth 8-638] synthesizing module 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
 WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:214]
 WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:216]
@@ -159,11 +159,11 @@ WARNING: [Synth 8-6014] Unused sequential element operand_mul_2_reg was removed.
 WARNING: [Synth 8-6014] Unused sequential element mult_result_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:193]
 WARNING: [Synth 8-6014] Unused sequential element mult_accum_result_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:274]
 INFO: [Synth 8-256] done synthesizing module 'EX' (5#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
-INFO: [Synth 8-3491] module 'EX_to_MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:604]
+INFO: [Synth 8-3491] module 'EX_to_MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:609]
 INFO: [Synth 8-638] synthesizing module 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:72]
 INFO: [Synth 8-256] done synthesizing module 'EX_to_MEM' (6#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
-INFO: [Synth 8-3491] module 'MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:619]
+INFO: [Synth 8-3491] module 'MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:624]
 INFO: [Synth 8-638] synthesizing module 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:125]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:181]
@@ -172,41 +172,45 @@ INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadPr
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:257]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:280]
 INFO: [Synth 8-256] done synthesizing module 'MEM' (7#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
-INFO: [Synth 8-3491] module 'MEM_to_WB' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:635]
+INFO: [Synth 8-3491] module 'MEM_to_WB' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:640]
 INFO: [Synth 8-638] synthesizing module 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:60]
 INFO: [Synth 8-256] done synthesizing module 'MEM_to_WB' (8#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
-INFO: [Synth 8-3491] module 'REGISTERS' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:644]
+INFO: [Synth 8-3491] module 'REGISTERS' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:649]
 INFO: [Synth 8-638] synthesizing module 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:90]
 INFO: [Synth 8-256] done synthesizing module 'REGISTERS' (9#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
-INFO: [Synth 8-3491] module 'HI_LO' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:652]
+INFO: [Synth 8-3491] module 'HI_LO' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:657]
 INFO: [Synth 8-638] synthesizing module 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'HI_LO' (10#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
-INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:658]
+INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:663]
 INFO: [Synth 8-638] synthesizing module 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'PAUSE_CTRL' (11#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
-INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:665]
+INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:670]
 INFO: [Synth 8-638] synthesizing module 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
-WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:65]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:65]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'state' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'ack_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_ce_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_is_read_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_sel_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_addr_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_data_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'inst_ce_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'inst_addr_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
 INFO: [Synth 8-256] done synthesizing module 'MEM_CONTROLL' (12#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
-INFO: [Synth 8-3491] module 'MMU' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:690]
-INFO: [Synth 8-638] synthesizing module 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:67]
-WARNING: [Synth 8-6014] Unused sequential element inout_type_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:77]
-WARNING: [Synth 8-6014] Unused sequential element addr_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:79]
-INFO: [Synth 8-256] done synthesizing module 'MMU' (13#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:67]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:719]
+INFO: [Synth 8-3491] module 'MMU' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:695]
+INFO: [Synth 8-638] synthesizing module 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:68]
+WARNING: [Synth 8-3848] Net num_o in module/entity MMU does not have driver. [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:62]
+INFO: [Synth 8-256] done synthesizing module 'MMU' (13#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:68]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:725]
 INFO: [Synth 8-638] synthesizing module 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
 WARNING: [Synth 8-6014] Unused sequential element ram_oe_n_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:64]
 INFO: [Synth 8-256] done synthesizing module 'SRAM_CONTROLL' (14#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:737]
-INFO: [Synth 8-3491] module 'SEG7_LUT' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1' bound to instance 'segL' of component 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:758]
-INFO: [Synth 8-638] synthesizing module 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1]
-INFO: [Synth 8-256] done synthesizing module 'SEG7_LUT' (15#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1]
-INFO: [Synth 8-3491] module 'SEG7_LUT' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1' bound to instance 'segH' of component 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:762]
-INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (16#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:59]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:743]
+INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (15#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:59]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port rst
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[31]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[30]
@@ -220,76 +224,68 @@ WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[23]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[22]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[21]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[20]
-WARNING: [Synth 8-3331] design MMU has unconnected port ce_i
-WARNING: [Synth 8-3331] design MMU has unconnected port sel_i[3]
-WARNING: [Synth 8-3331] design MMU has unconnected port sel_i[2]
-WARNING: [Synth 8-3331] design MMU has unconnected port sel_i[1]
-WARNING: [Synth 8-3331] design MMU has unconnected port sel_i[0]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[31]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[30]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[29]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[28]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[27]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[26]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[25]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[24]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[23]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[22]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[21]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[20]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[19]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[18]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[17]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[16]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[15]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[14]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[13]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[12]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[11]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[10]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[9]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[8]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[7]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[6]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[5]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[4]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[3]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[2]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[1]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_data_i[0]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[31]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[30]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[29]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[28]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[27]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[26]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[25]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[24]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[23]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[22]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[21]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[20]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[19]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[18]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[17]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[16]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[15]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[14]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[13]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[12]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[11]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[10]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[9]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[8]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[7]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[6]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[5]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[4]
+WARNING: [Synth 8-3331] design MMU has unconnected port leds_o[3]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[31]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[30]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[29]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[28]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[27]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[26]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[25]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[24]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[23]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[22]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[21]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[20]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[19]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[18]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[17]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[16]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[15]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[14]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[13]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[12]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[11]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[10]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[9]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[8]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[7]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[6]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[5]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[4]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[3]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[2]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[1]
+WARNING: [Synth 8-3331] design MMU has unconnected port num_o[0]
 WARNING: [Synth 8-3331] design MMU has unconnected port ram1_ack_i
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[31]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[30]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[29]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[28]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[27]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[26]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[25]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[24]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[23]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[22]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[21]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[20]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[19]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[18]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[17]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[16]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[15]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[14]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[13]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[12]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[11]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[10]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[9]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[8]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[7]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[6]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[5]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[4]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[3]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[2]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[1]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_data_i[0]
 WARNING: [Synth 8-3331] design MMU has unconnected port ram2_ack_i
 WARNING: [Synth 8-3331] design REGISTERS has unconnected port rst
 WARNING: [Synth 8-3331] design MEM_to_WB has unconnected port pause_i[3]
@@ -307,9 +303,17 @@ WARNING: [Synth 8-3331] design ID_to_EX has unconnected port pause_i[1]
 WARNING: [Synth 8-3331] design ID_to_EX has unconnected port pause_i[0]
 WARNING: [Synth 8-3331] design ID has unconnected port is_in_delayslot_i
 WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[4]
+WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[3]
+WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[0]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 397.840 ; gain = 133.043
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 398.680 ; gain = 134.000
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -319,7 +323,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 397.840 ; gain = 133.043
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 398.680 ; gain = 134.000
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -327,12 +331,18 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'clk_uart_in'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:3]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:3]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-507] No nets matched 'clk_uart_in_IBUF'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
 WARNING: [Vivado 12-584] No ports matched 'clk_uart_in'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:7]
 CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk_uart_in]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:7]
 Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
@@ -628,11 +638,7 @@ WARNING: [Vivado 12-584] No ports matched 'flash_a[3]'. [E:/THU/ThinpadProject/T
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'flash_a[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
-INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
+INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
 Finished Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MIPS_CPU_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/MIPS_CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
@@ -641,22 +647,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 719.328 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 713.121 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 713.121 ; gain = 448.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 713.121 ; gain = 448.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:17 . Memory (MB): peak = 713.121 ; gain = 448.441
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element pc_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:61]
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -690,41 +696,43 @@ INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recomm
 INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:193]
 INFO: [Synth 8-5546] ROM "ram_en_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5587] ROM size for "ram_is_read_o" is below threshold of ROM address width. It will be mapped to LUTs
-WARNING: [Synth 8-6014] Unused sequential element ram2_we_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:93]
-WARNING: [Synth 8-6014] Unused sequential element ram1_we_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:99]
-WARNING: [Synth 8-6014] Unused sequential element ram1_addr_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:101]
-INFO: [Synth 8-5545] ROM "ram2_ce_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "ram2_ce_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "ram2_data_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "ram2_addr_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "ce_o" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:81]
+INFO: [Synth 8-5544] ROM "data_o" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 WARNING: [Synth 8-327] inferring latch for variable 'extended_imm_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:102]
 WARNING: [Synth 8-327] inferring latch for variable 'extended_offset_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:949]
 WARNING: [Synth 8-327] inferring latch for variable 'branch_target_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:119]
 WARNING: [Synth 8-327] inferring latch for variable 'link_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:122]
 WARNING: [Synth 8-327] inferring latch for variable 'branch_addr_offset_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:141]
 WARNING: [Synth 8-327] inferring latch for variable 'reg_wt_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:108]
-WARNING: [Synth 8-327] inferring latch for variable 'inst_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:114]
-WARNING: [Synth 8-327] inferring latch for variable 'inst_pause_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:112]
-WARNING: [Synth 8-327] inferring latch for variable 'mem_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:115]
-WARNING: [Synth 8-327] inferring latch for variable 'mem_pause_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:113]
-WARNING: [Synth 8-327] inferring latch for variable 'ram1_ce_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:98]
-WARNING: [Synth 8-327] inferring latch for variable 'ram1_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:100]
-WARNING: [Synth 8-327] inferring latch for variable 'ram2_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:95]
-WARNING: [Synth 8-327] inferring latch for variable 'ram1_sel_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:102]
-WARNING: [Synth 8-327] inferring latch for variable 'ram2_ce_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:92]
-WARNING: [Synth 8-327] inferring latch for variable 'ram2_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:94]
-WARNING: [Synth 8-327] inferring latch for variable 'ram2_sel_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:96]
-WARNING: [Synth 8-327] inferring latch for variable 'leds_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:141]
-WARNING: [Synth 8-327] inferring latch for variable 'num_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:161]
-WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:108]
-WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:104]
-WARNING: [Synth 8-327] inferring latch for variable 'led_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:140]
-WARNING: [Synth 8-327] inferring latch for variable 'num_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:160]
+WARNING: [Synth 8-327] inferring latch for variable 'inst_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:131]
+WARNING: [Synth 8-327] inferring latch for variable 'inst_pause_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:129]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:132]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_pause_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:130]
+WARNING: [Synth 8-327] inferring latch for variable 'ce_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
+WARNING: [Synth 8-327] inferring latch for variable 'we_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
+WARNING: [Synth 8-327] inferring latch for variable 'sel_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:73]
+WARNING: [Synth 8-327] inferring latch for variable 'addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:74]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:75]
+WARNING: [Synth 8-327] inferring latch for variable 'state_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:70]
+WARNING: [Synth 8-327] inferring latch for variable 'ram1_ce_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:111]
+WARNING: [Synth 8-327] inferring latch for variable 'ram1_we_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:112]
+WARNING: [Synth 8-327] inferring latch for variable 'ram1_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:116]
+WARNING: [Synth 8-327] inferring latch for variable 'ram1_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:113]
+WARNING: [Synth 8-327] inferring latch for variable 'ram1_sel_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:114]
+WARNING: [Synth 8-327] inferring latch for variable 'ram2_ce_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:105]
+WARNING: [Synth 8-327] inferring latch for variable 'ram2_we_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:106]
+WARNING: [Synth 8-327] inferring latch for variable 'ram2_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:107]
+WARNING: [Synth 8-327] inferring latch for variable 'ram2_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:108]
+WARNING: [Synth 8-327] inferring latch for variable 'ram2_sel_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:109]
+WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:122]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:117]
+WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:82]
 WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:81]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:69]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:62]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:20 . Memory (MB): peak = 713.121 ; gain = 448.441
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -739,7 +747,7 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     64 Bit       Adders := 3     
 	   3 Input     64 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 7     
+	   2 Input     32 Bit       Adders := 8     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      5 Bit       Adders := 4     
 	   3 Input      4 Bit       Adders := 4     
@@ -762,12 +770,13 @@ Detailed RTL Component Info :
 	   2 Input     64 Bit        Muxes := 9     
 	   8 Input     64 Bit        Muxes := 1     
 	  13 Input     64 Bit        Muxes := 1     
+	   2 Input     33 Bit        Muxes := 1     
 	  39 Input     32 Bit        Muxes := 1     
 	   5 Input     32 Bit        Muxes := 2     
 	   4 Input     32 Bit        Muxes := 9     
-	   2 Input     32 Bit        Muxes := 49    
+	   2 Input     32 Bit        Muxes := 55    
 	   8 Input     32 Bit        Muxes := 4     
-	   3 Input     32 Bit        Muxes := 4     
+	   3 Input     32 Bit        Muxes := 8     
 	   6 Input     32 Bit        Muxes := 1     
 	   7 Input     32 Bit        Muxes := 1     
 	  13 Input     32 Bit        Muxes := 1     
@@ -781,20 +790,22 @@ Detailed RTL Component Info :
 	  15 Input      5 Bit        Muxes := 1     
 	   5 Input      5 Bit        Muxes := 1     
 	  15 Input      4 Bit        Muxes := 1     
-	   2 Input      4 Bit        Muxes := 16    
+	   2 Input      4 Bit        Muxes := 18    
 	   4 Input      4 Bit        Muxes := 3     
-	   3 Input      4 Bit        Muxes := 1     
+	   3 Input      4 Bit        Muxes := 3     
 	   6 Input      4 Bit        Muxes := 1     
 	  15 Input      3 Bit        Muxes := 1     
 	  38 Input      3 Bit        Muxes := 4     
 	   2 Input      3 Bit        Muxes := 9     
 	   9 Input      3 Bit        Muxes := 1     
 	  13 Input      3 Bit        Muxes := 2     
-	   2 Input      2 Bit        Muxes := 14    
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 13    
 	   8 Input      2 Bit        Muxes := 1     
 	  13 Input      2 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 47    
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 61    
 	   9 Input      1 Bit        Muxes := 3     
 	  15 Input      1 Bit        Muxes := 6     
 	   5 Input      1 Bit        Muxes := 2     
@@ -802,7 +813,7 @@ Detailed RTL Component Info :
 	  39 Input      1 Bit        Muxes := 3     
 	   7 Input      1 Bit        Muxes := 3     
 	   8 Input      1 Bit        Muxes := 4     
-	   3 Input      1 Bit        Muxes := 5     
+	   3 Input      1 Bit        Muxes := 9     
 	  13 Input      1 Bit        Muxes := 4     
 	   4 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -952,17 +963,26 @@ Detailed RTL Component Info :
 Module MEM_CONTROLL 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 2     
+	   3 Input     32 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 4     
+	   3 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-	   3 Input      1 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 7     
+	   4 Input      2 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 17    
 Module MMU 
 Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 3     
-	   2 Input      1 Bit        Muxes := 5     
-	   3 Input      1 Bit        Muxes := 1     
+	   2 Input     33 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 7     
+	   3 Input     32 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 1     
+	   7 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 9     
+	   3 Input      1 Bit        Muxes := 2     
 Module SRAM_CONTROLL 
 Detailed RTL Component Info : 
 +---Muxes : 
@@ -1010,531 +1030,190 @@ DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: Generating DSP hi0, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: operator hi0 is absorbed into DSP hi0.
-INFO: [Synth 8-5545] ROM "ram2_ce_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "ram2_ce_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "ram2_data_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-INFO: [Synth 8-5545] ROM "ram2_addr_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[4]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[5]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[3]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ID_to_EX_0/funct_o_reg[5] )
 INFO: [Synth 8-3333] propagating constant 1 across sequential element (MMU_0/ack_o_reg)
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_sel_o_reg[0]' (LDC) to 'MMU_0/ram2_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_sel_o_reg[1]' (LDC) to 'MMU_0/ram2_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_sel_o_reg[2]' (LDC) to 'MMU_0/ram2_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_sel_o_reg[3]' (LDC) to 'MMU_0/ram2_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[0]' (LDC) to 'MMU_0/ram2_data_o_reg[1]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[1]' (LDC) to 'MMU_0/ram2_data_o_reg[2]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[2]' (LDC) to 'MMU_0/ram2_data_o_reg[3]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[3]' (LDC) to 'MMU_0/ram2_data_o_reg[4]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[4]' (LDC) to 'MMU_0/ram2_data_o_reg[5]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[5]' (LDC) to 'MMU_0/ram2_data_o_reg[6]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[6]' (LDC) to 'MMU_0/ram2_data_o_reg[7]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[7]' (LDC) to 'MMU_0/ram2_data_o_reg[8]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[8]' (LDC) to 'MMU_0/ram2_data_o_reg[9]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[9]' (LDC) to 'MMU_0/ram2_data_o_reg[10]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[10]' (LDC) to 'MMU_0/ram2_data_o_reg[11]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[11]' (LDC) to 'MMU_0/ram2_data_o_reg[12]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[12]' (LDC) to 'MMU_0/ram2_data_o_reg[13]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[13]' (LDC) to 'MMU_0/ram2_data_o_reg[14]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[14]' (LDC) to 'MMU_0/ram2_data_o_reg[15]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[15]' (LDC) to 'MMU_0/ram2_data_o_reg[16]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[16]' (LDC) to 'MMU_0/ram2_data_o_reg[17]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[17]' (LDC) to 'MMU_0/ram2_data_o_reg[18]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[18]' (LDC) to 'MMU_0/ram2_data_o_reg[19]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[19]' (LDC) to 'MMU_0/ram2_data_o_reg[20]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[20]' (LDC) to 'MMU_0/ram2_data_o_reg[21]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[21]' (LDC) to 'MMU_0/ram2_data_o_reg[22]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[22]' (LDC) to 'MMU_0/ram2_data_o_reg[23]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[23]' (LDC) to 'MMU_0/ram2_data_o_reg[24]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[24]' (LDC) to 'MMU_0/ram2_data_o_reg[25]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[25]' (LDC) to 'MMU_0/ram2_data_o_reg[26]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[26]' (LDC) to 'MMU_0/ram2_data_o_reg[27]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[27]' (LDC) to 'MMU_0/ram2_data_o_reg[28]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[28]' (LDC) to 'MMU_0/ram2_data_o_reg[29]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[29]' (LDC) to 'MMU_0/ram2_data_o_reg[30]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[30]' (LDC) to 'MMU_0/ram2_data_o_reg[31]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\ram2_data_o_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/ram2_ce_o_reg)
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_sel_o_reg[0]' (LD) to 'MMU_0/ram1_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_sel_o_reg[1]' (LD) to 'MMU_0/ram1_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_sel_o_reg[2]' (LD) to 'MMU_0/ram1_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_sel_o_reg[3]' (LD) to 'MMU_0/ram1_data_o_reg[0]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[0]' (LD) to 'MMU_0/ram1_data_o_reg[1]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[1]' (LD) to 'MMU_0/ram1_data_o_reg[2]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[2]' (LD) to 'MMU_0/ram1_data_o_reg[3]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[3]' (LD) to 'MMU_0/ram1_data_o_reg[4]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[4]' (LD) to 'MMU_0/ram1_data_o_reg[5]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[5]' (LD) to 'MMU_0/ram1_data_o_reg[6]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[6]' (LD) to 'MMU_0/ram1_data_o_reg[7]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[7]' (LD) to 'MMU_0/ram1_data_o_reg[8]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[8]' (LD) to 'MMU_0/ram1_data_o_reg[9]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[9]' (LD) to 'MMU_0/ram1_data_o_reg[10]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[10]' (LD) to 'MMU_0/ram1_data_o_reg[11]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[11]' (LD) to 'MMU_0/ram1_data_o_reg[12]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[12]' (LD) to 'MMU_0/ram1_data_o_reg[13]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[13]' (LD) to 'MMU_0/ram1_data_o_reg[14]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[14]' (LD) to 'MMU_0/ram1_data_o_reg[15]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[15]' (LD) to 'MMU_0/ram1_data_o_reg[16]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[16]' (LD) to 'MMU_0/ram1_data_o_reg[17]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[17]' (LD) to 'MMU_0/ram1_data_o_reg[18]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[18]' (LD) to 'MMU_0/ram1_data_o_reg[19]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[19]' (LD) to 'MMU_0/ram1_data_o_reg[20]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[20]' (LD) to 'MMU_0/ram1_data_o_reg[21]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[21]' (LD) to 'MMU_0/ram1_data_o_reg[22]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[22]' (LD) to 'MMU_0/ram1_data_o_reg[23]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[23]' (LD) to 'MMU_0/ram1_data_o_reg[24]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[24]' (LD) to 'MMU_0/ram1_data_o_reg[25]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[25]' (LD) to 'MMU_0/ram1_data_o_reg[26]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[26]' (LD) to 'MMU_0/ram1_data_o_reg[27]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[27]' (LD) to 'MMU_0/ram1_data_o_reg[28]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[28]' (LD) to 'MMU_0/ram1_data_o_reg[29]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[29]' (LD) to 'MMU_0/ram1_data_o_reg[30]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg[30]' (LD) to 'MMU_0/ram1_data_o_reg[31]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\ram1_data_o_reg[31] )
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[0]' (LDC) to 'MMU_0/ram2_addr_o_reg[1]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[1]' (LDC) to 'MMU_0/ram2_addr_o_reg[2]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[2]' (LDC) to 'MMU_0/ram2_addr_o_reg[3]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[3]' (LDC) to 'MMU_0/ram2_addr_o_reg[4]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[4]' (LDC) to 'MMU_0/ram2_addr_o_reg[5]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[5]' (LDC) to 'MMU_0/ram2_addr_o_reg[6]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[6]' (LDC) to 'MMU_0/ram2_addr_o_reg[7]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[7]' (LDC) to 'MMU_0/ram2_addr_o_reg[8]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[8]' (LDC) to 'MMU_0/ram2_addr_o_reg[9]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[9]' (LDC) to 'MMU_0/ram2_addr_o_reg[10]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[10]' (LDC) to 'MMU_0/ram2_addr_o_reg[11]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[11]' (LDC) to 'MMU_0/ram2_addr_o_reg[12]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[12]' (LDC) to 'MMU_0/ram2_addr_o_reg[13]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[13]' (LDC) to 'MMU_0/ram2_addr_o_reg[14]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[14]' (LDC) to 'MMU_0/ram2_addr_o_reg[15]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[15]' (LDC) to 'MMU_0/ram2_addr_o_reg[16]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[16]' (LDC) to 'MMU_0/ram2_addr_o_reg[17]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[17]' (LDC) to 'MMU_0/ram2_addr_o_reg[18]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[18]' (LDC) to 'MMU_0/ram2_addr_o_reg[19]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[19]' (LDC) to 'MMU_0/ram2_addr_o_reg[20]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[20]' (LDC) to 'MMU_0/ram2_addr_o_reg[21]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[21]' (LDC) to 'MMU_0/ram2_addr_o_reg[22]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[22]' (LDC) to 'MMU_0/ram2_addr_o_reg[23]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[23]' (LDC) to 'MMU_0/ram2_addr_o_reg[24]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[24]' (LDC) to 'MMU_0/ram2_addr_o_reg[25]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[25]' (LDC) to 'MMU_0/ram2_addr_o_reg[26]'
-INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_addr_o_reg[26]' (LDC) to 'MMU_0/ram2_addr_o_reg[27]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_129' (LD) to 'MMU_0/ram2_data_o_reg__0i_128'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[0]' (LD) to 'MMU_0/ram1_data_o_reg[0]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_128' (LD) to 'MMU_0/ram2_data_o_reg__0i_127'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[1]' (LD) to 'MMU_0/ram1_data_o_reg[1]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_127' (LD) to 'MMU_0/ram2_data_o_reg__0i_126'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[2]' (LD) to 'MMU_0/ram1_data_o_reg[2]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_126' (LD) to 'MMU_0/ram2_data_o_reg__0i_125'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[3]' (LD) to 'MMU_0/ram1_data_o_reg[3]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_125' (LD) to 'MMU_0/ram2_data_o_reg__0i_124'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[4]' (LD) to 'MMU_0/ram1_data_o_reg[4]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_124' (LD) to 'MMU_0/ram2_data_o_reg__0i_123'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[5]' (LD) to 'MMU_0/ram1_data_o_reg[5]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_123' (LD) to 'MMU_0/ram2_data_o_reg__0i_122'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[6]' (LD) to 'MMU_0/ram1_data_o_reg[6]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_122' (LD) to 'MMU_0/ram2_data_o_reg__0i_121'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[7]' (LD) to 'MMU_0/ram1_data_o_reg[7]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_121' (LD) to 'MMU_0/ram2_data_o_reg__0i_120'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[8]' (LD) to 'MMU_0/ram1_data_o_reg[8]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_120' (LD) to 'MMU_0/ram2_data_o_reg__0i_119'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[9]' (LD) to 'MMU_0/ram1_data_o_reg[9]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_119' (LD) to 'MMU_0/ram2_data_o_reg__0i_118'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[10]' (LD) to 'MMU_0/ram1_data_o_reg[10]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_118' (LD) to 'MMU_0/ram2_data_o_reg__0i_117'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[11]' (LD) to 'MMU_0/ram1_data_o_reg[11]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_117' (LD) to 'MMU_0/ram2_data_o_reg__0i_116'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[12]' (LD) to 'MMU_0/ram1_data_o_reg[12]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_116' (LD) to 'MMU_0/ram2_data_o_reg__0i_115'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[13]' (LD) to 'MMU_0/ram1_data_o_reg[13]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_115' (LD) to 'MMU_0/ram2_data_o_reg__0i_114'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[14]' (LD) to 'MMU_0/ram1_data_o_reg[14]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_114' (LD) to 'MMU_0/ram2_data_o_reg__0i_113'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[15]' (LD) to 'MMU_0/ram1_data_o_reg[15]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_113' (LD) to 'MMU_0/ram2_data_o_reg__0i_112'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[16]' (LD) to 'MMU_0/ram1_data_o_reg[16]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_112' (LD) to 'MMU_0/ram2_data_o_reg__0i_111'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[17]' (LD) to 'MMU_0/ram1_data_o_reg[17]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_111' (LD) to 'MMU_0/ram2_data_o_reg__0i_110'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[18]' (LD) to 'MMU_0/ram1_data_o_reg[18]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_110' (LD) to 'MMU_0/ram2_data_o_reg__0i_109'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[19]' (LD) to 'MMU_0/ram1_data_o_reg[19]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_109' (LD) to 'MMU_0/ram2_data_o_reg__0i_108'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[20]' (LD) to 'MMU_0/ram1_data_o_reg[20]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_108' (LD) to 'MMU_0/ram2_data_o_reg__0i_107'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[21]' (LD) to 'MMU_0/ram1_data_o_reg[21]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_107' (LD) to 'MMU_0/ram2_data_o_reg__0i_106'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[22]' (LD) to 'MMU_0/ram1_data_o_reg[22]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_106' (LD) to 'MMU_0/ram2_data_o_reg__0i_105'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[23]' (LD) to 'MMU_0/ram1_data_o_reg[23]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_105' (LD) to 'MMU_0/ram2_data_o_reg__0i_104'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[24]' (LD) to 'MMU_0/ram1_data_o_reg[24]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_104' (LD) to 'MMU_0/ram2_data_o_reg__0i_103'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[25]' (LD) to 'MMU_0/ram1_data_o_reg[25]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_103' (LD) to 'MMU_0/ram2_data_o_reg__0i_102'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[26]' (LD) to 'MMU_0/ram1_data_o_reg[26]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_102' (LD) to 'MMU_0/ram2_data_o_reg__0i_101'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[27]' (LD) to 'MMU_0/ram1_data_o_reg[27]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_101' (LD) to 'MMU_0/ram2_data_o_reg__0i_100'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[28]' (LD) to 'MMU_0/ram1_data_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_100' (LD) to 'MMU_0/ram2_data_o_reg__0i_99'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[29]' (LD) to 'MMU_0/ram1_data_o_reg[29]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg__0i_99' (LD) to 'MMU_0/ram2_data_o_reg__0i_98'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[30]' (LD) to 'MMU_0/ram1_data_o_reg[30]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram2_data_o_reg[31]' (LD) to 'MMU_0/ram1_data_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_63' (LD) to 'MMU_0/ram1_data_o_reg__0i_62'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_62' (LD) to 'MMU_0/ram1_data_o_reg__0i_61'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_61' (LD) to 'MMU_0/ram1_data_o_reg__0i_60'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_60' (LD) to 'MMU_0/ram1_data_o_reg__0i_59'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_59' (LD) to 'MMU_0/ram1_data_o_reg__0i_58'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_58' (LD) to 'MMU_0/ram1_data_o_reg__0i_57'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_57' (LD) to 'MMU_0/ram1_data_o_reg__0i_56'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_56' (LD) to 'MMU_0/ram1_data_o_reg__0i_55'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_55' (LD) to 'MMU_0/ram1_data_o_reg__0i_54'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_54' (LD) to 'MMU_0/ram1_data_o_reg__0i_53'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_53' (LD) to 'MMU_0/ram1_data_o_reg__0i_52'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_52' (LD) to 'MMU_0/ram1_data_o_reg__0i_51'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_51' (LD) to 'MMU_0/ram1_data_o_reg__0i_50'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_50' (LD) to 'MMU_0/ram1_data_o_reg__0i_49'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_49' (LD) to 'MMU_0/ram1_data_o_reg__0i_48'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_48' (LD) to 'MMU_0/ram1_data_o_reg__0i_47'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_47' (LD) to 'MMU_0/ram1_data_o_reg__0i_46'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_46' (LD) to 'MMU_0/ram1_data_o_reg__0i_45'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_45' (LD) to 'MMU_0/ram1_data_o_reg__0i_44'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_44' (LD) to 'MMU_0/ram1_data_o_reg__0i_43'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_43' (LD) to 'MMU_0/ram1_data_o_reg__0i_42'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_42' (LD) to 'MMU_0/ram1_data_o_reg__0i_41'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_41' (LD) to 'MMU_0/ram1_data_o_reg__0i_40'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_40' (LD) to 'MMU_0/ram1_data_o_reg__0i_39'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_39' (LD) to 'MMU_0/ram1_data_o_reg__0i_38'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_38' (LD) to 'MMU_0/ram1_data_o_reg__0i_37'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_37' (LD) to 'MMU_0/ram1_data_o_reg__0i_36'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_36' (LD) to 'MMU_0/ram1_data_o_reg__0i_35'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_35' (LD) to 'MMU_0/ram1_data_o_reg__0i_34'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_34' (LD) to 'MMU_0/ram1_data_o_reg__0i_33'
+INFO: [Synth 8-3886] merging instance 'MMU_0/ram1_data_o_reg__0i_33' (LD) to 'MMU_0/ram1_data_o_reg__0i_32'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_66' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_65'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_65' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_64'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_64' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_63'
 INFO: [Common 17-14] Message 'Synth 8-3886' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\ram2_addr_o_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/ram1_ce_o_reg)
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\num_o_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[0]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[1]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[2]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[3]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[4]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[5]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[6]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[7]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[8]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[8]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[9]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[9]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[10]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[10]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[11]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[11]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[12]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[12]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[13]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[13]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[14]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[14]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[15]  is always disabled
-WARNING: [Synth 8-264] enable of latch MMU_0/\leds_o_reg[15]  is always disabled
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_data_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\led_data_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\num_o_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\leds_o_reg[15] )
-WARNING: [Synth 8-3332] Sequential element (en_o_reg) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[0]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[1]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[2]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[3]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[4]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[5]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[6]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[7]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[8]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[9]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[10]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[11]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[12]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[13]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[14]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[15]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[16]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[17]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[18]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[19]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[20]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[21]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[22]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[23]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[24]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[25]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[26]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[27]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[28]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[29]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[30]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (pc_o_reg[31]) is unused and will be removed from module PC.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[31]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[30]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[29]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[28]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[27]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[26]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[25]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[24]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[23]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[22]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[21]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[20]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[19]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[18]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[17]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[16]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[15]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[14]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[13]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[12]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[11]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[10]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[9]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[8]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[7]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[6]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[5]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[4]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[3]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[2]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[1]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_imm_reg[0]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[31]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[30]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[29]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[28]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[27]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[26]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[25]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[24]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[23]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[22]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[21]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[20]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[19]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[18]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[17]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[16]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[15]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[14]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[13]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[12]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[11]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[10]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[9]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[8]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[7]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[6]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[5]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[4]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[3]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[2]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[1]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (extended_offset_o_reg[0]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (branch_target_addr_o_reg[31]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (branch_target_addr_o_reg[30]) is unused and will be removed from module ID.
-WARNING: [Synth 8-3332] Sequential element (branch_target_addr_o_reg[29]) is unused and will be removed from module ID.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/we_o_reg__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:69]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:69]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:69]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[31]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[30]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[29]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[28]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[27]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[26]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[25]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[24]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[23]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[22]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[21]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[20]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[19]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[18]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[17]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[16]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[15]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[14]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[13]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[12]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[11]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[10]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[9]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[8]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[7]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[6]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[5]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[4]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[3]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[2]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[1]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/addr_o_reg[0]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[31]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[30]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[29]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[28]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[27]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[26]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[25]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[24]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[23]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[22]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[21]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[20]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[19]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[18]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[17]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[16]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'MEM_CONTROLL_0/data_o_reg[15]__0/Q' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-INFO: [Common 17-14] Message 'Synth 8-3352' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:76]
-CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:76]
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[11] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[12] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[13] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[14] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[15] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[16] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[17] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[18] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[19] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[20] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[21] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[22] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[23] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[24] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[25] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[26] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[27] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[28] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[29] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[30] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/ram_data_reg__0i_35)
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_data_reg[31] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[0] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[1] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[2] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[3] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[4] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[5] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[6] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[7] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[8] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[9] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[10] )
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_data_reg[11] )
-INFO: [Common 17-14] Message 'Synth 8-3333' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[31]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[30]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[29]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[28]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[27]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[26]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[25]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[24]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[23]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[22]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[21]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[20]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[19]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[18]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[17]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[16]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[15]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[14]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[13]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[12]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[11]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[10]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[9]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[8]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[7]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[6]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[5]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[4]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[3]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[2]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[1]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[0]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (funct_o_reg[5]) is unused and will be removed from module EX_to_MEM.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[31]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[30]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[29]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[28]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[27]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[26]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[25]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[24]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[23]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[22]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[21]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram1_addr_o_reg[20]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[31]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[30]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[29]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[28]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[27]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[26]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[25]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[24]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[23]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[22]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[21]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ram2_addr_o_reg[20]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ack_o_reg) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[31]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[30]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[29]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[28]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[27]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[26]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[25]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[24]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[23]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[22]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[21]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[20]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/is_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/next_inst_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/funct_o_reg[5]) is unused and will be removed from module MIPS_CPU.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
+WARNING: [Synth 8-3332] Sequential element (funct_o_reg[4]) is unused and will be removed from module EX_to_MEM.
+WARNING: [Synth 8-3332] Sequential element (load_store_addr_o_reg[21]) is unused and will be removed from module EX_to_MEM.
+WARNING: [Synth 8-3332] Sequential element (load_store_addr_o_reg[20]) is unused and will be removed from module EX_to_MEM.
+WARNING: [Synth 8-3332] Sequential element (addr_o_reg[21]) is unused and will be removed from module MEM_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (addr_o_reg[20]) is unused and will be removed from module MEM_CONTROLL.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 738.879 ; gain = 474.199
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1551,8 +1230,18 @@ ROM:
 |ID          | op_o          | 64x3          | LUT            | 
 |ID          | reg_rd_en_1_o | 64x1          | LUT            | 
 |ID          | reg_rd_en_2_o | 64x1          | LUT            | 
+|ID          | reg_wt_en_o   | 64x1          | LUT            | 
 +------------+---------------+---------------+----------------+
 
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+---------------+-----------+----------------------+---------------+
+|Module Name | RTL Object    | Inference | Size (Depth x Width) | Primitives    | 
++------------+---------------+-----------+----------------------+---------------+
+|REGISTERS_0 | reg_array_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++------------+---------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
 
 DSP: Preliminary Mapping  Report (see note below)
 +------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
@@ -1582,13 +1271,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:55 ; elapsed = 00:00:57 . Memory (MB): peak = 793.695 ; gain = 529.016
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Timing Optimization : Time (s): cpu = 00:00:56 ; elapsed = 00:00:58 . Memory (MB): peak = 795.699 ; gain = 531.020
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1600,7 +1289,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Technology Mapping : Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1624,7 +1313,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished IO Insertion : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1637,7 +1326,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1649,25 +1338,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1680,33 +1369,73 @@ Report BlackBoxes:
 +-+--------------+----------+
 
 Report Cell Usage: 
-+------+-----+------+
-|      |Cell |Count |
-+------+-----+------+
-|1     |OBUF |    86|
-+------+-----+------+
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |BUFG      |    12|
+|2     |CARRY4    |   139|
+|3     |DSP48E1   |     4|
+|4     |DSP48E1_1 |     4|
+|5     |LUT1      |   205|
+|6     |LUT2      |   375|
+|7     |LUT3      |   285|
+|8     |LUT4      |   359|
+|9     |LUT5      |   417|
+|10    |LUT6      |  1043|
+|11    |MUXF7     |     3|
+|12    |RAM32M    |    12|
+|13    |FDRE      |   643|
+|14    |FDSE      |     1|
+|15    |LD        |   372|
+|16    |LDC       |   230|
+|17    |IBUF      |     2|
+|18    |IOBUF     |    64|
+|19    |OBUF      |    70|
+|20    |OBUFT     |    16|
++------+----------+------+
 
 Report Instance Areas: 
-+------+---------+-------+------+
-|      |Instance |Module |Cells |
-+------+---------+-------+------+
-|1     |top      |       |    86|
-+------+---------+-------+------+
++------+----------------------+----------------+------+
+|      |Instance              |Module          |Cells |
++------+----------------------+----------------+------+
+|1     |top                   |                |  4256|
+|2     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL   |    84|
+|3     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0 |    84|
+|4     |  EX_0                |EX              |   317|
+|5     |  EX_to_MEM_0         |EX_to_MEM       |   697|
+|6     |  HI_LO_0             |HI_LO           |    64|
+|7     |  ID_0                |ID              |   184|
+|8     |  ID_to_EX_0          |ID_to_EX        |  1301|
+|9     |  IF_to_ID_0          |IF_to_ID        |   593|
+|10    |  MEM_CONTROLL_0      |MEM_CONTROLL    |   305|
+|11    |  MEM_to_WB_0         |MEM_to_WB       |   133|
+|12    |  MMU_0               |MMU             |   221|
+|13    |  PC_0                |PC              |    36|
+|14    |  REGISTERS_0         |REGISTERS       |    69|
++------+----------------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:39 ; elapsed = 00:00:41 . Memory (MB): peak = 719.328 ; gain = 454.531
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 844.793 ; gain = 580.113
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 201 critical warnings and 1535 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:33 . Memory (MB): peak = 719.328 ; gain = 133.043
-Synthesis Optimization Complete : Time (s): cpu = 00:00:39 ; elapsed = 00:00:42 . Memory (MB): peak = 719.328 ; gain = 454.531
+Synthesis finished with 0 errors, 0 critical warnings and 220 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:45 ; elapsed = 00:00:54 . Memory (MB): peak = 844.793 ; gain = 265.672
+Synthesis Optimization Complete : Time (s): cpu = 00:00:58 ; elapsed = 00:01:01 . Memory (MB): peak = 844.793 ; gain = 580.113
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 827 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 148 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 678 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 64 instances
+  LD => LDCE: 256 instances
+  LD => LDCE (inverted pins: G): 116 instances
+  LDC => LDCE: 198 instances
+  LDC => LDCE (inverted pins: G): 32 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
-311 Infos, 514 Warnings, 268 Critical Warnings and 0 Errors encountered.
+204 Infos, 455 Warnings, 102 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:41 ; elapsed = 00:00:45 . Memory (MB): peak = 719.328 ; gain = 458.027
+synth_design: Time (s): cpu = 00:01:02 ; elapsed = 00:01:05 . Memory (MB): peak = 844.793 ; gain = 583.723
 INFO: [Common 17-1381] The checkpoint 'E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.036 . Memory (MB): peak = 719.328 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Dec 13 21:34:53 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 844.793 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Dec 15 20:59:00 2017...

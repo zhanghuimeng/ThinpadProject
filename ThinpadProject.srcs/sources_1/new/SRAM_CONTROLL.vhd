@@ -64,7 +64,7 @@ begin
             ram_oe_n_o <= '1';
             ram_be_n_o <= b"1111";
             ram_we_n_o <= '1';
-        else -- execute read/write
+        elsif (clk = '0') then -- execute read/write
             if (we_i = '1') then
                 ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
                 ram_data <= data_i;

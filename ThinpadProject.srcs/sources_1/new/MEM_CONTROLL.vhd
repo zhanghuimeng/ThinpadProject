@@ -55,55 +55,72 @@ entity MEM_CONTROLL is
         we_o : out STD_LOGIC;                                    -- output write/read signal to SRAM CONTROLL
         sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);-- output byte select to SRAM CONTROLL
         addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);   -- output address to SRAM CONTROLL
-        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));  -- output data to SRAM CONTROLL
+        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));   -- output data to SRAM CONTROLL
 end MEM_CONTROLL;
 
 architecture Behavioral of MEM_CONTROLL is
-    signal state : STD_LOGIC_VECTOR(STATE_LEN - 1 downto 0) := STATE_IDLE;
+    type STATE_TYPE is (STATE_IDLE, STATE_INST, STATE_DATA, STATE_DEBUG);
+    signal state : STATE_TYPE := STATE_IDLE;
 begin
 
     process (clk'event)
     begin
-        if (rst = RST_ENABLE) then
-            ce_o <= '0';
-            we_o <= '0';
-            sel_o <= b"0000";
-            addr_o <= ZERO_DATA;
-            data_o <= ZERO_DATA;
-            state <= STATE_IDLE;
+        if (clk = '1') then -- rising edge
+			if (rst = RST_ENABLE) then
+				state <= STATE_IDLE;
+				ce_o <= '0';
+				we_o <= '0';
+				sel_o <= b"0000";
+				addr_o <= ZERO_DATA;
+				data_o <= ZERO_DATA;
+			else 
+				case state is
+					when STATE_INST | STATE_DATA =>
+						if (ack_i = ACK) then
+							state <= STATE_IDLE;
+							ce_o <= '0';
+							we_o <= '0';
+							sel_o <= b"0000";
+							addr_o <= ZERO_DATA;
+							data_o <= ZERO_DATA;
+						end if;
+					when others => 
+						state <= STATE_IDLE;
+						ce_o <= '0';
+						we_o <= '0';
+						sel_o <= b"0000";
+						addr_o <= ZERO_DATA;
+						data_o <= ZERO_DATA;
+				end case;
+			end if;
         else
-            if rising_edge(clk) then -- rising edge
-                if not(state = STATE_IDLE) then
-                    if (ack_i = '1') then
-                        ce_o <= '0';
-                        we_o <= '0';
-                        sel_o <= b"0000";
-                        addr_o <= ZERO_DATA;
-                        data_o <= ZERO_DATA;
-                        state <= STATE_IDLE;
-                    end if;
-                end if;
-            end if;
-			if falling_edge(clk) then
-                if (state = STATE_IDLE) then
-                    if (mem_ce_i = CE_ENABLE) then
-                        ce_o <= '1';
-                        we_o <= not mem_is_read_i;
-                        sel_o <= mem_sel_i;
-                        addr_o <= mem_addr_i;
-                        data_o <= mem_data_i;
-                        state <= STATE_DATA;
-                    elsif (inst_ce_i = CE_ENABLE) then
-                        ce_o <= '1';
-                        we_o <= '0';
-                        sel_o <= b"1111";
-                        addr_o <= inst_addr_i;
-                        data_o <= ZERO_DATA;
-                        state <= STATE_INST;
-                    end if;
-                end if;
-            end if;
-        end if;    
+			if (rst = RST_ENABLE) then
+				state <= STATE_IDLE;
+				ce_o <= '0';
+				we_o <= '0';
+				sel_o <= b"0000";
+				addr_o <= ZERO_DATA;
+				data_o <= ZERO_DATA;
+			else 
+				if (state = STATE_IDLE) then
+					if (mem_ce_i = CE_ENABLE) then
+						state <= STATE_DATA;
+						ce_o <= '1';
+						we_o <= not mem_is_read_i;
+						sel_o <= mem_sel_i;
+						addr_o <= mem_addr_i;
+						data_o <= mem_data_i;
+					elsif (inst_ce_i = CE_ENABLE) then
+						state <= STATE_INST;
+						ce_o <= '1';
+						we_o <= '0';
+						sel_o <= b"1111";
+						addr_o <= inst_addr_i;
+						data_o <= ZERO_DATA;
+					end if;
+				end if;
+			end if;
+        end if;  
     end process;
     
     process (all)
@@ -114,29 +131,35 @@ begin
 			inst_data_o <= ZERO_DATA;
 			mem_data_o <= ZERO_DATA;
         else 
-            if (state = STATE_DATA) then
-                if (ack_i = '1') then
-                    if (mem_is_read_i = IS_READ) then
-                        mem_data_o <= data_i;
+            case state is
+                when STATE_DATA =>
+                    if (ack_i = '1') then
+                        if (mem_is_read_i = IS_READ) then
+                            mem_data_o <= data_i;
+                        end if;
+                        mem_pause_o <= PAUSE_NOT;
+                    else
+                        mem_pause_o <= PAUSE;
                     end if;
+                    if (inst_ce_i = CE_ENABLE) then
+                        inst_pause_o <= PAUSE;
+                    end if;
+                when STATE_INST => 
+                    if (ack_i = '1') then
+                        inst_data_o <= data_i;
+                        inst_pause_o <= PAUSE_NOT;
+                    else
+                        inst_pause_o <= PAUSE;
+                    end if;
+                    if (mem_ce_i = CE_ENABLE) then
+                        mem_pause_o <= PAUSE;
+                    end if;
+                when others => 
+                    inst_data_o <= ZERO_DATA;
+                    mem_data_o <= ZERO_DATA;
+                    inst_pause_o <= PAUSE_NOT;
                     mem_pause_o <= PAUSE_NOT;
-                else
-                    mem_pause_o <= PAUSE;
-                end if;
-                if (inst_ce_i = CE_ENABLE) then
-                    inst_pause_o <= PAUSE;
-                end if;
-            elsif (state = STATE_INST) then
-                if (ack_i = '1') then
-                    inst_data_o <= data_i;
-                    inst_pause_o <= PAUSE_NOT; 
-                else
-                    inst_pause_o <= PAUSE;
-                end if;
-                if (mem_ce_i = CE_ENABLE) then
-                    mem_pause_o <= PAUSE;
-                end if;
-            end if;
+            end case;
         end if;
     end process;
     
