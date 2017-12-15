@@ -15,7 +15,8 @@
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- 
+-- ddddddddd
+---------
 ----------------------------------------------------------------------------------
 
 
@@ -94,6 +95,8 @@ architecture Behavioral of ID is
     alias base :		STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) is inst_i(INST_LEN-OP_LEN-1 downto INST_LEN-OP_LEN-REG_ADDR_LEN);
     -- [15, 0] (16)
     alias offset :      STD_LOGIC_VECTOR(IMM_LEN-1 downto 0) is inst_i(IMM_LEN-1 downto 0);
+
+    alias cp0_sel :      STD_LOGIC_VECTOR(CP0_SEL_LEN-1 downto 0) is inst_i(CP0_SEL_LEN-1 downto 0);
    
 begin
     process (all)
@@ -594,7 +597,26 @@ begin
                 
                 -- COP0 type instructions
                 when OP_COP0 =>
+                    cop0_func:case( reg_s ) is
+                        -- mtc0 rt td           CPR[0,rd] ← rt
+                        when RS_MTC0 =>
+                            op_o <= OP_TYPE_CP0;
+                            funct_o <= FUNCT_TYPE_MTC0;
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rt
                 
+                        -- mfc0 rt td           CPR[rt] ← CPR[0,rd]
+                        when RS_MFC0 =>           
+                            op_o <= OP_TYPE_CP0;
+                            funct_o <= FUNCT_TYPE_MFC0;
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
+                            reg_wt_addr_o <= reg_t;
+                        when others =>
+                    
+                    end case ;
                 -- COP1 type instructions                                
                 when OP_COP1 =>
                 
