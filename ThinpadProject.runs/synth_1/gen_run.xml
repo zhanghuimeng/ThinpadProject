@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tfgg676-2L" LaunchTime="1513342666">
+<GenRun Id="synth_1" LaunchPart="xc7a100tfgg676-2L" LaunchTime="1513349753">
   <File Type="RDS-PROPCONSTRS" Name="MIPS_CPU_drc_synth.rpt"/>
   <File Type="PA-TCL" Name="MIPS_CPU.tcl"/>
   <File Type="RDS-RDS" Name="MIPS_CPU.vds"/>

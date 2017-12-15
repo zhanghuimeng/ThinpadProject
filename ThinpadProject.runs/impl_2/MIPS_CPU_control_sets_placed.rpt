@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Fri Dec 15 21:00:04 2017
+| Date         : Fri Dec 15 22:58:27 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_control_sets -verbose -file MIPS_CPU_control_sets_placed.rpt
 | Design       : MIPS_CPU
@@ -48,14 +48,12 @@ Table of Contents
 +-------------------------------------------+---------------------------------+-------------------------------------+------------------+----------------+
 |                Clock Signal               |          Enable Signal          |           Set/Reset Signal          | Slice Load Count | Bel Load Count |
 +-------------------------------------------+---------------------------------+-------------------------------------+------------------+----------------+
+|  touch_btn_IBUF_BUFG[4]                   |                                 |                                     |                1 |              1 |
 |  MEM_CONTROLL_0/inst_pause_o_reg_i_2_n_10 |                                 | touch_btn_IBUF_BUFG[5]              |                1 |              1 |
 |  MEM_CONTROLL_0/mem_pause_o_reg_i_2_n_10  |                                 | touch_btn_IBUF_BUFG[5]              |                1 |              1 |
-|  touch_btn_IBUF_BUFG[4]                   |                                 |                                     |                1 |              1 |
 |  MEM_CONTROLL_0/state_reg[1]_i_2_n_10     |                                 |                                     |                1 |              2 |
 |  MMU_0/ram1_addr_o[0][0]                  |                                 |                                     |               14 |             20 |
 |  MMU_0/ram2_addr_o[0][0]                  |                                 |                                     |                6 |             20 |
-|  IF_to_ID_0/E[0]                          |                                 |                                     |               19 |             32 |
-|  ID_to_EX_0/E[0]                          |                                 | touch_btn_IBUF_BUFG[5]              |               13 |             32 |
 | ~n_2_2423_BUFG                            |                                 | touch_btn_IBUF_BUFG[5]              |               14 |             32 |
 |  n_5_2278_BUFG                            |                                 | touch_btn_IBUF_BUFG[5]              |               14 |             32 |
 |  n_6_2206_BUFG                            |                                 | touch_btn_IBUF_BUFG[5]              |               15 |             32 |
@@ -63,6 +61,8 @@ Table of Contents
 |  n_8_2534_BUFG                            |                                 |                                     |               13 |             32 |
 |  n_9_2533_BUFG                            |                                 |                                     |               13 |             32 |
 |  touch_btn_IBUF_BUFG[4]                   | MEM_CONTROLL_0/pc_o_reg[31][0]  | PC_0/clear                          |                9 |             32 |
+|  IF_to_ID_0/E[0]                          |                                 |                                     |               19 |             32 |
+|  ID_to_EX_0/E[0]                          |                                 | touch_btn_IBUF_BUFG[5]              |               13 |             32 |
 |  n_3_2405_BUFG                            |                                 |                                     |               14 |             33 |
 |  n_4_2412_BUFG                            |                                 |                                     |               13 |             33 |
 |  n_0_2397_BUFG                            |                                 |                                     |               23 |             52 |
