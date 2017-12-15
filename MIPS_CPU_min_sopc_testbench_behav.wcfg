@@ -12,15 +12,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="248260000fs"></ZoomStartTime>
-      <ZoomEndTime time="406460001fs"></ZoomEndTime>
-      <Cursor1Time time="254460000fs"></Cursor1Time>
+      <ZoomStartTime time="308440000fs"></ZoomStartTime>
+      <ZoomEndTime time="373240001fs"></ZoomEndTime>
+      <Cursor1Time time="350000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <NameColumnWidth column_width="167"></NameColumnWidth>
       <ValueColumnWidth column_width="61"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="47" />
+   <WVObjectSize size="45" />
    <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/CLOCK_50">
       <obj_property name="ElementShortName">CLOCK_50</obj_property>
       <obj_property name="ObjectShortName">CLOCK_50</obj_property>
@@ -145,6 +145,12 @@
       <obj_property name="CustomSignalColor">#FF00FF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/ID_0/branch_o">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">branch_o</obj_property>
+      <obj_property name="ObjectShortName">branch_o</obj_property>
+      <obj_property name="label">ID branch_o</obj_property>
+   </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/EX_0/link_addr_i">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">link_addr_i[31:0]</obj_property>
@@ -226,24 +232,6 @@
       <obj_property name="ElementShortName">lo_o[31:0]</obj_property>
       <obj_property name="ObjectShortName">lo_o[31:0]</obj_property>
       <obj_property name="label">EX lo_o[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/ROM_0/en_i">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">en_i</obj_property>
-      <obj_property name="ObjectShortName">en_i</obj_property>
-      <obj_property name="label">ROM en_i</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/ROM_0/addr_i">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">addr_i[31:0]</obj_property>
-      <obj_property name="ObjectShortName">addr_i[31:0]</obj_property>
-      <obj_property name="label">ROM addr_i[31:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/ROM_0/inst_o">
-      <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="ElementShortName">inst_o[31:0]</obj_property>
-      <obj_property name="ObjectShortName">inst_o[31:0]</obj_property>
-      <obj_property name="label">ROM inst_o[31:0]</obj_property>
    </wvobject>
    <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/REGISTERS_0/reg_array[0]">
       <obj_property name="DisplayName">label</obj_property>

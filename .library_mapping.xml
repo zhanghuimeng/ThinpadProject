@@ -8,5 +8,4 @@
   <Mappings Location="Common Libraries/STD" Library="std"/>
   <Mappings Location="ThinpadProject.srcs/sim_1/new/MIPS_CPU_min_sopc.vhd" Library="xil_defaultlib"/>
   <Mappings Location="ThinpadProject.srcs/sim_1/new/MIPS_CPU_min_sopc_testbench.v" Library="xil_defaultlib"/>
-  <Mappings Location="ThinpadProject.srcs/sim_1/new/RAM.vhd" Library="xil_defaultlib"/>
 </com.sigasi.hdt.vhdl.scoping.librarymapping.model:LibraryMappings>

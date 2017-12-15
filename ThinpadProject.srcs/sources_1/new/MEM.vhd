@@ -247,6 +247,7 @@ begin
 					when FUNCT_TYPE_SW =>
 						ram_en_o <= CHIP_ENABLE;
 						ram_is_read_o <= IS_WRITE;
+						ram_data_sel_o <= "1111";  -- 忘了写了
 						ram_addr_o <= load_store_addr_i;
 						ram_data_o <= store_data_i;
 					

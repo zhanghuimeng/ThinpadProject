@@ -83,4 +83,5 @@ lw   $1,0x4($0)       # 加载RAM地址0x4处的字, $1 = 0xaabb8844,
   
 _loop:  
 j _loop  
-nop  
+nop
+

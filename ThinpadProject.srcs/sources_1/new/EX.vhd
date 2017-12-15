@@ -65,8 +65,8 @@ entity EX is
            reg_wt_en_o :    			out STD_LOGIC;                                      -- output register write enable to EX/MEM
            reg_wt_addr_o :  			out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX/MEM
            reg_wt_data_o :  			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to EX/MEM
-           is_load_store_o :			out STD_LOGIC;										-- output load/store to EX/MEM
-           funct_o :					out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);			-- output load/store type to EX/MEM
+           is_load_store_o :			out STD_LOGIC;										-- output load/store to EX/MEM, ID
+           funct_o :					out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);			-- output load/store type to EX/MEM, ID 
            load_store_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output load/store memory address to EX/MEM
            store_data_o :				out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output store data to EX/MEM
            hilo_en_o :      			out STD_LOGIC;                                      -- output HI_LO write enable to EX/MEM
