@@ -446,13 +446,13 @@ inst_test:
     # nop
     # jal wait_1s
     # nop
-    jal n45_break_test   #break
-    nop
-    jal wait_1s
-    nop
-    jal n46_syscall_test #syscall
-    nop
-    jal wait_1s
+    # jal n45_break_test   #break
+    # nop
+    # jal wait_1s
+    # nop
+    # jal n46_syscall_test #syscall
+    # nop
+    # jal wait_1s
     nop
     # jal n47_lb_test      #lb
     # nop
