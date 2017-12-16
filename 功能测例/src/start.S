@@ -270,8 +270,8 @@ locate:
     lui s3, 0
     sw s3, 0(s1)
 inst_test:
-    jal n1_add_test   #add
-    nop
+    # jal n1_add_test   #add
+    # nop
     # jal wait_1s
     # nop
     # jal n2_addi_test  #addi

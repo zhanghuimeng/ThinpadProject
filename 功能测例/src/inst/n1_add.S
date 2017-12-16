@@ -11,8 +11,8 @@ LEAF(n1_add_test)
     lui  a0, 0x100
     li  v0, 0x0
 ###test inst
-    TEST_ADD(0x0480ff04, 0x40933204, 0x45143108)
-    TEST_ADD(0x2a19dd40, 0xa87971e0, 0xd2934f20)
+    # TEST_ADD(0x0480ff04, 0x40933204, 0x45143108)
+    # TEST_ADD(0x2a19dd40, 0xa87971e0, 0xd2934f20)
     # TEST_ADD(0x80613360, 0x42adf91d, 0xc30f2c7d)
     # TEST_ADD(0x5bec25e2, 0xf96edfe4, 0x555b05c6)
     # TEST_ADD(0x70b9a200, 0xd9bf4900, 0x4a78eb00)
@@ -269,7 +269,10 @@ LEAF(n1_add_test)
 ###output a0|s3
 inst_error:  
     or t0, a0, s3 
+    li t0, 0x01
+    li t2, NUM_ADDR
     sw t0, 0(s1)
+    sw t0, 0(t2)
     jr ra
     nop
 END(n1_add_test)
