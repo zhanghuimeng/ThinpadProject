@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Dec 15 23:00:02 2017">
+<application name="pa" timeStamp="Sat Dec 16 11:25:05 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="3b15b6270fca42d2b880c2836f12f8a4" type="ProjectID"/>
-<property name="ProjectIteration" value="160" type="ProjectIteration"/>
+<property name="ProjectIteration" value="164" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -27,10 +27,10 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ProjectSummary" value="1" type="JavaHandler"/>
 <property name="ReportDRC" value="3" type="JavaHandler"/>
 <property name="ReportMethodology" value="2" type="JavaHandler"/>
-<property name="RunBitgen" value="54" type="JavaHandler"/>
-<property name="RunImplementation" value="106" type="JavaHandler"/>
+<property name="RunBitgen" value="56" type="JavaHandler"/>
+<property name="RunImplementation" value="108" type="JavaHandler"/>
 <property name="RunSchematic" value="9" type="JavaHandler"/>
-<property name="RunSynthesis" value="144" type="JavaHandler"/>
+<property name="RunSynthesis" value="146" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="5" type="JavaHandler"/>
 <property name="ShowPropertyEditor" value="1" type="JavaHandler"/>
 <property name="ShowView" value="54" type="JavaHandler"/>
@@ -52,7 +52,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="BaseDialog_APPLY" value="1" type="GuiResourceData"/>
 <property name="BaseDialog_CANCEL" value="56" type="GuiResourceData"/>
 <property name="BaseDialog_NO" value="1" type="GuiResourceData"/>
-<property name="BaseDialog_OK" value="280" type="GuiResourceData"/>
+<property name="BaseDialog_OK" value="286" type="GuiResourceData"/>
 <property name="BaseDialog_YES" value="4" type="GuiResourceData"/>
 <property name="CmdMsgDialog_OK" value="14" type="GuiResourceData"/>
 <property name="CommandsInput_TYPE_TCL_COMMAND_HERE" value="11" type="GuiResourceData"/>
@@ -63,7 +63,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ExpRunTreePanel_EXP_RUN_TREE_TABLE" value="22" type="GuiResourceData"/>
 <property name="ExploreAheadView_LAUNCH_SELECTED_RUNS" value="1" type="GuiResourceData"/>
 <property name="ExploreAheadView_SHOW_PERCENTAGE" value="5" type="GuiResourceData"/>
-<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="277" type="GuiResourceData"/>
+<property name="FileSetPanel_FILE_SET_PANEL_TREE" value="286" type="GuiResourceData"/>
 <property name="FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE" value="53" type="GuiResourceData"/>
 <property name="HCodeEditor_SEARCH_TEXT_COMBO_BOX" value="2" type="GuiResourceData"/>
 <property name="HInputHandler_TOGGLE_LINE_COMMENTS" value="2" type="GuiResourceData"/>
@@ -90,7 +90,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="MainMenuMgr_WINDOW" value="66" type="GuiResourceData"/>
 <property name="MainToolbarMgr_RUN" value="1" type="GuiResourceData"/>
 <property name="MainWinMenuMgr_LAYOUT" value="34" type="GuiResourceData"/>
-<property name="MessageWithOptionDialog_DONT_SHOW_THIS_DIALOG_AGAIN" value="70" type="GuiResourceData"/>
+<property name="MessageWithOptionDialog_DONT_SHOW_THIS_DIALOG_AGAIN" value="72" type="GuiResourceData"/>
 <property name="MsgTreePanel_MESSAGE_VIEW_TREE" value="150" type="GuiResourceData"/>
 <property name="NetTablePanel_NET_TABLE" value="10" type="GuiResourceData"/>
 <property name="NetlistSchematicView_SHOW_CELLS_IN_THIS_SCHEMATIC" value="2" type="GuiResourceData"/>
@@ -116,7 +116,7 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="PACommandNames_PROPERTIES_WINDOW" value="2" type="GuiResourceData"/>
 <property name="PACommandNames_REPORTS_WINDOW" value="1" type="GuiResourceData"/>
 <property name="PACommandNames_REPORT_METHODOLOGY" value="1" type="GuiResourceData"/>
-<property name="PACommandNames_RUN_BITGEN" value="56" type="GuiResourceData"/>
+<property name="PACommandNames_RUN_BITGEN" value="58" type="GuiResourceData"/>
 <property name="PACommandNames_RUN_IMPLEMENTATION" value="1" type="GuiResourceData"/>
 <property name="PACommandNames_SELECTION_WINDOW" value="1" type="GuiResourceData"/>
 <property name="PACommandNames_SIMULATION_RUN" value="12" type="GuiResourceData"/>

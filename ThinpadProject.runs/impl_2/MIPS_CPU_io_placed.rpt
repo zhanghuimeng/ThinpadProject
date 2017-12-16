@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------
 | Tool Version              : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date                      : Fri Dec 15 22:58:27 2017
+| Date                      : Sat Dec 16 11:09:07 2017
 | Host                      : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command                   : report_io -file MIPS_CPU_io_placed.rpt
 | Design                    : MIPS_CPU

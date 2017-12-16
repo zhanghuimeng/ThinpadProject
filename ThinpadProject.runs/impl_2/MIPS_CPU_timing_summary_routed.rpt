@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Fri Dec 15 22:59:16 2017
+| Date         : Sat Dec 16 11:10:04 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file MIPS_CPU_timing_summary_routed.rpt -rpx MIPS_CPU_timing_summary_routed.rpx
 | Design       : MIPS_CPU
@@ -52,7 +52,7 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 984 register/latch pins with no clock driven by root clock pin: touch_btn[4] (HIGH)
+ There are 986 register/latch pins with no clock driven by root clock pin: touch_btn[4] (HIGH)
 
  There are 367 register/latch pins with no clock driven by root clock pin: touch_btn[5] (HIGH)
 
@@ -375,7 +375,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 3480 pins that are not constrained for maximum delay. (HIGH)
+ There are 3486 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
