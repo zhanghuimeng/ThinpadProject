@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sat Dec 16 18:40:54 2017
-# Process ID: 12704
+# Start of session at: Sat Dec 16 19:01:24 2017
+# Process ID: 15820
 # Current directory: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 15976 
+INFO: Helper process launched with PID 11108 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 348.273 ; gain = 83.035
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 347.961 ; gain = 83.012
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:59]
 INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:543]
@@ -265,13 +265,12 @@ WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[19]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[18]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[17]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[16]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[4]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[3]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[2]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[1]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 399.371 ; gain = 134.133
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 399.059 ; gain = 134.109
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -281,7 +280,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 399.371 ; gain = 134.133
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 399.059 ; gain = 134.109
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -289,13 +288,18 @@ INFO: [Project 1-570] Preparing netlist for logic optimization
 Processing XDC Constraints
 Initializing timing engine
 Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'clk_uart_in'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:3]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:3]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-507] No nets matched 'clk_uart_in_IBUF'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-CRITICAL WARNING: [Constraints 18-948] create_clock: can't define clock 'clk' with period '10' which is less than or equal to the delta '10' between waveform edges (0,10) [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
 WARNING: [Vivado 12-584] No ports matched 'clk_uart_in'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:7]
 CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk_uart_in]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:7]
 Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
@@ -591,11 +595,7 @@ WARNING: [Vivado 12-584] No ports matched 'flash_a[3]'. [E:/THU/ThinpadProject/T
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'flash_a[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
-INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
+INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
 Finished Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MIPS_CPU_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/MIPS_CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
@@ -604,22 +604,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 721.828 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 713.484 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 721.828 ; gain = 456.590
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 713.484 ; gain = 448.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 721.828 ; gain = 456.590
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 713.484 ; gain = 448.535
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:21 ; elapsed = 00:00:23 . Memory (MB): peak = 721.828 ; gain = 456.590
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 713.484 ; gain = 448.535
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element pc_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:61]
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -681,7 +681,7 @@ WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/Thinpad
 WARNING: [Synth 8-327] inferring latch for variable 'ram_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:69]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:62]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:24 ; elapsed = 00:00:26 . Memory (MB): peak = 721.828 ; gain = 456.590
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 713.484 ; gain = 448.535
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1018,6 +1018,7 @@ WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[22]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[21]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[20]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[19]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[18]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[4]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[5]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
@@ -1156,7 +1157,7 @@ WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/funct_o_reg[5]) is unused
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
 WARNING: [Synth 8-3332] Sequential element (funct_o_reg[4]) is unused and will be removed from module EX_to_MEM.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:00:50 . Memory (MB): peak = 741.504 ; gain = 476.266
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:00:58 . Memory (MB): peak = 740.145 ; gain = 475.195
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1214,13 +1215,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:07 ; elapsed = 00:01:12 . Memory (MB): peak = 795.328 ; gain = 530.090
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:09 ; elapsed = 00:01:21 . Memory (MB): peak = 792.055 ; gain = 527.105
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:13 . Memory (MB): peak = 798.336 ; gain = 533.098
+Finished Timing Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:22 . Memory (MB): peak = 795.059 ; gain = 530.109
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1232,7 +1233,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:09 ; elapsed = 00:01:14 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished Technology Mapping : Time (s): cpu = 00:01:11 ; elapsed = 00:01:24 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1256,7 +1257,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:10 ; elapsed = 00:01:15 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished IO Insertion : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1269,7 +1270,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:10 ; elapsed = 00:01:15 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1281,25 +1282,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:11 ; elapsed = 00:01:16 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:11 ; elapsed = 00:01:16 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:11 ; elapsed = 00:01:16 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:11 ; elapsed = 00:01:16 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1357,11 +1358,11 @@ Report Instance Areas:
 |14    |  REGISTERS_0         |REGISTERS       |    68|
 +------+----------------------+----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:11 ; elapsed = 00:01:16 . Memory (MB): peak = 851.438 ; gain = 586.199
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 173 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:54 ; elapsed = 00:01:05 . Memory (MB): peak = 851.438 ; gain = 263.742
-Synthesis Optimization Complete : Time (s): cpu = 00:01:11 ; elapsed = 00:01:16 . Memory (MB): peak = 851.438 ; gain = 586.199
+Synthesis finished with 0 errors, 0 critical warnings and 172 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:58 ; elapsed = 00:01:17 . Memory (MB): peak = 849.164 ; gain = 269.789
+Synthesis Optimization Complete : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 825 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
@@ -1378,7 +1379,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 137 Infos, 467 Warnings, 102 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:14 ; elapsed = 00:01:20 . Memory (MB): peak = 851.438 ; gain = 590.148
+synth_design: Time (s): cpu = 00:01:17 ; elapsed = 00:01:31 . Memory (MB): peak = 849.164 ; gain = 587.891
 INFO: [Common 17-1381] The checkpoint 'E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.073 . Memory (MB): peak = 851.438 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 16 18:42:24 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 849.164 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Dec 16 19:03:05 2017...
