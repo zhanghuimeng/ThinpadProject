@@ -62,7 +62,7 @@
 #   .set noat
 _start:
 start:
-    lui a2,0x0040
+    # lui a2,0x0040
 	# mtc0	a2, c0_status
 	# mtc0	zero, c0_cause
 	# la	sp, _stack
@@ -272,8 +272,8 @@ locate:
 inst_test:
     jal n1_add_test   #add
     nop
-    jal wait_1s
-    nop
+    # jal wait_1s
+    # nop
     # jal n2_addi_test  #addi
     # nop
     # jal wait_1s
@@ -704,7 +704,7 @@ test_end:
 
 wait_1s:
 #    li t0, 11000000
-    li t0, 00000001
+    li t0, WAIT_COUNT
 1:
     addiu t0, -1
     bne t0,zero, 1b
