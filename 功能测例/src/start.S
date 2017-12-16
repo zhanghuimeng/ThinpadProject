@@ -704,7 +704,7 @@ test_end:
 
 wait_1s:
 #    li t0, 11000000
-    li t0, WAIT_COUNT
+    li t0, 00000001
 1:
     addiu t0, -1
     bne t0,zero, 1b
