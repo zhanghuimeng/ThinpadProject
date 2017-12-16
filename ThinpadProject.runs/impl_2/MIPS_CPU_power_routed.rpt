@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Sat Dec 16 18:44:47 2017
+| Date             : Sat Dec 16 19:07:31 2017
 | Host             : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command          : report_power -file MIPS_CPU_power_routed.rpt -pb MIPS_CPU_power_summary_routed.pb -rpx MIPS_CPU_power_routed.rpx
 | Design           : MIPS_CPU
@@ -30,12 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 2.541 |
-| Dynamic (W)              | 2.452 |
+| Total On-Chip Power (W)  | 2.551 |
+| Dynamic (W)              | 2.462 |
 | Device Static (W)        | 0.089 |
 | Effective TJA (C/W)      | 2.6   |
-| Max Ambient (C)          | 93.4  |
-| Junction Temperature (C) | 31.6  |
+| Max Ambient (C)          | 93.3  |
+| Junction Temperature (C) | 31.7  |
 | Confidence Level         | Low   |
 | Setting File             | ---   |
 | Simulation Activity File | ---   |
@@ -49,19 +49,19 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Slice Logic              |     1.027 |     4355 |       --- |             --- |
-|   LUT as Logic           |     0.784 |     2470 |     63400 |            3.90 |
+| Slice Logic              |     1.017 |     4355 |       --- |             --- |
+|   LUT as Logic           |     0.774 |     2472 |     63400 |            3.90 |
 |   CARRY4                 |     0.159 |      139 |     15850 |            0.88 |
 |   Register               |     0.078 |     1246 |    126800 |            0.98 |
 |   BUFG                   |     0.006 |       12 |        32 |           37.50 |
 |   F7/F8 Muxes            |    <0.001 |       38 |     63400 |            0.06 |
 |   LUT as Distributed RAM |    <0.001 |       48 |     19000 |            0.25 |
 |   Others                 |     0.000 |       29 |       --- |             --- |
-| Signals                  |     1.421 |     4258 |       --- |             --- |
+| Signals                  |     1.440 |     4262 |       --- |             --- |
 | DSPs                     |     0.000 |        8 |       240 |            3.33 |
 | I/O                      |     0.004 |      152 |       300 |           50.67 |
 | Static Power             |     0.089 |          |           |                 |
-| Total                    |     2.541 |          |           |                 |
+| Total                    |     2.551 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -71,7 +71,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     2.471 |       2.452 |      0.019 |
+| Vccint    |       1.000 |     2.481 |       2.462 |      0.019 |
 | Vccaux    |       1.800 |     0.019 |       0.000 |      0.019 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -138,19 +138,19 @@ Table of Contents
 +---------------------------------+-----------+
 | Name                            | Power (W) |
 +---------------------------------+-----------+
-| MIPS_CPU                        |     2.452 |
+| MIPS_CPU                        |     2.462 |
 |   BASE_SRAM_CONTROLL            |     0.000 |
 |   EXTEND_RAM_CONTROLL           |     0.000 |
-|   EX_0                          |     0.024 |
-|   EX_to_MEM_0                   |     0.529 |
+|   EX_0                          |     0.022 |
+|   EX_to_MEM_0                   |     0.520 |
 |   HI_LO_0                       |     0.000 |
-|   ID_0                          |     0.193 |
-|   ID_to_EX_0                    |     0.778 |
-|   IF_to_ID_0                    |     0.451 |
-|   MEM_CONTROLL_0                |     0.037 |
-|   MEM_to_WB_0                   |     0.177 |
+|   ID_0                          |     0.229 |
+|   ID_to_EX_0                    |     0.774 |
+|   IF_to_ID_0                    |     0.465 |
+|   MEM_CONTROLL_0                |     0.036 |
+|   MEM_to_WB_0                   |     0.172 |
 |   MMU_0                         |     0.000 |
-|   PC_0                          |     0.133 |
+|   PC_0                          |     0.122 |
 |   REGISTERS_0                   |    <0.001 |
 |     reg_array_reg_r1_0_31_0_5   |     0.000 |
 |     reg_array_reg_r1_0_31_12_17 |    <0.001 |
