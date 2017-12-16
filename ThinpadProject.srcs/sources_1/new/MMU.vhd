@@ -79,10 +79,10 @@ begin
 	    else
             if (ce_i = CE_ENABLE) then
                 if (UNSIGNED(addr_i) >= UNSIGNED(BASE_RAM_ADDR_MIN) and UNSIGNED(addr_i) <= UNSIGNED(BASE_RAM_ADDR_MAX)) then 
-                    addr <= STD_LOGIC_VECTOR(UNSIGNED(addr_i) - UNSIGNED(BASE_RAM_ADDR_MIN));
+                    addr <= STD_LOGIC_VECTOR(shift_right(UNSIGNED(addr_i) - UNSIGNED(BASE_RAM_ADDR_MIN), 2));
                     inout_type <= TYPE_BASE_RAM;
                 elsif (UNSIGNED(addr_i) >= UNSIGNED(EXTEND_RAM_ADDR_MIN) and UNSIGNED(addr_i) <= UNSIGNED(EXTEND_RAM_ADDR_MAX)) then
-                    addr <= STD_LOGIC_VECTOR(UNSIGNED(addr_i) - UNSIGNED(EXTEND_RAM_ADDR_MIN));
+                    addr <= STD_LOGIC_VECTOR(shift_right(UNSIGNED(addr_i) - UNSIGNED(EXTEND_RAM_ADDR_MIN), 2));
                     inout_type <= TYPE_EXTEND_RAM;
                 elsif (addr_i = LED_ADDR) then
                     inout_type <= TYPE_LED;

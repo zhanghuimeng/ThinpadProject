@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Fri Dec 15 22:57:06 2017
+| Date         : Sat Dec 16 11:07:33 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_utilization -file MIPS_CPU_utilization_synth.rpt -pb MIPS_CPU_utilization_synth.pb
 | Design       : MIPS_CPU
@@ -30,13 +30,13 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2424 |     0 |     63400 |  3.82 |
-|   LUT as Logic             | 2376 |     0 |     63400 |  3.75 |
+| Slice LUTs*                | 2425 |     0 |     63400 |  3.82 |
+|   LUT as Logic             | 2377 |     0 |     63400 |  3.75 |
 |   LUT as Memory            |   48 |     0 |     19000 |  0.25 |
 |     LUT as Distributed RAM |   48 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
-| Slice Registers            | 1246 |     0 |    126800 |  0.98 |
-|   Register as Flip Flop    |  644 |     0 |    126800 |  0.51 |
+| Slice Registers            | 1248 |     0 |    126800 |  0.98 |
+|   Register as Flip Flop    |  646 |     0 |    126800 |  0.51 |
 |   Register as Latch        |  602 |     0 |    126800 |  0.47 |
 | F7 Muxes                   |    3 |     0 |     31700 | <0.01 |
 | F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
@@ -59,7 +59,7 @@ Table of Contents
 | 0     |          Yes |           - |          Set |
 | 602   |          Yes |           - |        Reset |
 | 1     |          Yes |         Set |            - |
-| 643   |          Yes |       Reset |            - |
+| 645   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -152,8 +152,8 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     | 1043 |                 LUT |
-| FDRE     |  643 |        Flop & Latch |
+| LUT6     | 1044 |                 LUT |
+| FDRE     |  645 |        Flop & Latch |
 | LDCE     |  602 |        Flop & Latch |
 | LUT5     |  417 |                 LUT |
 | LUT2     |  375 |                 LUT |
