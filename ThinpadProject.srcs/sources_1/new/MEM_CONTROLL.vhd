@@ -149,7 +149,8 @@ begin
                         inst_data_o <= data_i;
                         inst_pause_o <= PAUSE_NOT;
                     else
-                        inst_pause_o <= PAUSE;
+                        --inst_pause_o <= PAUSE;
+						inst_pause_o <= PAUSE_NOT;
                     end if;
                     if (mem_ce_i = CE_ENABLE) then
                         mem_pause_o <= PAUSE;

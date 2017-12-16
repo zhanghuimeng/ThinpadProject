@@ -351,6 +351,8 @@ package INCLUDE is
 	function sign_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR;
 		
 	function zero_extend(vector: STD_LOGIC_VECTOR; newLen: integer) return STD_LOGIC_VECTOR;
+    
+    function reverse_vector(vector: STD_LOGIC_VECTOR) return STD_LOGIC_VECTOR;
 
 end INCLUDE;
 
@@ -414,5 +416,16 @@ package body INCLUDE is
         extended(vector'length-1 downto 0) := vector;  -- sign extend vector
         return extended;
 	end function zero_extend;
+	
+	function reverse_vector(vector: in STD_LOGIC_VECTOR) return STD_LOGIC_VECTOR is
+      variable result: STD_LOGIC_VECTOR(vector'RANGE);
+      variable block_size: integer := vector'length / 4;
+    begin
+        result(block_size * 4 - 1 downto block_size * 3) := vector(block_size - 1 downto 0);
+        result(block_size * 3 - 1 downto block_size * 2) := vector(block_size * 2 - 1 downto block_size);
+        result(block_size * 2 - 1 downto block_size) := vector(block_size * 3 - 1 downto block_size * 2);
+        result(block_size - 1 downto 0) := vector(block_size * 4 - 1 downto block_size * 3);
+        return result;
+    end function reverse_vector;
 	
 end INCLUDE;

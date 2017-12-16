@@ -66,7 +66,8 @@ entity MMU is
 end MMU;
 
 architecture Behavioral of MMU is
-    signal inout_type : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := TYPE_NULL;
+	type STATE_TYPE_TYPE is (TYPE_NULL, TYPE_BASE_RAM, TYPE_EXTEND_RAM, TYPE_LED, TYPE_NUM);
+    signal inout_type : STATE_TYPE_TYPE := TYPE_NULL;
     signal led_data : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := ZERO_DATA;
     signal num_data : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := ZERO_DATA;
 	signal addr : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := ZERO_ADDR;
@@ -75,7 +76,7 @@ begin
 	process (all)
 	begin
 	    if (rst = RST_ENABLE) then
-	       inout_type <= TYPE_BASE_RAM;
+	       inout_type <= TYPE_NULL;
 	    else
             if (ce_i = CE_ENABLE) then
                 if (UNSIGNED(addr_i) >= UNSIGNED(BASE_RAM_ADDR_MIN) and UNSIGNED(addr_i) <= UNSIGNED(BASE_RAM_ADDR_MAX)) then 
@@ -100,100 +101,109 @@ begin
     process (all)
     begin
         if (rst = RST_ENABLE) then
+            ram1_ce_o <= CE_DISABLE;
+            ram1_we_o <= '0';
+            ram1_data_o <= HIGH_Z;
+            ram1_addr_o <= ZERO_DATA;
+            ram1_sel_o <= b"0000";
+            ram2_ce_o <= CE_DISABLE;
+            ram2_we_o <= '0';
+            ram2_data_o <= HIGH_Z;
+            ram2_addr_o <= ZERO_DATA;
+            ram2_sel_o <= b"0000";
         else
-            if (inout_type = TYPE_BASE_RAM) then
-                ram2_ce_o <= CE_DISABLE;
-                ram2_we_o <= '0';
-                ram2_data_o <= HIGH_Z;
-                ram2_addr_o <= ZERO_DATA;
-                ram2_sel_o <= b"0000";
-                        
-                ram1_ce_o <= ce_i;
-                ram1_we_o <= we_i;
-                ram1_addr_o <= addr;
-                ram1_sel_o <= sel_i;
-                if (we_i = '0') then
-                    ram1_data_o <= HIGH_Z;
-                    data_o <= ram1_data_i;
-                else 
-                    ram1_data_o <= data_i;
-                    data_o <= ZERO_DATA;
-                end if;
-                ack_o <= '1';
-            elsif (inout_type = TYPE_EXTEND_RAM) then
-                ram1_ce_o <= CE_DISABLE;
-                ram1_we_o <= '0';
-                ram1_data_o <= HIGH_Z;
-                ram1_addr_o <= ZERO_DATA;
-                ram1_sel_o <= b"0000";
-                        
-                ram2_ce_o <= ce_i;
-                ram2_we_o <= we_i;
-                ram2_addr_o <= addr;
-                ram2_sel_o <= sel_i;
-                if (we_i = '0') then
-                    ram2_data_o <= HIGH_Z;
-                    data_o <= ram2_data_i;
-                else
-                    ram2_data_o <= data_i;
-                    data_o <= ZERO_DATA;
-                end if;
-                ack_o <= '1';
-    --        elsif (addr_i = LED_ADDR) then
-    --			ram1_ce_o <= CE_DISABLE;
-    --            ram1_we_o <= '0';
-    --            ram1_data_o <= HIGH_Z;
-    --            ram1_addr_o <= ZERO_DATA;
-    --            ram1_sel_o <= b"0000";
-    --            ram2_ce_o <= CE_DISABLE;
-    --            ram2_we_o <= '0';
-    --            ram2_data_o <= HIGH_Z;
-    --            ram2_addr_o <= ZERO_DATA;
-    --            ram2_sel_o <= b"0000";
-                
-    --            if (we_i = '1') then
-    --                led_data <= data_i;
-    --                leds_o <= led_data;
-    --				data_o <= ZERO_DATA;
-    --            else
-    --				data_o <= led_data;
-    --			end if;
-    --			ack_o <= '1';
-    --        elsif (addr_i = NUM_ADDR) then
-    --			ram1_ce_o <= CE_DISABLE;
-    --            ram1_we_o <= '0';
-    --            ram1_data_o <= HIGH_Z;
-    --            ram1_addr_o <= ZERO_DATA;
-    --            ram1_sel_o <= b"0000";
-    --            ram2_ce_o <= CE_DISABLE;
-    --            ram2_we_o <= '0';
-    --            ram2_data_o <= HIGH_Z;
-    --            ram2_addr_o <= ZERO_DATA;
-    --            ram2_sel_o <= b"0000";
-                
-    --            if (we_i = '1') then
-    --                num_data <= data_i;
-    --                num_o <= num_data;
-    --				data_o <= ZERO_DATA;
-    --            else
-    --				data_o <= num_data;
-    --			end if;
-    --			ack_o <= '1';
-            else
-                ram1_ce_o <= CE_DISABLE;
-                ram1_we_o <= '0';
-                ram1_data_o <= HIGH_Z;
-                ram1_addr_o <= ZERO_DATA;
-                ram1_sel_o <= b"0000";
-                ram2_ce_o <= CE_DISABLE;
-                ram2_we_o <= '0';
-                ram2_data_o <= HIGH_Z;
-                ram2_addr_o <= ZERO_DATA;
-                ram2_sel_o <= b"0000";
-            end if;
+			case inout_type is
+				when TYPE_BASE_RAM => 
+					ram2_ce_o <= CE_DISABLE;
+					ram2_we_o <= '0';
+					ram2_data_o <= HIGH_Z;
+					ram2_addr_o <= ZERO_DATA;
+					ram2_sel_o <= b"0000";
+							
+					ram1_ce_o <= ce_i;
+					ram1_we_o <= we_i;
+					ram1_addr_o <= addr;
+					ram1_sel_o <= sel_i;
+					if (we_i = '0') then
+						ram1_data_o <= HIGH_Z;
+						data_o <= ram1_data_i;
+					else 
+						ram1_data_o <= data_i;
+						data_o <= ZERO_DATA;
+					end if;
+					ack_o <= '1';
+				when TYPE_EXTEND_RAM => 
+					ram1_ce_o <= CE_DISABLE;
+					ram1_we_o <= '0';
+					ram1_data_o <= HIGH_Z;
+					ram1_addr_o <= ZERO_DATA;
+					ram1_sel_o <= b"0000";
+							
+					ram2_ce_o <= ce_i;
+					ram2_we_o <= we_i;
+					ram2_addr_o <= addr;
+					ram2_sel_o <= sel_i;
+					if (we_i = '0') then
+						ram2_data_o <= HIGH_Z;
+						data_o <= ram2_data_i;
+					else
+						ram2_data_o <= data_i;
+						data_o <= ZERO_DATA;
+					end if;
+					ack_o <= '1';
+				when TYPE_LED => 
+					ram1_ce_o <= CE_DISABLE;
+					ram1_we_o <= '0';
+					ram1_data_o <= HIGH_Z;
+					ram1_addr_o <= ZERO_DATA;
+					ram1_sel_o <= b"0000";
+					ram2_ce_o <= CE_DISABLE;
+					ram2_we_o <= '0';
+					ram2_data_o <= HIGH_Z;
+					ram2_addr_o <= ZERO_DATA;
+					ram2_sel_o <= b"0000";
+					
+					if (we_i = '1') then
+						led_data <= data_i;
+						leds_o <= led_data;
+						data_o <= ZERO_DATA;
+					else
+						data_o <= led_data;
+					end if;
+					ack_o <= '1';
+				when TYPE_NUM => 
+					ram1_ce_o <= CE_DISABLE;
+					ram1_we_o <= '0';
+					ram1_data_o <= HIGH_Z;
+					ram1_addr_o <= ZERO_DATA;
+					ram1_sel_o <= b"0000";
+					ram2_ce_o <= CE_DISABLE;
+					ram2_we_o <= '0';
+					ram2_data_o <= HIGH_Z;
+					ram2_addr_o <= ZERO_DATA;
+					ram2_sel_o <= b"0000";
+					
+					if (we_i = '1') then
+						num_data <= data_i;
+						num_o <= num_data;
+						data_o <= ZERO_DATA;
+					else
+						data_o <= num_data;
+					end if;
+					ack_o <= '1';
+				when others => 
+					ram1_ce_o <= CE_DISABLE;
+					ram1_we_o <= '0';
+					ram1_data_o <= HIGH_Z;
+					ram1_addr_o <= ZERO_DATA;
+					ram1_sel_o <= b"0000";
+					ram2_ce_o <= CE_DISABLE;
+					ram2_we_o <= '0';
+					ram2_data_o <= HIGH_Z;
+					ram2_addr_o <= ZERO_DATA;
+					ram2_sel_o <= b"0000";
+            end case;
         end if;
     end process;
-    
-    leds_o(2 downto 0) <= inout_type;
 
 end Behavioral;

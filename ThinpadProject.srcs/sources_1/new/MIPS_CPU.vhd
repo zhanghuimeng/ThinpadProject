@@ -758,7 +758,7 @@ begin
         ram_addr_o => ram2_addr_o,
         ram_data => ram2_data);
 		
-		leds(15 downto 0) <= addr_to_ram1(15 downto 0);
+	leds(15 downto 0) <= num_to_leds(15 downto 0);
         
     -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
