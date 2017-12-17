@@ -1,10 +1,10 @@
 #Clock
 set_property -dict {PACKAGE_PIN D18 IOSTANDARD LVCMOS33} [get_ports clk] ;#50MHz main clock in
-set_property -dict {PACKAGE_PIN C18 IOSTANDARD LVCMOS33} [get_ports clk_uart_in] ;#11.0592MHz clock for UART
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_uart_in_IBUF]
+set_property -dict {PACKAGE_PIN C18 IOSTANDARD LVCMOS33} [get_ports clk_uart] ;#11.0592MHz clock for UART
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_uart_IBUF]
 
 create_clock -period 40.000 -name clk -waveform {0.000 20.000} [get_ports clk]
-create_clock -period 90.422 -name clk_uart_in -waveform {0.000 45.211} [get_ports clk_uart_in]
+create_clock -period 90.422 -name clk_uart -waveform {0.000 45.211} [get_ports clk_uart]
 
 #Touch Button
 set_property IOSTANDARD LVCMOS33 [get_ports touch_btn[*]]

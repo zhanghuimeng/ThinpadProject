@@ -2,13 +2,11 @@ set_property SRC_FILE_INFO {cfile:E:/THU/ThinpadProject/ThinpadProject.srcs/cons
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN D18 IOSTANDARD LVCMOS33} [get_ports clk] ;#50MHz main clock in
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]
-set_property -dict {PACKAGE_PIN C18 IOSTANDARD LVCMOS33} [get_ports clk_uart_in] ;#11.0592MHz clock for UART
+set_property -dict {PACKAGE_PIN C18 IOSTANDARD LVCMOS33} [get_ports clk_uart] ;#11.0592MHz clock for UART
 set_property src_info {type:XDC file:1 line:4 export:INPUT save:INPUT read:READ} [current_design]
-set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_uart_in_IBUF]
+set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets clk_uart_IBUF]
 set_property src_info {type:XDC file:1 line:6 export:INPUT save:INPUT read:READ} [current_design]
 create_clock -period 40.000 -name clk -waveform {0.000 20.000} [get_ports clk]
-set_property src_info {type:XDC file:1 line:7 export:INPUT save:INPUT read:READ} [current_design]
-create_clock -period 90.422 -name clk_uart_in -waveform {0.000 45.211} [get_ports clk_uart_in]
 set_property src_info {type:XDC file:1 line:11 export:INPUT save:INPUT read:READ} [current_design]
 set_property PACKAGE_PIN J19 [get_ports touch_btn[0]] ;#BTN1
 set_property src_info {type:XDC file:1 line:12 export:INPUT save:INPUT read:READ} [current_design]

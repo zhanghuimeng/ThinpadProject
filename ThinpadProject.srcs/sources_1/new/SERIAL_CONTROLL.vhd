@@ -73,7 +73,6 @@ architecture Behavioral of SERIAL_CONTROLL is
     
     type SERIAL_STATE_TYPE is (SERIAL_IDLE, SERIAL_WRITE, SERIAL_READ);
     signal state : SERIAL_STATE_TYPE := SERIAL_IDLE;
-    signal write_once : STD_LOGIC := '1';
 
 begin
     SERIAL_RECEIVER : ASYNC_RECEIVER port map (
@@ -88,33 +87,46 @@ begin
         TxD_start => TxD_start,
         TxD_data => TxD_data);
         
-    process (all) 
+    process (clk_uart'event) 
     begin
-        if (ce_i = CE_ENABLE) then
-            if (we_i = '1') then
-                ack_o <= ACK;
-                TxD_data <= data_from_mmu_i(BYTE_LEN - 1 downto 0);
-                if (state = SERIAL_IDLE and write_once = '1') then
-                    write_once <= '0';
-                    TxD_start <= '1';
-                else
-                    TxD_start <= '0';
+        if (rising_edge(clk_uart)) then
+            if (ce_i = CE_ENABLE) then
+                if (we_i = '1') then
+                    TxD_data <= data_from_mmu_i(BYTE_LEN - 1 downto 0);
+					case state is
+						when SERIAL_IDLE =>
+							TxD_start <= '1';
+						when others =>
+						    TxD_start <= '0';
+					end case;
                 end if;
-                state <= SERIAL_WRITE;
             else
-                ack_o <= ACK_NOT;
-                if (RxD_data_ready) then
-                    ack_o <= ACK;
-                    data_from_serial_o <= zero_extend(RxD_data, DATA_LEN);
-                    state <= SERIAL_IDLE;
-                end if;
+                TxD_start <= '0';
             end if;
-        else
-            state <= SERIAL_IDLE;
-            ack_o <= ACK_NOT;
-            TxD_start <= '0';
-            write_once <= '1';
         end if;
     end process;
+	
+	process (all)
+	begin
+		if (ce_i = CE_ENABLE) then
+			if (we_i = '1') then
+			    ack_o <= ACK; 
+				if (state = SERIAL_IDLE) then
+					state <= SERIAL_WRITE;
+				end if;
+			else
+				if (RxD_data_ready) then
+				    data_from_serial_o <= zero_extend(RxD_data, DATA_LEN);
+				    ack_o <= ACK;
+					state <= SERIAL_IDLE;
+				else
+				    ack_o <= ACK_NOT;
+				    state <= SERIAL_READ;
+				end if;
+			end if;
+		else
+			state <= SERIAL_IDLE;
+		end if;
+	end process;
    
 end Behavioral;

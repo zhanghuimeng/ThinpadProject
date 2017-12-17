@@ -119,6 +119,9 @@ begin
             ram2_data_o <= HIGH_Z;
             ram2_addr_o <= ZERO_DATA;
             ram2_sel_o <= b"0000";
+			serial_ce_o <= CE_DISABLE;
+			serial_we_o <= '0';
+			serial_data_o <= ZERO_DATA;
         else
 			case inout_type is
 				when TYPE_BASE_RAM => 
@@ -127,6 +130,9 @@ begin
 					ram2_data_o <= HIGH_Z;
 					ram2_addr_o <= ZERO_DATA;
 					ram2_sel_o <= b"0000";
+					serial_ce_o <= CE_DISABLE;
+					serial_we_o <= '0';
+					serial_data_o <= ZERO_DATA;
 							
 					ram1_ce_o <= ce_i;
 					ram1_we_o <= we_i;
@@ -146,6 +152,9 @@ begin
 					ram1_data_o <= HIGH_Z;
 					ram1_addr_o <= ZERO_DATA;
 					ram1_sel_o <= b"0000";
+					serial_ce_o <= CE_DISABLE;
+					serial_we_o <= '0';
+					serial_data_o <= ZERO_DATA;
 							
 					ram2_ce_o <= ce_i;
 					ram2_we_o <= we_i;
@@ -170,6 +179,9 @@ begin
 					ram2_data_o <= HIGH_Z;
 					ram2_addr_o <= ZERO_DATA;
 					ram2_sel_o <= b"0000";
+					serial_ce_o <= CE_DISABLE;
+					serial_we_o <= '0';
+					serial_data_o <= ZERO_DATA;
 					
 					if (we_i = '1') then
 						led_data <= data_i;
@@ -190,6 +202,9 @@ begin
 					ram2_data_o <= HIGH_Z;
 					ram2_addr_o <= ZERO_DATA;
 					ram2_sel_o <= b"0000";
+					serial_ce_o <= CE_DISABLE;
+					serial_we_o <= '0';
+					serial_data_o <= ZERO_DATA;
 					
 					if (we_i = '1') then
 						num_data <= data_i;
@@ -231,6 +246,9 @@ begin
 					ram2_data_o <= HIGH_Z;
 					ram2_addr_o <= ZERO_DATA;
 					ram2_sel_o <= b"0000";
+					serial_ce_o <= CE_DISABLE;
+					serial_we_o <= '0';
+					serial_data_o <= ZERO_DATA;
 					ack_o <= '1';
             end case;
         end if;
