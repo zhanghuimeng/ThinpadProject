@@ -35,6 +35,7 @@ use WORK.INCLUDE.ALL;
 
 entity MIPS_CPU is
     Port ( -- clk :            in STD_LOGIC;                                   -- Clock
+           clk_uart : in STD_LOGIC;
            touch_btn :      in STD_LOGIC_VECTOR(5 downto 0);
            -- inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
            -- rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
@@ -46,12 +47,16 @@ entity MIPS_CPU is
            ram1_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
            ram1_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
            ram1_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+           
            ram2_ce_n_o : out STD_LOGIC;
            ram2_oe_n_o : out STD_LOGIC;
            ram2_we_n_o : out STD_LOGIC;
            ram2_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
            ram2_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
            ram2_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+           
+           rxd : in STD_LOGIC;
+           txd : out STD_LOGIC;
            
            leds : out STD_LOGIC_VECTOR(31 downto 0));
 end MIPS_CPU;
@@ -329,6 +334,12 @@ component MMU is
         ram2_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         ram2_addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
         ram2_sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+		
+		serial_ce_o : out STD_LOGIC;
+        serial_we_o : out STD_LOGIC;
+        serial_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        serial_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+		serial_ack_i : in STD_LOGIC;
         
         leds_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         num_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
@@ -356,6 +367,22 @@ component SRAM_CONTROLL is
         ram_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
         ram_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
         ram_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
+end component;
+
+component SERIAL_CONTROLL IS
+    Port (
+        clk : in STD_LOGIC;
+        clk_uart : in STD_LOGIC;
+        rst : in STD_LOGIC;
+        ce_i : in STD_LOGIC;
+        we_i : in STD_LOGIC;
+        data_from_mmu_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+            
+        rxd : in STD_LOGIC;
+        txd : out STD_LOGIC;
+            
+        data_from_serial_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        ack_o : out STD_LOGIC);
 end component;
 
 component SEG7_LUT is
@@ -508,7 +535,7 @@ signal data_to_ram1 : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 signal addr_to_ram1 : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
 signal sel_to_ram1 : STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
 
--- Signal from MMU to extend RAM
+-- Signal from/to MMU to/from extend RAM
 signal data_from_ram2 : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 signal ack_from_ram2 : STD_LOGIC;
 signal ce_to_ram2 : STD_LOGIC;
@@ -519,6 +546,13 @@ signal sel_to_ram2 : STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
 
 signal leds_to_leds : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 signal num_to_leds : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+
+-- Signal from/to MMU to/from serial interface
+signal data_from_serial : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+signal ack_from_serial: STD_LOGIC;
+signal ce_to_serial : STD_LOGIC;
+signal we_to_serial : STD_LOGIC;
+signal data_to_serial : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);  
 
 -- Signal from mem controll to pause ctrl
 signal inst_pause_from_mem_controll: STD_LOGIC;
@@ -715,6 +749,12 @@ begin
         ram2_data_o => data_to_ram2,
         ram2_addr_o => addr_to_ram2,
         ram2_sel_o => sel_to_ram2,
+		
+		serial_data_i => data_from_serial,
+		serial_ack_i => ack_from_serial,
+		serial_ce_o => ce_to_serial,
+        serial_we_o => we_to_serial,
+        serial_data_o => data_to_serial,
         
         leds_o => leds_to_leds,
         num_o => num_to_leds,
@@ -757,35 +797,49 @@ begin
         ram_be_n_o => ram2_be_n_o,
         ram_addr_o => ram2_addr_o,
         ram_data => ram2_data);
+        
+    SERIAL_CONTROLL_0 : SERIAL_CONTROLL port map (
+        clk => clk,
+        clk_uart => clk_uart,
+        rst => input_rst,
+        ce_i => ce_to_serial,
+        we_i => we_to_serial,
+        data_from_mmu_i => data_to_serial,
+         
+        rxd => rxd,
+        txd => txd,
+          
+        data_from_serial_o => data_from_serial,
+        ack_o => ack_from_serial);
 		
-	leds(15 downto 0) <= num_to_leds(15 downto 0);
+	leds(15 downto 0) <= addr_from_mem_controll(15 downto 0);
         
     -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
    --leds(14 downto 11) <= sel_from_mem_controll; 
     -- leds(10 downto 9) <= state_from_mem_controll; 
     
---    number(7 downto 0) <= num_to_leds(7 downto 0);
+    number(7 downto 0) <= num_to_leds(7 downto 0);
 --    leds(15 downto 0) <= leds_to_leds(15 downto 0);
         
---    segL : SEG7_LUT port map(
---         oSEG1 => osegl,
---         iDIG => number(3 downto 0));
+    segL : SEG7_LUT port map(
+         oSEG1 => osegl,
+         iDIG => number(3 downto 0));
                 
---    segH : SEG7_LUT port map(
---         oSEG1 => osegh,
---         iDIG => number(7 downto 4));
+    segH : SEG7_LUT port map(
+         oSEG1 => osegh,
+         iDIG => number(7 downto 4));
                 
---    leds(23 downto 22) <= osegl(7 downto 6);
---    leds(19 downto 17) <= osegl(5 downto 3);
---    leds(20) <= osegl(2);
---    leds(21) <= osegl(1);
---    leds(16) <= osegl(0);
---    leds(31 downto 30) <= osegh(7 downto 6);
---    leds(27 downto 25) <= osegh(5 downto 3);
---    leds(28) <= osegh(2);
---    leds(29) <= osegh(1);
---    leds(24) <= osegh(0);   
+    leds(23 downto 22) <= osegl(7 downto 6);
+    leds(19 downto 17) <= osegl(5 downto 3);
+    leds(20) <= osegl(2);
+    leds(21) <= osegl(1);
+    leds(16) <= osegl(0);
+    leds(31 downto 30) <= osegh(7 downto 6);
+    leds(27 downto 25) <= osegh(5 downto 3);
+    leds(28) <= osegh(2);
+    leds(29) <= osegh(1);
+    leds(24) <= osegh(0);   
     
 --    leds(15) <= ce_to_ram1;
 --    leds(14) <= '1';

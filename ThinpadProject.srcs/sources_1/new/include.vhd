@@ -328,12 +328,18 @@ package INCLUDE is
     constant WORD_SEL : STD_LOGIC_VECTOR(1 downto 0) := b"11";
     constant WORD_SEL_NOT : STD_LOGIC_VECTOR(1 downto 0) := b"00";
     
+    constant SERIAL_STATE_LEN : integer := 2;
+    constant SERIAL_IDLE : STD_LOGIC_VECTOR(SERIAL_STATE_LEN - 1 downto 0) := b"00";
+    constant SERIAL_READ : STD_LOGIC_VECTOR(SERIAL_STATE_LEN - 1 downto 0) := b"01";
+    constant SERIAL_WRITE : STD_LOGIC_VECTOR(SERIAL_STATE_LEN - 1 downto 0) := b"10";
+    
     constant TYPE_LEN : integer := 3;
     constant TYPE_NULL : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"000";
     constant TYPE_BASE_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"001";
     constant TYPE_EXTEND_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"010";
     constant TYPE_LED : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"011";
     constant TYPE_NUM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"100";
+    constant TYPE_SERIAL : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"101";
     
     constant BASE_RAM_ADDR_MIN : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"80000000";
     constant BASE_RAM_ADDR_MAX : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"803FFFFF";
@@ -341,6 +347,7 @@ package INCLUDE is
     constant EXTEND_RAM_ADDR_MAX : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"807FFFFF";
     constant LED_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"bfd0f000"; -- For test
     constant NUM_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"bfd0f010"; -- For test
+    constant SERIAL_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"BFD003F8";
     
 	function count_leading(vector : STD_LOGIC_VECTOR; b : STD_LOGIC) return natural;
 

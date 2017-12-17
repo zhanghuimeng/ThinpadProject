@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sat Dec 16 19:01:24 2017
-# Process ID: 15820
+# Start of session at: Sun Dec 17 20:22:47 2017
+# Process ID: 440
 # Current directory: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,132 +15,132 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11108 
+INFO: Helper process launched with PID 9136 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 347.961 ; gain = 83.012
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 347.605 ; gain = 82.047
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:59]
-INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:543]
+INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:64]
+INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:577]
 INFO: [Synth 8-638] synthesizing module 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:51]
 INFO: [Synth 8-256] done synthesizing module 'PC' (1#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
-INFO: [Synth 8-3491] module 'IF_to_ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:549]
+INFO: [Synth 8-3491] module 'IF_to_ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:583]
 INFO: [Synth 8-638] synthesizing module 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'IF_to_ID' (2#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
-INFO: [Synth 8-3491] module 'ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:556]
+INFO: [Synth 8-3491] module 'ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:590]
 INFO: [Synth 8-638] synthesizing module 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:76]
 WARNING: [Synth 8-6014] Unused sequential element next_pc_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:140]
 WARNING: [Synth 8-6014] Unused sequential element next_inst_in_delayslot_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:121]
 INFO: [Synth 8-256] done synthesizing module 'ID' (3#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:76]
-INFO: [Synth 8-3491] module 'ID_to_EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:574]
+INFO: [Synth 8-3491] module 'ID_to_EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:608]
 INFO: [Synth 8-638] synthesizing module 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'ID_to_EX' (4#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
-INFO: [Synth 8-3491] module 'EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:590]
+INFO: [Synth 8-3491] module 'EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:624]
 INFO: [Synth 8-638] synthesizing module 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
 WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:214]
 WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:216]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:364]
-WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:365]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:371]
+WARNING: [Synth 8-5639] ignoring null variable initialization [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:372]
 INFO: [Common 17-14] Message 'Synth 8-5639' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:244]
 WARNING: [Synth 8-614] signal 'hi_o' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:85]
@@ -159,11 +159,11 @@ WARNING: [Synth 8-6014] Unused sequential element operand_mul_2_reg was removed.
 WARNING: [Synth 8-6014] Unused sequential element mult_result_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:193]
 WARNING: [Synth 8-6014] Unused sequential element mult_accum_result_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:274]
 INFO: [Synth 8-256] done synthesizing module 'EX' (5#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
-INFO: [Synth 8-3491] module 'EX_to_MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:609]
+INFO: [Synth 8-3491] module 'EX_to_MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:643]
 INFO: [Synth 8-638] synthesizing module 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:72]
 INFO: [Synth 8-256] done synthesizing module 'EX_to_MEM' (6#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
-INFO: [Synth 8-3491] module 'MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:624]
+INFO: [Synth 8-3491] module 'MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:658]
 INFO: [Synth 8-638] synthesizing module 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:125]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:181]
@@ -172,22 +172,22 @@ INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadPr
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:257]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:280]
 INFO: [Synth 8-256] done synthesizing module 'MEM' (7#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
-INFO: [Synth 8-3491] module 'MEM_to_WB' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:640]
+INFO: [Synth 8-3491] module 'MEM_to_WB' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:674]
 INFO: [Synth 8-638] synthesizing module 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:60]
 INFO: [Synth 8-256] done synthesizing module 'MEM_to_WB' (8#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
-INFO: [Synth 8-3491] module 'REGISTERS' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:649]
+INFO: [Synth 8-3491] module 'REGISTERS' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:683]
 INFO: [Synth 8-638] synthesizing module 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:90]
 INFO: [Synth 8-256] done synthesizing module 'REGISTERS' (9#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
-INFO: [Synth 8-3491] module 'HI_LO' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:657]
+INFO: [Synth 8-3491] module 'HI_LO' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:691]
 INFO: [Synth 8-638] synthesizing module 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'HI_LO' (10#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
-INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:663]
+INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:697]
 INFO: [Synth 8-638] synthesizing module 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'PAUSE_CTRL' (11#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
-INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:670]
+INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:704]
 INFO: [Synth 8-638] synthesizing module 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
 WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
@@ -201,15 +201,76 @@ WARNING: [Synth 8-614] signal 'mem_data_i' is read in the process but is not in 
 WARNING: [Synth 8-614] signal 'inst_ce_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
 WARNING: [Synth 8-614] signal 'inst_addr_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
 INFO: [Synth 8-256] done synthesizing module 'MEM_CONTROLL' (12#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
-INFO: [Synth 8-3491] module 'MMU' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:695]
-INFO: [Synth 8-638] synthesizing module 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:68]
-INFO: [Synth 8-256] done synthesizing module 'MMU' (13#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:68]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:725]
+INFO: [Synth 8-3491] module 'MMU' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:729]
+INFO: [Synth 8-638] synthesizing module 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:74]
+INFO: [Synth 8-256] done synthesizing module 'MMU' (13#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:74]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:765]
 INFO: [Synth 8-638] synthesizing module 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
 WARNING: [Synth 8-6014] Unused sequential element ram_oe_n_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:64]
 INFO: [Synth 8-256] done synthesizing module 'SRAM_CONTROLL' (14#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:743]
-INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (15#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:59]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:783]
+INFO: [Synth 8-3491] module 'SERIAL_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:35' bound to instance 'SERIAL_CONTROLL_0' of component 'SERIAL_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:801]
+INFO: [Synth 8-638] synthesizing module 'SERIAL_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:52]
+INFO: [Synth 8-3491] module 'async_receiver' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75' bound to instance 'SERIAL_RECEIVER' of component 'ASYNC_RECEIVER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:79]
+INFO: [Synth 8-638] synthesizing module 'async_receiver' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
+	Parameter ClkFrequency bound to: 25000000 - type: integer 
+	Parameter Baud bound to: 115200 - type: integer 
+	Parameter Oversampling bound to: 8 - type: integer 
+	Parameter l2o bound to: 4 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'BaudTickGen' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:185]
+	Parameter ClkFrequency bound to: 25000000 - type: integer 
+	Parameter Baud bound to: 115200 - type: integer 
+	Parameter Oversampling bound to: 8 - type: integer 
+	Parameter AccWidth bound to: 16 - type: integer 
+	Parameter ShiftLimiter bound to: 5 - type: integer 
+	Parameter Inc bound to: 2416 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'BaudTickGen' (15#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:185]
+INFO: [Synth 8-256] done synthesizing module 'async_receiver' (16#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
+INFO: [Synth 8-3491] module 'async_transmitter' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14' bound to instance 'SERIAL_TRANSMITTER' of component 'ASYNC_TRANSMITTER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:85]
+INFO: [Synth 8-638] synthesizing module 'async_transmitter' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
+	Parameter ClkFrequency bound to: 25000000 - type: integer 
+	Parameter Baud bound to: 115200 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'BaudTickGen__parameterized0' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:185]
+	Parameter ClkFrequency bound to: 25000000 - type: integer 
+	Parameter Baud bound to: 115200 - type: integer 
+	Parameter Oversampling bound to: 1 - type: integer 
+	Parameter AccWidth bound to: 16 - type: integer 
+	Parameter ShiftLimiter bound to: 2 - type: integer 
+	Parameter Inc bound to: 302 - type: integer 
+INFO: [Synth 8-256] done synthesizing module 'BaudTickGen__parameterized0' (16#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:185]
+INFO: [Synth 8-256] done synthesizing module 'async_transmitter' (17#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
+INFO: [Synth 8-256] done synthesizing module 'SERIAL_CONTROLL' (18#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:52]
+INFO: [Synth 8-3491] module 'SEG7_LUT' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1' bound to instance 'segL' of component 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:825]
+INFO: [Synth 8-638] synthesizing module 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1]
+INFO: [Synth 8-256] done synthesizing module 'SEG7_LUT' (19#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1]
+INFO: [Synth 8-3491] module 'SEG7_LUT' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1' bound to instance 'segH' of component 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:829]
+INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (20#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:64]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port clk
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port rst
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[31]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[30]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[29]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[28]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[27]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[26]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[25]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[24]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[23]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[22]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[21]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[20]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[19]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[18]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[17]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[16]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[15]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[14]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[13]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[12]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[11]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[10]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[9]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[8]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port rst
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[31]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[30]
@@ -249,28 +310,12 @@ WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[31]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[30]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[29]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[28]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[27]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[26]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[25]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[24]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[23]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[22]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[21]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[20]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[19]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[18]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[17]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[16]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[3]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[2]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[1]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 399.059 ; gain = 134.109
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 400.707 ; gain = 135.148
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -280,7 +325,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 399.059 ; gain = 134.109
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 400.707 ; gain = 135.148
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -323,12 +368,6 @@ CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'uart_dataready'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'txd'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:31]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:31]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'rxd'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:32]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:32]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_a0'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
@@ -595,7 +634,13 @@ WARNING: [Vivado 12-584] No ports matched 'flash_a[3]'. [E:/THU/ThinpadProject/T
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
+INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
 Finished Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MIPS_CPU_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/MIPS_CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
@@ -604,22 +649,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 713.484 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 716.176 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 713.484 ; gain = 448.535
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 716.176 ; gain = 450.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 713.484 ; gain = 448.535
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 716.176 ; gain = 450.617
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:23 . Memory (MB): peak = 713.484 ; gain = 448.535
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 716.176 ; gain = 450.617
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element pc_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:61]
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -654,6 +699,14 @@ INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recomm
 INFO: [Synth 8-5546] ROM "ram_en_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5587] ROM size for "ram_is_read_o" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5544] ROM "ce_o" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'RxD_state_reg' in module 'async_receiver'
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:141]
+INFO: [Synth 8-5544] ROM "RxD_bit" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "RxD_bit" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "OversamplingCnt0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:170]
+INFO: [Synth 8-802] inferred FSM for state register 'TxD_state_reg' in module 'async_transmitter'
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
 WARNING: [Synth 8-327] inferring latch for variable 'extended_imm_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:102]
 WARNING: [Synth 8-327] inferring latch for variable 'extended_offset_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:949]
 WARNING: [Synth 8-327] inferring latch for variable 'branch_target_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:119]
@@ -670,18 +723,63 @@ WARNING: [Synth 8-327] inferring latch for variable 'sel_o_reg' [E:/THU/ThinpadP
 WARNING: [Synth 8-327] inferring latch for variable 'addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:74]
 WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:75]
 WARNING: [Synth 8-327] inferring latch for variable 'state_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:70]
-WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:83]
-WARNING: [Synth 8-327] inferring latch for variable 'leds_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:168]
-WARNING: [Synth 8-327] inferring latch for variable 'num_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:188]
-WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:134]
-WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:129]
-WARNING: [Synth 8-327] inferring latch for variable 'led_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:167]
-WARNING: [Synth 8-327] inferring latch for variable 'num_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:187]
+WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:89]
+WARNING: [Synth 8-327] inferring latch for variable 'serial_ce_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:222]
+WARNING: [Synth 8-327] inferring latch for variable 'serial_we_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:221]
+WARNING: [Synth 8-327] inferring latch for variable 'serial_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:217]
+WARNING: [Synth 8-327] inferring latch for variable 'led_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:175]
+WARNING: [Synth 8-327] inferring latch for variable 'num_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:195]
+WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:142]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:137]
 WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:81]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:69]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:62]
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:141]
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:141]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0000 |                             0000
+                 iSTATE0 |                             0001 |                             0001
+                 iSTATE1 |                             0010 |                             1000
+                 iSTATE2 |                             0011 |                             1001
+                 iSTATE3 |                             0100 |                             1010
+                 iSTATE4 |                             0101 |                             1011
+                 iSTATE5 |                             0110 |                             1100
+                 iSTATE6 |                             0111 |                             1101
+                 iSTATE7 |                             1000 |                             1110
+                 iSTATE8 |                             1001 |                             1111
+                 iSTATE9 |                             1010 |                             0010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'RxD_state_reg' using encoding 'sequential' in module 'async_receiver'
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:141]
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                             0000 |                             0000
+                 iSTATE0 |                             0001 |                             0100
+                 iSTATE1 |                             0010 |                             1000
+                 iSTATE2 |                             0011 |                             1001
+                 iSTATE3 |                             0100 |                             1010
+                 iSTATE4 |                             0101 |                             1011
+                 iSTATE5 |                             0110 |                             1100
+                 iSTATE6 |                             0111 |                             1101
+                 iSTATE7 |                             1000 |                             1110
+                 iSTATE8 |                             1001 |                             1111
+                 iSTATE9 |                             1010 |                             0010
+                iSTATE10 |                             1011 |                             0011
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'TxD_state_reg' using encoding 'sequential' in module 'async_transmitter'
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+WARNING: [Synth 8-327] inferring latch for variable 'data_from_serial_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:108]
+WARNING: [Synth 8-327] inferring latch for variable 'TxD_start_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:88]
+WARNING: [Synth 8-327] inferring latch for variable 'TxD_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:89]
+WARNING: [Synth 8-327] inferring latch for variable 'state_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:97]
+WARNING: [Synth 8-327] inferring latch for variable 'write_once_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:97]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:26 . Memory (MB): peak = 713.484 ; gain = 448.535
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 716.176 ; gain = 450.617
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -697,22 +795,26 @@ Detailed RTL Component Info :
 	   2 Input     64 Bit       Adders := 3     
 	   3 Input     64 Bit       Adders := 1     
 	   2 Input     32 Bit       Adders := 9     
-	   2 Input      6 Bit       Adders := 2     
+	   2 Input     17 Bit       Adders := 2     
+	   2 Input      6 Bit       Adders := 3     
 	   2 Input      5 Bit       Adders := 4     
 	   3 Input      4 Bit       Adders := 4     
 	   2 Input      4 Bit       Adders := 4     
-	   2 Input      3 Bit       Adders := 4     
+	   2 Input      3 Bit       Adders := 5     
 	   3 Input      3 Bit       Adders := 8     
-	   2 Input      2 Bit       Adders := 24    
+	   2 Input      2 Bit       Adders := 25    
 +---XORs : 
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
 	               64 Bit    Registers := 1     
 	               32 Bit    Registers := 16    
-	                6 Bit    Registers := 3     
+	               17 Bit    Registers := 2     
+	                8 Bit    Registers := 2     
+	                6 Bit    Registers := 4     
 	                5 Bit    Registers := 3     
-	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 9     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 12    
 +---RAMs : 
 	             1024 Bit         RAMs := 1     
 +---Muxes : 
@@ -720,14 +822,15 @@ Detailed RTL Component Info :
 	   8 Input     64 Bit        Muxes := 1     
 	  13 Input     64 Bit        Muxes := 1     
 	  39 Input     32 Bit        Muxes := 1     
-	   5 Input     32 Bit        Muxes := 7     
+	   5 Input     32 Bit        Muxes := 2     
 	   4 Input     32 Bit        Muxes := 9     
-	   2 Input     32 Bit        Muxes := 57    
+	   2 Input     32 Bit        Muxes := 58    
 	   8 Input     32 Bit        Muxes := 4     
 	   3 Input     32 Bit        Muxes := 6     
-	   6 Input     32 Bit        Muxes := 1     
+	   6 Input     32 Bit        Muxes := 5     
 	   7 Input     32 Bit        Muxes := 1     
 	  13 Input     32 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 5     
 	   8 Input      6 Bit        Muxes := 1     
 	   3 Input      6 Bit        Muxes := 1     
@@ -741,23 +844,25 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 18    
 	   4 Input      4 Bit        Muxes := 3     
 	   3 Input      4 Bit        Muxes := 2     
-	   6 Input      4 Bit        Muxes := 1     
-	   5 Input      4 Bit        Muxes := 2     
+	   6 Input      4 Bit        Muxes := 3     
+	  11 Input      4 Bit        Muxes := 1     
+	  12 Input      4 Bit        Muxes := 2     
+	  13 Input      4 Bit        Muxes := 1     
 	  15 Input      3 Bit        Muxes := 1     
 	  38 Input      3 Bit        Muxes := 4     
 	   2 Input      3 Bit        Muxes := 9     
 	   9 Input      3 Bit        Muxes := 1     
 	  13 Input      3 Bit        Muxes := 2     
-	   7 Input      3 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 13    
+	   8 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 15    
 	   8 Input      2 Bit        Muxes := 1     
 	  13 Input      2 Bit        Muxes := 1     
 	   3 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 53    
+	   2 Input      1 Bit        Muxes := 63    
 	   9 Input      1 Bit        Muxes := 3     
 	  15 Input      1 Bit        Muxes := 6     
-	   5 Input      1 Bit        Muxes := 9     
+	   5 Input      1 Bit        Muxes := 2     
 	  38 Input      1 Bit        Muxes := 3     
 	  39 Input      1 Bit        Muxes := 3     
 	   7 Input      1 Bit        Muxes := 3     
@@ -765,6 +870,9 @@ Detailed RTL Component Info :
 	   3 Input      1 Bit        Muxes := 7     
 	  13 Input      1 Bit        Muxes := 4     
 	   4 Input      1 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 10    
+	  11 Input      1 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -924,18 +1032,63 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     32 Bit       Adders := 2     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 9     
-	   5 Input     32 Bit        Muxes := 5     
+	   2 Input     32 Bit        Muxes := 10    
+	   6 Input     32 Bit        Muxes := 4     
 	   2 Input      4 Bit        Muxes := 2     
-	   5 Input      4 Bit        Muxes := 2     
-	   7 Input      3 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 7     
+	   6 Input      4 Bit        Muxes := 2     
+	   8 Input      3 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 10    
 	   2 Input      1 Bit        Muxes := 1     
 Module SRAM_CONTROLL 
 Detailed RTL Component Info : 
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module BaudTickGen 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+Module async_receiver 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      6 Bit       Adders := 1     
+	   2 Input      3 Bit       Adders := 1     
+	   2 Input      2 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 1     
+	                6 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	  11 Input      4 Bit        Muxes := 1     
+	  12 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+	  11 Input      1 Bit        Muxes := 1     
+Module BaudTickGen__parameterized0 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     17 Bit       Adders := 1     
++---Registers : 
+	               17 Bit    Registers := 1     
+Module async_transmitter 
+Detailed RTL Component Info : 
++---Registers : 
+	                8 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      8 Bit        Muxes := 1     
+	  12 Input      4 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	  12 Input      1 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module SERIAL_CONTROLL 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
 	   2 Input      1 Bit        Muxes := 2     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
@@ -978,53 +1131,70 @@ DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: Generating DSP hi0, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: operator hi0 is absorbed into DSP hi0.
+WARNING: [Synth 8-6014] Unused sequential element SERIAL_RECEIVER/RxD_endofpacket_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:172]
+WARNING: [Synth 8-6014] Unused sequential element SERIAL_RECEIVER/GapCnt_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:170]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port clk
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port rst
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[31]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[30]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[29]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[28]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[27]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[26]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[25]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[24]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[23]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[22]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[21]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[20]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[19]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[18]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[17]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[16]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[15]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[14]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[13]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[12]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[11]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[10]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[9]
+WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[8]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port rst
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[31]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[30]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[29]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[28]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[27]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[26]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[25]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[24]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[23]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[22]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[21]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[20]
-WARNING: [Synth 8-3331] design MMU has unconnected port ram1_ack_i
-WARNING: [Synth 8-3331] design MMU has unconnected port ram2_ack_i
-WARNING: [Synth 8-3331] design REGISTERS has unconnected port rst
-WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[5]
-WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[2]
-WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[1]
-WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[0]
-WARNING: [Synth 8-3331] design EX has unconnected port is_in_delayslot_i
-WARNING: [Synth 8-3331] design ID has unconnected port is_in_delayslot_i
-WARNING: [Synth 8-3331] design PC has unconnected port pause_i[5]
-WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
-WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
-WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
-WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[31]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[30]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[29]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[28]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[27]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[26]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[25]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[24]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[23]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[22]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[21]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[20]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[19]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[18]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[8]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[9]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[10]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[11]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[20]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[12]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[13]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[18]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[19]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[17]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[15]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[14]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[24]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[25]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[21]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[22]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[23]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[16]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[27]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[26]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[28]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[29]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[30]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (SERIAL_CONTROLL_0/\data_from_serial_o_reg[30] )
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[4]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[5]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[3]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ID_to_EX_0/funct_o_reg[5] )
-INFO: [Synth 8-3333] propagating constant 1 across sequential element (MMU_0/ack_o_reg)
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (MMU_0/serial_ce_o_reg)
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (SERIAL_CONTROLL_0/\state_reg[1] )
 INFO: [Synth 8-3886] merging instance 'MMU_0/addr_reg[30]' (LD) to 'MMU_0/addr_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\addr_reg[31] )
 INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_66' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_65'
@@ -1102,62 +1272,49 @@ WARNING: [Synth 8-3332] Sequential element (addr_reg[23]) is unused and will be 
 WARNING: [Synth 8-3332] Sequential element (addr_reg[22]) is unused and will be removed from module MMU.
 WARNING: [Synth 8-3332] Sequential element (addr_reg[21]) is unused and will be removed from module MMU.
 WARNING: [Synth 8-3332] Sequential element (addr_reg[20]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[31]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[30]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[29]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[28]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[27]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[26]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[25]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[24]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[23]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[22]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[21]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[20]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[19]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[18]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[17]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[16]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[15]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[14]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[13]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[12]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[11]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[10]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[9]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[8]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[7]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[6]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[5]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[4]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[3]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[2]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[1]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (leds_o_reg[0]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[31]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[30]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[29]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[28]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[27]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[26]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[25]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[24]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[23]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[22]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[21]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[20]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[19]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[18]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[17]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (num_o_reg[16]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (ack_o_reg) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_ce_o_reg) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[31]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[30]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[29]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[28]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[27]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[26]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[25]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[24]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[23]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[22]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[21]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[20]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[19]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[18]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[17]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[16]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[15]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[14]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[13]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[12]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[11]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[10]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[9]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[8]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (data_from_serial_o_reg[30]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (state_reg[1]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/tickgen/Acc_reg[2]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/tickgen/Acc_reg[1]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/tickgen/Acc_reg[0]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[5]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[4]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[3]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[2]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[1]) is unused and will be removed from module SERIAL_CONTROLL.
+WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[0]) is unused and will be removed from module SERIAL_CONTROLL.
 WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/is_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
 WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/next_inst_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
 WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/funct_o_reg[5]) is unused and will be removed from module MIPS_CPU.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
 WARNING: [Synth 8-3332] Sequential element (funct_o_reg[4]) is unused and will be removed from module EX_to_MEM.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:48 ; elapsed = 00:00:58 . Memory (MB): peak = 740.145 ; gain = 475.195
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 740.926 ; gain = 475.367
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1174,7 +1331,6 @@ ROM:
 |ID          | op_o          | 64x3          | LUT            | 
 |ID          | reg_rd_en_1_o | 64x1          | LUT            | 
 |ID          | reg_rd_en_2_o | 64x1          | LUT            | 
-|ID          | reg_wt_en_o   | 64x1          | LUT            | 
 +------------+---------------+---------------+----------------+
 
 
@@ -1215,13 +1371,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:09 ; elapsed = 00:01:21 . Memory (MB): peak = 792.055 ; gain = 527.105
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 794.746 ; gain = 529.188
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:10 ; elapsed = 00:01:22 . Memory (MB): peak = 795.059 ; gain = 530.109
+Finished Timing Optimization : Time (s): cpu = 00:01:01 ; elapsed = 00:01:03 . Memory (MB): peak = 797.754 ; gain = 532.195
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1233,7 +1389,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:11 ; elapsed = 00:01:24 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished Technology Mapping : Time (s): cpu = 00:01:03 ; elapsed = 00:01:05 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1257,7 +1413,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished IO Insertion : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1270,7 +1426,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1282,25 +1438,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1317,69 +1473,77 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |BUFG      |    12|
-|2     |CARRY4    |   139|
+|2     |CARRY4    |   148|
 |3     |DSP48E1   |     4|
 |4     |DSP48E1_1 |     4|
-|5     |LUT1      |   208|
-|6     |LUT2      |   355|
-|7     |LUT3      |   276|
-|8     |LUT4      |   468|
-|9     |LUT5      |   498|
-|10    |LUT6      |  1063|
-|11    |MUXF7     |    38|
+|5     |LUT1      |   233|
+|6     |LUT2      |   407|
+|7     |LUT3      |   280|
+|8     |LUT4      |   410|
+|9     |LUT5      |   481|
+|10    |LUT6      |  1039|
+|11    |MUXF7     |     4|
 |12    |RAM32M    |    12|
-|13    |FDRE      |   645|
-|14    |FDSE      |     1|
-|15    |LD        |   368|
-|16    |LDC       |   232|
-|17    |IBUF      |     2|
-|18    |IOBUF     |    64|
-|19    |OBUF      |    70|
-|20    |OBUFT     |    16|
+|13    |FDRE      |   704|
+|14    |FDSE      |     6|
+|15    |LD        |   378|
+|16    |LDC       |   233|
+|17    |LDCP      |     1|
+|18    |LDP       |     1|
+|19    |IBUF      |     4|
+|20    |IOBUF     |    64|
+|21    |OBUF      |    87|
 +------+----------+------+
 
 Report Instance Areas: 
-+------+----------------------+----------------+------+
-|      |Instance              |Module          |Cells |
-+------+----------------------+----------------+------+
-|1     |top                   |                |  4475|
-|2     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL   |    84|
-|3     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0 |    84|
-|4     |  EX_0                |EX              |   331|
-|5     |  EX_to_MEM_0         |EX_to_MEM       |   701|
-|6     |  HI_LO_0             |HI_LO           |    64|
-|7     |  ID_0                |ID              |   185|
-|8     |  ID_to_EX_0          |ID_to_EX        |  1441|
-|9     |  IF_to_ID_0          |IF_to_ID        |   604|
-|10    |  MEM_CONTROLL_0      |MEM_CONTROLL    |   444|
-|11    |  MEM_to_WB_0         |MEM_to_WB       |   133|
-|12    |  MMU_0               |MMU             |   132|
-|13    |  PC_0                |PC              |    36|
-|14    |  REGISTERS_0         |REGISTERS       |    68|
-+------+----------------------+----------------+------+
++------+-----------------------+----------------------------+------+
+|      |Instance               |Module                      |Cells |
++------+-----------------------+----------------------------+------+
+|1     |top                    |                            |  4512|
+|2     |  BASE_SRAM_CONTROLL   |SRAM_CONTROLL               |    84|
+|3     |  EXTEND_RAM_CONTROLL  |SRAM_CONTROLL_0             |    84|
+|4     |  EX_0                 |EX                          |   317|
+|5     |  EX_to_MEM_0          |EX_to_MEM                   |   701|
+|6     |  HI_LO_0              |HI_LO                       |    64|
+|7     |  ID_0                 |ID                          |   185|
+|8     |  ID_to_EX_0           |ID_to_EX                    |  1311|
+|9     |  IF_to_ID_0           |IF_to_ID                    |   593|
+|10    |  MEM_CONTROLL_0       |MEM_CONTROLL                |   468|
+|11    |  MEM_to_WB_0          |MEM_to_WB                   |   133|
+|12    |  MMU_0                |MMU                         |   140|
+|13    |  PC_0                 |PC                          |    36|
+|14    |  REGISTERS_0          |REGISTERS                   |    69|
+|15    |  SERIAL_CONTROLL_0    |SERIAL_CONTROLL             |   156|
+|16    |    SERIAL_RECEIVER    |async_receiver              |    69|
+|17    |      tickgen          |BaudTickGen                 |    33|
+|18    |    SERIAL_TRANSMITTER |async_transmitter           |    66|
+|19    |      tickgen          |BaudTickGen__parameterized0 |    39|
++------+-----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 848.852 ; gain = 583.293
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 172 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:58 ; elapsed = 00:01:17 . Memory (MB): peak = 849.164 ; gain = 269.789
-Synthesis Optimization Complete : Time (s): cpu = 00:01:13 ; elapsed = 00:01:26 . Memory (MB): peak = 849.164 ; gain = 584.215
+Synthesis finished with 0 errors, 0 critical warnings and 186 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:49 ; elapsed = 00:00:59 . Memory (MB): peak = 848.852 ; gain = 267.824
+Synthesis Optimization Complete : Time (s): cpu = 00:01:04 ; elapsed = 00:01:07 . Memory (MB): peak = 848.852 ; gain = 583.293
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 825 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 849 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 4 inverter(s) to 104 load pin(s).
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 65 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 676 instances were transformed.
+  A total of 689 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 64 instances
-  LD => LDCE: 296 instances
-  LD => LDCE (inverted pins: G): 72 instances
-  LDC => LDCE: 200 instances
+  LD => LDCE: 345 instances
+  LD => LDCE (inverted pins: G): 33 instances
+  LDC => LDCE: 201 instances
   LDC => LDCE (inverted pins: G): 32 instances
+  LDCP => LDCP (GND, LUT3, LUT3, LDCE, VCC): 1 instances
+  LDP => LDPE: 1 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
-137 Infos, 467 Warnings, 102 Critical Warnings and 0 Errors encountered.
+186 Infos, 471 Warnings, 102 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:17 ; elapsed = 00:01:31 . Memory (MB): peak = 849.164 ; gain = 587.891
+synth_design: Time (s): cpu = 00:01:07 ; elapsed = 00:01:11 . Memory (MB): peak = 848.852 ; gain = 588.039
 INFO: [Common 17-1381] The checkpoint 'E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.061 . Memory (MB): peak = 849.164 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sat Dec 16 19:03:05 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 848.852 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 17 20:24:04 2017...
