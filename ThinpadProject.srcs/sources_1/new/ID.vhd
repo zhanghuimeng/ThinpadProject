@@ -96,17 +96,120 @@ architecture Behavioral of ID is
     alias base :		STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) is inst_i(INST_LEN-OP_LEN-1 downto INST_LEN-OP_LEN-REG_ADDR_LEN);
     -- [15, 0] (16)
     alias offset :      STD_LOGIC_VECTOR(IMM_LEN-1 downto 0) is inst_i(IMM_LEN-1 downto 0);
+    
+    signal extended_imm : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+    alias extended_offset : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) is extended_imm;
    
 begin
-    main_process: process (all)
-        variable output :       LINE;
-        variable extended_imm : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-        alias extended_offset : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) is extended_imm;
-        variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-        variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+    -- 注意还有extended_imm，虽然在branch系列指令里应该用不到
+    solve_data_conflict_process: process(reg_rd_en_1_o, reg_rd_en_2_o, last_funct_i, 
+        ex_reg_wt_en_i, ex_reg_wt_addr_i, ex_reg_wt_data_i, 
+        mem_reg_wt_en_i, mem_reg_wt_addr_i, mem_reg_wt_data_i, 
+        reg_rd_data_1_i, reg_rd_data_2_i, 
+        extended_imm)
+        variable operand_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);  -- 看看能不能解决1变x的问题……
+        variable operand_2: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
+        variable output: LINE;
+    begin
+        -- 以下解决数据冲突问题和load冲突问题
+        if rst = RST_ENABLE then
+            operand_1 := ZERO_DATA;
+            operand_2 := ZERO_DATA;
+        else
+            if reg_rd_en_1_o = REG_RD_ENABLE then
+                if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_1_o) then  -- Solve data conflict
+                    operand_1 := ex_reg_wt_data_i;
+                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_1_o) then  -- Solve data conflict
+                    operand_1 := mem_reg_wt_data_i;
+                else
+                    if reg_rd_addr_1_o = REG_ZERO_ADDR then
+                        operand_1 := ZERO_DATA;
+                    else  -- Special case for $0
+                        operand_1 := reg_rd_data_1_i;
+                    end if;
+                end if;
+            elsif reg_rd_en_1_o = REG_RD_DISABLE then
+                operand_1 := extended_imm;
+            else
+                operand_1 := ZERO_DATA;
+            end if;
+                        
+            if reg_rd_en_2_o = REG_RD_ENABLE then
+                if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_2_o) then  -- Solve data conflict
+                    operand_2 := ex_reg_wt_data_i;
+                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_2_o) then  -- Solve data conflict
+                    operand_2 := mem_reg_wt_data_i;
+                else
+                    if reg_rd_addr_2_o = REG_ZERO_ADDR then
+                        operand_2 := ZERO_DATA;
+                    else  -- Special case for $0
+                        operand_2 := reg_rd_data_2_i;
+                    end if;
+                end if;
+            elsif reg_rd_en_2_o = REG_RD_DISABLE then
+                operand_2 := extended_imm;
+            else
+                operand_2 := ZERO_DATA;
+            end if;
+            
+            
+        end if;
+        
+        operand_1_o <= operand_1;
+        operand_2_o <= operand_2;
+        
+    end process solve_data_conflict_process;
+
+    pause_process: process(rst, last_is_load_store_i, last_funct_i, reg_rd_en_1_o, reg_rd_en_2_o, 
+        reg_rd_addr_1_o, reg_rd_addr_2_o, ex_reg_wt_addr_i)
+        variable pause: STD_LOGIC;
+        variable output: LINE;
         variable last_inst_is_load : STD_LOGIC;         -- 上一条指令是否为加载指令
         variable reg_1_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存器1是否与上一条指令存在数据相关
         variable reg_2_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存器2是否与上一条指令存在数据相关
+    begin
+        if rst = RST_ENABLE then
+            reg_1_load_relate := PAUSE_NOT;
+            reg_2_load_relate := PAUSE_NOT;
+            pause := PAUSE_NOT;
+        else
+            if (last_is_load_store_i = IS_LOAD_STORE) and ((last_funct_i = FUNCT_TYPE_LB) or (last_funct_i = FUNCT_TYPE_LBU) or (last_funct_i = FUNCT_TYPE_LH) 
+                or (last_funct_i = FUNCT_TYPE_LHU) or (last_funct_i = FUNCT_TYPE_LW) or (last_funct_i = FUNCT_TYPE_LWL)
+                or (last_funct_i = FUNCT_TYPE_LWR)) then
+                last_inst_is_load := IS_LOAD_STORE;
+            else
+                last_inst_is_load := NOT_LOAD_STORE;
+            end if;
+            
+            reg_1_load_relate := PAUSE_NOT;
+            reg_2_load_relate := PAUSE_NOT;
+            
+            if last_inst_is_load = IS_LOAD_STORE then
+                if (reg_rd_en_1_o = REG_RD_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_1_o)  then
+                    reg_1_load_relate := '1';
+                end if;
+                if (reg_rd_en_2_o = REG_RD_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_2_o)  then
+                    reg_2_load_relate := '1';
+                end if;
+            end if;
+                        
+            -- 如果EX阶段的指令要load到该寄存器，则需要暂停
+            pause := reg_1_load_relate or reg_2_load_relate;
+        end if;
+        
+        pause_o <= pause;
+        
+    end process pause_process;
+
+    -- 把数据前推的工作移到了上面的process里面，所以需要改敏感信号
+    main_process: process (rst, pc_i, inst_i, reg_rd_data_1_i, reg_rd_data_2_i, 
+        ex_reg_wt_en_i, ex_reg_wt_addr_i, ex_reg_wt_data_i, 
+        mem_reg_wt_en_i, mem_reg_wt_addr_i, mem_reg_wt_data_i, 
+        is_in_delayslot_i, last_is_load_store_i, last_funct_i,
+        operand_1_o, operand_2_o)
+        variable output :       LINE;
+        variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+        variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
     begin
         if rst = RST_ENABLE then
             op_o <= OP_TYPE_NOP;
@@ -115,11 +218,11 @@ begin
             reg_rd_en_2_o <= REG_RD_DISABLE;
             reg_rd_addr_1_o <= REG_ZERO_ADDR;
             reg_rd_addr_2_o <= REG_ZERO_ADDR;
-            operand_1_o <= REG_ZERO_DATA;
-            operand_2_o <= REG_ZERO_DATA;
+            -- operand_1_o <= REG_ZERO_DATA;
+            -- operand_2_o <= REG_ZERO_DATA;
             reg_wt_en_o <= REG_WT_DISABLE;
             reg_wt_addr_o <= REG_ZERO_ADDR;
-            pause_o <= PAUSE_NOT;
+            -- pause_o <= PAUSE_NOT;
             branch_o <= BRANCH_NOT;
             branch_target_addr_o <= INST_ZERO_ADDR;
             is_in_delayslot_o <= DELAYSLOT_NOT;
@@ -134,11 +237,11 @@ begin
             reg_rd_en_2_o <= REG_RD_DISABLE;
             reg_rd_addr_1_o <= reg_s;  -- Default read register 1
             reg_rd_addr_2_o <= reg_t;  -- Default read register 2
-            operand_1_o <= REG_ZERO_DATA;
-            operand_2_o <= REG_ZERO_DATA;
+            -- operand_1_o <= REG_ZERO_DATA;
+            -- operand_2_o <= REG_ZERO_DATA;
             reg_wt_en_o <= REG_WT_DISABLE;
             reg_wt_addr_o <= reg_d;
-            pause_o <= PAUSE_NOT;  -- temp
+            -- pause_o <= PAUSE_NOT;  -- temp
     		branch_o <= BRANCH_NOT;
             is_in_delayslot_o <= DELAYSLOT_NOT;
             next_inst_in_delayslot_o <= DELAYSLOT_NOT;
@@ -163,7 +266,7 @@ begin
                             funct_o <= FUNCT_TYPE_SHIFT_LEFT_LOGIC;
                             reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                            extended_imm := x"000000" & b"000" & shamt;  -- imm
+                            extended_imm <= x"000000" & b"000" & shamt;  -- imm
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- SRL rd, rt, sa           rd ← rt >> sa (logical)
@@ -172,7 +275,7 @@ begin
                             funct_o <= FUNCT_TYPE_SHIFT_RIGHT_LOGIC;
                             reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                            extended_imm := x"000000" & b"000" & shamt;
+                            extended_imm <= x"000000" & b"000" & shamt;
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- SRA rd, rt, sa           rd ← rt >> sa (arithmatic)
@@ -181,7 +284,7 @@ begin
                             funct_o <= FUNCT_TYPE_SHIFT_RIGHT_ARITH;
                             reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                            extended_imm := x"000000" & b"000" & shamt;  -- imm
+                            extended_imm <= x"000000" & b"000" & shamt;  -- imm
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                         
                         -- SLLV rd, rt, rs          rd ← rt << rs
@@ -448,7 +551,7 @@ begin
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                            if SIGNED(reg_rd_data_1_i) < 0 then
+                            if SIGNED(operand_1_o) < 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -461,7 +564,7 @@ begin
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                            if SIGNED(reg_rd_data_1_i) >= 0 then
+                            if SIGNED(operand_1_o) >= 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -499,7 +602,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write $31
                             reg_wt_addr_o <= REG_31_ADDR;
-                            if SIGNED(reg_rd_data_1_i) < 0 then
+                            if SIGNED(operand_1_o) < 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	link_addr_o <= pc_i + b"1000";
@@ -514,7 +617,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write $31
                             reg_wt_addr_o <= REG_31_ADDR;
-                            if SIGNED(reg_rd_data_1_i) >= 0 then
+                            if SIGNED(operand_1_o) >= 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	link_addr_o <= pc_i + b"1000";
@@ -616,8 +719,7 @@ begin
                     funct_o <= FUNCT_TYPE_ADDI;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                    extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                    extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                 
@@ -628,8 +730,7 @@ begin
                     funct_o <= FUNCT_TYPE_ADDIU;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                    extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                    extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                 
@@ -639,7 +740,7 @@ begin
                     funct_o <= FUNCT_TYPE_AND;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm := x"0000" & imm;  -- zero extend imm
+                    extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                 
@@ -649,7 +750,7 @@ begin
                     funct_o <= FUNCT_TYPE_OR;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm := x"0000" & imm;  -- zero extend imm
+                    extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                 
@@ -659,7 +760,7 @@ begin
                     funct_o <= FUNCT_TYPE_XOR;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm := x"0000" & imm;  -- zero extend imm
+                    extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                 
@@ -670,7 +771,7 @@ begin
                     funct_o <= FUNCT_TYPE_OR;  -- LUI rt, immediate = ORI rt, $0, (immediate || 0^16)  
                     reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                    extended_imm := imm & x"0000";  -- zero extend imm
+                    extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     -- write rt
                     reg_wt_en_o <= REG_WT_ENABLE;
                     reg_wt_addr_o <= reg_t;
@@ -706,7 +807,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if reg_rd_data_1_i = reg_rd_data_2_i then
+                    if operand_1_o = operand_2_o then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -719,7 +820,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if not(reg_rd_data_1_i = reg_rd_data_2_i) then
+                    if not(operand_1_o = operand_2_o) then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -732,7 +833,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if SIGNED(reg_rd_data_1_i) <= 0 then
+                    if SIGNED(operand_1_o) <= 0 then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -745,7 +846,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if SIGNED(reg_rd_data_1_i) > 0 then
+                    if SIGNED(operand_1_o) > 0 then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -769,8 +870,7 @@ begin
                     funct_o <= FUNCT_TYPE_SLTI;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                    extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                    extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                 
@@ -780,8 +880,7 @@ begin
                     funct_o <= FUNCT_TYPE_SLTIU;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                    extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                    extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                 
@@ -793,8 +892,7 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 
                 -- LBU rt, offset(base)                 rt ← memory[base+offset]
 	            when OP_LBU =>
@@ -804,8 +902,7 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 
                 -- LH rt, offset(base)                  rt ← memory[base+offset]
                 when OP_LH =>
@@ -815,7 +912,7 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 	
                 -- LHU rt, offset(base)                 rt ← memory[base+offset]
                 when OP_LHU =>
@@ -825,7 +922,7 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 	
                 -- LW rt, offset(base)                  rt ← memory[base+offset]
                 when OP_LW =>
@@ -835,7 +932,7 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 
                 -- LWL rt, offset(base)                 rt ← rt MERGE memory[base+offset]
                 when OP_LWL =>
@@ -845,7 +942,7 @@ begin
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 
                 -- LWR rt, offset(base)                 rt ← rt MERGE memory[base+offset]
                 when OP_LWR =>
@@ -855,7 +952,7 @@ begin
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 
                 -- SB rt, offset(base)                  memory[base+offset] ← rt
 	            when OP_SB =>
@@ -864,7 +961,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                     
                 -- SH rt, offset(base)                  memory[base+offset] ← rt
                 when OP_SH =>
@@ -873,7 +970,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 	
                 -- SW rt, offset(base)                  memory[base+offset] ← rt
            	 	when OP_SW =>
@@ -882,7 +979,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
                 
                 -- SWL rt, offset(base)                 memory[base+offset] ← rt
                 when OP_SWL => 
@@ -891,7 +988,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
 
                 -- SWR rt, offset(base)                 memory[base+offset] ← rt
                 when OP_SWR =>
@@ -900,69 +997,11 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    extended_offset := sign_extend(offset, DATA_LEN);  -- sign extend offset                          
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset                          
                 
                 when others =>
                                    
             end case op_code;
-            
-            -- 以下解决数据冲突问题和load冲突问题
-            
-            if (last_is_load_store_i = IS_LOAD_STORE) and ((last_funct_i = FUNCT_TYPE_LB) or (last_funct_i = FUNCT_TYPE_LBU) or (last_funct_i = FUNCT_TYPE_LH) 
-                or (last_funct_i = FUNCT_TYPE_LHU) or (last_funct_i = FUNCT_TYPE_LW) or (last_funct_i = FUNCT_TYPE_LWL)
-                or (last_funct_i = FUNCT_TYPE_LWR)) then
-                last_inst_is_load := IS_LOAD_STORE;
-            else
-                last_inst_is_load := NOT_LOAD_STORE;
-            end if;
-            
-            reg_1_load_relate := PAUSE_NOT;
-            reg_2_load_relate := PAUSE_NOT;
-            
-            if reg_rd_en_1_o = REG_RD_ENABLE then
-                if (last_inst_is_load = IS_LOAD_STORE) and (ex_reg_wt_addr_i = reg_rd_addr_1_o)  then
-                    reg_1_load_relate := PAUSE;
-                elsif (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_1_o) then  -- Solve data conflict
-                    operand_1_o <= ex_reg_wt_data_i;
-                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_1_o) then  -- Solve data conflict
-                    operand_1_o <= mem_reg_wt_data_i;
-                else
-                	operand_1_o <= reg_rd_data_1_i;
-                	-- Special case for $0
-                	if reg_rd_addr_1_o = REG_ZERO_ADDR then
-                		operand_1_o <= ZERO_DATA;
-                	end if;
-                end if;
-            elsif reg_rd_en_1_o = REG_RD_DISABLE then
-                operand_1_o <= extended_imm;
-            else
-                operand_1_o <= REG_ZERO_DATA;
-            end if;
-            
-            if reg_rd_en_2_o = REG_RD_ENABLE then
-                if (last_inst_is_load = IS_LOAD_STORE) and (ex_reg_wt_addr_i = reg_rd_addr_2_o)  then
-                    reg_2_load_relate := PAUSE;
-                elsif (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_2_o) then  -- Solve data conflict
-                    operand_2_o <= ex_reg_wt_data_i;
-                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_2_o) then  -- Solve data conflict
-                    operand_2_o <= mem_reg_wt_data_i;
-                else
-                	operand_2_o <= reg_rd_data_2_i;
-                	-- Special case for $0
-                	if reg_rd_addr_2_o = REG_ZERO_ADDR then
-                		operand_2_o <= ZERO_DATA;
-                	end if;
-                end if;
-            elsif reg_rd_en_2_o = REG_RD_DISABLE then
-                operand_2_o <= extended_imm;
-            else
-                operand_2_o <= REG_ZERO_DATA;
-            end if;
-            
-            -- 如果EX阶段的指令要load到该寄存器，则需要暂停
-            pause_o <= reg_1_load_relate or reg_2_load_relate;
-            
-            extended_offset_o <= extended_offset;
 	        
             /*
             deallocate(output);
@@ -981,5 +1020,11 @@ begin
             
         end if;
     end process main_process;
+    
+    -- 给extended_offset赋值（好像是Load/Store用？不记得了）
+    assign_offset_process: process(extended_offset)
+    begin
+        extended_offset_o <= extended_offset;
+    end process assign_offset_process;
     
 end Behavioral;
