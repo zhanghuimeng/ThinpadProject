@@ -43,6 +43,7 @@ use WORK.INCLUDE.ALL;
 
 entity EX is
     Port ( rst :            			in STD_LOGIC;                                       -- Reset
+           inst_i:                      in std_logic_vector(INST_LEN-1 downto 0);
            op_i :           			in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID/EX
            funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
            operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
@@ -74,7 +75,27 @@ entity EX is
            lo_o :           			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
        	   pause_o :					out STD_LOGIC;										-- output pause information to PAUSE_CTRL
 		   clock_cycle_cnt_o : 			out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
-		   mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0));	-- output accumulation result to EX/MEM
+           mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
+           
+           --访存阶段指令是否要写cp0中的寄存器，用于�?测数据相�?
+           mem_cp0_reg_we_i :           in STD_LOGIC;
+           mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+
+           --回写阶段指令是否要写cp0中的寄存器，用于�?测数据相�?
+           wb_cp0_reg_we_i :           in STD_LOGIC;
+           wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+           --与CP0直接相连，用于读取其中指定寄存器的�??
+           cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
+           cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
+
+           --向流水线下一级传递，用于写cp0中的指定的寄存器
+           cp0_reg_we_o :              out std_logic;
+           cp0_reg_write_addr_o :      out std_logic_vector(REG_ADDR_LEN-1 downto 0);
+           cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0));
+
 end EX;
 
 architecture Behavioral of EX is
@@ -118,6 +139,9 @@ begin
             pause_o <= PAUSE_NOT;
             clock_cycle_cnt_o <= b"00";
             mul_cur_result_o <= DOUBLE_ZERO_DATA;
+            cp0_reg_write_addr_o <= REG_ZERO_ADDR;
+            cp0_reg_we_o <= REG_WT_DISABLE;
+            cp0_reg_data_o <= ZERO_DATA;
         else
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
@@ -198,7 +222,7 @@ begin
             op_code: case op_i is
                 -- Do nothing
                 when OP_TYPE_NOP =>
-                
+
                 when OP_TYPE_ARITH =>
                     arith_funct: case funct_i is
                         -- Addition with exception
@@ -290,18 +314,7 @@ begin
                         
                         when FUNCT_TYPE_DIV =>
                         	-- TODO
---                        	dividend_float := to_sfixed(signed(operand_1_i), REG_DATA_LEN-1, 0);
---    						divisor_float := to_sfixed(signed(operand_2_i), REG_DATA_LEN-1, 0);
---    						quotient_float := dividend_float / divisor_float;
---    						deallocate(output);
---                        	write(output, string'("dividend = "));
---                        	write(output, to_integer(dividend_float));
---                        	write(output, string'("divisor = "));
---                        	write(output, to_integer(divisor_float));
---                        	write(output, string'("quotient = "));
---                        	write(output, to_integer(quotient_float));
---                        	report output.all;
-                        
+
                         when others =>
                         
                     end case arith_funct;
@@ -417,9 +430,35 @@ begin
 				        
 				        when others =>
                 		
-                	end case load_store_funct;
+                    end case load_store_funct;
+                    
+                when OP_TYPE_CP0 =>
+                    cp0_func: case( funct_i ) is
+                    
+                        when FUNCT_TYPE_MFC0 =>
+                            cp0_reg_read_addr_o <= inst_i(15 downto 11);--rd的地�? 5�?
+                            
+                            if (mem_cp0_reg_we_i = REG_WT_ENABLE) and (mem_cp0_reg_write_addr_i = inst_i(15 downto 11)) then
+                                reg_wt_data_o <= mem_cp0_reg_data_i; --数据冲突：访存阶段要写的寄存器地�? = 要读的寄存器地址
+                            elsif (wb_cp0_reg_we_i = REG_WT_ENABLE)and (wb_cp0_reg_write_addr_i = inst_i(15 downto 11))then
+                                reg_wt_data_o <= wb_cp0_reg_data_i; --数据冲突：写回阶段要写的寄存器地�? = 要读的寄存器地址                                
+                            else
+                                reg_wt_data_o <= cp0_reg_data_i;--读取到的cp0中指定寄存器的�??
+                            end if;
+                        
+                        when FUNCT_TYPE_MTC0 =>
+                            cp0_reg_write_addr_o <= inst_i(15 downto 11);
+                            cp0_reg_we_o <= REG_WT_ENABLE;
+                            cp0_reg_data_o <= operand_2_i;
+                            
+                        when others =>
+    
+                    end case cp0_func;
+
+
+
                 when others =>
-                
+            
             end case op_code;
             
             -- Use signal to give hi/lo output a correct value

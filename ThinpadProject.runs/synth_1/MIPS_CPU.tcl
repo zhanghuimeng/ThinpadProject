@@ -31,6 +31,7 @@ read_vhdl -vhdl2008 -library xil_defaultlib {
   Z:/Desktop/computer/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd
   Z:/Desktop/computer/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd
   Z:/Desktop/computer/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd
+  Z:/Desktop/computer/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

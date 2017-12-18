@@ -55,6 +55,7 @@ entity ID is
            mem_reg_wt_addr_i :  		in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input MEM register write address from MEM (push forward data to solve data conflict)
            mem_reg_wt_data_i :  		in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input MEM register write data from MEM (push forward data to solve data conflict)
            is_in_delayslot_i :			in STD_LOGIC;										-- input if the current instruction is in delay slot from ID/EX
+           inst_o:                      out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- output instruction from IF_to_ID
            op_o :               		out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to ID_to_EX
            funct_o :            		out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to ID_to_EX
            reg_rd_en_1_o :      		out STD_LOGIC;                                      -- output register 1 read enable to REGISTERS
@@ -123,6 +124,7 @@ begin
             is_in_delayslot_o <= DELAYSLOT_NOT;
             next_inst_in_delayslot_o <= DELAYSLOT_NOT;
             link_addr_o <= INST_ZERO_ADDR;
+            inst_o <= ZERO_DATA;
             
         else
             
@@ -144,6 +146,7 @@ begin
             branch_addr_offset(IMM_LEN+1 downto 0) := imm & b"00";
             -- sign extend branch_addr_offset
             branch_addr_offset(INST_ADDR_LEN-1 downto IMM_LEN+2) := (others => branch_addr_offset(IMM_LEN+1));
+            inst_o <= inst_i;
 
             -- Decide OP type
             op_code: case op is
@@ -602,7 +605,7 @@ begin
                         when RS_MTC0 =>
                             op_o <= OP_TYPE_CP0;
                             funct_o <= FUNCT_TYPE_MTC0;
-                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rd     
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rt
                 
@@ -610,7 +613,7 @@ begin
                         when RS_MFC0 =>           
                             op_o <= OP_TYPE_CP0;
                             funct_o <= FUNCT_TYPE_MFC0;
-                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- read rd
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                             reg_wt_addr_o <= reg_t;

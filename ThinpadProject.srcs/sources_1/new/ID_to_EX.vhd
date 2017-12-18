@@ -58,7 +58,10 @@ entity ID_to_EX is
            reg_wt_addr_o :  			out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX
            is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to EX
 		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the next instruction in delay slot to ID
-		   link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));	-- output the register address to save return address to EX
+           link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);	-- output the register address to save return address to EX
+           
+           inst_i :                     in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
+           inst_o :                     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));
 end ID_to_EX;
 
 architecture Behavioral of ID_to_EX is

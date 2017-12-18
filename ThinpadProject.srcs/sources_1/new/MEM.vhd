@@ -59,7 +59,15 @@ entity MEM is
            ram_data_sel_o : 	out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0);		-- output RAM data selection to RAM
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM/WB and EX
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM/WB and EX
-           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output lo data to MEM/WB and EX
+		   lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);     -- output lo data to MEM/WB and EX
+		   
+		   cp0_reg_we_i :       in std_logic;
+		   cp0_reg_write_addr_i : in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+		   cp0_reg_data_i :     in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+		   cp0_reg_we_o :       out std_logic;
+		   cp0_reg_write_addr_o : out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+		   cp0_reg_data_o :     out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));
 end MEM;
 
 architecture Behavioral of MEM is
@@ -78,7 +86,11 @@ begin
 			ram_data_sel_o <= "0000";
             hilo_en_o <= CHIP_DISABLE;
             hi_o <= REG_ZERO_DATA;
-            lo_o <= REG_ZERO_DATA;
+			lo_o <= REG_ZERO_DATA;
+			cp0_reg_we_o <= REG_WT_DISABLE;
+			cp0_reg_write_addr_o <= REG_ZERO_ADDR;
+			cp0_reg_data_o <= REG_ZERO_DATA;
+			
         else
         	-- Write Registers
             reg_wt_en_o <= reg_wt_en_i;
@@ -94,11 +106,16 @@ begin
 			ram_addr_o <= ZERO_ADDR;
 			ram_data_o <= ZERO_DATA;
 			ram_data_sel_o <= "0000";
+
+			--cp0
+			cp0_reg_we_o <= cp0_reg_we_i;
+			cp0_reg_write_addr_o <= cp0_reg_write_addr_i;
+			cp0_reg_data_o <= cp0_reg_data_i;
 			
 			if is_load_store_i = '1' then
 				
-				-- 外部的数据存储器并没有依据mem_addr_o地址读取数据，�?�是将mem_addr_o地址的最后两位修改为0�?
-				-- 依据修改后的地址读取数据，所以OpenMIPS�?要依据mem_addr_o�?后两位的值，确定要读取的字节�?
+				-- ????????????????????em_addr_o????????????????em_addr_o???????????????0??
+				-- ???????????????????????penMIPS???????em_addr_o?????????????????????????
 				load_store_type: case funct_i is
 					
 					when FUNCT_TYPE_LB =>
