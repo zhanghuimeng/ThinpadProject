@@ -6,7 +6,7 @@
 -- Design Name: 
 -- Module Name: HI_LO - Behavioral
 -- Project Name: 
--- Target Devices: 
+-- Target DeviceHI_LO.vhds: 
 -- Tool Versions: 
 -- Description: 
 -- 

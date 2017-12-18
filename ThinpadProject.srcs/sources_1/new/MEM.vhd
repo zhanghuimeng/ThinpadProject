@@ -41,7 +41,7 @@ entity MEM is
            reg_wt_en_i :        in STD_LOGIC;                                       -- input register write enable from EX/MEM
            reg_wt_addr_i :      in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input register write address from EX/MEM
            reg_wt_data_i :      in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input register write data from EX/MEM
-           ram_rd_data_i :		in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- input data read from RAM
+           ram_rd_data_i :		in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			   -- input data read from RAM
            is_load_store_i :	in STD_LOGIC;										-- input load/store from EX/MEM
            funct_i :			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);			-- input load/store type from EX/MEM
            load_store_addr_i :	in STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- input load/store memory address from EX/MEM
@@ -97,8 +97,8 @@ begin
 			
 			if is_load_store_i = '1' then
 				
-				-- 外部的数据存储器并没有依据mem_addr_o地址读取数据，而是将mem_addr_o地址的最后两位修改为0，
-				-- 依据修改后的地址读取数据，所以OpenMIPS需要依据mem_addr_o最后两位的值，确定要读取的字节。
+				-- 外部的数据存储器并没有依据mem_addr_o地址读取数据，�?�是将mem_addr_o地址的最后两位修改为0�?
+				-- 依据修改后的地址读取数据，所以OpenMIPS�?要依据mem_addr_o�?后两位的值，确定要读取的字节�?
 				load_store_type: case funct_i is
 					
 					when FUNCT_TYPE_LB =>

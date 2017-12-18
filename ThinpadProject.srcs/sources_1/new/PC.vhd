@@ -54,7 +54,7 @@ begin
         if rising_edge(clk) then
             if rst = RST_ENABLE then
                 en_o <= CHIP_DISABLE;  -- ROM is disabled when reset
-                pc_o <= ZERO_ADDR;
+                pc_o <= x"80000000";
                 is_start := '1';
             else
                 en_o <= CHIP_ENABLE;   -- ROM is enabled in general
