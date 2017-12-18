@@ -77,17 +77,17 @@ entity EX is
 		   clock_cycle_cnt_o : 			out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
            mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
            
-           --访存阶段指令是否要写cp0中的寄存器，用于�?测数据相�?
+           --访存阶段指令是否要写cp0中的寄存器，用于�?测数据相�?
            mem_cp0_reg_we_i :           in STD_LOGIC;
            mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-           --回写阶段指令是否要写cp0中的寄存器，用于�?测数据相�?
+           --回写阶段指令是否要写cp0中的寄存器，用于�?测数据相�?
            wb_cp0_reg_we_i :           in STD_LOGIC;
            wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
            wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-           --与CP0直接相连，用于读取其中指定寄存器的�??
+           --与CP0直接相连，用于读取其中指定寄存器的�??
            cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
            cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
 
@@ -436,14 +436,14 @@ begin
                     cp0_func: case( funct_i ) is
                     
                         when FUNCT_TYPE_MFC0 =>
-                            cp0_reg_read_addr_o <= inst_i(15 downto 11);--rd的地�? 5�?
+                            cp0_reg_read_addr_o <= inst_i(15 downto 11);--rd的地�? 5�?
                             
                             if (mem_cp0_reg_we_i = REG_WT_ENABLE) and (mem_cp0_reg_write_addr_i = inst_i(15 downto 11)) then
-                                reg_wt_data_o <= mem_cp0_reg_data_i; --数据冲突：访存阶段要写的寄存器地�? = 要读的寄存器地址
+                                reg_wt_data_o <= mem_cp0_reg_data_i; --数据冲突：访存阶段要写的寄存器地�? = 要读的寄存器地址
                             elsif (wb_cp0_reg_we_i = REG_WT_ENABLE)and (wb_cp0_reg_write_addr_i = inst_i(15 downto 11))then
-                                reg_wt_data_o <= wb_cp0_reg_data_i; --数据冲突：写回阶段要写的寄存器地�? = 要读的寄存器地址                                
+                                reg_wt_data_o <= wb_cp0_reg_data_i; --数据冲突：写回阶段要写的寄存器地�? = 要读的寄存器地址                                
                             else
-                                reg_wt_data_o <= cp0_reg_data_i;--读取到的cp0中指定寄存器的�??
+                                reg_wt_data_o <= cp0_reg_data_i;--读取到的cp0中指定寄存器的�??
                             end if;
                         
                         when FUNCT_TYPE_MTC0 =>

@@ -176,17 +176,17 @@ component EX is
     clock_cycle_cnt_o : 		out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
     mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
     
-    --访存阶段指令是否要写cp0中的寄存器，用于检测数据相关
+    --访存阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
     mem_cp0_reg_we_i :           in STD_LOGIC;
     mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-    mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+    mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --回写阶段指令是否要写cp0中的寄存器，用于检测数据相关
+    --回写阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
     wb_cp0_reg_we_i :           in STD_LOGIC;
     wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --与CP0直接相连，用于读取其中指定寄存器的值
+    --与CP0直接相连，用于读取其中指定寄存器的�??
     cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
     cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
 
@@ -534,7 +534,7 @@ signal hi_from_mem: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal lo_from_mem: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal cp0_reg_we_from_mem :  STD_LOGIC;
 signal cp0_reg_write_addr_from_mem : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-signal cp0_reg_data_from_mem : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+signal cp0_reg_data_from_mem : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
 -- MEM/WB to REGISTER signals
 signal reg_wt_en_to_register: STD_LOGIC;
@@ -551,6 +551,19 @@ signal wb_cp0_reg_data_from_wb: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
 --cp0 to ex
 signal data_from_cp0: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+--cp0 to ?
+signal count_from_cp0 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal compare_from_cp0 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal status_from_cp0 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal cause_from_cp0 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal epc_from_cp0 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal config_from_cp0 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal prid_from_cp0 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal timer_int_from_cp0 : STD_LOGIC;
+
+-- for cp0 
+signal int_for_cp0 : STD_LOGIC_VECTOR(5 downto 0);
 
 -- REGISTER to ID signals
 signal reg_rd_data_1_from_register: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
@@ -699,12 +712,12 @@ begin
 
         inst_i => inst_to_ex,
         cp0_reg_data_i => data_from_cp0,
-        --访存阶段指令是否要写cp0中的寄存器，用于检测数据相关
+        --访存阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
         mem_cp0_reg_we_i => cp0_reg_we_from_mem,
         mem_cp0_reg_write_addr_i => cp0_reg_write_addr_from_mem,
         mem_cp0_reg_data_i => cp0_reg_data_from_mem,
 
-        --回写阶段指令是否要写cp0中的寄存器，用于检测数据相关
+        --回写阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
@@ -728,8 +741,6 @@ begin
         is_load_store_o => is_load_store_to_mem, funct_o => funct_to_mem, 
         load_store_addr_o => load_store_addr_to_mem, store_data_o => store_data_to_mem, 
         hilo_en_o => hilo_en_to_mem, hi_o => hi_to_mem, lo_o => lo_to_mem,
-        clock_cycle_cnt_o => clock_cycle_cnt_to_ex, mul_cur_result_o => mul_cur_result_to_ex,
-
         ex_cp0_reg_we_i => cp0_reg_we_from_ex,
         ex_cp0_reg_write_addr_i => cp0_reg_write_addr_from_ex,
         ex_cp0_reg_data_i => cp0_reg_data_from_ex,
@@ -787,18 +798,18 @@ begin
         data_i => wb_cp0_reg_data_from_wb,
         we_i => wb_cp0_reg_we_from_wb,
 
-        --int_i : in STD_LOGIC_VECTOR(5 downto 0);
+        int_i => int_for_cp0,
            
-        data_o => data_from_cp0
-        --count_o => count_from_cp0,
-        --compare_o => compare_from_cp0,
-        --status_o => status_from_cp0,
-        --cause_o => cause_from_cp0,
-        --epc_o => epc_from_cp0,
-        --config_o => config_from_cp0,
-        --prid_o => prid_from_cp0,
+        data_o => data_from_cp0,
+        count_o => count_from_cp0,
+        compare_o => compare_from_cp0,
+        status_o => status_from_cp0,
+        cause_o => cause_from_cp0,
+        epc_o => epc_from_cp0,
+        config_o => config_from_cp0,
+        prid_o => prid_from_cp0,
 
-        --timer_int_o => timer_int_from_cp0
+        timer_int_o => timer_int_from_cp0
         );
 
     REGISTERS_0 : REGISTERS port map(
