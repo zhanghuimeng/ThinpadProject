@@ -82,7 +82,7 @@ begin
 							we_o <= '0';
 							sel_o <= b"0000";
 							addr_o <= ZERO_DATA;
-							data_o <= ZERO_DATA;
+							-- data_o <= ZERO_DATA;
 						end if;
 					when others => 
 						state <= STATE_IDLE;
@@ -90,7 +90,7 @@ begin
 						we_o <= '0';
 						sel_o <= b"0000";
 						addr_o <= ZERO_DATA;
-						data_o <= ZERO_DATA;
+						-- data_o <= ZERO_DATA;
 				end case;
 			end if;
         else
@@ -133,7 +133,7 @@ begin
         else 
             case state is
                 when STATE_DATA =>
-                    if (ack_i = '1') then
+                    if (ack_i = ACK) then
                         if (mem_is_read_i = IS_READ) then
                             mem_data_o <= data_i;
                         end if;
@@ -145,7 +145,7 @@ begin
                         inst_pause_o <= PAUSE;
                     end if;
                 when STATE_INST => 
-                    if (ack_i = '1') then
+                    if (ack_i = ACK) then
                         inst_data_o <= data_i;
                         inst_pause_o <= PAUSE_NOT;
                     else

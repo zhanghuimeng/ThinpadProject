@@ -812,7 +812,7 @@ begin
         data_from_serial_o => data_from_serial,
         ack_o => ack_from_serial);
 		
-	leds(15 downto 0) <= addr_from_mem_controll(15 downto 0);
+	leds(15) <= leds_to_leds(15);
         
     -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;

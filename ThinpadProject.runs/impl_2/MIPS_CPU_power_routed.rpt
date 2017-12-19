@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Sun Dec 17 21:33:17 2017
+| Date             : Tue Dec 19 13:50:11 2017
 | Host             : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command          : report_power -file MIPS_CPU_power_routed.rpt -pb MIPS_CPU_power_summary_routed.pb -rpx MIPS_CPU_power_routed.rpx
 | Design           : MIPS_CPU
@@ -50,15 +50,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |     4394 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     2424 |     63400 |            3.82 |
+| Slice Logic              |    <0.001 |     4402 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     2428 |     63400 |            3.83 |
 |   CARRY4                 |    <0.001 |      148 |     15850 |            0.93 |
-|   Register               |    <0.001 |     1323 |    126800 |            1.04 |
+|   Register               |    <0.001 |     1331 |    126800 |            1.05 |
 |   BUFG                   |    <0.001 |       11 |        32 |           34.38 |
-|   Others                 |     0.000 |       39 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |        4 |     63400 |           <0.01 |
+|   Others                 |     0.000 |       38 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |        3 |     63400 |           <0.01 |
 |   LUT as Distributed RAM |     0.000 |       48 |     19000 |            0.25 |
-| Signals                  |    <0.001 |     4346 |       --- |             --- |
+| Signals                  |    <0.001 |     4363 |       --- |             --- |
 | DSPs                     |     0.000 |        8 |       240 |            3.33 |
 | I/O                      |    <0.001 |      155 |       300 |           51.67 |
 | Static Power             |     0.097 |          |           |                 |

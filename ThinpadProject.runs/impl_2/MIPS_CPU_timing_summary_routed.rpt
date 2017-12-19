@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ---------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Sun Dec 17 21:33:18 2017
+| Date         : Tue Dec 19 13:50:13 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file MIPS_CPU_timing_summary_routed.rpt -rpx MIPS_CPU_timing_summary_routed.rpx
 | Design       : MIPS_CPU
@@ -54,7 +54,7 @@ Table of Contents
 --------------------
  There are 988 register/latch pins with no clock driven by root clock pin: touch_btn[4] (HIGH)
 
- There are 539 register/latch pins with no clock driven by root clock pin: touch_btn[5] (HIGH)
+ There are 536 register/latch pins with no clock driven by root clock pin: touch_btn[5] (HIGH)
 
  There are 103 register/latch pins with no clock driven by root clock pin: EX_to_MEM_0/funct_o_reg[0]/Q (HIGH)
 
@@ -254,77 +254,77 @@ Table of Contents
 
  There are 96 register/latch pins with no clock driven by root clock pin: IF_to_ID_0/inst_o_reg[5]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[0]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[0]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[10]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[10]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[11]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[11]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[12]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[12]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[13]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[13]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[14]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[14]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[15]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[15]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[16]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[16]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[17]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[17]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[18]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[18]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[19]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[19]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[1]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[1]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[20]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[20]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[21]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[21]/Q (HIGH)
 
- There are 285 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[22]/Q (HIGH)
+ There are 282 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[22]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[23]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[23]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[24]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[24]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[25]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[25]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[26]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[26]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[27]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[27]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[28]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[28]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[29]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[29]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[2]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[2]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[30]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[30]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[31]/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[31]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[3]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[3]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[4]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[4]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[5]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[5]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[6]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[6]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[7]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[7]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[8]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[8]/Q (HIGH)
 
- There are 115 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[9]/Q (HIGH)
+ There are 112 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/addr_o_reg[9]/Q (HIGH)
 
- There are 305 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/ce_o_reg/Q (HIGH)
+ There are 302 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/ce_o_reg/Q (HIGH)
 
  There are 136 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/state_reg[0]/Q (HIGH)
 
  There are 136 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/state_reg[1]/Q (HIGH)
 
- There are 212 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/we_o_reg/Q (HIGH)
+ There are 210 register/latch pins with no clock driven by root clock pin: MEM_CONTROLL_0/we_o_reg/Q (HIGH)
 
  There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_addr_o_reg[0]/Q (HIGH)
 
@@ -400,11 +400,9 @@ Table of Contents
 
  There are 64 register/latch pins with no clock driven by root clock pin: MEM_to_WB_0/reg_wt_data_o_reg[9]/Q (HIGH)
 
- There are 136 register/latch pins with no clock driven by root clock pin: MMU_0/ack_o_reg/Q (HIGH)
+ There are 104 register/latch pins with no clock driven by root clock pin: MMU_0/ack_o_reg/Q (HIGH)
 
  There are 71 register/latch pins with no clock driven by root clock pin: PC_0/en_o_reg/Q (HIGH)
-
- There are 8 register/latch pins with no clock driven by root clock pin: SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_ready_reg/Q (HIGH)
 
 
 2. checking constant_clock
@@ -419,7 +417,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 3500 pins that are not constrained for maximum delay. (HIGH)
+ There are 3559 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -433,7 +431,7 @@ Table of Contents
 
 6. checking no_output_delay
 ---------------------------
- There are 149 ports with no output delay specified. (HIGH)
+ There are 134 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -467,7 +465,7 @@ Table of Contents
 
 12. checking latch_loops
 ------------------------
- There are 0 combinational latch loops in the design through latch input
+ There is 1 combinational latch loop in the design through latch input (HIGH)
 
 
 
@@ -478,7 +476,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-     87.738        0.000                      0                  106        0.193        0.000                      0                  106       44.711        0.000                       0                    74  
+     87.397        0.000                      0                  141        0.142        0.000                      0                  141       44.711        0.000                       0                    85  
 
 
 All user specified timing constraints are met.
@@ -501,7 +499,7 @@ clk_uart  {0.000 45.211}     90.422          11.059
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk_uart           87.738        0.000                      0                  106        0.193        0.000                      0                  106       44.711        0.000                       0                    74  
+clk_uart           87.397        0.000                      0                  141        0.142        0.000                      0                  141       44.711        0.000                       0                    85  
 
 
 ------------------------------------------------------------------------------------------------
@@ -532,28 +530,146 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk_uart
   To Clock:  clk_uart
 
-Setup :            0  Failing Endpoints,  Worst Slack       87.738ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.193ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack       87.397ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.142ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack       44.711ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.397ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]/CE
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Path Group:             clk_uart
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
+  Data Path Delay:        2.782ns  (logic 0.819ns (29.440%)  route 1.963ns (70.560%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.587ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.496     7.851    SERIAL_CONTROLL_0/SERIAL_RECEIVER/p_0_in7_out
+    SLICE_X9Y79          LUT6 (Prop_lut6_I3_O)        0.267     8.118 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER//i_/O
+                         net (fo=4, routed)           0.529     8.647    SERIAL_CONTROLL_0/SERIAL_RECEIVER//i__n_9
+    SLICE_X9Y79          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_uart rise edge)
+                                                     90.422    90.422 r  
+    C18                                               0.000    90.422 r  clk_uart (IN)
+                         net (fo=0)                   0.000    90.422    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X9Y79          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]/C
+                         clock pessimism              0.587    96.247    
+                         clock uncertainty           -0.035    96.212    
+    SLICE_X9Y79          FDRE (Setup_fdre_C_CE)      -0.168    96.044    SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]
+  -------------------------------------------------------------------
+                         required time                         96.044    
+                         arrival time                          -8.647    
+  -------------------------------------------------------------------
+                         slack                                 87.397    
+
+Slack (MET) :             87.397ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]/CE
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Path Group:             clk_uart
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
+  Data Path Delay:        2.782ns  (logic 0.819ns (29.440%)  route 1.963ns (70.560%))
+  Logic Levels:           2  (LUT4=1 LUT6=1)
+  Clock Path Skew:        -0.040ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.587ns
+  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    0.000ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.496     7.851    SERIAL_CONTROLL_0/SERIAL_RECEIVER/p_0_in7_out
+    SLICE_X9Y79          LUT6 (Prop_lut6_I3_O)        0.267     8.118 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER//i_/O
+                         net (fo=4, routed)           0.529     8.647    SERIAL_CONTROLL_0/SERIAL_RECEIVER//i__n_9
+    SLICE_X9Y79          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]/CE
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_uart rise edge)
+                                                     90.422    90.422 r  
+    C18                                               0.000    90.422 r  clk_uart (IN)
+                         net (fo=0)                   0.000    90.422    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X9Y79          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]/C
+                         clock pessimism              0.587    96.247    
+                         clock uncertainty           -0.035    96.212    
+    SLICE_X9Y79          FDRE (Setup_fdre_C_CE)      -0.168    96.044    SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]
+  -------------------------------------------------------------------
+                         required time                         96.044    
+                         arrival time                          -8.647    
+  -------------------------------------------------------------------
+                         slack                                 87.397    
+
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -569,16 +685,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/CE
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -588,31 +704,31 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]
   -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.738    
+                         slack                                 87.482    
 
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -628,16 +744,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]/CE
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -647,31 +763,31 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]
   -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.738    
+                         slack                                 87.482    
 
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -687,16 +803,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/CE
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -706,31 +822,31 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]
   -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.738    
+                         slack                                 87.482    
 
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -746,16 +862,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/CE
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -765,31 +881,31 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]
   -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.738    
+                         slack                                 87.482    
 
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -805,16 +921,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]/CE
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -824,31 +940,31 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]
   -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.738    
+                         slack                                 87.482    
 
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -864,16 +980,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]/CE
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -883,31 +999,31 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]
   -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.738    
+                         slack                                 87.482    
 
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -923,16 +1039,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]/CE
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -942,31 +1058,31 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]
   -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.738    
+                         slack                                 87.482    
 
-Slack (MET) :             87.738ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+Slack (MET) :             87.482ns  (required time - arrival time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]/CE
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.450ns  (logic 0.812ns (33.141%)  route 1.638ns (66.859%))
+  Data Path Delay:        2.713ns  (logic 0.819ns (30.192%)  route 1.894ns (69.808%))
   Logic Levels:           2  (LUT4=2)
-  Clock Path Skew:        -0.030ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.238ns = ( 95.660 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.872ns
-    Clock Pessimism Removal (CPR):    0.604ns
+  Clock Path Skew:        -0.024ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    5.236ns = ( 95.658 - 90.422 ) 
+    Source Clock Delay      (SCD):    5.865ns
+    Clock Pessimism Removal (CPR):    0.605ns
   Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    0.000ns
@@ -982,73 +1098,16 @@ Slack (MET) :             87.738ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.381     5.872    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         net (fo=84, routed)          1.374     5.865    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X30Y91         FDRE (Prop_fdre_C_Q)         0.433     6.305 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
-                         net (fo=3, routed)           0.557     6.862    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_8_[1]
-    SLICE_X30Y91         LUT4 (Prop_lut4_I0_O)        0.115     6.977 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
-                         net (fo=5, routed)           0.413     7.390    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
-    SLICE_X30Y92         LUT4 (Prop_lut4_I0_O)        0.264     7.654 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
-                         net (fo=8, routed)           0.669     8.322    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]/CE
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_uart rise edge)
-                                                     90.422    90.422 r  
-    C18                                               0.000    90.422 r  clk_uart (IN)
-                         net (fo=0)                   0.000    90.422    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.268    95.660    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]/C
-                         clock pessimism              0.604    96.264    
-                         clock uncertainty           -0.035    96.229    
-    SLICE_X31Y86         FDRE (Setup_fdre_C_CE)      -0.168    96.061    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]
-  -------------------------------------------------------------------
-                         required time                         96.061    
-                         arrival time                          -8.322    
-  -------------------------------------------------------------------
-                         slack                                 87.738    
-
-Slack (MET) :             87.825ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/FSM_sequential_TxD_state_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[16]/R
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Path Group:             clk_uart
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.114ns  (logic 0.484ns (22.897%)  route 1.630ns (77.103%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.240ns = ( 95.662 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.868ns
-    Clock Pessimism Removal (CPR):    0.603ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.377     5.868    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
-    SLICE_X35Y87         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/FSM_sequential_TxD_state_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X35Y87         FDRE (Prop_fdre_C_Q)         0.379     6.247 f  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/FSM_sequential_TxD_state_reg[0]/Q
-                         net (fo=9, routed)           0.725     6.972    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_state[0]
-    SLICE_X33Y87         LUT4 (Prop_lut4_I2_O)        0.105     7.077 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER//i___0/O
-                         net (fo=24, routed)          0.905     7.982    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/FSM_sequential_TxD_state_reg[3]
-    SLICE_X34Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[16]/R
+    SLICE_X10Y78         FDRE (Prop_fdre_C_Q)         0.433     6.298 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
+                         net (fo=10, routed)          0.938     7.236    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
+    SLICE_X9Y80          LUT4 (Prop_lut4_I2_O)        0.119     7.355 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/sampleNow/O
+                         net (fo=5, routed)           0.500     7.855    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_0_in7_out
+    SLICE_X9Y79          LUT4 (Prop_lut4_I0_O)        0.267     8.122 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/RxD_data[7]_i_1/O
+                         net (fo=8, routed)           0.456     8.578    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data0
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]/CE
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1058,73 +1117,16 @@ Slack (MET) :             87.825ns  (required time - arrival time)
     C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.270    95.662    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
-    SLICE_X34Y91         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[16]/C
-                         clock pessimism              0.603    96.265    
-                         clock uncertainty           -0.035    96.230    
-    SLICE_X34Y91         FDRE (Setup_fdre_C_R)       -0.423    95.807    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[16]
+                         net (fo=84, routed)          1.266    95.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]/C
+                         clock pessimism              0.605    96.263    
+                         clock uncertainty           -0.035    96.228    
+    SLICE_X11Y78         FDRE (Setup_fdre_C_CE)      -0.168    96.060    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]
   -------------------------------------------------------------------
-                         required time                         95.807    
-                         arrival time                          -7.982    
+                         required time                         96.060    
+                         arrival time                          -8.578    
   -------------------------------------------------------------------
-                         slack                                 87.825    
-
-Slack (MET) :             87.933ns  (required time - arrival time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/FSM_sequential_TxD_state_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[12]/R
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Path Group:             clk_uart
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            90.422ns  (clk_uart rise@90.422ns - clk_uart rise@0.000ns)
-  Data Path Delay:        2.005ns  (logic 0.484ns (24.135%)  route 1.521ns (75.865%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        -0.025ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    5.240ns = ( 95.662 - 90.422 ) 
-    Source Clock Delay      (SCD):    5.868ns
-    Clock Pessimism Removal (CPR):    0.603ns
-  Clock Uncertainty:      0.035ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    0.000ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         1.466     1.466 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           2.945     4.410    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.081     4.491 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.377     5.868    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
-    SLICE_X35Y87         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/FSM_sequential_TxD_state_reg[0]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X35Y87         FDRE (Prop_fdre_C_Q)         0.379     6.247 f  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/FSM_sequential_TxD_state_reg[0]/Q
-                         net (fo=9, routed)           0.725     6.972    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_state[0]
-    SLICE_X33Y87         LUT4 (Prop_lut4_I2_O)        0.105     7.077 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER//i___0/O
-                         net (fo=24, routed)          0.796     7.874    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/FSM_sequential_TxD_state_reg[3]
-    SLICE_X34Y90         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[12]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_uart rise edge)
-                                                     90.422    90.422 r  
-    C18                                               0.000    90.422 r  clk_uart (IN)
-                         net (fo=0)                   0.000    90.422    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         1.399    91.821 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           2.494    94.315    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.077    94.392 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          1.270    95.662    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
-    SLICE_X34Y90         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[12]/C
-                         clock pessimism              0.603    96.265    
-                         clock uncertainty           -0.035    96.230    
-    SLICE_X34Y90         FDRE (Setup_fdre_C_R)       -0.423    95.807    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[12]
-  -------------------------------------------------------------------
-                         required time                         95.807    
-                         arrival time                          -7.874    
-  -------------------------------------------------------------------
-                         slack                                 87.933    
+                         slack                                 87.482    
 
 
 
@@ -1132,20 +1134,20 @@ Slack (MET) :             87.933ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.193ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/TxD_data_reg[0]/C
+Slack (MET) :             0.142ns  (arrival time - required time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[3]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]/D
+  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]/D
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.322ns  (logic 0.209ns (64.938%)  route 0.113ns (35.062%))
+  Data Path Delay:        0.276ns  (logic 0.186ns (67.282%)  route 0.090ns (32.718%))
   Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.037ns (DCD - SCD - CPR)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    3.006ns
-    Source Clock Delay      (SCD):    2.293ns
-    Clock Pessimism Removal (CPR):    0.675ns
+    Source Clock Delay      (SCD):    2.295ns
+    Clock Pessimism Removal (CPR):    0.697ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1156,14 +1158,14 @@ Slack (MET) :             0.193ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.564     2.293    SERIAL_CONTROLL_0/CLK
-    SLICE_X34Y86         FDRE                                         r  SERIAL_CONTROLL_0/TxD_data_reg[0]/C
+                         net (fo=84, routed)          0.566     2.295    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
+    SLICE_X11Y81         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[3]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X34Y86         FDRE (Prop_fdre_C_Q)         0.164     2.457 r  SERIAL_CONTROLL_0/TxD_data_reg[0]/Q
-                         net (fo=1, routed)           0.113     2.570    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/Q[0]
-    SLICE_X33Y86         LUT4 (Prop_lut4_I0_O)        0.045     2.615 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[0]_i_1/O
-                         net (fo=1, routed)           0.000     2.615    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[0]_i_1_n_8
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]/D
+    SLICE_X11Y81         FDRE (Prop_fdre_C_Q)         0.141     2.436 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[3]/Q
+                         net (fo=1, routed)           0.090     2.527    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg_n_9_[3]
+    SLICE_X10Y81         LUT4 (Prop_lut4_I3_O)        0.045     2.572 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[2]_i_1/O
+                         net (fo=1, routed)           0.000     2.572    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[2]_i_1_n_9
+    SLICE_X10Y81         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1173,15 +1175,115 @@ Slack (MET) :             0.193ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]/C
-                         clock pessimism             -0.675     2.330    
-    SLICE_X33Y86         FDRE (Hold_fdre_C_D)         0.092     2.422    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]
+                         net (fo=84, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
+    SLICE_X10Y81         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]/C
+                         clock pessimism             -0.697     2.308    
+    SLICE_X10Y81         FDRE (Hold_fdre_C_D)         0.121     2.429    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]
   -------------------------------------------------------------------
-                         required time                         -2.422    
-                         arrival time                           2.615    
+                         required time                         -2.429    
+                         arrival time                           2.572    
   -------------------------------------------------------------------
-                         slack                                  0.193    
+                         slack                                  0.142    
+
+Slack (MET) :             0.178ns  (arrival time - required time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/C
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Destination:            SERIAL_CONTROLL_0/data_from_serial_o_reg[0]/D
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Path Group:             clk_uart
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
+  Data Path Delay:        0.261ns  (logic 0.141ns (54.019%)  route 0.120ns (45.981%))
+  Logic Levels:           0  
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    3.002ns
+    Source Clock Delay      (SCD):    2.292ns
+    Clock Pessimism Removal (CPR):    0.696ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          0.563     2.292    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X11Y78         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X11Y78         FDRE (Prop_fdre_C_Q)         0.141     2.433 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/Q
+                         net (fo=2, routed)           0.120     2.553    SERIAL_CONTROLL_0/RxD_data[0]
+    SLICE_X11Y77         FDRE                                         r  SERIAL_CONTROLL_0/data_from_serial_o_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          0.831     3.002    SERIAL_CONTROLL_0/CLK
+    SLICE_X11Y77         FDRE                                         r  SERIAL_CONTROLL_0/data_from_serial_o_reg[0]/C
+                         clock pessimism             -0.696     2.305    
+    SLICE_X11Y77         FDRE (Hold_fdre_C_D)         0.070     2.375    SERIAL_CONTROLL_0/data_from_serial_o_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -2.375    
+                         arrival time                           2.553    
+  -------------------------------------------------------------------
+                         slack                                  0.178    
+
+Slack (MET) :             0.197ns  (arrival time - required time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[2]/D
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Path Group:             clk_uart
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
+  Data Path Delay:        0.301ns  (logic 0.209ns (69.460%)  route 0.092ns (30.540%))
+  Logic Levels:           1  (LUT5=1)
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    3.005ns
+    Source Clock Delay      (SCD):    2.294ns
+    Clock Pessimism Removal (CPR):    0.697ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          0.565     2.294    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X8Y80          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X8Y80          FDRE (Prop_fdre_C_Q)         0.164     2.458 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/Q
+                         net (fo=3, routed)           0.092     2.550    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_9_[1]
+    SLICE_X9Y80          LUT5 (Prop_lut5_I2_O)        0.045     2.595 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt[2]_i_1/O
+                         net (fo=1, routed)           0.000     2.595    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt[2]_i_1_n_9
+    SLICE_X9Y80          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[2]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          0.834     3.005    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X9Y80          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[2]/C
+                         clock pessimism             -0.697     2.307    
+    SLICE_X9Y80          FDRE (Hold_fdre_C_D)         0.091     2.398    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[2]
+  -------------------------------------------------------------------
+                         required time                         -2.398    
+                         arrival time                           2.595    
+  -------------------------------------------------------------------
+                         slack                                  0.197    
 
 Slack (MET) :             0.199ns  (arrival time - required time)
   Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
@@ -1194,9 +1296,9 @@ Slack (MET) :             0.199ns  (arrival time - required time)
   Data Path Delay:        0.291ns  (logic 0.227ns (78.106%)  route 0.064ns (21.894%))
   Logic Levels:           1  (LUT4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    3.010ns
-    Source Clock Delay      (SCD):    2.297ns
-    Clock Pessimism Removal (CPR):    0.712ns
+    Destination Clock Delay (DCD):    3.007ns
+    Source Clock Delay      (SCD):    2.296ns
+    Clock Pessimism Removal (CPR):    0.710ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1207,14 +1309,14 @@ Slack (MET) :             0.199ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.568     2.297    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
+                         net (fo=84, routed)          0.567     2.296    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X9Y82          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X31Y92         FDRE (Prop_fdre_C_Q)         0.128     2.425 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/Q
-                         net (fo=3, routed)           0.064     2.489    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg_n_8_[1]
-    SLICE_X31Y92         LUT4 (Prop_lut4_I2_O)        0.099     2.588 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_i_1/O
-                         net (fo=1, routed)           0.000     2.588    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_i_1_n_8
-    SLICE_X31Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg/D
+    SLICE_X9Y82          FDRE (Prop_fdre_C_Q)         0.128     2.424 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/Q
+                         net (fo=3, routed)           0.064     2.488    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg_n_9_[1]
+    SLICE_X9Y82          LUT4 (Prop_lut4_I2_O)        0.099     2.587 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_i_1/O
+                         net (fo=1, routed)           0.000     2.587    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_i_1_n_9
+    SLICE_X9Y82          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1224,129 +1326,29 @@ Slack (MET) :             0.199ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.839     3.010    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg/C
-                         clock pessimism             -0.712     2.297    
-    SLICE_X31Y92         FDRE (Hold_fdre_C_D)         0.092     2.389    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg
+                         net (fo=84, routed)          0.836     3.007    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X9Y82          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg/C
+                         clock pessimism             -0.710     2.296    
+    SLICE_X9Y82          FDRE (Hold_fdre_C_D)         0.092     2.388    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg
   -------------------------------------------------------------------
-                         required time                         -2.389    
-                         arrival time                           2.588    
+                         required time                         -2.388    
+                         arrival time                           2.587    
   -------------------------------------------------------------------
                          slack                                  0.199    
 
-Slack (MET) :             0.209ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/C
+Slack (MET) :             0.205ns  (arrival time - required time)
+  Source:                 SERIAL_CONTROLL_0/TxD_data_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/D
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Path Group:             clk_uart
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.256ns  (logic 0.141ns (55.046%)  route 0.115ns (44.954%))
-  Logic Levels:           0  
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    3.006ns
-    Source Clock Delay      (SCD):    2.294ns
-    Clock Pessimism Removal (CPR):    0.711ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.565     2.294    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X31Y86         FDRE (Prop_fdre_C_Q)         0.141     2.435 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/Q
-                         net (fo=2, routed)           0.115     2.550    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Q[3]
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/C
-                         clock pessimism             -0.711     2.294    
-    SLICE_X31Y86         FDRE (Hold_fdre_C_D)         0.047     2.341    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]
-  -------------------------------------------------------------------
-                         required time                         -2.341    
-                         arrival time                           2.550    
-  -------------------------------------------------------------------
-                         slack                                  0.209    
-
-Slack (MET) :             0.212ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[3]/D
+  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]/D
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.341ns  (logic 0.186ns (54.587%)  route 0.155ns (45.413%))
+  Data Path Delay:        0.342ns  (logic 0.227ns (66.361%)  route 0.115ns (33.639%))
   Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.037ns (DCD - SCD - CPR)
+  Clock Path Skew:        0.016ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    3.006ns
     Source Clock Delay      (SCD):    2.293ns
-    Clock Pessimism Removal (CPR):    0.675ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.564     2.293    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
-    SLICE_X35Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X35Y86         FDRE (Prop_fdre_C_Q)         0.141     2.434 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]/Q
-                         net (fo=1, routed)           0.155     2.589    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg_n_8_[4]
-    SLICE_X33Y86         LUT4 (Prop_lut4_I3_O)        0.045     2.634 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[3]_i_1/O
-                         net (fo=1, routed)           0.000     2.634    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[3]_i_1_n_8
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[3]/C
-                         clock pessimism             -0.675     2.330    
-    SLICE_X33Y86         FDRE (Hold_fdre_C_D)         0.092     2.422    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[3]
-  -------------------------------------------------------------------
-                         required time                         -2.422    
-                         arrival time                           2.634    
-  -------------------------------------------------------------------
-                         slack                                  0.212    
-
-Slack (MET) :             0.215ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[0]/C
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/D
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Path Group:             clk_uart
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.350ns  (logic 0.186ns (53.190%)  route 0.164ns (46.810%))
-  Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    3.010ns
-    Source Clock Delay      (SCD):    2.298ns
     Clock Pessimism Removal (CPR):    0.696ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
@@ -1358,14 +1360,14 @@ Slack (MET) :             0.215ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.569     2.298    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y93         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[0]/C
+                         net (fo=84, routed)          0.564     2.293    SERIAL_CONTROLL_0/CLK
+    SLICE_X11Y79         FDRE                                         r  SERIAL_CONTROLL_0/TxD_data_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X31Y93         FDRE (Prop_fdre_C_Q)         0.141     2.439 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[0]/Q
-                         net (fo=8, routed)           0.164     2.603    SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_state[0]
-    SLICE_X30Y92         LUT6 (Prop_lut6_I3_O)        0.045     2.648 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt[0]_i_1/O
-                         net (fo=1, routed)           0.000     2.648    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt[0]_i_1_n_8
-    SLICE_X30Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/D
+    SLICE_X11Y79         FDRE (Prop_fdre_C_Q)         0.128     2.421 r  SERIAL_CONTROLL_0/TxD_data_reg[0]/Q
+                         net (fo=1, routed)           0.115     2.536    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/Q[0]
+    SLICE_X10Y81         LUT4 (Prop_lut4_I0_O)        0.099     2.635 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[0]_i_1/O
+                         net (fo=1, routed)           0.000     2.635    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[0]_i_1_n_9
+    SLICE_X10Y81         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1375,30 +1377,30 @@ Slack (MET) :             0.215ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.839     3.010    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X30Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
-                         clock pessimism             -0.696     2.313    
-    SLICE_X30Y92         FDRE (Hold_fdre_C_D)         0.120     2.433    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]
+                         net (fo=84, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
+    SLICE_X10Y81         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]/C
+                         clock pessimism             -0.696     2.309    
+    SLICE_X10Y81         FDRE (Hold_fdre_C_D)         0.121     2.430    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[0]
   -------------------------------------------------------------------
-                         required time                         -2.433    
-                         arrival time                           2.648    
+                         required time                         -2.430    
+                         arrival time                           2.635    
   -------------------------------------------------------------------
-                         slack                                  0.215    
+                         slack                                  0.205    
 
-Slack (MET) :             0.216ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
+Slack (MET) :             0.213ns  (arrival time - required time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/D
+  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/D
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.359ns  (logic 0.189ns (52.596%)  route 0.170ns (47.404%))
+  Data Path Delay:        0.346ns  (logic 0.186ns (53.704%)  route 0.160ns (46.296%))
   Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.036ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    3.010ns
-    Source Clock Delay      (SCD):    2.298ns
-    Clock Pessimism Removal (CPR):    0.675ns
+  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    3.005ns
+    Source Clock Delay      (SCD):    2.294ns
+    Clock Pessimism Removal (CPR):    0.697ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1409,14 +1411,14 @@ Slack (MET) :             0.216ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.569     2.298    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
-    SLICE_X28Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/C
+                         net (fo=84, routed)          0.565     2.294    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X9Y80          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X28Y92         FDRE (Prop_fdre_C_Q)         0.141     2.439 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[16]/Q
-                         net (fo=10, routed)          0.170     2.610    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingTick
-    SLICE_X31Y92         LUT4 (Prop_lut4_I0_O)        0.048     2.658 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt[1]_i_1/O
-                         net (fo=1, routed)           0.000     2.658    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt[1]_i_1_n_8
-    SLICE_X31Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/D
+    SLICE_X9Y80          FDRE (Prop_fdre_C_Q)         0.141     2.435 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/Q
+                         net (fo=4, routed)           0.160     2.596    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg_n_9_[0]
+    SLICE_X8Y80          LUT4 (Prop_lut4_I2_O)        0.045     2.641 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt[1]_i_1/O
+                         net (fo=1, routed)           0.000     2.641    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt[1]_i_1_n_9
+    SLICE_X8Y80          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1426,25 +1428,25 @@ Slack (MET) :             0.216ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.839     3.010    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
-    SLICE_X31Y92         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
-                         clock pessimism             -0.675     2.334    
-    SLICE_X31Y92         FDRE (Hold_fdre_C_D)         0.107     2.441    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]
+                         net (fo=84, routed)          0.834     3.005    SERIAL_CONTROLL_0/SERIAL_RECEIVER/CLK
+    SLICE_X8Y80          FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
+                         clock pessimism             -0.697     2.307    
+    SLICE_X8Y80          FDRE (Hold_fdre_C_D)         0.120     2.427    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]
   -------------------------------------------------------------------
-                         required time                         -2.441    
-                         arrival time                           2.658    
+                         required time                         -2.427    
+                         arrival time                           2.641    
   -------------------------------------------------------------------
-                         slack                                  0.216    
+                         slack                                  0.213    
 
 Slack (MET) :             0.217ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/TxD_data_reg[1]/C
+  Source:                 SERIAL_CONTROLL_0/TxD_data_reg[4]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[1]/D
+  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]/D
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.323ns  (logic 0.186ns (57.662%)  route 0.137ns (42.338%))
+  Data Path Delay:        0.324ns  (logic 0.186ns (57.484%)  route 0.138ns (42.516%))
   Logic Levels:           1  (LUT4=1)
   Clock Path Skew:        0.015ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    3.006ns
@@ -1460,14 +1462,14 @@ Slack (MET) :             0.217ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.565     2.294    SERIAL_CONTROLL_0/CLK
-    SLICE_X33Y85         FDRE                                         r  SERIAL_CONTROLL_0/TxD_data_reg[1]/C
+                         net (fo=84, routed)          0.565     2.294    SERIAL_CONTROLL_0/CLK
+    SLICE_X11Y80         FDRE                                         r  SERIAL_CONTROLL_0/TxD_data_reg[4]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X33Y85         FDRE (Prop_fdre_C_Q)         0.141     2.435 r  SERIAL_CONTROLL_0/TxD_data_reg[1]/Q
-                         net (fo=1, routed)           0.137     2.572    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/Q[1]
-    SLICE_X33Y86         LUT4 (Prop_lut4_I0_O)        0.045     2.617 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[1]_i_1/O
-                         net (fo=1, routed)           0.000     2.617    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[1]_i_1_n_8
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[1]/D
+    SLICE_X11Y80         FDRE (Prop_fdre_C_Q)         0.141     2.435 r  SERIAL_CONTROLL_0/TxD_data_reg[4]/Q
+                         net (fo=1, routed)           0.138     2.573    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/Q[4]
+    SLICE_X11Y81         LUT4 (Prop_lut4_I0_O)        0.045     2.618 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[4]_i_1/O
+                         net (fo=1, routed)           0.000     2.618    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[4]_i_1_n_9
+    SLICE_X11Y81         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1477,30 +1479,30 @@ Slack (MET) :             0.217ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[1]/C
+                         net (fo=84, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
+    SLICE_X11Y81         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]/C
                          clock pessimism             -0.696     2.309    
-    SLICE_X33Y86         FDRE (Hold_fdre_C_D)         0.091     2.400    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[1]
+    SLICE_X11Y81         FDRE (Hold_fdre_C_D)         0.092     2.401    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]
   -------------------------------------------------------------------
-                         required time                         -2.400    
-                         arrival time                           2.617    
+                         required time                         -2.401    
+                         arrival time                           2.618    
   -------------------------------------------------------------------
                          slack                                  0.217    
 
-Slack (MET) :             0.223ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/TxD_data_reg[2]/C
+Slack (MET) :             0.225ns  (arrival time - required time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[11]/C
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]/D
+  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[12]/D
                             (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
   Path Group:             clk_uart
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.352ns  (logic 0.209ns (59.456%)  route 0.143ns (40.544%))
-  Logic Levels:           1  (LUT4=1)
-  Clock Path Skew:        0.037ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    3.006ns
-    Source Clock Delay      (SCD):    2.293ns
-    Clock Pessimism Removal (CPR):    0.675ns
+  Data Path Delay:        0.359ns  (logic 0.293ns (81.679%)  route 0.066ns (18.321%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    3.002ns
+    Source Clock Delay      (SCD):    2.292ns
+    Clock Pessimism Removal (CPR):    0.709ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1511,14 +1513,15 @@ Slack (MET) :             0.223ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.564     2.293    SERIAL_CONTROLL_0/CLK
-    SLICE_X34Y86         FDRE                                         r  SERIAL_CONTROLL_0/TxD_data_reg[2]/C
+                         net (fo=84, routed)          0.563     2.292    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y77         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[11]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X34Y86         FDRE (Prop_fdre_C_Q)         0.164     2.457 r  SERIAL_CONTROLL_0/TxD_data_reg[2]/Q
-                         net (fo=1, routed)           0.143     2.600    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/Q[2]
-    SLICE_X33Y86         LUT4 (Prop_lut4_I0_O)        0.045     2.645 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[2]_i_1/O
-                         net (fo=1, routed)           0.000     2.645    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift[2]_i_1_n_8
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]/D
+    SLICE_X10Y77         FDRE (Prop_fdre_C_Q)         0.164     2.456 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[11]/Q
+                         net (fo=2, routed)           0.066     2.522    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc[11]
+    SLICE_X10Y77         CARRY4 (Prop_carry4_DI[0]_O[1])
+                                                      0.129     2.651 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[14]_i_1/O[1]
+                         net (fo=1, routed)           0.000     2.651    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_1_in[12]
+    SLICE_X10Y77         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[12]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1528,15 +1531,67 @@ Slack (MET) :             0.223ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/CLK
-    SLICE_X33Y86         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]/C
-                         clock pessimism             -0.675     2.330    
-    SLICE_X33Y86         FDRE (Hold_fdre_C_D)         0.092     2.422    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[2]
+                         net (fo=84, routed)          0.831     3.002    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y77         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[12]/C
+                         clock pessimism             -0.709     2.292    
+    SLICE_X10Y77         FDRE (Hold_fdre_C_D)         0.134     2.426    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[12]
   -------------------------------------------------------------------
-                         required time                         -2.422    
-                         arrival time                           2.645    
+                         required time                         -2.426    
+                         arrival time                           2.651    
   -------------------------------------------------------------------
-                         slack                                  0.223    
+                         slack                                  0.225    
+
+Slack (MET) :             0.225ns  (arrival time - required time)
+  Source:                 SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[5]/C
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Destination:            SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[6]/D
+                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
+  Path Group:             clk_uart
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
+  Data Path Delay:        0.359ns  (logic 0.293ns (81.679%)  route 0.066ns (18.321%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    2.999ns
+    Source Clock Delay      (SCD):    2.289ns
+    Clock Pessimism Removal (CPR):    0.709ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          0.560     2.289    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y75         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[5]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X10Y75         FDRE (Prop_fdre_C_Q)         0.164     2.453 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[5]/Q
+                         net (fo=2, routed)           0.066     2.519    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc[5]
+    SLICE_X10Y75         CARRY4 (Prop_carry4_DI[2]_O[3])
+                                                      0.129     2.648 r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[6]_i_1/O[3]
+                         net (fo=1, routed)           0.000     2.648    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/p_1_in[6]
+    SLICE_X10Y75         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[6]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_uart rise edge)
+                                                      0.000     0.000 r  
+    C18                                               0.000     0.000 r  clk_uart (IN)
+                         net (fo=0)                   0.000     0.000    clk_uart
+    C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
+                         net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
+    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
+                         net (fo=84, routed)          0.828     2.999    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/CLK
+    SLICE_X10Y75         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[6]/C
+                         clock pessimism             -0.709     2.289    
+    SLICE_X10Y75         FDRE (Hold_fdre_C_D)         0.134     2.423    SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[6]
+  -------------------------------------------------------------------
+                         required time                         -2.423    
+                         arrival time                           2.648    
+  -------------------------------------------------------------------
+                         slack                                  0.225    
 
 Slack (MET) :             0.225ns  (arrival time - required time)
   Source:                 SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[2]/C
@@ -1549,9 +1604,9 @@ Slack (MET) :             0.225ns  (arrival time - required time)
   Data Path Delay:        0.359ns  (logic 0.293ns (81.679%)  route 0.066ns (18.321%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    3.006ns
-    Source Clock Delay      (SCD):    2.294ns
-    Clock Pessimism Removal (CPR):    0.711ns
+    Destination Clock Delay (DCD):    3.007ns
+    Source Clock Delay      (SCD):    2.296ns
+    Clock Pessimism Removal (CPR):    0.710ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1562,67 +1617,15 @@ Slack (MET) :             0.225ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.565     2.294    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
-    SLICE_X34Y87         FDSE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[2]/C
+                         net (fo=84, routed)          0.567     2.296    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
+    SLICE_X10Y82         FDSE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[2]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X34Y87         FDSE (Prop_fdse_C_Q)         0.164     2.458 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[2]/Q
-                         net (fo=2, routed)           0.066     2.524    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc__0[2]
-    SLICE_X34Y87         CARRY4 (Prop_carry4_DI[2]_O[3])
-                                                      0.129     2.653 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]_i_1/O[3]
-                         net (fo=1, routed)           0.000     2.653    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]_i_1_n_12
-    SLICE_X34Y87         FDSE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.835     3.006    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
-    SLICE_X34Y87         FDSE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]/C
-                         clock pessimism             -0.711     2.294    
-    SLICE_X34Y87         FDSE (Hold_fdse_C_D)         0.134     2.428    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]
-  -------------------------------------------------------------------
-                         required time                         -2.428    
-                         arrival time                           2.653    
-  -------------------------------------------------------------------
-                         slack                                  0.225    
-
-Slack (MET) :             0.225ns  (arrival time - required time)
-  Source:                 SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[8]/C
-                            (rising edge-triggered cell FDSE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Destination:            SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[9]/D
-                            (rising edge-triggered cell FDRE clocked by clk_uart  {rise@0.000ns fall@45.211ns period=90.422ns})
-  Path Group:             clk_uart
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_uart rise@0.000ns - clk_uart rise@0.000ns)
-  Data Path Delay:        0.359ns  (logic 0.293ns (81.679%)  route 0.066ns (18.321%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    3.008ns
-    Source Clock Delay      (SCD):    2.295ns
-    Clock Pessimism Removal (CPR):    0.712ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_uart rise edge)
-                                                      0.000     0.000 r  
-    C18                                               0.000     0.000 r  clk_uart (IN)
-                         net (fo=0)                   0.000     0.000    clk_uart
-    C18                  IBUF (Prop_ibuf_I_O)         0.302     0.302 r  clk_uart_IBUF_inst/O
-                         net (fo=1, routed)           1.402     1.704    clk_uart_IBUF
-    BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.026     1.730 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.566     2.295    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
-    SLICE_X34Y89         FDSE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[8]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X34Y89         FDSE (Prop_fdse_C_Q)         0.164     2.459 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[8]/Q
-                         net (fo=2, routed)           0.066     2.525    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc__0[8]
-    SLICE_X34Y89         CARRY4 (Prop_carry4_DI[0]_O[1])
-                                                      0.129     2.654 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[11]_i_1/O[1]
-                         net (fo=1, routed)           0.000     2.654    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[11]_i_1_n_14
-    SLICE_X34Y89         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[9]/D
+    SLICE_X10Y82         FDSE (Prop_fdse_C_Q)         0.164     2.460 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[2]/Q
+                         net (fo=2, routed)           0.066     2.526    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc__0[2]
+    SLICE_X10Y82         CARRY4 (Prop_carry4_DI[2]_O[3])
+                                                      0.129     2.655 r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]_i_1/O[3]
+                         net (fo=1, routed)           0.000     2.655    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]_i_1_n_13
+    SLICE_X10Y82         FDSE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_uart rise edge)
@@ -1632,13 +1635,13 @@ Slack (MET) :             0.225ns  (arrival time - required time)
     C18                  IBUF (Prop_ibuf_I_O)         0.490     0.490 r  clk_uart_IBUF_inst/O
                          net (fo=1, routed)           1.652     2.142    clk_uart_IBUF
     BUFGCTRL_X0Y2        BUFG (Prop_bufg_I_O)         0.029     2.171 r  clk_uart_IBUF_BUFG_inst/O
-                         net (fo=73, routed)          0.837     3.008    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
-    SLICE_X34Y89         FDRE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[9]/C
-                         clock pessimism             -0.712     2.295    
-    SLICE_X34Y89         FDRE (Hold_fdre_C_D)         0.134     2.429    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[9]
+                         net (fo=84, routed)          0.836     3.007    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/CLK
+    SLICE_X10Y82         FDSE                                         r  SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]/C
+                         clock pessimism             -0.710     2.296    
+    SLICE_X10Y82         FDSE (Hold_fdse_C_D)         0.134     2.430    SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/tickgen/Acc_reg[3]
   -------------------------------------------------------------------
-                         required time                         -2.429    
-                         arrival time                           2.654    
+                         required time                         -2.430    
+                         arrival time                           2.655    
   -------------------------------------------------------------------
                          slack                                  0.225    
 
@@ -1655,35 +1658,35 @@ Sources:            { clk_uart }
 
 Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location       Pin
 Min Period        n/a     BUFG/I   n/a            1.592         90.422      88.830     BUFGCTRL_X0Y2  clk_uart_IBUF_BUFG_inst/I
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[2]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X30Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X30Y91   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
-Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X30Y91   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[2]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[0]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X30Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X30Y91   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X30Y91   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[2]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_ready_reg/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X30Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_sync_reg[1]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X35Y86   SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[4]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X35Y86   SERIAL_CONTROLL_0/SERIAL_TRANSMITTER/TxD_shift_reg[5]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[2]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y93   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X30Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X30Y91   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X30Y91   SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[2]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X31Y92   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_bit_reg/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X9Y78    SERIAL_CONTROLL_0/FSM_sequential_read_state_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X10Y79   SERIAL_CONTROLL_0/FSM_sequential_read_state_reg[1]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X10Y80   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X9Y79    SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X10Y80   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[2]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X9Y79    SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X9Y82    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X9Y82    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
+Min Period        n/a     FDRE/C   n/a            1.000         90.422      89.422     SLICE_X9Y80    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X9Y78    SERIAL_CONTROLL_0/FSM_sequential_read_state_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[0]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[1]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[2]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[3]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[4]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[5]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[6]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X11Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/RxD_data_reg[7]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X10Y78   SERIAL_CONTROLL_0/SERIAL_RECEIVER/tickgen/Acc_reg[15]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X9Y78    SERIAL_CONTROLL_0/FSM_sequential_read_state_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X10Y79   SERIAL_CONTROLL_0/FSM_sequential_read_state_reg[1]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X10Y80   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X9Y79    SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[1]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X10Y80   SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[2]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X9Y79    SERIAL_CONTROLL_0/SERIAL_RECEIVER/FSM_sequential_RxD_state_reg[3]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X9Y82    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X9Y82    SERIAL_CONTROLL_0/SERIAL_RECEIVER/Filter_cnt_reg[1]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X9Y80    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         45.211      44.711     SLICE_X8Y80    SERIAL_CONTROLL_0/SERIAL_RECEIVER/OversamplingCnt_reg[1]/C
 
 
 

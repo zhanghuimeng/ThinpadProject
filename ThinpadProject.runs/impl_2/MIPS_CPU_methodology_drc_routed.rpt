@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Sun Dec 17 21:33:15 2017
+| Date         : Tue Dec 19 13:50:09 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_methodology -file MIPS_CPU_methodology_drc_routed.rpt -rpx MIPS_CPU_methodology_drc_routed.rpx
 | Design       : MIPS_CPU
@@ -23,14 +23,14 @@ Table of Contents
           Floorplan: design_1
       Design limits: <entire design considered>
              Max violations: <unlimited>
-             Violations found: 1366
+             Violations found: 1363
 +-----------+----------+-------------------------------+------------+
 | Rule      | Severity | Description                   | Violations |
 +-----------+----------+-------------------------------+------------+
 | SYNTH-10  | Warning  | Wide multiplier               | 8          |
 | TIMING-17 | Warning  | Non-clocked sequential cell   | 746        |
 | TIMING-18 | Warning  | Missing input or output delay | 8          |
-| TIMING-20 | Warning  | Non-clocked latch             | 604        |
+| TIMING-20 | Warning  | Non-clocked latch             | 601        |
 +-----------+----------+-------------------------------+------------+
 
 2. REPORT DETAILS
@@ -6762,105 +6762,90 @@ Related violations: <none>
 
 TIMING-20#584 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[0] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[0]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[0] cannot be properly analyzed as its control pin MMU_0/num_o_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#585 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[1] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[1]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[1] cannot be properly analyzed as its control pin MMU_0/num_o_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#586 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[2] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[2]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[2] cannot be properly analyzed as its control pin MMU_0/num_o_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#587 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[3] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[3]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[3] cannot be properly analyzed as its control pin MMU_0/num_o_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#588 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[4] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[4]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[4] cannot be properly analyzed as its control pin MMU_0/num_o_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#589 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[5] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[5]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[5] cannot be properly analyzed as its control pin MMU_0/num_o_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#590 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[6] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[6]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[6] cannot be properly analyzed as its control pin MMU_0/num_o_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#591 Warning
 Non-clocked latch  
-The latch MMU_0/serial_data_o_reg[7] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[7]/G is not reached by a timing clock
+The latch MMU_0/num_o_reg[7] cannot be properly analyzed as its control pin MMU_0/num_o_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#592 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/ack_o_reg cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/ack_o_reg/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[0] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[0]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#593 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[0] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[0]/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[1] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[1]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#594 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[1] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[1]/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[2] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[2]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#595 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[2] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[2]/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[3] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[3]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#596 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[3] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[3]/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[4] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[4]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#597 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[4] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[4]/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[5] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[5]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#598 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[5] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[5]/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[6] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[6]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#599 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[6] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[6]/G is not reached by a timing clock
+The latch MMU_0/serial_data_o_reg[7] cannot be properly analyzed as its control pin MMU_0/serial_data_o_reg[7]/G is not reached by a timing clock
 Related violations: <none>
 
 TIMING-20#600 Warning
 Non-clocked latch  
-The latch SERIAL_CONTROLL_0/data_from_serial_o_reg[7] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/data_from_serial_o_reg[7]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#601 Warning
-Non-clocked latch  
-The latch SERIAL_CONTROLL_0/state_reg[0] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/state_reg[0]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#602 Warning
-Non-clocked latch  
-The latch SERIAL_CONTROLL_0/state_reg[1] cannot be properly analyzed as its control pin SERIAL_CONTROLL_0/state_reg[1]/G is not reached by a timing clock
-Related violations: <none>
-
-TIMING-20#603 Warning
-Non-clocked latch  
 The latch ram1_data_IOBUF[31]_inst_i_2 cannot be properly analyzed as its control pin ram1_data_IOBUF[31]_inst_i_2/G is not reached by a timing clock
 Related violations: <none>
 
-TIMING-20#604 Warning
+TIMING-20#601 Warning
 Non-clocked latch  
 The latch ram2_data_IOBUF[31]_inst_i_2 cannot be properly analyzed as its control pin ram2_data_IOBUF[31]_inst_i_2/G is not reached by a timing clock
 Related violations: <none>

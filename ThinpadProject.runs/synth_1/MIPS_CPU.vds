@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Sun Dec 17 21:30:22 2017
-# Process ID: 4396
+# Start of session at: Tue Dec 19 13:46:50 2017
+# Process ID: 18772
 # Current directory: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 19416 
+INFO: Helper process launched with PID 7432 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 347.758 ; gain = 82.965
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 348.098 ; gain = 83.059
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:64]
 INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:577]
@@ -211,7 +211,7 @@ INFO: [Synth 8-256] done synthesizing module 'SRAM_CONTROLL' (14#1) [E:/THU/Thin
 INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:783]
 INFO: [Synth 8-3491] module 'SERIAL_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:35' bound to instance 'SERIAL_CONTROLL_0' of component 'SERIAL_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:801]
 INFO: [Synth 8-638] synthesizing module 'SERIAL_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:52]
-INFO: [Synth 8-3491] module 'async_receiver' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75' bound to instance 'SERIAL_RECEIVER' of component 'ASYNC_RECEIVER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:78]
+INFO: [Synth 8-3491] module 'async_receiver' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75' bound to instance 'SERIAL_RECEIVER' of component 'ASYNC_RECEIVER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:80]
 INFO: [Synth 8-638] synthesizing module 'async_receiver' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
 	Parameter ClkFrequency bound to: 25000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
@@ -226,7 +226,7 @@ INFO: [Synth 8-638] synthesizing module 'BaudTickGen' [E:/THU/ThinpadProject/Thi
 	Parameter Inc bound to: 2416 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'BaudTickGen' (15#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:185]
 INFO: [Synth 8-256] done synthesizing module 'async_receiver' (16#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
-INFO: [Synth 8-3491] module 'async_transmitter' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14' bound to instance 'SERIAL_TRANSMITTER' of component 'ASYNC_TRANSMITTER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:84]
+INFO: [Synth 8-3491] module 'async_transmitter' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14' bound to instance 'SERIAL_TRANSMITTER' of component 'ASYNC_TRANSMITTER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:86]
 INFO: [Synth 8-638] synthesizing module 'async_transmitter' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
 	Parameter ClkFrequency bound to: 25000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
@@ -239,7 +239,7 @@ INFO: [Synth 8-638] synthesizing module 'BaudTickGen__parameterized0' [E:/THU/Th
 	Parameter Inc bound to: 302 - type: integer 
 INFO: [Synth 8-256] done synthesizing module 'BaudTickGen__parameterized0' (16#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:185]
 INFO: [Synth 8-256] done synthesizing module 'async_transmitter' (17#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
-WARNING: [Synth 8-614] signal 'clk_uart' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:90]
+WARNING: [Synth 8-614] signal 'clk_uart' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:92]
 INFO: [Synth 8-256] done synthesizing module 'SERIAL_CONTROLL' (18#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:52]
 INFO: [Synth 8-3491] module 'SEG7_LUT' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1' bound to instance 'segL' of component 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:825]
 INFO: [Synth 8-638] synthesizing module 'SEG7_LUT' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v:1]
@@ -311,12 +311,27 @@ WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[14]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[13]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[12]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[11]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[10]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[9]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[8]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[7]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[6]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[5]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[4]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[3]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[2]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[1]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[0]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[3]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[2]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[1]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 400.863 ; gain = 136.070
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 401.199 ; gain = 136.160
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -326,7 +341,7 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 400.863 ; gain = 136.070
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 401.199 ; gain = 136.160
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -648,22 +663,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 722.320 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.017 . Memory (MB): peak = 723.676 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 722.320 ; gain = 457.527
+Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 723.676 ; gain = 458.637
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 722.320 ; gain = 457.527
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 723.676 ; gain = 458.637
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 722.320 ; gain = 457.527
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 723.676 ; gain = 458.637
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-6014] Unused sequential element pc_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:61]
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -706,7 +721,11 @@ INFO: [Synth 8-5544] ROM "OversamplingCnt0" won't be mapped to Block RAM because
 WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:170]
 INFO: [Synth 8-802] inferred FSM for state register 'TxD_state_reg' in module 'async_transmitter'
 WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
-INFO: [Synth 8-5544] ROM "TxD_start" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-802] inferred FSM for state register 'read_state_reg' in module 'SERIAL_CONTROLL'
+WARNING: [Synth 8-6014] Unused sequential element read_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:97]
+INFO: [Synth 8-5544] ROM "ack_o" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "read_state" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
 WARNING: [Synth 8-327] inferring latch for variable 'extended_imm_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:102]
 WARNING: [Synth 8-327] inferring latch for variable 'extended_offset_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:949]
 WARNING: [Synth 8-327] inferring latch for variable 'branch_target_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:119]
@@ -725,10 +744,12 @@ WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/Thinpad
 WARNING: [Synth 8-327] inferring latch for variable 'state_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:70]
 WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:89]
 WARNING: [Synth 8-327] inferring latch for variable 'serial_data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:124]
-WARNING: [Synth 8-327] inferring latch for variable 'led_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:187]
-WARNING: [Synth 8-327] inferring latch for variable 'num_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:210]
-WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:148]
-WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:143]
+WARNING: [Synth 8-327] inferring latch for variable 'leds_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:127]
+WARNING: [Synth 8-327] inferring latch for variable 'num_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:141]
+WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:154]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:149]
+WARNING: [Synth 8-327] inferring latch for variable 'led_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:125]
+WARNING: [Synth 8-327] inferring latch for variable 'num_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:126]
 WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:81]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_addr_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:69]
 WARNING: [Synth 8-327] inferring latch for variable 'ram_data_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:62]
@@ -771,11 +792,21 @@ WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'TxD_state_reg' using encoding 'sequential' in module 'async_transmitter'
 WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
-WARNING: [Synth 8-327] inferring latch for variable 'data_from_serial_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:119]
-WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:113]
-WARNING: [Synth 8-327] inferring latch for variable 'state_reg' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:96]
+WARNING: [Synth 8-6014] Unused sequential element read_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:97]
+WARNING: [Synth 8-6014] Unused sequential element read_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:97]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                  iSTATE |                               00 |                               00
+*
+             serial_wait |                               01 |                               01
+          serial_reading |                               10 |                               10
+             serial_read |                               11 |                               11
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'read_state_reg' using encoding 'sequential' in module 'SERIAL_CONTROLL'
+WARNING: [Synth 8-6014] Unused sequential element read_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:97]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 722.320 ; gain = 457.527
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 723.676 ; gain = 458.637
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -803,14 +834,14 @@ Detailed RTL Component Info :
 	   2 Input     32 Bit         XORs := 1     
 +---Registers : 
 	               64 Bit    Registers := 1     
-	               32 Bit    Registers := 16    
+	               32 Bit    Registers := 17    
 	               17 Bit    Registers := 2     
 	                8 Bit    Registers := 3     
 	                6 Bit    Registers := 4     
 	                5 Bit    Registers := 3     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 13    
+	                1 Bit    Registers := 14    
 +---RAMs : 
 	             1024 Bit         RAMs := 1     
 +---Muxes : 
@@ -820,13 +851,14 @@ Detailed RTL Component Info :
 	  39 Input     32 Bit        Muxes := 1     
 	   5 Input     32 Bit        Muxes := 2     
 	   4 Input     32 Bit        Muxes := 9     
-	   2 Input     32 Bit        Muxes := 58    
-	   8 Input     32 Bit        Muxes := 4     
-	   3 Input     32 Bit        Muxes := 6     
+	   2 Input     32 Bit        Muxes := 57    
+	   8 Input     32 Bit        Muxes := 5     
+	   3 Input     32 Bit        Muxes := 7     
 	   6 Input     32 Bit        Muxes := 6     
 	   7 Input     32 Bit        Muxes := 1     
 	  13 Input     32 Bit        Muxes := 1     
-	   2 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 2     
+	   4 Input      8 Bit        Muxes := 1     
 	   2 Input      6 Bit        Muxes := 5     
 	   8 Input      6 Bit        Muxes := 1     
 	   3 Input      6 Bit        Muxes := 1     
@@ -853,9 +885,10 @@ Detailed RTL Component Info :
 	   2 Input      2 Bit        Muxes := 14    
 	   8 Input      2 Bit        Muxes := 1     
 	  13 Input      2 Bit        Muxes := 1     
-	   3 Input      2 Bit        Muxes := 2     
+	   3 Input      2 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 65    
+	   7 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 67    
 	   9 Input      1 Bit        Muxes := 3     
 	  15 Input      1 Bit        Muxes := 6     
 	   5 Input      1 Bit        Muxes := 2     
@@ -865,8 +898,8 @@ Detailed RTL Component Info :
 	   8 Input      1 Bit        Muxes := 4     
 	   3 Input      1 Bit        Muxes := 7     
 	  13 Input      1 Bit        Muxes := 4     
-	   4 Input      1 Bit        Muxes := 1     
-	   6 Input      1 Bit        Muxes := 11    
+	   4 Input      1 Bit        Muxes := 4     
+	   6 Input      1 Bit        Muxes := 12    
 	  11 Input      1 Bit        Muxes := 1     
 	  12 Input      1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
@@ -1016,13 +1049,13 @@ Detailed RTL Component Info :
 Module MEM_CONTROLL 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   3 Input     32 Bit        Muxes := 2     
-	   2 Input     32 Bit        Muxes := 4     
+	   3 Input     32 Bit        Muxes := 3     
+	   2 Input     32 Bit        Muxes := 3     
 	   3 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 1     
 	   4 Input      2 Bit        Muxes := 1     
 	   3 Input      1 Bit        Muxes := 6     
-	   2 Input      1 Bit        Muxes := 17    
+	   2 Input      1 Bit        Muxes := 18    
 Module MMU 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1030,10 +1063,11 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 10    
 	   6 Input     32 Bit        Muxes := 5     
+	   8 Input     32 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 2     
 	   6 Input      4 Bit        Muxes := 2     
 	   8 Input      3 Bit        Muxes := 1     
-	   6 Input      1 Bit        Muxes := 11    
+	   6 Input      1 Bit        Muxes := 12    
 	   2 Input      1 Bit        Muxes := 1     
 Module SRAM_CONTROLL 
 Detailed RTL Component Info : 
@@ -1084,11 +1118,15 @@ Detailed RTL Component Info :
 Module SERIAL_CONTROLL 
 Detailed RTL Component Info : 
 +---Registers : 
+	               32 Bit    Registers := 1     
 	                8 Bit    Registers := 1     
-	                1 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
 +---Muxes : 
-	   3 Input      2 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 4     
+	   2 Input      8 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 1     
+	   7 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+	   4 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -1148,46 +1186,7 @@ WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mm
 WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[20]
 WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[19]
 WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[18]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[17]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[16]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[15]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[14]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[13]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[12]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[11]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[10]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[9]
-WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[8]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port rst
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[31]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[30]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[29]
-WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[28]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[8]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[9]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[10]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[11]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[20]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[12]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[13]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[18]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[19]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[17]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[15]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[14]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[24]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[25]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[21]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[22]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[23]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[16]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[27]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[26]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[28]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[29]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
-INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[30]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (SERIAL_CONTROLL_0/\data_from_serial_o_reg[30] )
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[4]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[5]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[3]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
@@ -1293,23 +1292,42 @@ WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[11]) is unused and
 WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[10]) is unused and will be removed from module MMU.
 WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[9]) is unused and will be removed from module MMU.
 WARNING: [Synth 8-3332] Sequential element (serial_data_o_reg[8]) is unused and will be removed from module MMU.
-WARNING: [Synth 8-3332] Sequential element (data_from_serial_o_reg[30]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/tickgen/Acc_reg[2]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/tickgen/Acc_reg[1]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/tickgen/Acc_reg[0]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[5]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[4]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[3]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[2]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[1]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (SERIAL_RECEIVER/GapCnt_reg[0]) is unused and will be removed from module SERIAL_CONTROLL.
-WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/is_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
-WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/next_inst_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
-WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/funct_o_reg[5]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[31]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[30]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[29]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[28]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[27]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[26]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[25]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[24]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[23]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[22]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[21]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[20]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[19]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[18]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[17]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[16]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[14]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[13]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[12]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[11]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[10]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[9]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[8]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[7]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[6]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[5]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[4]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[3]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[2]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[1]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (leds_o_reg[0]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_o_reg[31]) is unused and will be removed from module MMU.
+INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
-WARNING: [Synth 8-3332] Sequential element (funct_o_reg[4]) is unused and will be removed from module EX_to_MEM.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:43 . Memory (MB): peak = 741.055 ; gain = 476.262
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:52 ; elapsed = 00:00:59 . Memory (MB): peak = 743.418 ; gain = 478.379
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1366,13 +1384,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 797.879 ; gain = 533.086
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:17 . Memory (MB): peak = 798.242 ; gain = 533.203
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 810.027 ; gain = 545.234
+Finished Timing Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:18 . Memory (MB): peak = 810.383 ; gain = 545.344
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1384,7 +1402,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:01 ; elapsed = 00:01:02 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished Technology Mapping : Time (s): cpu = 00:01:13 ; elapsed = 00:01:21 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1408,7 +1426,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished IO Insertion : Time (s): cpu = 00:01:15 ; elapsed = 00:01:22 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1421,7 +1439,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:15 ; elapsed = 00:01:22 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1433,25 +1451,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:15 ; elapsed = 00:01:23 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:15 ; elapsed = 00:01:23 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:15 ; elapsed = 00:01:23 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:15 ; elapsed = 00:01:23 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1472,69 +1490,70 @@ Report Cell Usage:
 |3     |DSP48E1   |     4|
 |4     |DSP48E1_1 |     4|
 |5     |LUT1      |   234|
-|6     |LUT2      |   415|
-|7     |LUT3      |   282|
-|8     |LUT4      |   411|
-|9     |LUT5      |   481|
-|10    |LUT6      |  1039|
-|11    |MUXF7     |     4|
+|6     |LUT2      |   410|
+|7     |LUT3      |   280|
+|8     |LUT4      |   414|
+|9     |LUT5      |   454|
+|10    |LUT6      |  1072|
+|11    |MUXF7     |     3|
 |12    |RAM32M    |    12|
-|13    |FDRE      |   713|
+|13    |FDRE      |   724|
 |14    |FDSE      |     6|
-|15    |LD        |   362|
-|16    |LDC       |   242|
+|15    |LD        |   297|
+|16    |LDC       |   304|
 |17    |IBUF      |     4|
 |18    |IOBUF     |    64|
-|19    |OBUF      |    87|
+|19    |OBUF      |    72|
+|20    |OBUFT     |    15|
 +------+----------+------+
 
 Report Instance Areas: 
 +------+-----------------------+----------------------------+------+
 |      |Instance               |Module                      |Cells |
 +------+-----------------------+----------------------------+------+
-|1     |top                    |                            |  4524|
+|1     |top                    |                            |  4533|
 |2     |  BASE_SRAM_CONTROLL   |SRAM_CONTROLL               |    84|
 |3     |  EXTEND_RAM_CONTROLL  |SRAM_CONTROLL_0             |    84|
 |4     |  EX_0                 |EX                          |   317|
 |5     |  EX_to_MEM_0          |EX_to_MEM                   |   701|
 |6     |  HI_LO_0              |HI_LO                       |    64|
 |7     |  ID_0                 |ID                          |   185|
-|8     |  ID_to_EX_0           |ID_to_EX                    |  1311|
+|8     |  ID_to_EX_0           |ID_to_EX                    |  1303|
 |9     |  IF_to_ID_0           |IF_to_ID                    |   593|
-|10    |  MEM_CONTROLL_0       |MEM_CONTROLL                |   481|
+|10    |  MEM_CONTROLL_0       |MEM_CONTROLL                |   478|
 |11    |  MEM_to_WB_0          |MEM_to_WB                   |   133|
-|12    |  MMU_0                |MMU                         |   139|
+|12    |  MMU_0                |MMU                         |   147|
 |13    |  PC_0                 |PC                          |    36|
 |14    |  REGISTERS_0          |REGISTERS                   |    69|
-|15    |  SERIAL_CONTROLL_0    |SERIAL_CONTROLL             |   156|
-|16    |    SERIAL_RECEIVER    |async_receiver              |    68|
+|15    |  SERIAL_CONTROLL_0    |SERIAL_CONTROLL             |   168|
+|16    |    SERIAL_RECEIVER    |async_receiver              |    81|
 |17    |      tickgen          |BaudTickGen                 |    33|
 |18    |    SERIAL_TRANSMITTER |async_transmitter           |    66|
 |19    |      tickgen          |BaudTickGen__parameterized0 |    39|
 +------+-----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 856.996 ; gain = 592.203
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:15 ; elapsed = 00:01:23 . Memory (MB): peak = 858.359 ; gain = 593.320
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 180 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:48 ; elapsed = 00:00:56 . Memory (MB): peak = 856.996 ; gain = 270.746
-Synthesis Optimization Complete : Time (s): cpu = 00:01:02 ; elapsed = 00:01:04 . Memory (MB): peak = 856.996 ; gain = 592.203
+Synthesis finished with 0 errors, 0 critical warnings and 252 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:59 ; elapsed = 00:01:15 . Memory (MB): peak = 858.359 ; gain = 270.844
+Synthesis Optimization Complete : Time (s): cpu = 00:01:15 ; elapsed = 00:01:23 . Memory (MB): peak = 858.359 ; gain = 593.320
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 840 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 837 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 3 inverter(s) to 66 load pin(s).
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 65 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 680 instances were transformed.
+  A total of 677 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 64 instances
-  LD => LDCE: 328 instances
-  LD => LDCE (inverted pins: G): 34 instances
-  LDC => LDCE: 210 instances
+  LD => LDCE: 264 instances
+  LD => LDCE (inverted pins: G): 33 instances
+  LDC => LDCE: 272 instances
   LDC => LDCE (inverted pins: G): 32 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
-185 Infos, 466 Warnings, 101 Critical Warnings and 0 Errors encountered.
+166 Infos, 487 Warnings, 101 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:06 ; elapsed = 00:01:09 . Memory (MB): peak = 856.996 ; gain = 595.914
+synth_design: Time (s): cpu = 00:01:19 ; elapsed = 00:01:28 . Memory (MB): peak = 858.359 ; gain = 597.215
 INFO: [Common 17-1381] The checkpoint 'E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 856.996 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 17 21:31:37 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 858.359 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Tue Dec 19 13:48:25 2017...
