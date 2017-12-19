@@ -26,7 +26,12 @@ entity CP0_REG is
            config_o : inout STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
            prid_o : inout STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-           timer_int_o : out STD_LOGIC);
+           timer_int_o : out STD_LOGIC;
+           
+           current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           is_in_delayslot_i :          in std_logic
+           );
 end CP0_REG;
 
 architecture Behavioral of CP0_REG is
@@ -37,11 +42,11 @@ architecture Behavioral of CP0_REG is
                 if (rst = RST_ENABLE) then
                     count_o <= REG_ZERO_DATA;
                     compare_o <= REG_ZERO_DATA;
-                    status_o <= STATUS_CU_CP0 & x"0000000";--status瀵勫瓨鍣ㄧ殑CU锟??0001锛岃〃绀哄崗澶勭悊鍣–P0瀛樺湪
+                    status_o <= STATUS_CU_CP0 & x"0000000";--status?????????CU????0001?????????????????0??�??
                     cause_o <= REG_ZERO_DATA;
                     epc_o <= REG_ZERO_DATA;
-                    config_o <= b"00000000000000001000000000000000";--config瀵勫瓨鍣ㄧ殑BE锟??1锛岃〃绀築ig-Endian锛汳T锟??00锛岃〃绀烘病鏈塎MU
-                    prid_o <= b"00000000010011000000000100000010";--鍒朵綔鑰呮槸L锛屽搴旂殑锟??0x48锛岀被鍨嬫槸0x1锛屽熀鏈被鍨嬶紝鐗堟湰鍙锋槸1.0
+                    config_o <= b"00000000000000001000000000000000";--config?????????BE????1????????g-Endian???T????00????????????MU
+                    prid_o <= b"00000000010011000000000100000010";--?????????L?????????????0x48?????????0x1???????????????????????1.0
 
                     timer_int_o <= INTERRUPT_NOT_ASSERT;
                     
@@ -77,6 +82,79 @@ architecture Behavioral of CP0_REG is
                         
                         end case ;
                     end if ;
+
+                    case( except_type_i ) is
+                    
+                        when EXCEPT_TYPE_INTERRUPT =>
+                            if is_in_delayslot_i = DELAYSLOT then
+                                epc_o <= current_inst_address_i - 4;
+                                cause_o(CAUSE_BD_INDEX) <= '1'; --BD = 1
+                            else
+                                epc_o <= current_inst_address_i;
+                                cause_o(CAUSE_BD_INDEX) <= '0'; --BD = 0
+                            end if ;
+                            status_o(STATUS_EXL_INDEX) <= '1'; ---Status.exl = 1
+                            cause_o(6 downto 2) <= EXCCODE_INTERRUPT; -- Cause.excCode = EXCCODE_INTERRUPT
+                        
+                        when EXCEPT_TYPE_SYSCALL =>
+                            if status_o(STATUS_EXL_INDEX) =  '0' then
+                                if is_in_delayslot_i = DELAYSLOT then
+                                    epc_o <= current_inst_address_i - 4;
+                                    cause_o(CAUSE_BD_INDEX) <= '1'; --BD = 1
+                                else
+                                    epc_o <= current_inst_address_i;
+                                    cause_o(CAUSE_BD_INDEX) <=  '0'; --BD = 0
+                                end if ;
+                            end if ;
+                            status_o(STATUS_EXL_INDEX) <= '1'; ---Status.exl = 1
+                            cause_o(6 downto 2) <= EXCCODE_SYSCALL; 
+
+                        when EXCEPT_TYPE_INST_INVALID =>
+                            if status_o(STATUS_EXL_INDEX) =  '0' then
+                                if is_in_delayslot_i = DELAYSLOT then
+                                    epc_o <= current_inst_address_i - 4;
+                                    cause_o(CAUSE_BD_INDEX) <= '1'; --BD = 1
+                                else
+                                    epc_o <= current_inst_address_i;
+                                    cause_o(CAUSE_BD_INDEX) <=  '0'; --BD = 0
+                                end if ;
+                            end if ;
+                            status_o(STATUS_EXL_INDEX) <= '1'; ---Status.exl = 1
+                            cause_o(6 downto 2) <= EXCCODE_INST_INVALID; 
+                        
+                        when EXCEPT_TYPE_TRAP =>
+                            if status_o(STATUS_EXL_INDEX) =  '0' then
+                                if is_in_delayslot_i = DELAYSLOT then
+                                    epc_o <= current_inst_address_i - 4;
+                                    cause_o(CAUSE_BD_INDEX) <= '1'; --BD = 1
+                                else
+                                    epc_o <= current_inst_address_i;
+                                    cause_o(CAUSE_BD_INDEX) <=  '0'; --BD = 0
+                                end if ;
+                            end if ;
+                            status_o(STATUS_EXL_INDEX) <= '1'; ---Status.exl = 1
+                            cause_o(6 downto 2) <= EXCCODE_TRAP; 
+
+                        when EXCEPT_TYPE_OVERFLOW =>
+                            if status_o(STATUS_EXL_INDEX) =  '0' then
+                                if is_in_delayslot_i = DELAYSLOT then
+                                    epc_o <= current_inst_address_i - 4;
+                                    cause_o(CAUSE_BD_INDEX) <= '1'; --BD = 1
+                                else
+                                    epc_o <= current_inst_address_i;
+                                    cause_o(CAUSE_BD_INDEX) <=  '0'; --BD = 0
+                                end if ;
+                            end if ;
+                            status_o(STATUS_EXL_INDEX) <= '1'; ---Status.exl = 1
+                            cause_o(6 downto 2) <= EXCCODE_OVERFLOW; 
+
+                        when EXCEPT_TYPE_ERET =>
+                            status_o(STATUS_EXL_INDEX) <= '0';
+                            --status(STATUS_IE_INDEX) <= "1"??
+
+                        when others =>
+                    
+                    end case ;
                 end if;
             end if;
         end process;

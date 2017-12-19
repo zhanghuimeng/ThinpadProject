@@ -64,8 +64,11 @@ component PC
            pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            branch_i :					in STD_LOGIC;										-- input branch or not from ID
            branch_target_address_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	-- input branch target address from ID
-           pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ROM
-           en_o :   					out STD_LOGIC);                                     -- output enable signal to ROM
+           en_o :   					out STD_LOGIC;                                      -- output enable signal to ROM
+           pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);    -- output program counter (instruction address) to ROM           
+
+           flush_i :                      in std_logic;
+           new_pc_i :                     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));
 end component;
 
 component IF_to_ID is
@@ -75,7 +78,9 @@ component IF_to_ID is
            inst_i : 	in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from ROM
            pause_i :	in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            pc_o :   	out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ID
-           inst_o : 	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));         -- output instruction to ID
+           inst_o : 	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);         -- output instruction to ID
+
+           flush_i :    in STD_LOGIC);
 end component;
 
 component ID is
@@ -108,7 +113,9 @@ component ID is
 		   branch_target_addr_o : 		out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);		-- output the branch target address to PC
 		   is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to ID/EX
 		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the current instruction in delay slot to ID/EX
-		   link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));	-- output the return address to save to ID/EX
+           link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);	-- output the return address to save to ID/EX
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));
 end component;
 
 component ID_to_EX is
@@ -137,7 +144,13 @@ component ID_to_EX is
            link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);		-- output the register address to save return address to EX
 
            inst_i :                     in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-           inst_o :                     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));
+           inst_o :                     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
+
+           flush_i :                    in STD_LOGIC;
+           current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0));
 end component;
 
 component EX is
@@ -176,12 +189,12 @@ component EX is
     clock_cycle_cnt_o : 		out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
     mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
     
-    --访存阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
+    --访存阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
     mem_cp0_reg_we_i :           in STD_LOGIC;
     mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --回写阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
+    --回写阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
     wb_cp0_reg_we_i :           in STD_LOGIC;
     wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
@@ -193,7 +206,15 @@ component EX is
     --向流水线下一级传递，用于写cp0中的指定的寄存器
     cp0_reg_we_o :              out std_logic;
     cp0_reg_write_addr_o :      out std_logic_vector(REG_ADDR_LEN-1 downto 0);
-    cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0));
+    cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0);
+
+    --异常处理
+    current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+    except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+    current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+    except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+    is_in_delayslot_o :          out std_logic
+    );
 
 end component;
 
@@ -230,7 +251,17 @@ component EX_to_MEM is
            ex_cp0_reg_data_i:   in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
            mem_cp0_reg_we_o :   out std_logic;
            mem_cp0_reg_write_addr_o: out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);   
-           mem_cp0_reg_data_o:  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));
+           mem_cp0_reg_data_o:   out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+           --异常处理
+           flush_i :                    in std_logic;
+           current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           is_in_delayslot_i :          in std_logic;
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           is_in_delayslot_o :          out std_logic
+           );
 end component;
 
 component MEM is
@@ -263,7 +294,26 @@ component MEM is
 
 		   cp0_reg_we_o :       out std_logic;
 		   cp0_reg_write_addr_o : out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-		   cp0_reg_data_o :     out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));
+           cp0_reg_data_o :     out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+		   current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+		   is_in_delayslot_i :          in std_logic;
+		   
+           status_i : inout STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           cause_i : inout STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           epc_i : inout STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+		   
+		   wb_cp0_reg_we_i :   in STD_LOGIC;
+           wb_cp0_reg_write_addr_i: in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           wb_cp0_reg_data_i:  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+		   cp0_epc_o : out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           is_in_delayslot_o :          out std_logic
+	);
 end component;
 
 component MEM_to_WB is
@@ -276,6 +326,7 @@ component MEM_to_WB is
            hi_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input HI data from MEM
            lo_i :               in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input LO data from MEM
            pause_i :			in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           flush_i :            in std_logic;
            reg_wt_en_o :        out STD_LOGIC;                                      -- output register write enable to REGISTERS
            reg_wt_addr_o :      out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to REGISTERS
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to REGISTERS
@@ -311,7 +362,11 @@ component CP0_REG is
     config_o : inout STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     prid_o : inout STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    timer_int_o : out STD_LOGIC);
+    timer_int_o : out STD_LOGIC;
+           
+    current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+    except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+    is_in_delayslot_i :          in std_logic);
 end component;
 
 component REGISTERS is
@@ -344,7 +399,13 @@ component PAUSE_CTRL is
            ex_pause_i : in STD_LOGIC;											-- Input pause information from EX
            if_pause_i : in STD_LOGIC;
            mem_pause_i:in STD_LOGIC;
-           pause_o : 	out STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0));		-- Output pause information to PC, IF/ID, ID/EX, EX/MEM, MEM_WB
+		   pause_o : 	out STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- Output pause information to PC, IF/ID, ID/EX, EX/MEM, MEM_WB
+
+		   except_type_i :in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+		   cp0_epc_i :  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+		   new_pc_o : out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+		   flush_o : out STD_LOGIC
+	);
 end component;
 
 component MEM_CONTROLL is 
@@ -452,7 +513,8 @@ signal is_in_delayslot_from_id:	STD_LOGIC;
 signal next_inst_in_delayslot_from_id:	STD_LOGIC;
 signal link_addr_from_id: STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
 signal inst_from_id : STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-
+signal except_type_from_id : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+signal current_inst_address_from_id : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
 -- ID to PC signal
 signal branch_target_addr_from_id: STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
 
@@ -476,7 +538,8 @@ signal reg_wt_addr_to_ex: STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
 signal is_in_delayslot_to_ex: STD_LOGIC;
 signal link_addr_to_ex: STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
 signal inst_to_ex : STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-
+signal except_type_to_ex : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+signal current_inst_address_to_ex : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
 -- ID/EX to ID signals
 signal next_inst_in_delayslot_to_id: STD_LOGIC;
 
@@ -496,6 +559,9 @@ signal store_data_from_ex: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
 signal cp0_reg_we_from_ex : std_logic;
 signal cp0_reg_write_addr_from_ex : std_logic_vector(REG_ADDR_LEN-1 downto 0);
 signal cp0_reg_data_from_ex : std_logic_vector(REG_DATA_LEN-1 downto 0);
+signal except_type_from_ex :std_logic_vector(EXCEPT_TYPE_LEN-1 downto 0);
+signal current_inst_address_from_ex :std_logic_vector(INST_ADDR_LEN-1 downto 0);
+signal is_in_delayslot_from_ex :std_logic;
 
 -- EX to PAUSE_CTRL signals
 signal ex_pause_from_ex: STD_LOGIC;
@@ -518,6 +584,9 @@ signal lo_to_mem: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal mem_cp0_reg_we_to_mem :  std_logic;
 signal mem_cp0_reg_write_addr_to_mem: STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);   
 signal mem_cp0_reg_data_to_mem:   STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+signal except_type_to_mem : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+signal current_inst_address_to_mem : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+signal is_in_delayslot_to_mem : STD_LOGIC;
 
 -- EX/MEM to EX signals
 signal clock_cycle_cnt_to_ex: STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);
@@ -535,6 +604,14 @@ signal lo_from_mem: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 signal cp0_reg_we_from_mem :  STD_LOGIC;
 signal cp0_reg_write_addr_from_mem : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
 signal cp0_reg_data_from_mem : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+-- MEM to CP0_REG signals
+signal except_type_from_mem : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+signal current_inst_address_from_mem : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+signal is_in_delayslot_from_mem : STD_LOGIC;
+signal cp0_epc_from_mem : std_logic_vector(REG_DATA_LEN-1 downto 0);
+signal flush_from_pause : std_logic;
+signal new_pc_from_pause : std_logic_vector(INST_LEN-1 downto 0);
 
 -- MEM/WB to REGISTER signals
 signal reg_wt_en_to_register: STD_LOGIC;
@@ -642,14 +719,15 @@ begin
         rst => input_rst, clk => clk, pause_i => pause, 
         branch_i => branch_from_id, branch_target_address_i => branch_target_addr_from_id,
         
-        pc_o => pc_from_pc, en_o => inst_en_from_pc);
+        pc_o => pc_from_pc, en_o => inst_en_from_pc,
+        new_pc_i => new_pc_from_pause, flush_i => flush_from_pause);
     
     IF_to_ID_0 : IF_to_ID port map(
         rst => input_rst, clk => clk, 
         pc_i => pc_from_pc, inst_i => inst_from_mem_controll, 
         pause_i => pause, 
         
-        pc_o => pc_to_id, inst_o => inst_to_id);
+        pc_o => pc_to_id, inst_o => inst_to_id, flush_i => flush_from_pause);
     
     ID_0 : ID port map(
         rst => input_rst, 
@@ -668,7 +746,11 @@ begin
         reg_wt_en_o => reg_wt_en_from_id, reg_wt_addr_o => reg_wt_addr_from_id,
         pause_o => id_pause_from_id,
         branch_o => branch_from_id, branch_target_addr_o => branch_target_addr_from_id, 
-        is_in_delayslot_o => is_in_delayslot_from_id, next_inst_in_delayslot_o => next_inst_in_delayslot_from_id, link_addr_o => link_addr_from_id);
+        is_in_delayslot_o => is_in_delayslot_from_id, next_inst_in_delayslot_o => next_inst_in_delayslot_from_id, link_addr_o => link_addr_from_id,
+        
+        except_type_o => except_type_from_id,
+        current_inst_address_o => current_inst_address_from_id
+        );
 
     ID_to_EX_0 : ID_to_EX port map(
         rst => input_rst, clk => clk,
@@ -686,7 +768,13 @@ begin
         extended_offset_o => extended_offset_to_ex,
         reg_wt_en_o => reg_wt_en_to_ex, reg_wt_addr_o => reg_wt_addr_to_ex,
         is_in_delayslot_o => is_in_delayslot_to_ex, next_inst_in_delayslot_o => next_inst_in_delayslot_to_id, link_addr_o => link_addr_to_ex,
-        inst_o => inst_to_ex
+        inst_o => inst_to_ex,
+
+        except_type_i => except_type_from_id,
+        current_inst_address_i => current_inst_address_from_id,
+        except_type_o => except_type_to_ex,
+        current_inst_address_o => current_inst_address_to_ex,
+        flush_i => flush_from_pause
         );
 
     EX_0 : EX port map(
@@ -712,12 +800,12 @@ begin
 
         inst_i => inst_to_ex,
         cp0_reg_data_i => data_from_cp0,
-        --访存阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
+        --访存阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
         mem_cp0_reg_we_i => cp0_reg_we_from_mem,
         mem_cp0_reg_write_addr_i => cp0_reg_write_addr_from_mem,
         mem_cp0_reg_data_i => cp0_reg_data_from_mem,
 
-        --回写阶段指令是否要写cp0中的寄存器，用于�??测数据相�??
+        --回写阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
@@ -726,7 +814,14 @@ begin
         cp0_reg_read_addr_o => cp0_reg_read_addr_from_ex,
         cp0_reg_we_o => cp0_reg_we_from_ex,
         cp0_reg_data_o => cp0_reg_data_from_ex,
-        cp0_reg_write_addr_o => cp0_reg_write_addr_from_ex);
+        cp0_reg_write_addr_o => cp0_reg_write_addr_from_ex,
+        
+        except_type_i => except_type_to_ex,
+        current_inst_address_i => current_inst_address_to_ex,
+        except_type_o => except_type_from_ex,
+        current_inst_address_o => current_inst_address_from_ex,
+        is_in_delayslot_o => is_in_delayslot_from_ex
+        );
     
     EX_to_MEM_0 : EX_to_MEM port map(
         rst => input_rst, clk => clk,
@@ -747,7 +842,16 @@ begin
 
         mem_cp0_reg_we_o => mem_cp0_reg_we_to_mem,
         mem_cp0_reg_write_addr_o => mem_cp0_reg_write_addr_to_mem,
-        mem_cp0_reg_data_o => mem_cp0_reg_data_to_mem);
+        mem_cp0_reg_data_o => mem_cp0_reg_data_to_mem,
+
+        except_type_i => except_type_from_ex,
+        current_inst_address_i => current_inst_address_from_ex,
+        is_in_delayslot_i => is_in_delayslot_from_ex,
+        except_type_o => except_type_to_mem,
+        current_inst_address_o => current_inst_address_to_mem,
+        is_in_delayslot_o => is_in_delayslot_to_mem,
+        flush_i => flush_from_pause
+        );
     
     MEM_0 : MEM port map(
         rst => input_rst, 
@@ -772,7 +876,21 @@ begin
         
         cp0_reg_we_o => cp0_reg_we_from_mem,
         cp0_reg_write_addr_o => cp0_reg_write_addr_from_mem,
-        cp0_reg_data_o => cp0_reg_data_from_mem);
+        cp0_reg_data_o => cp0_reg_data_from_mem,
+        
+        except_type_i => except_type_to_mem,
+        current_inst_address_i => current_inst_address_to_mem,
+        is_in_delayslot_i => is_in_delayslot_to_mem,
+        
+        wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
+        wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
+        wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
+        
+        except_type_o => except_type_from_mem,
+        current_inst_address_o => current_inst_address_from_mem,
+        is_in_delayslot_o => is_in_delayslot_from_mem,
+        cp0_epc_o => cp0_epc_from_mem
+        );
     
     MEM_to_WB_0 : MEM_to_WB port map(
         rst => input_rst, clk => clk,
@@ -789,7 +907,7 @@ begin
         
         wb_cp0_reg_we_o => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_o => wb_cp0_reg_write_addr_from_wb,
-        wb_cp0_reg_data_o => wb_cp0_reg_data_from_wb);
+        wb_cp0_reg_data_o => wb_cp0_reg_data_from_wb, flush_i => flush_from_pause);
     
     CP0_REG_0 : CP0_REG port map(
         rst => input_rst, clk => clk,
@@ -809,7 +927,11 @@ begin
         config_o => config_from_cp0,
         prid_o => prid_from_cp0,
 
-        timer_int_o => timer_int_from_cp0
+        timer_int_o => timer_int_from_cp0,
+
+        except_type_i => except_type_from_mem,
+        current_inst_address_i => current_inst_address_from_mem,
+        is_in_delayslot_i => is_in_delayslot_from_mem
         );
 
     REGISTERS_0 : REGISTERS port map(
@@ -831,7 +953,13 @@ begin
     	id_pause_i => id_pause_from_id, ex_pause_i => ex_pause_from_ex,
     	if_pause_i => inst_pause_from_mem_controll,
     	mem_pause_i => mem_pause_from_mem_controll,
-    	pause_o => pause);
+        pause_o => pause,
+        
+        cp0_epc_i => cp0_epc_from_mem,
+        except_type_i => except_type_from_mem,
+        new_pc_o => new_pc_from_pause,
+        flush_o => flush_from_pause
+        );
     
     MEM_CONTROLL_0 : MEM_CONTROLL port map (
         rst => input_rst,

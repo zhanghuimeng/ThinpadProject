@@ -58,7 +58,10 @@ entity MEM_to_WB is
 
            wb_cp0_reg_we_o :   out STD_LOGIC;
            wb_cp0_reg_write_addr_o: out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
-           wb_cp0_reg_data_o:  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));
+           wb_cp0_reg_data_o:  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           
+           flush_i : in std_logic
+           );
 
 end MEM_to_WB;
 
@@ -69,7 +72,7 @@ begin
     process (clk'event)
     begin
         if rising_edge(clk) then
-            if rst = RST_ENABLE then
+            if rst = RST_ENABLE or flush_i = FLUSH then
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
                 reg_wt_data_o <= REG_ZERO_DATA;

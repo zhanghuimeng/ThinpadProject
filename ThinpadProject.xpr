@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="20" Path="Z:/Desktop/computer/ThinpadProject/ThinpadProject.xpr">
+<Project Version="7" Minor="20" Path="Y:/Desktop/computer/ThinpadProject/ThinpadProject.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="6d2578a9ce404dc79a22968225d1e5da"/>

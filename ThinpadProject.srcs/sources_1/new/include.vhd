@@ -41,11 +41,14 @@ package INCLUDE is
 	constant DATA_LEN        : integer   := 32;
 	constant ADDR_LEN        : integer   := 32;
 	constant DOUBLE_DATA_LEN : integer   := 64;
-	
+	constant EXCEPT_TYPE_LEN : integer   := 32;
+
 	-- Pause
 	constant CTRL_PAUSE_LEN  : integer   := 6;
 	constant PAUSE			 : STD_LOGIC := '1';
-    constant PAUSE_NOT		 : STD_LOGIC := '0';
+	constant PAUSE_NOT		 : STD_LOGIC := '0';
+	constant FLUSH			 : STD_LOGIC := '1';
+    constant FLUSH_NOT		 : STD_LOGIC := '0';
     constant PC_PAUSE_INDEX  : integer   := 0;
     constant IF_PAUSE_INDEX  : integer   := 1;
     constant ID_PAUSE_INDEX  : integer   := 2;
@@ -85,6 +88,10 @@ package INCLUDE is
 	constant CHIP_DISABLE    : STD_LOGIC := '0';
 	constant REG_RD_ENABLE   : STD_LOGIC := '1';
 	constant REG_RD_DISABLE  : STD_LOGIC := '0';
+	constant INST_VALID      : STD_LOGIC_vector(0 downto 0) := b"1";
+	constant INST_INVALID    : STD_LOGIC_vector(0 downto 0) := b"0";
+	constant TRUE			 : STD_LOGIC_vector(0 downto 0) := b"1";
+	constant FALSE		     : STD_LOGIC_vector(0 downto 0) := b"0";
 	constant REG_WT_ENABLE   : STD_LOGIC := '1';
 	constant REG_WT_DISABLE  : STD_LOGIC := '0';
 	constant IS_LOAD_STORE	 : STD_LOGIC := '1';
@@ -106,9 +113,12 @@ package INCLUDE is
 	constant OP_TYPE_SHIFT  : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000011";
 	constant OP_TYPE_MOVE   : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000100";
 	constant OP_TYPE_BRANCH : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000101";
-	constant OP_TYPE_LOAD_STORE : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000110";
-	constant OP_TYPE_CP0 : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000111";
-	
+	constant OP_TYPE_LOAD_STORE: STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000110";
+	constant OP_TYPE_CP0    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000111";
+	constant OP_TYPE_TRAP   : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001000";
+	constant OP_TYPE_SYSCALL: STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001001";
+	constant OP_TYPE_ERET   : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001010";
+
 
 	-- Instruction subtype for EX 
 	-- No Operation
@@ -182,8 +192,26 @@ package INCLUDE is
 
 	constant FUNCT_TYPE_MTC0				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
 	constant FUNCT_TYPE_MFC0				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";
+	constant FUNCT_TYPE_ERET				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011";
 
-	
+	--trap
+	constant FUNCT_TYPE_TEQ				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
+	constant FUNCT_TYPE_TGE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";
+	constant FUNCT_TYPE_TGEU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011";
+	constant FUNCT_TYPE_TLT				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";
+	constant FUNCT_TYPE_TLTU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";
+	constant FUNCT_TYPE_TNE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000110";
+
+	constant FUNCT_TYPE_TEQI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000111";
+	constant FUNCT_TYPE_TGEI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001000";
+	constant FUNCT_TYPE_TGEIU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001001";
+	constant FUNCT_TYPE_TLTI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001010";
+	constant FUNCT_TYPE_TLTIU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011";
+	constant FUNCT_TYPE_TNEI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001100";
+
+	--syscall
+	constant FUNCT_TYPE_SYSCALL			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
+
 	-- Introduction to the MIPS32 Architecture
 	-- Table A-2 MIPS32 Encoding of the Opcode Field (bits 31..26)
 	constant OP_SPECIAL  : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000000";
@@ -277,7 +305,7 @@ package INCLUDE is
 	constant FUNCT_TLTU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110011"; -- TLTU rs, rt              if rs < rt then Trap
 	constant FUNCT_TEQ     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110100"; -- TEQ rs, rt               if rs = rt then Trap
 	constant FUNCT_TNE     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110110"; -- TNE rs, rt               if rs 閳?? rt then Trap
-	
+	constant FUNCT_ERET    : STD_Logic_vector(FUNCT_LEN - 1 downto 0) := b"011000";
 	-- mfc0 mtc0
 	constant RS_MTC0    : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00100";
 	constant RS_MFC0    : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00000";
@@ -371,7 +399,25 @@ package INCLUDE is
 	constant CP0_REG_PrId   : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01111"     ;    --鍙
 	constant CP0_REG_CONFIG  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10000"    ;   --鍙
 
+	constant STATUS_EXL_INDEX : integer := 1;
+	constant STATUS_IE_INDEX  : integer := 0;
+	constant CAUSE_BD_INDEX : integer := 31;
 
+	constant EXCEPT_TYPE_INTERRUPT : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0) := x"00000001";
+	constant EXCEPT_TYPE_SYSCALL   : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0) := x"00000008";
+	constant EXCEPT_TYPE_INST_INVALID : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0) := x"0000000a";
+	constant EXCEPT_TYPE_TRAP	   : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0) := x"0000000d";
+	constant EXCEPT_TYPE_OVERFLOW  : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0) := x"0000000c";
+	constant EXCEPT_TYPE_ERET      : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0) := x"0000000e";
+	
+	--cause
+	constant EXCCODE_INTERRUPT : STD_LOGIC_VECTOR(4 downto 0) := b"00000";
+	constant EXCCODE_SYSCALL   : STD_LOGIC_VECTOR(4 downto 0) := b"01000";
+	constant EXCCODE_INST_INVALID : STD_LOGIC_VECTOR(4 downto 0) := b"01010";
+	constant EXCCODE_TRAP	   : STD_LOGIC_VECTOR(4 downto 0) := b"01101";
+	constant EXCCODE_OVERFLOW  : STD_LOGIC_VECTOR(4 downto 0) := b"01100";
+
+	constant EXCEPT_HANDLE_ADDRESS: STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0) := x"80001180";
     
 	function count_leading(vector : STD_LOGIC_VECTOR; b : STD_LOGIC) return natural;
 

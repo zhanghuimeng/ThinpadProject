@@ -42,7 +42,8 @@ entity IF_to_ID is
            inst_i : 	in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- input instruction from ROM
            pause_i :	in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
            pc_o :   	out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);     -- output program counter (instruction address) to ID
-           inst_o : 	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));         -- output instruction to ID
+           inst_o : 	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);         -- output instruction to ID
+           flush_i :    in STD_LOGIC);
 end IF_to_ID;
 
 architecture Behavioral of IF_to_ID is
@@ -52,7 +53,7 @@ begin
     process (clk'event)
     begin
         if rising_edge(clk) then
-            if rst = RST_ENABLE then  -- When rst is enabled, output 0
+            if rst = RST_ENABLE or flush_i = FLUSH then  -- When rst is enabled, output 0
                 pc_o <= x"00000000";
                 inst_o <= x"00000000";
             else

@@ -43,7 +43,10 @@ entity PC is
            branch_i :					in STD_LOGIC;										-- input branch or not from ID
            branch_target_address_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	-- input branch target address from ID
            en_o :   					out STD_LOGIC;                                      -- output enable signal to ROM
-           pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));    -- output program counter (instruction address) to ROM           
+           pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);    -- output program counter (instruction address) to ROM           
+
+           flush_i :                      in std_logic;
+           new_pc_i :                     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));
 end PC;
 
 architecture Behavioral of PC is
@@ -60,7 +63,9 @@ begin
             if en_o = CHIP_DISABLE then   -- When ROM is disabled, PC = 0
                 pc_o <= x"00000000";
             else                        -- When ROM is enabled, PC increase by 4 every clock cycle
-            	if pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
+                if flush_i = '1' then
+                    pc_o <= new_pc_i;
+            	elsif pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
             		if branch_i = BRANCH then
             			pc_o <= branch_target_address_i;
             		else

@@ -1,0 +1,75 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Tue Dec 12 21:28:49 2017
+# Process ID: 14216
+# Current directory: E:/THU/ThinpadProject
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13996 E:\THU\ThinpadProject\ThinpadProject.xpr
+# Log file: E:/THU/ThinpadProject/vivado.log
+# Journal file: E:/THU/ThinpadProject\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project E:/THU/ThinpadProject/ThinpadProject.xpr
+remove_files  E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUV.v
+file delete -force E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUV.v
+close [ open E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v w ]
+add_files E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+open_run impl_1
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 2
+wait_on_run synth_1
+launch_runs impl_1 -jobs 2
+wait_on_run impl_1
+reset_run impl_1
