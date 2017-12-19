@@ -815,34 +815,36 @@ begin
 --        data_from_serial_o => data_from_serial,
 --        ack_o => ack_from_serial);
 		
-	leds(15 downto 0) <= pc_from_pc(31 downto 16);
+	leds(7 downto 0) <= leds_to_leds(7 downto 0);
+	leds(15 downto 8) <= num_to_leds(7 downto 0);
+	leds(31) <= en_from_mem;
         
     -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
    --leds(14 downto 11) <= sel_from_mem_controll; 
     -- leds(10 downto 9) <= state_from_mem_controll; 
     
-    number(7 downto 0) <= num_to_leds(7 downto 0);
+    -- number(7 downto 0) <= num_to_leds(7 downto 0);
 --    leds(15 downto 0) <= leds_to_leds(15 downto 0);
         
-    segL : SEG7_LUT port map(
-         oSEG1 => osegl,
-         iDIG => number(3 downto 0));
+--    segL : SEG7_LUT port map(
+--         oSEG1 => osegl,
+--         iDIG => number(3 downto 0));
                 
-    segH : SEG7_LUT port map(
-         oSEG1 => osegh,
-         iDIG => number(7 downto 4));
+--    segH : SEG7_LUT port map(
+--         oSEG1 => osegh,
+--         iDIG => number(7 downto 4));
                 
-    leds(23 downto 22) <= osegl(7 downto 6);
-    leds(19 downto 17) <= osegl(5 downto 3);
-    leds(20) <= osegl(2);
-    leds(21) <= osegl(1);
-    leds(16) <= osegl(0);
-    leds(31 downto 30) <= osegh(7 downto 6);
-    leds(27 downto 25) <= osegh(5 downto 3);
-    leds(28) <= osegh(2);
-    leds(29) <= osegh(1);
-    leds(24) <= osegh(0);   
+--    leds(23 downto 22) <= osegl(7 downto 6);
+--    leds(19 downto 17) <= osegl(5 downto 3);
+--    leds(20) <= osegl(2);
+--    leds(21) <= osegl(1);
+--    leds(16) <= osegl(0);
+--    leds(31 downto 30) <= osegh(7 downto 6);
+--    leds(27 downto 25) <= osegh(5 downto 3);
+--    leds(28) <= osegh(2);
+--    leds(29) <= osegh(1);
+--    leds(24) <= osegh(0);   
     
 --    leds(15) <= ce_to_ram1;
 --    leds(14) <= '1';

@@ -66,7 +66,7 @@ begin
             		    if is_start = '0' then
             			    pc_o <= pc_o + x"00000004";  -- IEEE.STD_LOGIC_SIGNED library
             			else
-            			    pc_o <= ZERO_ADDR;
+            			    pc_o <= x"80000000";
             			    is_start := '0';
             			end if;
             		end if;

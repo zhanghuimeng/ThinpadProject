@@ -1,0 +1,1509 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Mon Dec 18 15:46:54 2017
+# Process ID: 4687
+# Current directory: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1
+# Command line: vivado -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
+# Log file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
+# Journal file: /home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source MIPS_CPU.tcl -notrace
+Command: synth_design -top MIPS_CPU -part xc7a100tfgg676-2L
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4711 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1184.832 ; gain = 75.984 ; free physical = 7369 ; free virtual = 27246
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:64]
+INFO: [Synth 8-3491] module 'PC' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:579]
+INFO: [Synth 8-638] synthesizing module 'PC' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:51]
+INFO: [Synth 8-256] done synthesizing module 'PC' (1#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
+INFO: [Synth 8-3491] module 'IF_to_ID' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:585]
+INFO: [Synth 8-638] synthesizing module 'IF_to_ID' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'IF_to_ID' (2#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
+INFO: [Synth 8-3491] module 'ID' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:592]
+INFO: [Synth 8-638] synthesizing module 'ID' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:78]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:105]
+WARNING: [Synth 8-614] signal 'reg_rd_addr_1_o' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:105]
+WARNING: [Synth 8-614] signal 'reg_rd_addr_2_o' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:105]
+WARNING: [Synth 8-6014] Unused sequential element operand_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:116]
+WARNING: [Synth 8-6014] Unused sequential element operand_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:117]
+WARNING: [Synth 8-6014] Unused sequential element reg_1_load_relate_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:172]
+WARNING: [Synth 8-6014] Unused sequential element reg_2_load_relate_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:173]
+WARNING: [Synth 8-6014] Unused sequential element pause_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:174]
+WARNING: [Synth 8-6014] Unused sequential element last_inst_is_load_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:179]
+WARNING: [Synth 8-6014] Unused sequential element next_pc_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:248]
+WARNING: [Synth 8-6014] Unused sequential element next_inst_in_delayslot_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:229]
+INFO: [Synth 8-256] done synthesizing module 'ID' (3#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:78]
+INFO: [Synth 8-3491] module 'ID_to_EX' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:611]
+INFO: [Synth 8-638] synthesizing module 'ID_to_EX' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:67]
+INFO: [Synth 8-256] done synthesizing module 'ID_to_EX' (4#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
+INFO: [Synth 8-3491] module 'EX' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:627]
+INFO: [Synth 8-638] synthesizing module 'EX' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:214]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:216]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:378]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:379]
+INFO: [Common 17-14] Message 'Synth 8-5639' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:244]
+WARNING: [Synth 8-614] signal 'hi_o' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:85]
+WARNING: [Synth 8-614] signal 'lo_o' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:85]
+WARNING: [Synth 8-614] signal 'extended_offset_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:85]
+WARNING: [Synth 8-6014] Unused sequential element hi_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:134]
+WARNING: [Synth 8-6014] Unused sequential element lo_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:140]
+WARNING: [Synth 8-6014] Unused sequential element operand_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:148]
+WARNING: [Synth 8-6014] Unused sequential element operand_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:150]
+WARNING: [Synth 8-6014] Unused sequential element sum_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:154]
+WARNING: [Synth 8-6014] Unused sequential element overflow_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:155]
+WARNING: [Synth 8-6014] Unused sequential element compare_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:165]
+WARNING: [Synth 8-6014] Unused sequential element mul_sign_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:180]
+WARNING: [Synth 8-6014] Unused sequential element operand_mul_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:182]
+WARNING: [Synth 8-6014] Unused sequential element operand_mul_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:188]
+WARNING: [Synth 8-6014] Unused sequential element mult_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:193]
+WARNING: [Synth 8-6014] Unused sequential element mult_accum_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:274]
+INFO: [Synth 8-256] done synthesizing module 'EX' (5#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
+INFO: [Synth 8-3491] module 'EX_to_MEM' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:646]
+INFO: [Synth 8-638] synthesizing module 'EX_to_MEM' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:72]
+INFO: [Synth 8-256] done synthesizing module 'EX_to_MEM' (6#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
+INFO: [Synth 8-3491] module 'MEM' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:661]
+INFO: [Synth 8-638] synthesizing module 'MEM' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:107]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:127]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:183]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:201]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:220]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:260]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:283]
+INFO: [Synth 8-256] done synthesizing module 'MEM' (7#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
+INFO: [Synth 8-3491] module 'MEM_to_WB' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:677]
+INFO: [Synth 8-638] synthesizing module 'MEM_to_WB' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:60]
+INFO: [Synth 8-256] done synthesizing module 'MEM_to_WB' (8#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
+INFO: [Synth 8-3491] module 'REGISTERS' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:686]
+INFO: [Synth 8-638] synthesizing module 'REGISTERS' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
+INFO: [Synth 8-256] done synthesizing module 'REGISTERS' (9#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
+INFO: [Synth 8-3491] module 'HI_LO' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:694]
+INFO: [Synth 8-638] synthesizing module 'HI_LO' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'HI_LO' (10#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
+INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:700]
+INFO: [Synth 8-638] synthesizing module 'PAUSE_CTRL' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
+INFO: [Synth 8-256] done synthesizing module 'PAUSE_CTRL' (11#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
+INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:707]
+INFO: [Synth 8-638] synthesizing module 'MEM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'state' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'ack_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_ce_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_is_read_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_sel_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_addr_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'mem_data_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'inst_ce_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+WARNING: [Synth 8-614] signal 'inst_addr_i' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'MEM_CONTROLL' (12#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
+INFO: [Synth 8-3491] module 'MMU' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:732]
+INFO: [Synth 8-638] synthesizing module 'MMU' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:74]
+INFO: [Synth 8-256] done synthesizing module 'MMU' (13#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:74]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:768]
+INFO: [Synth 8-638] synthesizing module 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
+WARNING: [Synth 8-6014] Unused sequential element ram_oe_n_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:64]
+INFO: [Synth 8-256] done synthesizing module 'SRAM_CONTROLL' (14#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:786]
+INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (15#1) [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:64]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port rst
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[31]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[30]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[29]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[28]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[27]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[26]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[25]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[24]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[23]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[22]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[21]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[20]
+WARNING: [Synth 8-3331] design MMU has unconnected port ram1_ack_i
+WARNING: [Synth 8-3331] design MMU has unconnected port ram2_ack_i
+WARNING: [Synth 8-3331] design MEM_to_WB has unconnected port pause_i[3]
+WARNING: [Synth 8-3331] design MEM_to_WB has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design MEM_to_WB has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design MEM_to_WB has unconnected port pause_i[0]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[0]
+WARNING: [Synth 8-3331] design EX has unconnected port is_in_delayslot_i
+WARNING: [Synth 8-3331] design ID_to_EX has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design ID_to_EX has unconnected port pause_i[4]
+WARNING: [Synth 8-3331] design ID_to_EX has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design ID_to_EX has unconnected port pause_i[0]
+WARNING: [Synth 8-3331] design ID has unconnected port is_in_delayslot_i
+WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[4]
+WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[3]
+WARNING: [Synth 8-3331] design IF_to_ID has unconnected port pause_i[0]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[30]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[29]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[28]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[27]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[26]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[25]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[24]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[23]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[22]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[21]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[20]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[19]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[18]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[17]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[16]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port clk_uart
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[3]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[2]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[1]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[0]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1236.332 ; gain = 127.484 ; free physical = 7365 ; free virtual = 27244
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1236.332 ; gain = 127.484 ; free physical = 7370 ; free virtual = 27249
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'clk_uart_IBUF'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'clk'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[5]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:18]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:18]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[4]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'uart_wrn'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'uart_rdn'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:25]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:25]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'uart_tbre'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:26]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:26]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'uart_tsre'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:27]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:27]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'uart_dataready'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'txd'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:31]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:31]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'rxd'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:32]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:32]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_a0'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_we_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:36]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:36]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_rd_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:37]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:37]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_cs_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:38]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:38]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_rst_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:39]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:39]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_drq'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:40]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:40]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_dack'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:41]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:41]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_int'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:42]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:42]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[0]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:43]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:43]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[1]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:44]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:44]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[2]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:45]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:45]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[3]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:46]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:46]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[4]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:47]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:47]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[5]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:48]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:48]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[6]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:49]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:49]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[7]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:50]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:50]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_we_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:53]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:53]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_rd_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:54]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:54]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_cs_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:55]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:55]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_rst_n'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:56]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:56]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_int'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:57]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:57]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_cmd'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:58]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:58]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[0]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:59]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:59]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[1]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:60]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:60]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[2]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:61]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:61]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[3]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:62]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:62]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[4]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:63]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:63]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[5]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:64]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:64]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[6]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:65]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:65]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[7]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:66]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:66]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[8]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:67]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:67]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[9]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:68]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:68]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[10]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:69]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:69]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[11]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:70]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:70]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[12]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:71]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:71]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[13]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:72]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:72]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[14]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:73]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:73]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[15]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:74]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:74]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_clk'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:77]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:77]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[7]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:78]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:78]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[6]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:79]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:79]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[5]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:80]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:80]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[4]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:81]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:81]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[3]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:82]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:82]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[2]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:83]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:83]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[1]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:84]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:84]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[0]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:85]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:85]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_hsync'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:86]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:86]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_vsync'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:87]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:87]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'video_de'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:88]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:88]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[*]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:130]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:130]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[0]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:131]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:131]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[1]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:132]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:132]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[2]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:133]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:133]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[3]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:134]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:134]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[4]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:135]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:135]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[5]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:136]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:136]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[6]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:137]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:137]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[7]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:138]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:138]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[8]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:139]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:139]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[9]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:140]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:140]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[10]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:141]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:141]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[11]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:142]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:142]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[12]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:143]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:143]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[13]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:144]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:144]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[14]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:145]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:145]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[15]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:146]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:146]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[16]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:147]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:147]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[17]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:148]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:148]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[18]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:149]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:149]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[19]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:150]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:150]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[20]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:151]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:151]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[21]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:152]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:152]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[22]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:153]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:153]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[23]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:154]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:154]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[24]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:155]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:155]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[25]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:156]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:156]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[26]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:157]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:157]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[27]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:158]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:158]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[28]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:159]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:159]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[29]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:160]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:160]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[30]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:161]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:161]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[31]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:162]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:162]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[*]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:164]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:164]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[0]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:165]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:165]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[1]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:166]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:166]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[2]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:167]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:167]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[3]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[4]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'flash_a[5]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[6]'. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
+INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
+Finished Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MIPS_CPU_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/MIPS_CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1573.496 ; gain = 0.000 ; free physical = 7092 ; free virtual = 26968
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1573.496 ; gain = 464.648 ; free physical = 7192 ; free virtual = 27071
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tfgg676-2L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1573.496 ; gain = 464.648 ; free physical = 7192 ; free virtual = 27071
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1573.496 ; gain = 464.648 ; free physical = 7194 ; free virtual = 27072
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "funct_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "funct_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "reg_rd_en_1_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "reg_rd_en_2_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "reg_wt_en_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "reg_wt_en_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "funct_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "funct_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "reg_rd_en_1_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "reg_rd_en_2_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5587] ROM size for "reg_wt_en_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "reg_wt_en_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "funct_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "branch_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "link_addr_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "extended_imm" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:275]
+INFO: [Synth 8-5546] ROM "is_load_store_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "hilo_en_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reg_wt_data_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reg_wt_data_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "reg_wt_data_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "reg_wt_data_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:260]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:193]
+INFO: [Synth 8-5546] ROM "ram_en_o" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5587] ROM size for "ram_is_read_o" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5544] ROM "ce_o" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
+INFO: [Synth 8-5545] ROM "inout_type" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-327] inferring latch for variable 'extended_imm_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:101]
+WARNING: [Synth 8-327] inferring latch for variable 'branch_target_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:227]
+WARNING: [Synth 8-327] inferring latch for variable 'link_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:230]
+WARNING: [Synth 8-327] inferring latch for variable 'branch_addr_offset_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:249]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_wt_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:108]
+WARNING: [Synth 8-327] inferring latch for variable 'inst_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:131]
+WARNING: [Synth 8-327] inferring latch for variable 'inst_pause_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:129]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:132]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_pause_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:130]
+WARNING: [Synth 8-327] inferring latch for variable 'ce_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:71]
+WARNING: [Synth 8-327] inferring latch for variable 'we_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:72]
+WARNING: [Synth 8-327] inferring latch for variable 'sel_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:73]
+WARNING: [Synth 8-327] inferring latch for variable 'addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:74]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:75]
+WARNING: [Synth 8-327] inferring latch for variable 'state_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:70]
+WARNING: [Synth 8-327] inferring latch for variable 'inout_type_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:85]
+WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:89]
+WARNING: [Synth 8-327] inferring latch for variable 'led_data_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:187]
+WARNING: [Synth 8-327] inferring latch for variable 'num_data_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:210]
+WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:148]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:143]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:81]
+WARNING: [Synth 8-327] inferring latch for variable 'ram_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:69]
+WARNING: [Synth 8-327] inferring latch for variable 'ram_data_reg' [/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:62]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:18 ; elapsed = 00:00:18 . Memory (MB): peak = 1573.496 ; gain = 464.648 ; free physical = 7171 ; free virtual = 27058
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     64 Bit       Adders := 3     
+	   3 Input     64 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 10    
+	   2 Input      6 Bit       Adders := 2     
+	   2 Input      5 Bit       Adders := 4     
+	   3 Input      4 Bit       Adders := 4     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      3 Bit       Adders := 4     
+	   3 Input      3 Bit       Adders := 8     
+	   2 Input      2 Bit       Adders := 24    
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               64 Bit    Registers := 1     
+	               32 Bit    Registers := 17    
+	                6 Bit    Registers := 3     
+	                5 Bit    Registers := 3     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 10    
++---RAMs : 
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 9     
+	   8 Input     64 Bit        Muxes := 1     
+	  13 Input     64 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 59    
+	   4 Input     32 Bit        Muxes := 9     
+	   8 Input     32 Bit        Muxes := 4     
+	   3 Input     32 Bit        Muxes := 6     
+	   6 Input     32 Bit        Muxes := 1     
+	   7 Input     32 Bit        Muxes := 1     
+	  13 Input     32 Bit        Muxes := 1     
+	   5 Input     32 Bit        Muxes := 5     
+	   2 Input      6 Bit        Muxes := 5     
+	   8 Input      6 Bit        Muxes := 1     
+	   3 Input      6 Bit        Muxes := 1     
+	  39 Input      5 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	  38 Input      5 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 8     
+	  15 Input      5 Bit        Muxes := 1     
+	   5 Input      5 Bit        Muxes := 1     
+	  15 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 18    
+	   4 Input      4 Bit        Muxes := 3     
+	   3 Input      4 Bit        Muxes := 2     
+	  13 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 2     
+	  15 Input      3 Bit        Muxes := 1     
+	  38 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 9     
+	   9 Input      3 Bit        Muxes := 1     
+	  13 Input      3 Bit        Muxes := 1     
+	   5 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 13    
+	   8 Input      2 Bit        Muxes := 1     
+	  13 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 53    
+	   9 Input      1 Bit        Muxes := 3     
+	  15 Input      1 Bit        Muxes := 6     
+	   5 Input      1 Bit        Muxes := 9     
+	  38 Input      1 Bit        Muxes := 3     
+	  39 Input      1 Bit        Muxes := 3     
+	   7 Input      1 Bit        Muxes := 3     
+	   8 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 7     
+	  13 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module PC 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+Module IF_to_ID 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module ID 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 3     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 2     
+	  39 Input      5 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	  38 Input      5 Bit        Muxes := 2     
+	   2 Input      5 Bit        Muxes := 2     
+	  15 Input      5 Bit        Muxes := 1     
+	  15 Input      4 Bit        Muxes := 1     
+	  15 Input      3 Bit        Muxes := 1     
+	  38 Input      3 Bit        Muxes := 2     
+	   2 Input      3 Bit        Muxes := 1     
+	   9 Input      3 Bit        Muxes := 1     
+	   9 Input      1 Bit        Muxes := 3     
+	  15 Input      1 Bit        Muxes := 5     
+	   5 Input      1 Bit        Muxes := 1     
+	  38 Input      1 Bit        Muxes := 3     
+	  39 Input      1 Bit        Muxes := 3     
+Module ID_to_EX 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 4     
+	                6 Bit    Registers := 2     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module EX 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     64 Bit       Adders := 3     
+	   3 Input     64 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 4     
+	   2 Input      6 Bit       Adders := 2     
+	   2 Input      5 Bit       Adders := 4     
+	   3 Input      4 Bit       Adders := 4     
+	   2 Input      4 Bit       Adders := 4     
+	   2 Input      3 Bit       Adders := 4     
+	   3 Input      3 Bit       Adders := 8     
+	   2 Input      2 Bit       Adders := 24    
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 7     
+	   8 Input     64 Bit        Muxes := 1     
+	  13 Input     64 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 21    
+	   8 Input     32 Bit        Muxes := 4     
+	   3 Input     32 Bit        Muxes := 2     
+	   6 Input     32 Bit        Muxes := 1     
+	   4 Input     32 Bit        Muxes := 1     
+	   7 Input     32 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 5     
+	   8 Input      6 Bit        Muxes := 1     
+	   3 Input      6 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 8     
+	   2 Input      3 Bit        Muxes := 8     
+	  13 Input      3 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 11    
+	   8 Input      2 Bit        Muxes := 1     
+	  13 Input      2 Bit        Muxes := 1     
+	   3 Input      2 Bit        Muxes := 1     
+	   7 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 23    
+	   8 Input      1 Bit        Muxes := 4     
+	   3 Input      1 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 3     
+	   5 Input      1 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module EX_to_MEM 
+Detailed RTL Component Info : 
++---Registers : 
+	               64 Bit    Registers := 1     
+	               32 Bit    Registers := 5     
+	                6 Bit    Registers := 1     
+	                5 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     64 Bit        Muxes := 2     
+	   2 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module MEM 
+Detailed RTL Component Info : 
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 6     
+	   3 Input     32 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 11    
+	  13 Input     32 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 3     
+	   3 Input      4 Bit        Muxes := 1     
+	  13 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 1     
+	  13 Input      1 Bit        Muxes := 1     
+	  15 Input      1 Bit        Muxes := 1     
+Module MEM_to_WB 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module REGISTERS 
+Detailed RTL Component Info : 
++---RAMs : 
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 6     
+Module HI_LO 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 2     
+Module PAUSE_CTRL 
+Detailed RTL Component Info : 
++---Muxes : 
+	   5 Input      5 Bit        Muxes := 1     
+Module MEM_CONTROLL 
+Detailed RTL Component Info : 
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 4     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 17    
+Module MMU 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 9     
+	   5 Input     32 Bit        Muxes := 5     
+	   2 Input      4 Bit        Muxes := 2     
+	   5 Input      4 Bit        Muxes := 2     
+	   5 Input      3 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 2     
+	   5 Input      1 Bit        Muxes := 7     
+	   2 Input      1 Bit        Muxes := 1     
+Module SRAM_CONTROLL 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5587] ROM size for "funct_o" is below threshold of ROM address width. It will be mapped to LUTs
+DSP Report: Generating DSP L0, operation Mode is: A*B.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: Generating DSP L0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: Generating DSP L0, operation Mode is: A*B.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: Generating DSP L0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: operator L0 is absorbed into DSP L0.
+DSP Report: Generating DSP hi0, operation Mode is: A*B.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+DSP Report: Generating DSP hi0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+DSP Report: Generating DSP hi0, operation Mode is: A*B.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+DSP Report: Generating DSP hi0, operation Mode is: (PCIN>>17)+A*B.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+DSP Report: operator hi0 is absorbed into DSP hi0.
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port rst
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[31]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[30]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[29]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[28]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[27]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[26]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[25]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[24]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[23]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[22]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[21]
+WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[20]
+WARNING: [Synth 8-3331] design MMU has unconnected port ram1_ack_i
+WARNING: [Synth 8-3331] design MMU has unconnected port ram2_ack_i
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[0]
+WARNING: [Synth 8-3331] design EX has unconnected port is_in_delayslot_i
+WARNING: [Synth 8-3331] design ID has unconnected port is_in_delayslot_i
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[30]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[29]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[28]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[27]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[26]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[25]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[24]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[23]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[22]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[21]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[20]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[19]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[18]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[17]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[16]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port clk_uart
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[16]' (LD) to 'ID_0/extended_imm_reg[17]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[17]' (LD) to 'ID_0/extended_imm_reg[18]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[18]' (LD) to 'ID_0/extended_imm_reg[19]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[19]' (LD) to 'ID_0/extended_imm_reg[20]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[20]' (LD) to 'ID_0/extended_imm_reg[21]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[21]' (LD) to 'ID_0/extended_imm_reg[22]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[22]' (LD) to 'ID_0/extended_imm_reg[23]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[23]' (LD) to 'ID_0/extended_imm_reg[24]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[24]' (LD) to 'ID_0/extended_imm_reg[25]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[25]' (LD) to 'ID_0/extended_imm_reg[26]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[26]' (LD) to 'ID_0/extended_imm_reg[27]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[27]' (LD) to 'ID_0/extended_imm_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[28]' (LD) to 'ID_0/extended_imm_reg[29]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[29]' (LD) to 'ID_0/extended_imm_reg[30]'
+INFO: [Synth 8-3886] merging instance 'ID_0/extended_imm_reg[30]' (LD) to 'ID_0/extended_imm_reg[31]'
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (MMU_0/ack_o_reg)
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[4]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[5]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[3]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ID_to_EX_0/funct_o_reg[5] )
+INFO: [Synth 8-3886] merging instance 'MMU_0/addr_reg[30]' (LD) to 'MMU_0/addr_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\addr_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (MMU_0/\inout_type_reg[2] )
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_66' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_65'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_65' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_64'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_64' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_63'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_63' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_62'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_62' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_61'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_61' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_60'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_60' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_59'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_59' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_58'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_58' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_57'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_57' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_56'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_56' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_55'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_55' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_54'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_54' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_53'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_53' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_52'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_52' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_51'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_51' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_50'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_50' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_49'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_49' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_48'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_48' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_47'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_47' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_46'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_46' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_45'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_45' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_44'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_44' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_43'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_43' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_42'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_42' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_41'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_41' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_40'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_40' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_39'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_39' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_38'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_38' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_37'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_37' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_36'
+INFO: [Synth 8-3886] merging instance 'SRAM_CONTROLL:/ram_data_reg__0i_36' (LD) to 'SRAM_CONTROLL:/ram_data_reg__0i_35'
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[8]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[8]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[9]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[9]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[10]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[10]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[11]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[11]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[12]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[12]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[13]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[13]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[14]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[14]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[15]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[15]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[24]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[24]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[25]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[25]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[21]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[21]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[22]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[22]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[23]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[23]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[30]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[30]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[28]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[28]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[26]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[26]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[29]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[29]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[27]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[27]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[31]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[31]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[19]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[19]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[20]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[20]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[16]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[16]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[17]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[17]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[18]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[18]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[7]  is always disabled
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[29]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[30]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[31]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[31]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[16]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[17]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[18]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[19]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[20]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[21]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[22]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[23]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[24]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[25]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[26]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/extended_offset_o_reg[27]' (FDRE) to 'ID_to_EX_0/extended_offset_o_reg[28]'
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[7]  is always disabled
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[31]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[30]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[29]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[28]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[27]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[26]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[25]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[24]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[23]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[22]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[21]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[20]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[19]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[18]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[17]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[16]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[15]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[14]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[13]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[12]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[11]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[10]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[9]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[8]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[7]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[6]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[5]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[4]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[3]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[2]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[1]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (branch_addr_offset_reg[0]) is unused and will be removed from module ID.
+WARNING: [Synth 8-3332] Sequential element (funct_o_reg[5]) is unused and will be removed from module EX_to_MEM.
+WARNING: [Synth 8-3332] Sequential element (inout_type_reg[2]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[31]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[29]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[28]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[27]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[26]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[25]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[24]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[23]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[22]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[21]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (addr_reg[20]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[31]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[30]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[29]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[28]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[27]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[26]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[25]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[24]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[23]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[22]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[21]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[20]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[19]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[18]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[17]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[16]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[15]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[14]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[13]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[12]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[11]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[10]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[9]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (num_data_reg[8]) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ack_o_reg) is unused and will be removed from module MMU.
+WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/is_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/next_inst_in_delayslot_o_reg) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (ID_to_EX_0/funct_o_reg[5]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[2]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[3]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[4]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[5]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[6]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[7]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[0]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+WARNING: [Synth 8-264] enable of latch MMU_0/\num_data_reg[1]  is always disabled
+INFO: [Common 17-14] Message 'Synth 8-264' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
+WARNING: [Synth 8-3332] Sequential element (funct_o_reg[4]) is unused and will be removed from module EX_to_MEM.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:44 ; elapsed = 00:00:45 . Memory (MB): peak = 1581.496 ; gain = 472.648 ; free physical = 7071 ; free virtual = 26947
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+ROM:
++------------+---------------+---------------+----------------+
+|Module Name | RTL Object    | Depth x Width | Implemented As | 
++------------+---------------+---------------+----------------+
+|ID          | op_o          | 64x3          | LUT            | 
+|ID          | reg_rd_en_1_o | 64x1          | LUT            | 
+|ID          | reg_rd_en_2_o | 64x1          | LUT            | 
+|ID          | reg_wt_en_o   | 64x1          | LUT            | 
+|ID          | op_o          | 64x3          | LUT            | 
+|ID          | reg_rd_en_1_o | 64x1          | LUT            | 
+|ID          | reg_rd_en_2_o | 64x1          | LUT            | 
+|ID          | reg_wt_en_o   | 64x1          | LUT            | 
++------------+---------------+---------------+----------------+
+
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++------------+---------------+-----------+----------------------+---------------+
+|Module Name | RTL Object    | Inference | Size (Depth x Width) | Primitives    | 
++------------+---------------+-----------+----------------------+---------------+
+|REGISTERS_0 | reg_array_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++------------+---------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+
+DSP: Preliminary Mapping  Report (see note below)
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name | DSP Mapping    | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|EX          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|EX          | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|EX          | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|EX          | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 47     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|EX          | A*B            | 18     | 16     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|EX          | (PCIN>>17)+A*B | 16     | 16     | -      | -      | 30     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|EX          | A*B            | 18     | 18     | -      | -      | 48     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|EX          | (PCIN>>17)+A*B | 18     | 16     | -      | -      | 47     | 0    | 0    | -    | -    | -     | 0    | 0    | 
++------------+----------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+
+Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:54 ; elapsed = 00:00:55 . Memory (MB): peak = 1654.496 ; gain = 545.648 ; free physical = 6915 ; free virtual = 26794
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:55 ; elapsed = 00:00:56 . Memory (MB): peak = 1656.496 ; gain = 547.648 ; free physical = 6912 ; free virtual = 26792
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[7]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[6]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[5]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[4]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[3]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[2]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[1]) is unused and will be removed from module MIPS_CPU.
+WARNING: [Synth 8-3332] Sequential element (MMU_0/num_data_reg[0]) is unused and will be removed from module MIPS_CPU.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6890 ; free virtual = 26768
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:58 ; elapsed = 00:00:59 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6891 ; free virtual = 26767
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:58 ; elapsed = 00:01:00 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6891 ; free virtual = 26767
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6891 ; free virtual = 26767
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6891 ; free virtual = 26767
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6891 ; free virtual = 26767
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6891 ; free virtual = 26767
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+----------+------+
+|      |Cell      |Count |
++------+----------+------+
+|1     |BUFG      |    12|
+|2     |CARRY4    |   139|
+|3     |DSP48E1   |     4|
+|4     |DSP48E1_1 |     4|
+|5     |LUT1      |   232|
+|6     |LUT2      |   425|
+|7     |LUT3      |   269|
+|8     |LUT4      |   336|
+|9     |LUT5      |   481|
+|10    |LUT6      |   873|
+|11    |RAM32M    |    12|
+|12    |FDRE      |   630|
+|13    |FDSE      |     2|
+|14    |LD        |   273|
+|15    |LDC       |   234|
+|16    |IBUF      |     2|
+|17    |IOBUF     |    64|
+|18    |OBUF      |    71|
+|19    |OBUFT     |    15|
++------+----------+------+
+
+Report Instance Areas: 
++------+----------------------+----------------+------+
+|      |Instance              |Module          |Cells |
++------+----------------------+----------------+------+
+|1     |top                   |                |  4078|
+|2     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL   |    84|
+|3     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0 |    84|
+|4     |  EX_0                |EX              |   318|
+|5     |  EX_to_MEM_0         |EX_to_MEM       |   770|
+|6     |  HI_LO_0             |HI_LO           |    64|
+|7     |  ID_0                |ID              |   175|
+|8     |  ID_to_EX_0          |ID_to_EX        |  1284|
+|9     |  IF_to_ID_0          |IF_to_ID        |   385|
+|10    |  MEM_CONTROLL_0      |MEM_CONTROLL    |   316|
+|11    |  MEM_to_WB_0         |MEM_to_WB       |   141|
+|12    |  MMU_0               |MMU             |   170|
+|13    |  PAUSE_CTRL_0        |PAUSE_CTRL      |     1|
+|14    |  PC_0                |PC              |   106|
+|15    |  REGISTERS_0         |REGISTERS       |    12|
++------+----------------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1718.191 ; gain = 609.344 ; free physical = 6891 ; free virtual = 26767
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 376 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 1718.191 ; gain = 272.180 ; free physical = 6951 ; free virtual = 26827
+Synthesis Optimization Complete : Time (s): cpu = 00:00:59 ; elapsed = 00:01:00 . Memory (MB): peak = 1718.199 ; gain = 609.344 ; free physical = 6954 ; free virtual = 26830
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 732 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 583 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 64 instances
+  LD => LDCE: 273 instances
+  LDC => LDCE: 234 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
+
+171 Infos, 558 Warnings, 101 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1718.199 ; gain = 622.949 ; free physical = 6999 ; free virtual = 26875
+INFO: [Common 17-1381] The checkpoint '/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1742.203 ; gain = 0.000 ; free physical = 6999 ; free virtual = 26875
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 18 15:48:10 2017...
