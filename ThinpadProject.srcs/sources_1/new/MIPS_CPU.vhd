@@ -55,8 +55,8 @@ entity MIPS_CPU is
            ram2_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
            ram2_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
            
---           rxd : in STD_LOGIC;
---           txd : out STD_LOGIC;
+           rxd : in STD_LOGIC;
+           txd : out STD_LOGIC;
            
            leds : out STD_LOGIC_VECTOR(31 downto 0));
 end MIPS_CPU;
@@ -337,11 +337,11 @@ component MMU is
         ram2_addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
         ram2_sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
 		
---		serial_ce_o : out STD_LOGIC;
---        serial_we_o : out STD_LOGIC;
---        serial_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
---        serial_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
---		serial_ack_i : in STD_LOGIC;
+		serial_ce_o : out STD_LOGIC;
+        serial_we_o : out STD_LOGIC;
+        serial_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+        serial_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+		serial_ack_i : in STD_LOGIC;
         
         leds_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         num_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
@@ -753,11 +753,11 @@ begin
         ram2_addr_o => addr_to_ram2,
         ram2_sel_o => sel_to_ram2,
 		
---		serial_data_i => data_from_serial,
---		serial_ack_i => ack_from_serial,
---		serial_ce_o => ce_to_serial,
---        serial_we_o => we_to_serial,
---        serial_data_o => data_to_serial,
+		serial_data_i => data_from_serial,
+		serial_ack_i => ack_from_serial,
+		serial_ce_o => ce_to_serial,
+        serial_we_o => we_to_serial,
+        serial_data_o => data_to_serial,
         
         leds_o => leds_to_leds,
         num_o => num_to_leds,
@@ -801,21 +801,24 @@ begin
         ram_addr_o => ram2_addr_o,
         ram_data => ram2_data);
         
---    SERIAL_CONTROLL_0 : SERIAL_CONTROLL port map (
---        clk => clk,
---        clk_uart => clk_uart,
---        rst => input_rst,
---        ce_i => ce_to_serial,
---        we_i => we_to_serial,
---        data_from_mmu_i => data_to_serial,
+    SERIAL_CONTROLL_0 : SERIAL_CONTROLL port map (
+        clk => clk,
+        clk_uart => clk_uart,
+        rst => input_rst,
+        ce_i => ce_to_serial,
+        we_i => we_to_serial,
+        data_from_mmu_i => data_to_serial,
          
---        rxd => rxd,
---        txd => txd,
+        rxd => rxd,
+        txd => txd,
           
---        data_from_serial_o => data_from_serial,
---        ack_o => ack_from_serial);
+        data_from_serial_o => data_from_serial,
+        ack_o => ack_from_serial);
 		
-	leds(15 downto 0) <= pc_from_pc(31 downto 16);
+	--leds(15 downto 0) <= inst_to_id(31 downto 16);
+    leds(15) <= ack_from_serial;
+    leds(14) <= ack_from_mmu;
+    leds(13) <= ce_to_serial;
         
     -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
