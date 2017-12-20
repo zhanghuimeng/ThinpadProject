@@ -82,6 +82,8 @@ package INCLUDE is
 	constant REG_NUM         : integer   := 32;
 	constant ROM_SIZE        : integer   := 131072;
 	constant ROM_SIZE_LOG2   : integer   := 17;
+	constant RAM_SIZE        : integer   := 131072;
+    constant RAM_SIZE_LOG2   : integer   := 17;
 	constant RST_ENABLE      : STD_LOGIC := '1';
 	constant RST_DISABLE     : STD_LOGIC := '0';
 	constant CHIP_ENABLE     : STD_LOGIC := '1';
@@ -96,6 +98,11 @@ package INCLUDE is
 	constant REG_WT_DISABLE  : STD_LOGIC := '0';
 	constant IS_LOAD_STORE	 : STD_LOGIC := '1';
 	constant NOT_LOAD_STORE	 : STD_LOGIC := '0';
+
+	-- RAM simulation source
+	constant IS_READ_RAM	 : STD_LOGIC := '1';
+    constant IS_WRITE_RAM    : STD_LOGIC := '0';
+    constant IS_SELECTED     : STD_LOGIC := '1';
 
 	constant REG_ZERO_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00000";
 	constant REG_31_ADDR : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"11111";
@@ -391,13 +398,13 @@ package INCLUDE is
 
 	--reg 
 
-	constant CP0_REG_COUNT :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01001"; --鍙鍐?
-	constant CP0_REG_COMPARE :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0 ) := b"01011";      --鍙鍐?
-	constant CP0_REG_STATUS  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01100";       --鍙鍐?
-	constant CP0_REG_CAUSE  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01101";      --鍙
-	constant CP0_REG_EPC :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01110"     ;     --鍙鍐?
-	constant CP0_REG_PrId   : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01111"     ;    --鍙
-	constant CP0_REG_CONFIG  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10000"    ;   --鍙
+	constant CP0_REG_COUNT :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01001"; --静靝?
+	constant CP0_REG_COMPARE :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0 ) := b"01011";      --静靝?
+	constant CP0_REG_STATUS  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01100";       --静靝?
+	constant CP0_REG_CAUSE  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01101";      --静
+	constant CP0_REG_EPC :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01110"     ;     --静靝?
+	constant CP0_REG_PrId   : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01111"     ;    --静
+	constant CP0_REG_CONFIG  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10000"    ;   --静
 
 	constant STATUS_EXL_INDEX : integer := 1;
 	constant STATUS_IE_INDEX  : integer := 0;
