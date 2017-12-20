@@ -41,11 +41,16 @@ end MIPS_CPU_min_sopc;
 architecture Behavioral of MIPS_CPU_min_sopc is
 
 component MIPS_CPU is
-    Port ( rst :            in STD_LOGIC;                                           -- Reset
-           clk :            in STD_LOGIC;                                           -- Clock
-           inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);               -- input instruction from ROM
-           rom_en_o :       out STD_LOGIC;                                          -- output enable to ROM
-           rom_addr_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));        -- output instruction address to ROM
+    Port ( rst :    					in STD_LOGIC;                                       -- Reset
+           clk :    					in STD_LOGIC;                                       -- Clock
+           pause_i :					in STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- input pause info from PAUSE_CTRL
+           branch_i :					in STD_LOGIC;										-- input branch or not from ID
+           branch_target_address_i : 	in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  	-- input branch target address from ID
+           en_o :   					out STD_LOGIC;                                      -- output enable signal to ROM
+           pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);    -- output program counter (instruction address) to ROM           
+
+           flush_i :                      in std_logic;
+           new_pc_i :                     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));
 end component;
 
 component ROM is

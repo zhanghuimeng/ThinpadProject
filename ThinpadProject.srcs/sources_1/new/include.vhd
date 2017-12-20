@@ -362,7 +362,7 @@ package INCLUDE is
 	constant SRAM_BYTE_CHOOSE_NOT : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"11111111";
     constant SRAM_BYTE_CHOOSE : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"00000000";
     constant SRAM_BYTE_HIGH_Z : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"ZZZZZZZZ";
-    constant SRAM_WORD_HIGH_Z : STD_LOGIC_VECTOR(WORD_LEN - 1 downto 0) := b"ZZZZZZZZZZZZZZZZ";
+    constant SRAM_WORD_HIGH_Z : STD_LOGIC_VECTOR(WORD_LEN - 1 downto 0) := b"ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ";
     constant BYTE_SEL : STD_LOGIC := '1';
     constant BYTE_SEL_NOT : STD_LOGIC := '0';
     constant WORD_SEL : STD_LOGIC_VECTOR(1 downto 0) := b"11";
