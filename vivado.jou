@@ -11,3 +11,5 @@
 #-----------------------------------------------------------
 start_gui
 open_project Y:/Desktop/computer/ThinpadProject/ThinpadProject.xpr
+reset_run synth_1
+launch_simulation
