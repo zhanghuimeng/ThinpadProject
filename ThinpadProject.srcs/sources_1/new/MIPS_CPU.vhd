@@ -34,26 +34,17 @@ use IEEE.STD_LOGIC_1164.ALL;
 use WORK.INCLUDE.ALL;
 
 entity MIPS_CPU is
-    Port ( clk :            in STD_LOGIC;                                   -- Clock
-           touch_btn :      in STD_LOGIC_VECTOR(5 downto 0);
-           -- inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
-           -- rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
-           -- rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     -- output instruction address to ROM
-           
-           ram1_ce_n_o : out STD_LOGIC;
-           ram1_oe_n_o : out STD_LOGIC;
-           ram1_we_n_o : out STD_LOGIC;
-           ram1_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
-           ram1_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
-           ram1_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-           ram2_ce_n_o : out STD_LOGIC;
-           ram2_oe_n_o : out STD_LOGIC;
-           ram2_we_n_o : out STD_LOGIC;
-           ram2_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
-           ram2_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
-           ram2_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-           
-           leds : out STD_LOGIC_VECTOR(31 downto 0));
+    Port ( rst :            	in STD_LOGIC;                                   	-- Reset
+    clk :            	in STD_LOGIC;                                   	-- Clock
+    inst_i :         	in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       	-- input instruction from ROM
+    ram_rd_data_i :		in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- input data read from RAM
+    rom_en_o :       	out STD_LOGIC;                                  	-- output enable to ROM
+    rom_addr_o :     	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     		-- output instruction address to ROM
+    ram_en_o :			out STD_LOGIC;										-- output RAM enable to RAM
+    ram_is_read_o :		out STD_LOGIC;										-- output if this instruction is reading to RAM
+    ram_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output data address to RAM
+    ram_data_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output data to write to RAM
+    ram_data_sel_o : 	out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0));		-- output RAM data selection to RAM
 end MIPS_CPU;
 
 architecture Behavioral of MIPS_CPU is
@@ -189,12 +180,12 @@ component EX is
     clock_cycle_cnt_o : 		out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
     mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
     
-    --访存阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
+    --访存阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
     mem_cp0_reg_we_i :           in STD_LOGIC;
     mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --回写阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
+    --回写阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
     wb_cp0_reg_we_i :           in STD_LOGIC;
     wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
@@ -406,90 +397,6 @@ component PAUSE_CTRL is
 		   new_pc_o : out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
 		   flush_o : out STD_LOGIC
 	);
-end component;
-
-component MEM_CONTROLL is 
-    Port(
-        rst : in STD_LOGIC;
-        clk : in STD_LOGIC;
-        inst_ce_i : in STD_LOGIC;                                    -- input instruction read enable from PC
-        inst_addr_i : in STD_LOGIC_VECTOR(INST_ADDR_LEN - 1 downto 0); -- input read address
-        mem_ce_i : in STD_LOGIC;                                     -- input data read enable from MEM
-        mem_is_read_i : in STD_LOGIC;                                -- input read/write signal from MEM
-        mem_sel_i : in STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0); -- input byte select
-        mem_addr_i : in STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);    -- input data address
-        mem_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);    -- input written data
-        inst_data_o : out STD_LOGIC_VECTOR(INST_LEN - 1 downto 0);  -- output instruction to IF/ID
-        inst_pause_o : out STD_LOGIC;                                -- output pause from sram when get instruction
-        mem_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);   -- output data to MEM
-        mem_pause_o : out STD_LOGIC;                                 -- output pause from sram when read/write data
-            
-        ack_i : in STD_LOGIC;                                    -- input ack signal from MMU
-        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);    -- input data from MMU
-        
-        ce_o : out STD_LOGIC;                                    -- output enable signal to SRAM CONTROLL 
-        we_o : out STD_LOGIC;                                    -- output write/read signal to SRAM CONTROLL
-        sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);-- output byte select to SRAM CONTROLL
-        addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);   -- output address to SRAM CONTROLL
-        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));  -- output data to SRAM CONTROLL
-end component;
-
-component MMU is
-    Port (
-        ce_i : in STD_LOGIC;
-        we_i : in STD_LOGIC;
-        sel_i : in STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
-        addr_i : in STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
-        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        
-        ram1_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        ram1_ack_i : in STD_LOGIC;
-        ram1_ce_o : out STD_LOGIC;
-        ram1_we_o : out STD_LOGIC;
-        ram1_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        ram1_addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
-        ram1_sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
-        
-        ram2_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        ram2_ack_i : in STD_LOGIC;
-        ram2_ce_o : out STD_LOGIC;
-        ram2_we_o : out STD_LOGIC;
-        ram2_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        ram2_addr_o : out STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
-        ram2_sel_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
-        
-        leds_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        num_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        
-        ack_o : out STD_LOGIC;
-        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
-end component;
-
-component SRAM_CONTROLL is
-    Port(
-        clk : in STD_LOGIC;
-        rst : in STD_LOGIC;
-        ce_i : in STD_LOGIC;
-        we_i : in STD_LOGIC;
-        addr_i : in STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0);
-        data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        sel_i : in STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
-        
-        data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-        ack_o : out STD_LOGIC;
-        
-        ram_ce_n_o : out STD_LOGIC;
-        ram_oe_n_o : out STD_LOGIC;
-        ram_we_n_o : out STD_LOGIC;
-        ram_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
-        ram_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
-        ram_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0));
-end component;
-
-component SEG7_LUT is
-    Port (
-        iDIG : in STD_LOGIC_VECTOR(3 downto 0);
-        oSEG1 : out STD_LOGIC_VECTOR(7 downto 0));
 end component;
 
 -- PC to IF/ID signals
@@ -713,7 +620,7 @@ signal input_rst : STD_LOGIC;
 begin
 
     -- rom_addr_o <= pc_from_pc;  -- Output 
-    input_rst <= touch_btn(5);
+    --input_rst <= touch_btn(5);
 
     PC_0 : PC port map(
         rst => input_rst, clk => clk, pause_i => pause, 
@@ -724,7 +631,7 @@ begin
     
     IF_to_ID_0 : IF_to_ID port map(
         rst => input_rst, clk => clk, 
-        pc_i => pc_from_pc, inst_i => inst_from_mem_controll, 
+        pc_i => pc_from_pc, inst_i => inst_i, 
         pause_i => pause, 
         
         pc_o => pc_to_id, inst_o => inst_to_id, flush_i => flush_from_pause);
@@ -800,12 +707,12 @@ begin
 
         inst_i => inst_to_ex,
         cp0_reg_data_i => data_from_cp0,
-        --访存阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
+        --访存阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
         mem_cp0_reg_we_i => cp0_reg_we_from_mem,
         mem_cp0_reg_write_addr_i => cp0_reg_write_addr_from_mem,
         mem_cp0_reg_data_i => cp0_reg_data_from_mem,
 
-        --回写阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
+        --回写阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
@@ -852,22 +759,22 @@ begin
         is_in_delayslot_o => is_in_delayslot_to_mem,
         flush_i => flush_from_pause
         );
-    
+
     MEM_0 : MEM port map(
         rst => input_rst, 
         reg_wt_en_i => reg_wt_en_to_mem, reg_wt_addr_i => reg_wt_addr_to_mem, reg_wt_data_i => reg_wt_data_to_mem,
-        ram_rd_data_i => mem_data_from_mem_controll, 
+        ram_rd_data_i => ram_rd_data_i, 
         is_load_store_i => is_load_store_to_mem, funct_i => funct_to_mem, 
         load_store_addr_i => load_store_addr_to_mem, store_data_i => store_data_to_mem, 
         hilo_en_i => hilo_en_to_mem, hi_i => hi_to_mem, lo_i => lo_to_mem,
         
         reg_wt_en_o => reg_wt_en_from_mem, reg_wt_addr_o => reg_wt_addr_from_mem, reg_wt_data_o => reg_wt_data_from_mem,
         hilo_en_o => hilo_en_from_mem, hi_o => hi_from_mem, lo_o => lo_from_mem,
-        ram_en_o => en_from_mem,
-        ram_is_read_o => is_read_from_mem,
-        ram_addr_o => addr_from_mem,
-        ram_data_o => data_from_mem,
-        ram_data_sel_o => sel_from_mem,
+        ram_en_o => ram_en_o,
+        ram_is_read_o => ram_is_read_o,
+        ram_addr_o => ram_addr_o,
+        ram_data_o => ram_data_o,
+        ram_data_sel_o => ram_data_sel_o,
 
 
         cp0_reg_we_i => mem_cp0_reg_we_to_mem,
@@ -882,6 +789,9 @@ begin
         current_inst_address_i => current_inst_address_to_mem,
         is_in_delayslot_i => is_in_delayslot_to_mem,
         
+        status_i => status_from_cp0,
+        epc_i => epc_from_cp0,
+        cause_i => cause_from_cp0,
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
@@ -948,6 +858,8 @@ begin
         
         hi_o => hi_from_hilo, lo_o => lo_from_hilo);
     
+    inst_pause_from_mem_controll <= PAUSE_NOT;
+    mem_pause_from_mem_controll <= PAUSE_NOT;
     PAUSE_CTRL_0 : PAUSE_CTRL port map (
     	rst => input_rst,
     	id_pause_i => id_pause_from_id, ex_pause_i => ex_pause_from_ex,
@@ -960,118 +872,7 @@ begin
         new_pc_o => new_pc_from_pause,
         flush_o => flush_from_pause
         );
-    
-    MEM_CONTROLL_0 : MEM_CONTROLL port map (
-        rst => input_rst,
-        clk => clk,
-        inst_ce_i => inst_en_from_pc,
-        inst_addr_i => pc_from_pc,
-        mem_ce_i => en_from_mem,
-        mem_is_read_i => is_read_from_mem,
-        mem_sel_i => sel_from_mem,
-        mem_addr_i => addr_from_mem,
-        mem_data_i => data_from_mem,
         
-        ack_i => ack_from_mmu,
-        data_i => data_from_mmu,
-        
-        inst_data_o => inst_from_mem_controll,
-        mem_data_o => mem_data_from_mem_controll,
-        inst_pause_o => inst_pause_from_mem_controll,
-        mem_pause_o => mem_pause_from_mem_controll,
-        
-        ce_o => ce_from_mem_controll,
-        we_o => we_from_mem_controll,
-        sel_o => sel_from_mem_controll,
-        addr_o => addr_from_mem_controll,
-        data_o => data_from_mem_controll);
-        
-    MMU_0 : MMU port map(
-        ce_i => ce_from_mem_controll,
-        we_i => we_from_mem_controll,
-        sel_i => sel_from_mem_controll,
-        addr_i => addr_from_mem_controll,
-        data_i => data_from_mem_controll,
-        
-        ram1_data_i => data_from_ram1,
-        ram1_ack_i => ack_from_ram1,
-        ram1_ce_o => ce_to_ram1,
-        ram1_we_o => we_to_ram1,
-        ram1_data_o => data_to_ram1,
-        ram1_addr_o => addr_to_ram1,
-        ram1_sel_o => sel_to_ram1,
-        
-        ram2_data_i => data_from_ram2,
-        ram2_ack_i => ack_from_ram2,
-        ram2_ce_o => ce_to_ram2,
-        ram2_we_o => we_to_ram2,
-        ram2_data_o => data_to_ram2,
-        ram2_addr_o => addr_to_ram2,
-        ram2_sel_o => sel_to_ram2,
-        
-        leds_o => leds_to_leds,
-        num_o => num_to_leds,
-                
-        ack_o => ack_from_mmu,
-        data_o => data_from_mmu);
-                
-    BASE_SRAM_CONTROLL : SRAM_CONTROLL port map(
-        clk => clk, rst => input_rst,
-        ce_i => ce_to_ram1,
-        we_i => we_to_ram1,
-        addr_i => addr_to_ram1,
-        data_i => data_to_ram1,
-        sel_i => sel_to_ram1,
-        
-        data_o => data_from_ram1,
-        ack_o => ack_from_ram1,
-            
-        ram_ce_n_o => ram1_ce_n_o,
-        ram_oe_n_o => ram1_oe_n_o,
-        ram_we_n_o => ram1_we_n_o,
-        ram_be_n_o => ram1_be_n_o,
-        ram_addr_o => ram1_addr_o,
-        ram_data => ram1_data);
-        
-    EXTEND_RAM_CONTROLL : SRAM_CONTROLL port map(
-        clk => clk, rst => input_rst,
-        ce_i => ce_to_ram2,
-        we_i => we_to_ram2,
-        addr_i => addr_to_ram2,
-        data_i => data_to_ram2,
-        sel_i => sel_to_ram2,
-            
-        data_o => data_from_ram2,
-        ack_o => ack_from_ram2,
-                
-        ram_ce_n_o => ram2_ce_n_o,
-        ram_oe_n_o => ram2_oe_n_o,
-        ram_we_n_o => ram2_we_n_o,
-        ram_be_n_o => ram2_be_n_o,
-        ram_addr_o => ram2_addr_o,
-        ram_data => ram2_data);
-    
-    number(7 downto 0) <= num_to_leds(7 downto 0);
-    leds(15 downto 0) <= leds_to_leds(15 downto 0);
-        
-    segL : SEG7_LUT port map(
-         oSEG1 => osegl,
-         iDIG => number(3 downto 0));
-                
-    segH : SEG7_LUT port map(
-         oSEG1 => osegh,
-         iDIG => number(7 downto 4));
-                
-    leds(23 downto 22) <= osegl(7 downto 6);
-    leds(19 downto 17) <= osegl(5 downto 3);
-    leds(20) <= osegl(2);
-    leds(21) <= osegl(1);
-    leds(16) <= osegl(0);
-    leds(31 downto 30) <= osegh(7 downto 6);
-    leds(27 downto 25) <= osegh(5 downto 3);
-    leds(28) <= osegh(2);
-    leds(29) <= osegh(1);
-    leds(24) <= osegh(0);    
     
 end Behavioral;
 --

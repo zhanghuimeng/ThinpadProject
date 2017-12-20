@@ -41,7 +41,7 @@ use WORK.INCLUDE.ALL;
 
 entity ROM is
     Port ( en_i :       in STD_LOGIC;                                   -- input rom enable from PC
-           addr_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);       -- input instruction address from PC
+           addr_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  -- input instruction address from PC
            inst_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));     -- output instruction to IF/ID
 end ROM;
 
