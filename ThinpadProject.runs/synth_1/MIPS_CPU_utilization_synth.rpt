@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Wed Dec 20 10:11:43 2017
+| Date         : Wed Dec 20 17:14:21 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_utilization -file MIPS_CPU_utilization_synth.rpt -pb MIPS_CPU_utilization_synth.pb
 | Design       : MIPS_CPU
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2442 |     0 |     63400 |  3.85 |
-|   LUT as Logic             | 2394 |     0 |     63400 |  3.78 |
+| Slice LUTs*                | 2451 |     0 |     63400 |  3.87 |
+|   LUT as Logic             | 2403 |     0 |     63400 |  3.79 |
 |   LUT as Memory            |   48 |     0 |     19000 |  0.25 |
 |     LUT as Distributed RAM |   48 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
-| Slice Registers            | 1270 |     0 |    126800 |  1.00 |
-|   Register as Flip Flop    |  716 |     0 |    126800 |  0.56 |
-|   Register as Latch        |  554 |     0 |    126800 |  0.44 |
-| F7 Muxes                   |    0 |     0 |     31700 |  0.00 |
+| Slice Registers            | 1298 |     0 |    126800 |  1.02 |
+|   Register as Flip Flop    |  737 |     0 |    126800 |  0.58 |
+|   Register as Latch        |  561 |     0 |    126800 |  0.44 |
+| F7 Muxes                   |    1 |     0 |     31700 | <0.01 |
 | F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -57,9 +57,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 554   |          Yes |           - |        Reset |
+| 561   |          Yes |           - |        Reset |
 | 7     |          Yes |         Set |            - |
-| 709   |          Yes |       Reset |            - |
+| 730   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -152,23 +152,24 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  879 |                 LUT |
-| FDRE     |  709 |        Flop & Latch |
-| LDCE     |  554 |        Flop & Latch |
-| LUT5     |  511 |                 LUT |
-| LUT2     |  433 |                 LUT |
-| LUT4     |  348 |                 LUT |
-| LUT3     |  319 |                 LUT |
-| LUT1     |  262 |                 LUT |
-| CARRY4   |  148 |          CarryLogic |
-| OBUFT    |   77 |                  IO |
-| OBUF     |   74 |                  IO |
+| LUT6     |  932 |                 LUT |
+| FDRE     |  730 |        Flop & Latch |
+| LDCE     |  561 |        Flop & Latch |
+| LUT5     |  463 |                 LUT |
+| LUT2     |  431 |                 LUT |
+| LUT4     |  383 |                 LUT |
+| LUT3     |  276 |                 LUT |
+| LUT1     |  263 |                 LUT |
+| CARRY4   |  147 |          CarryLogic |
+| OBUFT    |   80 |                  IO |
 | RAMD32   |   72 |  Distributed Memory |
+| OBUF     |   71 |                  IO |
 | IBUF     |   68 |                  IO |
 | RAMS32   |   24 |  Distributed Memory |
 | BUFG     |   12 |               Clock |
 | DSP48E1  |    8 |    Block Arithmetic |
 | FDSE     |    7 |        Flop & Latch |
+| MUXF7    |    1 |               MuxFx |
 +----------+------+---------------------+
 
 

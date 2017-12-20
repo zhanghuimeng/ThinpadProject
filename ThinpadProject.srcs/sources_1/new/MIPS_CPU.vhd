@@ -34,12 +34,13 @@ use IEEE.STD_LOGIC_1164.ALL;
 use WORK.INCLUDE.ALL;
 
 entity MIPS_CPU is
-    Port ( -- clk :            in STD_LOGIC;                                   -- Clock
+    Port ( --clk :            in STD_LOGIC;                                   -- Clock
+           --rst : in STD_LOGIC;
            clk_uart : in STD_LOGIC;
            touch_btn :      in STD_LOGIC_VECTOR(5 downto 0);
-           -- inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
-           -- rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
-           -- rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     -- output instruction address to ROM
+--           inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
+--           rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
+--           rom_addr_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     -- output instruction address to ROM
            
            ram1_ce_n_o : out STD_LOGIC;
            ram1_oe_n_o : out STD_LOGIC;
@@ -379,12 +380,38 @@ component SERIAL_CONTROLL IS
         ce_i : in STD_LOGIC;
         we_i : in STD_LOGIC;
         data_from_mmu_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
-            
-        rxd : in STD_LOGIC;
-        txd : out STD_LOGIC;
+		
+		RxD_data_ready : in STD_LOGIC;
+		RxD_data : in STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
+		RxD_idle : in STD_LOGIC;
+		TxD_start : out STD_LOGIC;
+		TxD_data : out STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
             
         data_from_serial_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         ack_o : out STD_LOGIC);
+end component;
+
+component ASYNC_RECEIVER is
+	generic (
+		ClkFrequency : positive;
+		Baud : positive);
+    port (
+        clk : in STD_LOGIC;
+        RxD : in STD_LOGIC;
+        RxD_data_ready : out STD_LOGIC;
+        RxD_data : out STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
+        RxD_idle : out STD_LOGIC);
+end component;
+ 
+component ASYNC_TRANSMITTER is
+	generic (
+		ClkFrequency : positive;
+		Baud : positive);
+    port (
+        clk : in STD_LOGIC;
+        TxD : out STD_LOGIC;
+        TxD_start : in STD_LOGIC;
+        TxD_data : in STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0));
 end component;
 
 component SEG7_LUT is
@@ -556,6 +583,12 @@ signal ce_to_serial : STD_LOGIC;
 signal we_to_serial : STD_LOGIC;
 signal data_to_serial : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);  
 
+signal RxD_data_ready : STD_LOGIC;
+signal RxD_data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
+signal RxD_idle : STD_LOGIC;
+signal TxD_start : STD_LOGIC;
+signal TxD_data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
+
 -- Signal from mem controll to pause ctrl
 signal inst_pause_from_mem_controll: STD_LOGIC;
 signal mem_pause_from_mem_controll: STD_LOGIC;
@@ -575,6 +608,7 @@ begin
 
     -- rom_addr_o <= pc_from_pc;  -- Output 
     input_rst <= touch_btn(5);
+    --input_rst <= rst;
 
     PC_0 : PC port map(
         rst => input_rst, clk => clk, pause_i => pause, 
@@ -809,43 +843,68 @@ begin
         we_i => we_to_serial,
         data_from_mmu_i => data_to_serial,
          
-        rxd => rxd,
-        txd => txd,
+        RxD_data_ready => RxD_data_ready,
+		RxD_data => RxD_data,
+		RxD_idle => RxD_idle,
+		TxD_start => TxD_start,
+		TxD_data => TxD_data,
           
         data_from_serial_o => data_from_serial,
         ack_o => ack_from_serial);
-		
-	--leds(15 downto 0) <= inst_to_id(31 downto 16);
-    leds(15) <= ack_from_serial;
-    leds(14) <= ack_from_mmu;
-    leds(13) <= ce_to_serial;
+	
+	SERIAL_RECEIVER : ASYNC_RECEIVER 
+	generic map (
+		ClkFrequency => 11059200,
+		Baud => 115200)
+	port map (
+        clk => clk_uart,
+        RxD => rxd,
+        RxD_data_ready => RxD_data_ready,
+        RxD_data => RxD_data,
+        RxD_idle => RxD_idle);
+    
+    SERIAL_TRANSMITTER : ASYNC_TRANSMITTER 
+	generic map (
+		ClkFrequency => 11059200,
+		Baud => 115200)
+	port map (
+        clk => clk_uart,
+        TxD => txd,
+        TxD_start => TxD_start,
+        TxD_data => TxD_data);
+
+	leds(7 downto 0) <= mem_data_from_mem_controll(7 downto 0);
+	leds(15 downto 8) <= data_to_serial(7 downto 0);
+--    leds(15) <= ack_from_serial;
+--    leds(14) <= ack_from_mmu;
+--    leds(13) <= ce_to_serial;
         
     -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
    --leds(14 downto 11) <= sel_from_mem_controll; 
     -- leds(10 downto 9) <= state_from_mem_controll; 
     
-    number(7 downto 0) <= num_to_leds(7 downto 0);
+    -- number(7 downto 0) <= num_to_leds(7 downto 0);
 --    leds(15 downto 0) <= leds_to_leds(15 downto 0);
         
-    segL : SEG7_LUT port map(
-         oSEG1 => osegl,
-         iDIG => number(3 downto 0));
+--    segL : SEG7_LUT port map(
+--         oSEG1 => osegl,
+--         iDIG => number(3 downto 0));
                 
-    segH : SEG7_LUT port map(
-         oSEG1 => osegh,
-         iDIG => number(7 downto 4));
+--    segH : SEG7_LUT port map(
+--         oSEG1 => osegh,
+--         iDIG => number(7 downto 4));
                 
-    leds(23 downto 22) <= osegl(7 downto 6);
-    leds(19 downto 17) <= osegl(5 downto 3);
-    leds(20) <= osegl(2);
-    leds(21) <= osegl(1);
-    leds(16) <= osegl(0);
-    leds(31 downto 30) <= osegh(7 downto 6);
-    leds(27 downto 25) <= osegh(5 downto 3);
-    leds(28) <= osegh(2);
-    leds(29) <= osegh(1);
-    leds(24) <= osegh(0);   
+--    leds(23 downto 22) <= osegl(7 downto 6);
+--    leds(19 downto 17) <= osegl(5 downto 3);
+--    leds(20) <= osegl(2);
+--    leds(21) <= osegl(1);
+--    leds(16) <= osegl(0);
+--    leds(31 downto 30) <= osegh(7 downto 6);
+--    leds(27 downto 25) <= osegh(5 downto 3);
+--    leds(28) <= osegh(2);
+--    leds(29) <= osegh(1);
+--    leds(24) <= osegh(0);   
     
 --    leds(15) <= ce_to_ram1;
 --    leds(14) <= '1';

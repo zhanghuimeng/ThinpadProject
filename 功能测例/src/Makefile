@@ -15,7 +15,7 @@ endif
 
 export TOPDIR AR CFLAGS
 
-export CROSS_COMPILE ?= mips-linux-gnu-
+export CROSS_COMPILE ?= mipsel-linux-gnu-
 
 all: main.bin main.text main.data
 

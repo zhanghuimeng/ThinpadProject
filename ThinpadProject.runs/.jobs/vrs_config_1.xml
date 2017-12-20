@@ -1,7 +1,12 @@
 <?xml version="1.0"?>
 <Runs Version="1" Minor="0">
+<<<<<<< HEAD
 	<Run Id="synth_1" LaunchDir="E:/THU/ThinpadProject/ThinpadProject.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
 	<Run Id="impl_2" LaunchDir="E:/THU/ThinpadProject/ThinpadProject.runs/impl_2" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+=======
+	<Run Id="synth_1" LaunchDir="/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="impl_1" LaunchDir="/home/zhanghuimeng/Computer_Architecture/ThinpadProject/ThinpadProject.runs/impl_1" FlowId="Vivado_Implementation" FromStepId="init_design" ToStepId="write_bitstream">
+>>>>>>> 7f58af3b573fe616b55e9251c7b76088fa649e9a
 		<Parent Id="synth_1"/>
 	</Run>
 </Runs>

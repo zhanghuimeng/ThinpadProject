@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Wed Dec 20 10:13:25 2017
+| Date             : Wed Dec 20 17:16:15 2017
 | Host             : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command          : report_power -file MIPS_CPU_power_routed.rpt -pb MIPS_CPU_power_summary_routed.pb -rpx MIPS_CPU_power_routed.rpx
 | Design           : MIPS_CPU
@@ -50,14 +50,15 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |    <0.001 |     4196 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     2275 |     63400 |            3.59 |
-|   CARRY4                 |    <0.001 |      148 |     15850 |            0.93 |
-|   Register               |    <0.001 |     1270 |    126800 |            1.00 |
+| Slice Logic              |    <0.001 |     4219 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     2283 |     63400 |            3.60 |
+|   CARRY4                 |    <0.001 |      147 |     15850 |            0.93 |
+|   Register               |    <0.001 |     1298 |    126800 |            1.02 |
 |   BUFG                   |    <0.001 |       11 |        32 |           34.38 |
-|   Others                 |     0.000 |       36 |       --- |             --- |
+|   Others                 |     0.000 |       34 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |        1 |     63400 |           <0.01 |
 |   LUT as Distributed RAM |     0.000 |       48 |     19000 |            0.25 |
-| Signals                  |    <0.001 |     4176 |       --- |             --- |
+| Signals                  |    <0.001 |     4206 |       --- |             --- |
 | DSPs                     |     0.000 |        8 |       240 |            3.33 |
 | I/O                      |    <0.001 |      155 |       300 |           51.67 |
 | Static Power             |     0.097 |          |           |                 |
@@ -168,10 +169,10 @@ Table of Contents
 |     reg_array_reg_r2_0_31_30_31 |     0.000 |
 |     reg_array_reg_r2_0_31_6_11  |     0.000 |
 |   SERIAL_CONTROLL_0             |    <0.001 |
-|     SERIAL_RECEIVER             |    <0.001 |
-|       tickgen                   |    <0.001 |
-|     SERIAL_TRANSMITTER          |    <0.001 |
-|       tickgen                   |    <0.001 |
+|   SERIAL_RECEIVER               |    <0.001 |
+|     tickgen                     |    <0.001 |
+|   SERIAL_TRANSMITTER            |    <0.001 |
+|     tickgen                     |    <0.001 |
 |   ram1_data_IOBUF[0]_inst       |     0.000 |
 |   ram1_data_IOBUF[10]_inst      |     0.000 |
 |   ram1_data_IOBUF[11]_inst      |     0.000 |
