@@ -5,40 +5,18 @@ inst.om:     file format elf32-tradbigmips
 Disassembly of section .text:
 
 00000000 <_start>:
-   0:	34010001 	li	at,0x1
-   4:	08000008 	j	20 <_start+0x20>
-   8:	34010002 	li	at,0x2
-   c:	34011111 	li	at,0x1111
-  10:	34011100 	li	at,0x1100
-	...
-  20:	34010003 	li	at,0x3
-  24:	0c000010 	jal	40 <_start+0x40>
-  28:	003f0825 	or	at,at,ra
-  2c:	34010005 	li	at,0x5
-  30:	34010006 	li	at,0x6
-  34:	08000018 	j	60 <_start+0x60>
-  38:	00000000 	nop
-  3c:	00000000 	nop
-  40:	03e01009 	jalr	v0,ra
-  44:	00400825 	move	at,v0
-  48:	34010009 	li	at,0x9
-  4c:	3401000a 	li	at,0xa
-  50:	08000020 	j	80 <_start+0x80>
-  54:	00000000 	nop
-	...
-  60:	34010007 	li	at,0x7
-  64:	00400008 	jr	v0
-  68:	34010008 	li	at,0x8
-  6c:	34011111 	li	at,0x1111
-  70:	34011100 	li	at,0x1100
-	...
-
-00000084 <_loop>:
-  84:	08000021 	j	84 <_loop>
-  88:	00000000 	nop
+   0:	3c010101 	lui	at,0x101
+   4:	34210101 	ori	at,at,0x101
+   8:	34221100 	ori	v0,at,0x1100
+   c:	00220825 	or	at,at,v0
+  10:	302300fe 	andi	v1,at,0xfe
+  14:	00610824 	and	at,v1,at
+  18:	3824ff00 	xori	a0,at,0xff00
+  1c:	00810826 	xor	at,a0,at
+  20:	00810827 	nor	at,a0,at
 
 Disassembly of section .reginfo:
 
 00000000 <.reginfo>:
-   0:	80000006 	lb	zero,6(zero)
+   0:	0000001e 	0x1e
 	...

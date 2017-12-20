@@ -369,9 +369,9 @@ package INCLUDE is
     constant WORD_SEL_NOT : STD_LOGIC_VECTOR(1 downto 0) := b"00";
     
     constant TYPE_LEN : integer := 3;
-    constant TYPE_NULL : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"000";
+ --s   constant TYPE_NULL : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"000";
     constant TYPE_BASE_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"001";
-    constant TYPE_EXTEND_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"010";
+--    constant TYPE_EXTEND_RAM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"010";
     constant TYPE_LED : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"011";
     constant TYPE_NUM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"100";
     

@@ -193,6 +193,7 @@ begin
 							when "11" =>
 								ram_data_sel_o <= "0001";
 								reg_wt_data_o <= sign_extend(ram_rd_data_i(BYTE_LEN-1 downto 0), REG_DATA_LEN);
+							when others =>
 						end case lb_addr;
 						
 					when FUNCT_TYPE_LBU =>
@@ -379,7 +380,7 @@ begin
 			cp0_epc_o <= cp0_epc;
 
 			if current_inst_address_i /= ZERO_DATA then
-				if ((cp0_cause(15 downto 8) & cp0_status(15 downto 8)) /= x"00" )
+				if ((cp0_cause(15 downto 8) & cp0_status(15 downto 8)) /= "00000000" )
 				and cp0_status(1) = '0' and  cp0_status(0) = '1' then
 					except_type := EXCEPT_TYPE_INTERRUPT; -- interrupt
 				elsif except_type_i(8) = '1' then
