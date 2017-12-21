@@ -70,12 +70,7 @@ begin
                 rom_array(to_integer(unsigned(index))) := data;
                 
                 -- print the value of rom_array(index)
-                deallocate(output);
-                write(output, string'("rom_array("));
-                write(output, integer'(to_integer(unsigned(index))));
-                write(output, string'(") = "));
-                write(output, rom_array(to_integer(unsigned(index))));
-                report output.all;
+                
                 
                 index := index + b"0000000000000001";
             end loop;
@@ -87,6 +82,11 @@ begin
                 inst_o <= x"00000000";
             else
                 inst_o <= rom_array(to_integer(unsigned(addr_i(ROM_SIZE_LOG2+1 downto 2))));
+                deallocate(output);
+                                write(output, string'("inst_o = "));
+                                
+                                write(output, inst_o);
+                                report output.all;
             end if;
         end loop;
     end process;

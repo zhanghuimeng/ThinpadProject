@@ -1,0 +1,82 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+-------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
+| Date         : Thu Dec 21 00:20:24 2017
+| Host         : zhanghuimeng-ThinkPad-T430 running 64-bit Ubuntu 16.04.3 LTS
+| Command      : report_control_sets -verbose -file MIPS_CPU_control_sets_placed.rpt
+| Design       : MIPS_CPU
+| Device       : xc7a100t
+-------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    19 |
+| Unused register locations in slices containing registers |    29 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |             103 |           51 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |             311 |          149 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |             685 |          304 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------------+------------------------------------+----------------------------------+------------------+----------------+
+|             Clock Signal             |            Enable Signal           |         Set/Reset Signal         | Slice Load Count | Bel Load Count |
++--------------------------------------+------------------------------------+----------------------------------+------------------+----------------+
+|  clk_IBUF_BUFG                       |                                    |                                  |                2 |              2 |
+|  clk_IBUF_BUFG                       | MEM_to_WB_0/cause_o_reg[22][0]     | rst_IBUF_BUFG                    |                2 |              4 |
+|  ID_to_EX_0/reg_wt_data_o_reg[15][0] |                                    |                                  |                2 |              5 |
+|  clk_IBUF_BUFG                       | MEM_to_WB_0/status_o_reg[2][0]     | rst_IBUF_BUFG                    |               13 |             31 |
+| ~rst_IBUF_BUFG                       |                                    |                                  |               20 |             32 |
+|  n_5_581_BUFG                        |                                    | rst_IBUF_BUFG                    |               26 |             32 |
+|  n_4_2457_BUFG                       |                                    |                                  |               13 |             32 |
+|  n_3_265_BUFG                        |                                    | rst_IBUF_BUFG                    |               15 |             32 |
+|  n_2_373_BUFG                        |                                    |                                  |               14 |             32 |
+|  n_1_264_BUFG                        |                                    | rst_IBUF_BUFG                    |               10 |             32 |
+|  clk_IBUF_BUFG                       | MEM_to_WB_0/epc_o_reg[31][0]       | rst_IBUF_BUFG                    |               12 |             32 |
+|  clk_IBUF_BUFG                       | MEM_to_WB_0/compare_o_reg[31]_0[0] | rst_IBUF_BUFG                    |               12 |             32 |
+|  clk_IBUF_BUFG                       | ID_to_EX_0/p_0_in                  | PC_0/pc_o[0]_i_1_n_6             |                9 |             32 |
+|  n_0_801_BUFG                        |                                    | rst_IBUF_BUFG                    |               27 |             38 |
+|  clk_IBUF_BUFG                       | MEM_to_WB_0/E[0]                   | rst_IBUF_BUFG                    |               41 |             64 |
+|  clk_IBUF_BUFG                       | MEM_to_WB_0/p_0_in                 |                                  |               12 |             96 |
+|  clk_IBUF_BUFG                       |                                    | rst_IBUF_BUFG                    |               71 |            177 |
+|  clk_IBUF_BUFG                       | ID_to_EX_0/p_0_in                  | ID_to_EX_0/except_type_o_reg[10] |              105 |            244 |
+|  clk_IBUF_BUFG                       | ID_to_EX_0/p_0_in                  | rst_IBUF_BUFG                    |              110 |            246 |
++--------------------------------------+------------------------------------+----------------------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 2      |                     1 |
+| 4      |                     1 |
+| 5      |                     1 |
+| 16+    |                    16 |
++--------+-----------------------+
+
+

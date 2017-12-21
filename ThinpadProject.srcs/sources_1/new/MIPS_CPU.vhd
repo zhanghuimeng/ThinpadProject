@@ -619,14 +619,14 @@ signal input_rst : STD_LOGIC;
 
 begin
 
-    -- rom_addr_o <= pc_from_pc;  -- Output 
-    --input_rst <= touch_btn(5);
+     rom_addr_o <= pc_from_pc;  -- Output 
+     input_rst <= rst;
 
     PC_0 : PC port map(
         rst => input_rst, clk => clk, pause_i => pause, 
         branch_i => branch_from_id, branch_target_address_i => branch_target_addr_from_id,
         
-        pc_o => pc_from_pc, en_o => inst_en_from_pc,
+        pc_o => pc_from_pc, en_o => rom_en_o,
         new_pc_i => new_pc_from_pause, flush_i => flush_from_pause);
     
     IF_to_ID_0 : IF_to_ID port map(

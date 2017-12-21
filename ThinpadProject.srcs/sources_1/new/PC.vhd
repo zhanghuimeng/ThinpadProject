@@ -64,7 +64,7 @@ begin
                 pc_o <= x"00000000";
             else                        -- When ROM is enabled, PC increase by 4 every clock cycle
                 if flush_i = '1' then
-                    pc_o <= new_pc_i;
+                    pc_o <= x"00000000";
             	elsif pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
             		if branch_i = BRANCH then
             			pc_o <= branch_target_address_i;

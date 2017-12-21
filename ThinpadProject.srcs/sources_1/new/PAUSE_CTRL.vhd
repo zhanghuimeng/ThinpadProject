@@ -66,15 +66,16 @@ begin
 			case( except_type_i ) is
 			
 				when EXCEPT_TYPE_INTERRUPT =>
-					new_pc_o <= EXCEPT_HANDLE_ADDRESS;
+					--new_pc_o <= EXCEPT_HANDLE_ADDRESS;
+					new_pc_o <= x"00000020";
 				when EXCEPT_TYPE_SYSCALL =>
-					new_pc_o <=  EXCEPT_HANDLE_ADDRESS;
+					new_pc_o <=  x"00000040";
 				when EXCEPT_TYPE_INST_INVALID =>
-					new_pc_o <=  EXCEPT_HANDLE_ADDRESS;
+					new_pc_o <=  x"00000040";
 				when EXCEPT_TYPE_TRAP =>
-					new_pc_o <=  EXCEPT_HANDLE_ADDRESS;
+					new_pc_o <=  x"00000040";
 				when EXCEPT_TYPE_OVERFLOW =>
-					new_pc_o <=  EXCEPT_HANDLE_ADDRESS;
+					new_pc_o <=  x"00000040";
 				when EXCEPT_TYPE_ERET =>
 					new_pc_o <= cp0_epc_i;
 				when others =>
