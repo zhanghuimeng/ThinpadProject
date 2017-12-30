@@ -59,7 +59,9 @@ component PC
            pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);    -- output program counter (instruction address) to ROM           
 
            flush_i :                      in std_logic;
-           new_pc_i :                     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));
+           new_pc_i :                     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           new_pc_en_i:                   in std_logic
+           );
 end component;
 
 component IF_to_ID is
@@ -180,21 +182,21 @@ component EX is
     clock_cycle_cnt_o : 		out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
     mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
     
-    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑瀵勫瓨鍣紝鐢ㄤ簬锟�???娴嬫暟鎹浉锟�???
+    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
     mem_cp0_reg_we_i :           in STD_LOGIC;
     mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑瀵勫瓨鍣紝鐢ㄤ簬锟�???娴嬫暟鎹浉锟�???
+    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
     wb_cp0_reg_we_i :           in STD_LOGIC;
     wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --涓嶤P0鐩存帴鐩歌繛锛岀敤浜庤鍙栧叾涓寚瀹氬瘎瀛樺櫒鐨勶拷??
+    --涓嶤P0鐩存帴鐩歌繛锛岀敤浜庤鍙栧叾涓寚瀹氬瘎�?�樺櫒鐨勶拷??
     cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
     cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
 
-    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎瀛樺櫒
+    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎�?�樺�?
     cp0_reg_we_o :              out std_logic;
     cp0_reg_write_addr_o :      out std_logic_vector(REG_ADDR_LEN-1 downto 0);
     cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0);
@@ -395,6 +397,7 @@ component PAUSE_CTRL is
 		   except_type_i :in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
 		   cp0_epc_i :  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 		   new_pc_o : out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+		   new_pc_en_o: out std_logic;
 		   flush_o : out STD_LOGIC
 	);
 end component;
@@ -559,6 +562,7 @@ signal lo_from_hilo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
 -- PAUSE_CTRL to PC, IF/ID, ID/EX, EX/MEM, MEM/WB signal
 signal pause: STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);
+signal new_pc_en_from_pause: std_logic;
 
 signal data_from_ram: STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 
@@ -627,7 +631,7 @@ begin
         branch_i => branch_from_id, branch_target_address_i => branch_target_addr_from_id,
         
         pc_o => pc_from_pc, en_o => rom_en_o,
-        new_pc_i => new_pc_from_pause, flush_i => flush_from_pause);
+        new_pc_en_i => new_pc_en_from_pause,new_pc_i => new_pc_from_pause, flush_i => flush_from_pause);
     
     IF_to_ID_0 : IF_to_ID port map(
         rst => input_rst, clk => clk, 
@@ -707,12 +711,12 @@ begin
 
         inst_i => inst_to_ex,
         cp0_reg_data_i => data_from_cp0,
-        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑瀵勫瓨鍣紝鐢ㄤ簬锟�???娴嬫暟鎹浉锟�???
+        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
         mem_cp0_reg_we_i => cp0_reg_we_from_mem,
         mem_cp0_reg_write_addr_i => cp0_reg_write_addr_from_mem,
         mem_cp0_reg_data_i => cp0_reg_data_from_mem,
 
-        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑瀵勫瓨鍣紝鐢ㄤ簬锟�???娴嬫暟鎹浉锟�???
+        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
@@ -870,7 +874,8 @@ begin
         cp0_epc_i => cp0_epc_from_mem,
         except_type_i => except_type_from_mem,
         new_pc_o => new_pc_from_pause,
-        flush_o => flush_from_pause
+        flush_o => flush_from_pause,
+        new_pc_en_o => new_pc_en_from_pause
         );
         
     

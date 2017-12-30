@@ -235,7 +235,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= reg_rd_data_1_i;
+                            branch_target_addr_o <= operand_1_o;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             inst_valid := INST_VALID;
                         
@@ -247,7 +247,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= reg_rd_data_1_i;
+                            branch_target_addr_o <= operand_1_o;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             link_addr_o <= pc_i + b"1000";
                             inst_valid := INST_VALID;
@@ -533,7 +533,7 @@ begin
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                            if SIGNED(reg_rd_data_1_i) < 0 then
+                            if SIGNED(operand_1_o) < 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -547,7 +547,7 @@ begin
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                            if SIGNED(reg_rd_data_1_i) >= 0 then
+                            if SIGNED(operand_1_o) >= 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -573,58 +573,58 @@ begin
                         
 	            		-- TGEIU rs, immediate				if rs â‰? immediate then Trap
 	            		when RT_TGEIU =>
-                        op_o <= OP_TYPE_TRAP;
-                        funct_o <= FUNCT_TYPE_TGEIU;
-                        reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
-                        reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
-                        reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
-                        inst_valid := INST_VALID;
-                        extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                        extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                            op_o <= OP_TYPE_TRAP;
+                            funct_o <= FUNCT_TYPE_TGEIU;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
+                            inst_valid := INST_VALID;
+                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
+                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
                     
 	            		-- TLTI rs, immediate				if rs < immediate then Trap
 	            		when RT_TLTI =>
-                        op_o <= OP_TYPE_TRAP;
-                        funct_o <= FUNCT_TYPE_TLTI;
-                        reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
-                        reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
-                        reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
-                        inst_valid := INST_VALID;
-                        extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                        extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                            op_o <= OP_TYPE_TRAP;
+                            funct_o <= FUNCT_TYPE_TLTI;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
+                            inst_valid := INST_VALID;
+                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
+                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
                     
 	            		-- TLTIU rs, immediate				if rs < immediate then Trap
 	            		when RT_TLTIU =>
-                        op_o <= OP_TYPE_TRAP;
-                        funct_o <= FUNCT_TYPE_TLTIU;
-                        reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
-                        reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
-                        reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
-                        inst_valid := INST_VALID;
-                        extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                        extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                            op_o <= OP_TYPE_TRAP;
+                            funct_o <= FUNCT_TYPE_TLTIU;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
+                            inst_valid := INST_VALID;
+                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
+                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
                     
 						-- TEQI rs, immediate				if rs = immediate then Trap
 						when RT_TEQI =>
-                        op_o <= OP_TYPE_TRAP;
-                        funct_o <= FUNCT_TYPE_TEQI;
-                        reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
-                        reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
-                        reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
-                        inst_valid := INST_VALID;
-                        extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                        extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                            op_o <= OP_TYPE_TRAP;
+                            funct_o <= FUNCT_TYPE_TEQI;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
+                            inst_valid := INST_VALID;
+                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
+                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
                     
 						-- TNEI rs, immediate				if rs â‰? immediate then Trap
 						when RT_TNEI =>
-                        op_o <= OP_TYPE_TRAP;
-                        funct_o <= FUNCT_TYPE_TNEI;
-                        reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
-                        reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
-                        reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
-                        inst_valid := INST_VALID;
-                        extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                        extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
+                            op_o <= OP_TYPE_TRAP;
+                            funct_o <= FUNCT_TYPE_TNEI;
+                            reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
+                            inst_valid := INST_VALID;
+                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
+                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
                     
 						-- BLTZAL rs, offset				if rs < 0 then procedure_call
 						when RT_BLTZAL =>
@@ -634,7 +634,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write $31
                             reg_wt_addr_o <= REG_31_ADDR;
-                            if SIGNED(reg_rd_data_1_i) < 0 then
+                            if SIGNED(operand_1_o) < 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	link_addr_o <= pc_i + b"1000";
@@ -650,7 +650,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write $31
                             reg_wt_addr_o <= REG_31_ADDR;
-                            if SIGNED(reg_rd_data_1_i) >= 0 then
+                            if SIGNED(operand_1_o) >= 0 then
                             	branch_o <= BRANCH;
                             	branch_target_addr_o <= branch_addr_offset + next_pc;
                             	link_addr_o <= pc_i + b"1000";
@@ -890,7 +890,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if reg_rd_data_1_i = reg_rd_data_2_i then
+                    if operand_1_o = operand_2_o then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -904,7 +904,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if not(reg_rd_data_1_i = reg_rd_data_2_i) then
+                    if not(operand_1_o = operand_2_o) then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -918,7 +918,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if SIGNED(reg_rd_data_1_i) <= 0 then
+                    if SIGNED(operand_1_o) <= 0 then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -932,7 +932,7 @@ begin
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-                    if SIGNED(reg_rd_data_1_i) > 0 then
+                    if SIGNED(operand_1_o) > 0 then
                     	branch_o <= BRANCH;
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
@@ -1118,7 +1118,7 @@ begin
                                    
             end case op_code;
             
-            except_type_o <= x"0000" & b"000" & except_type_is_eret & b"00" & inst_valid & except_type_is_eret & x"00" ;
+            except_type_o <= x"0000" & b"000" & except_type_is_eret & b"00" & inst_valid & except_type_is_syscall & x"00" ;
             current_inst_address_o <= pc_i;
 
             if reg_rd_en_1_o = REG_RD_ENABLE then

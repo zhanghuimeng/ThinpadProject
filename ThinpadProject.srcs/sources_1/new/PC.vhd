@@ -46,7 +46,9 @@ entity PC is
            pc_o :   					out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);    -- output program counter (instruction address) to ROM           
 
            flush_i :                      in std_logic;
-           new_pc_i :                     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));
+           new_pc_i :                     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           new_pc_en_i:                  in std_logic
+           );
 end PC;
 
 architecture Behavioral of PC is
@@ -64,10 +66,13 @@ begin
                 pc_o <= x"00000000";
             else                        -- When ROM is enabled, PC increase by 4 every clock cycle
                 if flush_i = '1' then
-                    pc_o <= x"00000000";
+                    --pc_o <= x"00000000";
+                    pc_o <= new_pc_i;
             	elsif pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
             		if branch_i = BRANCH then
             			pc_o <= branch_target_address_i;
+            		elsif new_pc_en_i = '1' then
+            		    pc_o <= new_pc_i;
             		else
             			pc_o <= pc_o + x"00000004";  -- IEEE.STD_LOGIC_SIGNED library
             		end if;

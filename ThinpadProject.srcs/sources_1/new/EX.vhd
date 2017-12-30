@@ -77,12 +77,12 @@ entity EX is
 		   clock_cycle_cnt_o : 			out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
            mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
            
-           --访存阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
+           --访存阶段指令是否要写cp0中的寄存器，用于�????测数据相�????
            mem_cp0_reg_we_i :           in STD_LOGIC;
            mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
            mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-           --回写阶段指令是否要写cp0中的寄存器，用于�???测数据相�???
+           --回写阶段指令是否要写cp0中的寄存器，用于�????测数据相�????
            wb_cp0_reg_we_i :           in STD_LOGIC;
            wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
            wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
@@ -405,7 +405,7 @@ begin
                         -- MTHI
                         when FUNCT_TYPE_MOVE_TO_HI =>
                             hilo_en_o <= CHIP_ENABLE;
-                            hi_o <= operand_1_i;
+                            hi := operand_1_i;
                         
                         -- MFLO
                         when FUNCT_TYPE_MOVE_FROM_LO =>
@@ -414,7 +414,7 @@ begin
                         -- MTLO
                         when FUNCT_TYPE_MOVE_TO_LO =>
                             hilo_en_o <= CHIP_ENABLE;
-                            lo_o <= operand_1_i;
+                            lo := operand_1_i;
                         
                         when others =>
                         
@@ -458,12 +458,12 @@ begin
                     cp0_func: case( funct_i ) is
                     
                         when FUNCT_TYPE_MFC0 =>
-                            cp0_reg_read_addr_o <= inst_i(15 downto 11);--rd的地�??? 5�???
+                            cp0_reg_read_addr_o <= inst_i(15 downto 11);--rd的地�???? 5�????
                             
                             if (mem_cp0_reg_we_i = REG_WT_ENABLE) and (mem_cp0_reg_write_addr_i = inst_i(15 downto 11)) then
-                                reg_wt_data_o <= mem_cp0_reg_data_i; --数据冲突：访存阶段要写的寄存器地�??? = 要读的寄存器地址
+                                reg_wt_data_o <= mem_cp0_reg_data_i; --数据冲突：访存阶段要写的寄存器地�???? = 要读的寄存器地址
                             elsif (wb_cp0_reg_we_i = REG_WT_ENABLE)and (wb_cp0_reg_write_addr_i = inst_i(15 downto 11))then
-                                reg_wt_data_o <= wb_cp0_reg_data_i; --数据冲突：写回阶段要写的寄存器地�??? = 要读的寄存器地址                                
+                                reg_wt_data_o <= wb_cp0_reg_data_i; --数据冲突：写回阶段要写的寄存器地�???? = 要读的寄存器地址                                
                             else
                                 reg_wt_data_o <= cp0_reg_data_i;--读取到的cp0中指定寄存器的�??
                             end if;
@@ -509,7 +509,7 @@ begin
             hi_o <= hi;
             lo_o <= lo;
 
-            except_type_o <= except_type_o(31 downto 12) & over_assert & trap_assert & except_type_o(9 downto 8) & x"00";
+            except_type_o <= except_type_i(31 downto 12) & over_assert & trap_assert & except_type_i(9 downto 8) & x"00";
             is_in_delayslot_o <= is_in_delayslot_i;
             current_inst_address_o <= current_inst_address_i;
         end if;

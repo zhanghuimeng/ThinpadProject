@@ -42,7 +42,7 @@ architecture Behavioral of CP0_REG is
                 if (rst = RST_ENABLE) then
                     count_o <= REG_ZERO_DATA;
                     compare_o <= REG_ZERO_DATA;
-                    status_o <= STATUS_CU_CP0 & x"0000000";--status?????????CU????0001?????????????????0??ê??
+                    status_o <= STATUS_CU_CP0 & x"0000000";--status?????????CU????0001?????????????????0?????
                     cause_o <= REG_ZERO_DATA;
                     epc_o <= REG_ZERO_DATA;
                     config_o <= b"00000000000000001000000000000000";--config?????????BE????1????????g-Endian???T????00????????????MU
@@ -102,7 +102,7 @@ architecture Behavioral of CP0_REG is
                                     epc_o <= current_inst_address_i - 4;
                                     cause_o(CAUSE_BD_INDEX) <= '1'; --BD = 1
                                 else
-                                    epc_o <= current_inst_address_i;
+                                    epc_o <= current_inst_address_i+4;
                                     cause_o(CAUSE_BD_INDEX) <=  '0'; --BD = 0
                                 end if ;
                             end if ;

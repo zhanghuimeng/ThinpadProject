@@ -46,7 +46,8 @@ entity PAUSE_CTRL is
 		   except_type_i :in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
 		   cp0_epc_i :  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 		   new_pc_o : out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-		   flush_o : out STD_LOGIC
+		   flush_o : out STD_LOGIC;
+		   new_pc_en_o: out std_logic
 	);
 end PAUSE_CTRL;
 
@@ -60,9 +61,11 @@ begin
 			pause_o <= b"000000";
 			flush_o <= FLUSH_NOT;
 			new_pc_o <= INST_ZERO_ADDR;
+			new_pc_en_o <= '0';
 		elsif except_type_i /= ZERO_DATA then
-			--flush_o <= FLUSH;
+			flush_o <= '1';
 			pause_o <= b"000000";
+			new_pc_en_o <= '1';
 			case( except_type_i ) is
 			
 				when EXCEPT_TYPE_INTERRUPT =>
@@ -82,6 +85,7 @@ begin
 			
 			end case ;
 		else
+		    new_pc_en_o <= '0';
 			flush_o <= FLUSH_NOT;
 		    if mem_pause_i = PAUSE then
                 pause_o <= b"011111"; 
