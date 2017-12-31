@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Dec 20 17:12:52 2017
-# Process ID: 792
+# Start of session at: Sun Dec 31 15:55:26 2017
+# Process ID: 10436
 # Current directory: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,20 +15,24 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16952 
+INFO: Helper process launched with PID 15528 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 347.203 ; gain = 81.770
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 359.961 ; gain = 74.047
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:65]
-INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:613]
+WARNING: [Synth 8-5640] Port 'reset' is missing in component declaration [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:67]
+WARNING: [Synth 8-5640] Port 'locked' is missing in component declaration [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:67]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at 'E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-10436-LAPTOP-QH5RPP8J/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'CLOCK' of component 'clk_wiz_0' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:614]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-10436-LAPTOP-QH5RPP8J/realtime/clk_wiz_0_stub.vhdl:15]
+INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:620]
 INFO: [Synth 8-638] synthesizing module 'PC' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:51]
 INFO: [Synth 8-256] done synthesizing module 'PC' (1#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:49]
-INFO: [Synth 8-3491] module 'IF_to_ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:619]
+INFO: [Synth 8-3491] module 'IF_to_ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:626]
 INFO: [Synth 8-638] synthesizing module 'IF_to_ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'IF_to_ID' (2#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:48]
-INFO: [Synth 8-3491] module 'ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:626]
+INFO: [Synth 8-3491] module 'ID' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:633]
 INFO: [Synth 8-638] synthesizing module 'ID' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:78]
 WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:105]
 WARNING: [Synth 8-614] signal 'reg_rd_addr_1_o' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:105]
@@ -42,11 +46,11 @@ WARNING: [Synth 8-6014] Unused sequential element last_inst_is_load_reg was remo
 WARNING: [Synth 8-6014] Unused sequential element next_pc_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:248]
 WARNING: [Synth 8-6014] Unused sequential element next_inst_in_delayslot_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:229]
 INFO: [Synth 8-256] done synthesizing module 'ID' (3#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:78]
-INFO: [Synth 8-3491] module 'ID_to_EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:645]
+INFO: [Synth 8-3491] module 'ID_to_EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:652]
 INFO: [Synth 8-638] synthesizing module 'ID_to_EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:67]
 INFO: [Synth 8-256] done synthesizing module 'ID_to_EX' (4#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:64]
-INFO: [Synth 8-3491] module 'EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:661]
+INFO: [Synth 8-3491] module 'EX' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:668]
 INFO: [Synth 8-638] synthesizing module 'EX' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
 WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:214]
 WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:216]
@@ -168,11 +172,11 @@ WARNING: [Synth 8-6014] Unused sequential element operand_mul_2_reg was removed.
 WARNING: [Synth 8-6014] Unused sequential element mult_result_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:193]
 WARNING: [Synth 8-6014] Unused sequential element mult_accum_result_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:274]
 INFO: [Synth 8-256] done synthesizing module 'EX' (5#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:80]
-INFO: [Synth 8-3491] module 'EX_to_MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:680]
+INFO: [Synth 8-3491] module 'EX_to_MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:687]
 INFO: [Synth 8-638] synthesizing module 'EX_to_MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:72]
 INFO: [Synth 8-256] done synthesizing module 'EX_to_MEM' (6#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:68]
-INFO: [Synth 8-3491] module 'MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:695]
+INFO: [Synth 8-3491] module 'MEM' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:702]
 INFO: [Synth 8-638] synthesizing module 'MEM' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:107]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:127]
@@ -182,23 +186,23 @@ INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadPr
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:260]
 INFO: [Synth 8-226] default block is never used [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:283]
 INFO: [Synth 8-256] done synthesizing module 'MEM' (7#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:65]
-INFO: [Synth 8-3491] module 'MEM_to_WB' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:711]
+INFO: [Synth 8-3491] module 'MEM_to_WB' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:718]
 INFO: [Synth 8-638] synthesizing module 'MEM_to_WB' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:60]
 INFO: [Synth 8-256] done synthesizing module 'MEM_to_WB' (8#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:56]
-INFO: [Synth 8-3491] module 'REGISTERS' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:720]
+INFO: [Synth 8-3491] module 'REGISTERS' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:727]
 INFO: [Synth 8-638] synthesizing module 'REGISTERS' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
 WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
 INFO: [Synth 8-256] done synthesizing module 'REGISTERS' (9#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
-INFO: [Synth 8-3491] module 'HI_LO' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:728]
+INFO: [Synth 8-3491] module 'HI_LO' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:735]
 INFO: [Synth 8-638] synthesizing module 'HI_LO' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:52]
 INFO: [Synth 8-256] done synthesizing module 'HI_LO' (10#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
-INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:734]
+INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:741]
 INFO: [Synth 8-638] synthesizing module 'PAUSE_CTRL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
 INFO: [Synth 8-256] done synthesizing module 'PAUSE_CTRL' (11#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:47]
-INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:741]
+INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:748]
 INFO: [Synth 8-638] synthesizing module 'MEM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
 WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
@@ -212,21 +216,21 @@ WARNING: [Synth 8-614] signal 'mem_data_i' is read in the process but is not in 
 WARNING: [Synth 8-614] signal 'inst_ce_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
 WARNING: [Synth 8-614] signal 'inst_addr_i' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
 INFO: [Synth 8-256] done synthesizing module 'MEM_CONTROLL' (12#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
-INFO: [Synth 8-3491] module 'MMU' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:766]
+INFO: [Synth 8-3491] module 'MMU' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:773]
 INFO: [Synth 8-638] synthesizing module 'MMU' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:74]
 INFO: [Synth 8-256] done synthesizing module 'MMU' (13#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:74]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:802]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:809]
 INFO: [Synth 8-638] synthesizing module 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
 WARNING: [Synth 8-6014] Unused sequential element ram_oe_n_o_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:64]
 INFO: [Synth 8-256] done synthesizing module 'SRAM_CONTROLL' (14#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:820]
-INFO: [Synth 8-3491] module 'SERIAL_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:35' bound to instance 'SERIAL_CONTROLL_0' of component 'SERIAL_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:838]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:827]
+INFO: [Synth 8-3491] module 'SERIAL_CONTROLL' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:35' bound to instance 'SERIAL_CONTROLL_0' of component 'SERIAL_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:845]
 INFO: [Synth 8-638] synthesizing module 'SERIAL_CONTROLL' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:55]
 WARNING: [Synth 8-614] signal 'clk_uart' is read in the process but is not in the sensitivity list [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:62]
 INFO: [Synth 8-256] done synthesizing module 'SERIAL_CONTROLL' (15#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:55]
 	Parameter ClkFrequency bound to: 11059200 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
-INFO: [Synth 8-3491] module 'async_receiver' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75' bound to instance 'SERIAL_RECEIVER' of component 'ASYNC_RECEIVER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:855]
+INFO: [Synth 8-3491] module 'async_receiver' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75' bound to instance 'SERIAL_RECEIVER' of component 'ASYNC_RECEIVER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:862]
 INFO: [Synth 8-638] synthesizing module 'async_receiver' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
 	Parameter ClkFrequency bound to: 11059200 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
@@ -243,7 +247,7 @@ INFO: [Synth 8-256] done synthesizing module 'BaudTickGen' (16#1) [E:/THU/Thinpa
 INFO: [Synth 8-256] done synthesizing module 'async_receiver' (17#1) [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
 	Parameter ClkFrequency bound to: 11059200 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
-INFO: [Synth 8-3491] module 'async_transmitter' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14' bound to instance 'SERIAL_TRANSMITTER' of component 'ASYNC_TRANSMITTER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:866]
+INFO: [Synth 8-3491] module 'async_transmitter' declared at 'E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14' bound to instance 'SERIAL_TRANSMITTER' of component 'ASYNC_TRANSMITTER' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:873]
 INFO: [Synth 8-638] synthesizing module 'async_transmitter' [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
 	Parameter ClkFrequency bound to: 11059200 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
@@ -322,28 +326,13 @@ WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
 WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[31]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[30]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[29]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[28]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[27]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[26]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[25]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[24]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[23]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[22]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[21]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[20]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[19]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[18]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[17]
-WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[16]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[4]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[3]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[2]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[1]
 WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port touch_btn[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 400.309 ; gain = 134.875
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 414.066 ; gain = 128.152
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -353,321 +342,123 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 400.309 ; gain = 134.875
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 414.066 ; gain = 128.152
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
+Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-10436-LAPTOP-QH5RPP8J/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLOCK'
+Finished Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-10436-LAPTOP-QH5RPP8J/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLOCK'
 Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
-WARNING: [Vivado 12-584] No ports matched 'clk'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:2]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-507] No nets matched 'clk_uart_IBUF'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'clk'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
-CRITICAL WARNING: [Vivado 12-4739] create_clock:No valid object(s) found for '-objects [get_ports clk]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
-Resolution: Check if the specified object(s) exists in the current design. If it does, ensure that the correct design hierarchy was specified for the object. If you are working with clocks, make sure create_clock was used to create the clock object before it is referenced.
+WARNING: [Constraints 18-619] A clock with name 'clk' already exists, overwriting the previous clock with the same name. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
 WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:18]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:18]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'uart_wrn'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'uart_rdn'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:25]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:25]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'uart_tbre'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:26]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:26]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'uart_tsre'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:27]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:27]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'uart_dataready'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_a0'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_we_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:36]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:36]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_rd_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:37]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:37]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_cs_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:38]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:38]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_rst_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:39]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:39]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_drq'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:40]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:40]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_dack'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:41]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:41]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_int'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:42]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:42]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[0]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:43]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:43]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[1]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:44]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:44]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[2]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:45]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:45]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[3]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:46]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:46]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:47]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:47]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:48]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:48]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:49]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:49]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'sl811_data[7]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:50]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:50]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_we_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:53]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:53]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_rd_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:54]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:54]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_cs_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:55]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:55]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_rst_n'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:56]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:56]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_int'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:57]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:57]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_cmd'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:58]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:58]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[0]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:59]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:59]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[1]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:60]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:60]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[2]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:61]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:61]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[3]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:62]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:62]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:63]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:63]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:64]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:64]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:65]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:65]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[7]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:66]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:66]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[8]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:67]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:67]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[9]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:68]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:68]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[10]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:69]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:69]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[11]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:70]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:70]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[12]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:71]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:71]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[13]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:72]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:72]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[14]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:73]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:73]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dm9k_data[15]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:74]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:74]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_clk'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:77]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:77]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[7]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:78]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:78]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:79]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:79]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:80]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:80]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:81]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:81]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[3]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:82]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:82]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[2]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:83]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:83]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[1]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:84]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:84]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_pixel[0]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:85]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:85]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_hsync'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:86]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:86]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_vsync'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:87]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:87]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'video_de'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:88]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:88]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[*]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:130]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:130]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[0]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:131]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:131]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[1]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:132]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:132]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[2]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:133]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:133]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[3]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:134]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:134]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:135]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:135]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:136]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:136]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:137]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:137]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[7]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:138]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:138]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[8]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:139]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:139]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[9]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:140]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:140]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[10]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:141]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:141]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[11]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:142]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:142]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[12]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:143]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:143]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[13]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:144]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:144]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[14]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:145]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:145]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[15]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:146]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:146]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[16]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:147]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:147]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[17]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:148]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:148]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[18]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:149]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:149]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[19]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:150]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:150]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[20]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:151]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:151]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[21]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:152]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:152]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[22]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:153]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:153]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[23]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:154]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:154]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[24]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:155]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:155]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[25]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:156]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:156]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[26]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:157]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:157]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[27]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:158]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:158]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[28]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:159]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:159]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[29]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:160]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:160]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[30]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:161]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:161]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'dip_sw[31]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:162]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:162]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[*]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:164]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:164]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[0]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:165]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:165]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[1]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:166]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:166]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[2]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:167]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:167]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[3]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[4]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[5]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[6]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'flash_a[7]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:172]
 WARNING: [Vivado 12-584] No ports matched 'flash_a[8]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:173]
-INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:173]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[9]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:174]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[10]'. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:175]
+INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:175]
 Finished Parsing XDC File [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/MIPS_CPU_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
 INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [E:/THU/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MIPS_CPU_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/MIPS_CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
@@ -675,22 +466,25 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 721.781 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 735.602 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 721.781 ; gain = 456.348
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 735.602 ; gain = 449.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 721.781 ; gain = 456.348
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 735.602 ; gain = 449.688
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-10436-LAPTOP-QH5RPP8J/dcp3/clk_wiz_0_in_context.xdc, line 3).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-10436-LAPTOP-QH5RPP8J/dcp3/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property DONT_TOUCH = true for CLOCK. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 721.781 ; gain = 456.348
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 735.602 ; gain = 449.688
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -816,7 +610,7 @@ WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E
 INFO: [Synth 8-3354] encoded FSM with state register 'TxD_state_reg' using encoding 'sequential' in module 'async_transmitter'
 WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 721.781 ; gain = 456.348
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 735.602 ; gain = 449.688
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1176,6 +970,7 @@ DSP Report: Generating DSP hi0, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: operator hi0 is absorbed into DSP hi0.
 WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [E:/THU/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:170]
+WARNING: [Synth 8-3917] design MIPS_CPU has port leds[31] driven by constant 1
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port rst
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[31]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[30]
@@ -1191,6 +986,21 @@ WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[21]
 WARNING: [Synth 8-3331] design SRAM_CONTROLL has unconnected port addr_i[20]
 WARNING: [Synth 8-3331] design MMU has unconnected port ram1_ack_i
 WARNING: [Synth 8-3331] design MMU has unconnected port ram2_ack_i
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[0]
+WARNING: [Synth 8-3331] design EX has unconnected port is_in_delayslot_i
+WARNING: [Synth 8-3331] design ID has unconnected port is_in_delayslot_i
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[5]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[4]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[3]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[2]
+WARNING: [Synth 8-3331] design PC has unconnected port pause_i[1]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[30]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[29]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[28]
+WARNING: [Synth 8-3331] design MIPS_CPU has unconnected port leds[27]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[4]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
 INFO: [Synth 8-3886] merging instance 'ID_to_EX_0/op_o_reg[5]' (FDRE) to 'ID_to_EX_0/funct_o_reg[5]'
@@ -1332,7 +1142,7 @@ WARNING: [Synth 8-3332] Sequential element (leds_o_reg[0]) is unused and will be
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:49 ; elapsed = 00:00:52 . Memory (MB): peak = 760.559 ; gain = 495.125
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:45 ; elapsed = 00:00:47 . Memory (MB): peak = 774.375 ; gain = 488.461
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1389,14 +1199,17 @@ Report RTL Partitions:
 ---------------------------------------------------------------------------------
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'CLOCK/clk_out1' to pin 'CLOCK/bbstub_clk_out1/O'
+WARNING: [Synth 8-565] redefining clock 'clk'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:07 ; elapsed = 00:01:10 . Memory (MB): peak = 818.387 ; gain = 552.953
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:01 ; elapsed = 00:01:03 . Memory (MB): peak = 832.203 ; gain = 546.289
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:08 ; elapsed = 00:01:11 . Memory (MB): peak = 829.527 ; gain = 564.094
+Finished Timing Optimization : Time (s): cpu = 00:01:03 ; elapsed = 00:01:05 . Memory (MB): peak = 853.363 ; gain = 567.449
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1408,7 +1221,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:11 ; elapsed = 00:01:15 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished Technology Mapping : Time (s): cpu = 00:01:06 ; elapsed = 00:01:08 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1431,8 +1244,9 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-4442] BlackBox module CLOCK has unconnected pin reset
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished IO Insertion : Time (s): cpu = 00:01:07 ; elapsed = 00:01:09 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1445,7 +1259,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:07 ; elapsed = 00:01:09 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1457,67 +1271,69 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:13 ; elapsed = 00:01:16 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:13 ; elapsed = 00:01:17 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:13 ; elapsed = 00:01:17 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
 ---------------------------------------------------------------------------------
 
 Report BlackBoxes: 
-+-+--------------+----------+
-| |BlackBox name |Instances |
-+-+--------------+----------+
-+-+--------------+----------+
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
 
 Report Cell Usage: 
-+------+----------+------+
-|      |Cell      |Count |
-+------+----------+------+
-|1     |BUFG      |    12|
-|2     |CARRY4    |   147|
-|3     |DSP48E1   |     4|
-|4     |DSP48E1_1 |     4|
-|5     |LUT1      |   264|
-|6     |LUT2      |   431|
-|7     |LUT3      |   276|
-|8     |LUT4      |   383|
-|9     |LUT5      |   463|
-|10    |LUT6      |   932|
-|11    |MUXF7     |     1|
-|12    |RAM32M    |    12|
-|13    |FDRE      |   730|
-|14    |FDSE      |     7|
-|15    |LD        |   257|
-|16    |LDC       |   304|
-|17    |IBUF      |     4|
-|18    |IOBUF     |    64|
-|19    |OBUF      |    71|
-|20    |OBUFT     |    16|
-+------+----------+------+
++------+---------------+------+
+|      |Cell           |Count |
++------+---------------+------+
+|1     |clk_wiz_0_bbox |     1|
+|2     |BUFG           |    12|
+|3     |CARRY4         |   147|
+|4     |DSP48E1        |     4|
+|5     |DSP48E1_1      |     4|
+|6     |LUT1           |   265|
+|7     |LUT2           |   430|
+|8     |LUT3           |   273|
+|9     |LUT4           |   389|
+|10    |LUT5           |   486|
+|11    |LUT6           |   904|
+|12    |MUXF7          |     1|
+|13    |RAM32M         |    12|
+|14    |FDRE           |   730|
+|15    |FDSE           |     7|
+|16    |LD             |   257|
+|17    |LDC            |   304|
+|18    |IBUF           |     3|
+|19    |IOBUF          |    64|
+|20    |OBUF           |    72|
+|21    |OBUFT          |    15|
++------+---------------+------+
 
 Report Instance Areas: 
 +------+----------------------+----------------------------+------+
 |      |Instance              |Module                      |Cells |
 +------+----------------------+----------------------------+------+
-|1     |top                   |                            |  4382|
+|1     |top                   |                            |  4381|
 |2     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL               |    84|
 |3     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0             |    84|
 |4     |  EX_0                |EX                          |   312|
@@ -1526,40 +1342,40 @@ Report Instance Areas:
 |7     |  ID_0                |ID                          |   144|
 |8     |  ID_to_EX_0          |ID_to_EX                    |  1339|
 |9     |  IF_to_ID_0          |IF_to_ID                    |   542|
-|10    |  MEM_CONTROLL_0      |MEM_CONTROLL                |   444|
+|10    |  MEM_CONTROLL_0      |MEM_CONTROLL                |   440|
 |11    |  MEM_to_WB_0         |MEM_to_WB                   |   141|
-|12    |  MMU_0               |MMU                         |   126|
+|12    |  MMU_0               |MMU                         |   127|
 |13    |  PAUSE_CTRL_0        |PAUSE_CTRL                  |     1|
 |14    |  PC_0                |PC                          |    74|
 |15    |  REGISTERS_0         |REGISTERS                   |    12|
-|16    |  SERIAL_CONTROLL_0   |SERIAL_CONTROLL             |    24|
+|16    |  SERIAL_CONTROLL_0   |SERIAL_CONTROLL             |    25|
 |17    |  SERIAL_RECEIVER     |async_receiver              |    83|
 |18    |    tickgen           |BaudTickGen                 |    48|
 |19    |  SERIAL_TRANSMITTER  |async_transmitter           |    63|
 |20    |    tickgen           |BaudTickGen__parameterized0 |    36|
 +------+----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:13 ; elapsed = 00:01:17 . Memory (MB): peak = 869.484 ; gain = 604.051
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 886.309 ; gain = 600.395
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 224 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:01:08 . Memory (MB): peak = 869.484 ; gain = 282.578
-Synthesis Optimization Complete : Time (s): cpu = 00:01:13 ; elapsed = 00:01:17 . Memory (MB): peak = 869.484 ; gain = 604.051
+Synthesis finished with 0 errors, 1 critical warnings and 226 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:55 ; elapsed = 00:01:03 . Memory (MB): peak = 886.309 ; gain = 278.859
+Synthesis Optimization Complete : Time (s): cpu = 00:01:08 ; elapsed = 00:01:10 . Memory (MB): peak = 886.309 ; gain = 600.395
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 796 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 795 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
-INFO: [Opt 31-138] Pushed 1 inverter(s) to 1 load pin(s).
+INFO: [Opt 31-138] Pushed 2 inverter(s) to 21 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 637 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 64 instances
-  LD => LDCE: 256 instances
-  LD => LDCE (inverted pins: G): 1 instances
+  LD => LDCE: 236 instances
+  LD => LDCE (inverted pins: G): 21 instances
   LDC => LDCE: 304 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
-163 Infos, 493 Warnings, 101 Critical Warnings and 0 Errors encountered.
+167 Infos, 499 Warnings, 1 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:17 ; elapsed = 00:01:22 . Memory (MB): peak = 869.484 ; gain = 608.660
+synth_design: Time (s): cpu = 00:01:12 ; elapsed = 00:01:15 . Memory (MB): peak = 886.309 ; gain = 606.023
 INFO: [Common 17-1381] The checkpoint 'E:/THU/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.062 . Memory (MB): peak = 869.484 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Dec 20 17:14:21 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.046 . Memory (MB): peak = 886.309 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sun Dec 31 15:56:48 2017...

@@ -67,18 +67,18 @@ begin
         elsif (clk = '0') then -- execute read/write
             if (we_i = '1') then
                 ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
-                ram_data <= reverse_vector(data_i);
+                ram_data <= data_i;
                 ram_oe_n_o <= '0';
                 ram_ce_n_o <= '0';
                 ram_we_n_o <= '0';
-                ram_be_n_o <= not reverse_vector(sel_i);
+                ram_be_n_o <= not sel_i;
             else 
                 ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
                 ram_be_n_o <= b"0000";
                 ram_we_n_o <= '1';
                 ram_oe_n_o <= '0';
                 ram_ce_n_o <= '0';
-                data_o <= reverse_vector(ram_data);
+                data_o <= ram_data;
             end if;
         end if;
     end process;

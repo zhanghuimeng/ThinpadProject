@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Wed Dec 20 17:14:21 2017
+| Date         : Sun Dec 31 15:56:48 2017
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_utilization -file MIPS_CPU_utilization_synth.rpt -pb MIPS_CPU_utilization_synth.pb
 | Design       : MIPS_CPU
@@ -30,8 +30,8 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2451 |     0 |     63400 |  3.87 |
-|   LUT as Logic             | 2403 |     0 |     63400 |  3.79 |
+| Slice LUTs*                | 2461 |     0 |     63400 |  3.88 |
+|   LUT as Logic             | 2413 |     0 |     63400 |  3.81 |
 |   LUT as Memory            |   48 |     0 |     19000 |  0.25 |
 |     LUT as Distributed RAM |   48 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
@@ -93,7 +93,7 @@ Table of Contents
 +-----------------------------+------+-------+-----------+-------+
 |          Site Type          | Used | Fixed | Available | Util% |
 +-----------------------------+------+-------+-----------+-------+
-| Bonded IOB                  |  155 |     0 |       300 | 51.67 |
+| Bonded IOB                  |  154 |     0 |       300 | 51.33 |
 | Bonded IPADs                |    0 |     0 |        26 |  0.00 |
 | Bonded OPADs                |    0 |     0 |        16 |  0.00 |
 | PHY_CONTROL                 |    0 |     0 |         6 |  0.00 |
@@ -152,19 +152,19 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  932 |                 LUT |
+| LUT6     |  904 |                 LUT |
 | FDRE     |  730 |        Flop & Latch |
 | LDCE     |  561 |        Flop & Latch |
-| LUT5     |  463 |                 LUT |
-| LUT2     |  431 |                 LUT |
-| LUT4     |  383 |                 LUT |
-| LUT3     |  276 |                 LUT |
+| LUT5     |  486 |                 LUT |
+| LUT2     |  430 |                 LUT |
+| LUT4     |  389 |                 LUT |
+| LUT3     |  273 |                 LUT |
 | LUT1     |  263 |                 LUT |
 | CARRY4   |  147 |          CarryLogic |
-| OBUFT    |   80 |                  IO |
+| OBUFT    |   79 |                  IO |
 | RAMD32   |   72 |  Distributed Memory |
-| OBUF     |   71 |                  IO |
-| IBUF     |   68 |                  IO |
+| OBUF     |   72 |                  IO |
+| IBUF     |   67 |                  IO |
 | RAMS32   |   24 |  Distributed Memory |
 | BUFG     |   12 |               Clock |
 | DSP48E1  |    8 |    Block Arithmetic |
@@ -176,9 +176,11 @@ Table of Contents
 8. Black Boxes
 --------------
 
-+----------+------+
-| Ref Name | Used |
-+----------+------+
++-----------+------+
+|  Ref Name | Used |
++-----------+------+
+| clk_wiz_0 |    1 |
++-----------+------+
 
 
 9. Instantiated Netlists
