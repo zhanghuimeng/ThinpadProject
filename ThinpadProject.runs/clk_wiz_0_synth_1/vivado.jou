@@ -9,3 +9,4 @@
 # Log file: E:/THU/ThinpadProject/ThinpadProject.runs/clk_wiz_0_synth_1/clk_wiz_0.vds
 # Journal file: E:/THU/ThinpadProject/ThinpadProject.runs/clk_wiz_0_synth_1\vivado.jou
 #-----------------------------------------------------------
+source clk_wiz_0.tcl -notrace
