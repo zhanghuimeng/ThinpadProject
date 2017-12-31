@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD
-<GenRun Id="synth_1" LaunchPart="xc7a100tfgg676-2L" LaunchTime="1514706924">
-=======
-<GenRun Id="synth_1" LaunchPart="xc7a100tfgg676-2L" LaunchTime="1514619670">
->>>>>>> origin/cp0
-  <File Type="RDS-PROPCONSTRS" Name="MIPS_CPU_drc_synth.rpt"/>
-  <File Type="PA-TCL" Name="MIPS_CPU.tcl"/>
-  <File Type="RDS-RDS" Name="MIPS_CPU.vds"/>
-  <File Type="RDS-UTIL" Name="MIPS_CPU_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="MIPS_CPU_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="MIPS_CPU.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="MIPS_CPU_timing_summary_synth.rpt"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tfgg676-2L" LaunchTime="1514717569">
   <File Type="VDS-TIMING-PB" Name="MIPS_CPU_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="MIPS_CPU_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="MIPS_CPU.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="MIPS_CPU_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="MIPS_CPU_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="MIPS_CPU_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="MIPS_CPU.vds"/>
+  <File Type="PA-TCL" Name="MIPS_CPU.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/include.vhd">
@@ -92,29 +88,21 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/CP0_REG.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-<<<<<<< HEAD
-    <File Path="$PSRCDIR/sources_1/new/SRAM_CONTROLL.vhd">
-      <FileInfo SFType="VHDL2008">
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/MMU.vhd">
       <FileInfo SFType="VHDL2008">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/SEG7_LUT.v">
-      <FileInfo>
+    <File Path="$PSRCDIR/sources_1/new/SRAM_CONTROLL.vhd">
+      <FileInfo SFType="VHDL2008">
         <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/SERIAL_CONTROLL.vhd">
+      <FileInfo SFType="VHDL2008">
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
@@ -125,17 +113,12 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/new/SERIAL_CONTROLL.vhd">
+    <File Path="$PSRCDIR/sources_1/new/MEM_CONTROLL.vhd">
       <FileInfo SFType="VHDL2008">
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="$PPRDIR/../../thu/thinpadproject/component.xml">
-      <FileInfo SFType="IPXACT"/>
-    </File>
-=======
->>>>>>> origin/cp0
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="MIPS_CPU"/>
@@ -157,5 +140,4 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
 </GenRun>
