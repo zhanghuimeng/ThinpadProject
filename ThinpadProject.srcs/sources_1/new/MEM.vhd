@@ -59,13 +59,45 @@ entity MEM is
            ram_data_sel_o : 	out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0);		-- output RAM data selection to RAM
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to MEM/WB and EX
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to MEM/WB and EX
-           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output lo data to MEM/WB and EX
+		   lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);     -- output lo data to MEM/WB and EX
+		   
+		   cp0_reg_we_i :       in std_logic;
+		   cp0_reg_write_addr_i : in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+		   cp0_reg_data_i :     in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+		   cp0_reg_we_o :       out std_logic;
+		   cp0_reg_write_addr_o : out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+		   cp0_reg_data_o :     out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+		   current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+		   is_in_delayslot_i :          in std_logic;
+		   
+           status_i : in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           cause_i : in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           epc_i : in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+		   
+		   wb_cp0_reg_we_i :   in STD_LOGIC;
+           wb_cp0_reg_write_addr_i: in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           wb_cp0_reg_data_i:  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+		   cp0_epc_o : 					out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           is_in_delayslot_o :          out std_logic
+	);
 end MEM;
 
 architecture Behavioral of MEM is
 
 begin
-    process (all)
+	process (all)
+	variable zero32 : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+	variable cp0_status : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+	variable cp0_cause : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+	variable cp0_epc : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+	variable except_type : STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+
     begin
         if rst = RST_ENABLE then
             reg_wt_en_o <= REG_WT_DISABLE;
@@ -78,7 +110,19 @@ begin
 			ram_data_sel_o <= "0000";
             hilo_en_o <= CHIP_DISABLE;
             hi_o <= REG_ZERO_DATA;
-            lo_o <= REG_ZERO_DATA;
+			lo_o <= REG_ZERO_DATA;
+			cp0_reg_we_o <= REG_WT_DISABLE;
+			cp0_reg_write_addr_o <= REG_ZERO_ADDR;
+			cp0_reg_data_o <= REG_ZERO_DATA;
+
+			cp0_epc_o <= REG_ZERO_DATA;
+           	current_inst_address_o <= INST_ZERO_ADDR;
+           	except_type_o <= ZERO_DATA;
+           	is_in_delayslot_o <= DELAYSLOT_NOT;
+			zero32 := ZERO_DATA;
+			cp0_status := ZERO_DATA;
+			cp0_cause := ZERO_DATA;
+			cp0_epc := ZERO_DATA;
         else
         	-- Write Registers
             reg_wt_en_o <= reg_wt_en_i;
@@ -94,11 +138,43 @@ begin
 			ram_addr_o <= ZERO_ADDR;
 			ram_data_o <= ZERO_DATA;
 			ram_data_sel_o <= "0000";
+
+			--cp0
+			cp0_reg_we_o <= cp0_reg_we_i;
+			cp0_reg_write_addr_o <= cp0_reg_write_addr_i;
+			cp0_reg_data_o <= cp0_reg_data_i;
+
+			zero32 := ZERO_DATA;
+			except_type := ZERO_DATA;
+
 			
+			-- solve status data conflict
+			if wb_cp0_reg_we_i = REG_WT_ENABLE and wb_cp0_reg_write_addr_i = CP0_REG_STATUS then
+				cp0_status := wb_cp0_reg_data_i;
+			else
+				cp0_status := status_i;
+			end if;
+
+			-- solve epc data conflict
+			if wb_cp0_reg_we_i = REG_WT_ENABLE and wb_cp0_reg_write_addr_i = CP0_REG_EPC then
+				cp0_epc := wb_cp0_reg_data_i;
+			else
+				cp0_epc := epc_i;
+			end if;
+			
+			-- solve cause data conflict
+			if wb_cp0_reg_we_i = REG_WT_ENABLE and wb_cp0_reg_write_addr_i = CP0_REG_CAUSE then
+				cp0_cause(9 downto 8) := wb_cp0_reg_data_i(9 downto 8);
+				cp0_cause(22) := wb_cp0_reg_data_i(22);
+				cp0_cause(23) := wb_cp0_reg_data_i(23);
+			else
+				cp0_cause := cause_i;
+			end if;
+
 			if is_load_store_i = '1' then
 				
-				-- 外部的数据存储器并没有依据mem_addr_o地址读取数据，�?�是将mem_addr_o地址的最后两位修改为0�?
-				-- 依据修改后的地址读取数据，所以OpenMIPS�?要依据mem_addr_o�?后两位的值，确定要读取的字节�?
+				-- ????????????????????em_addr_o????????????????em_addr_o???????????????0??
+				-- ???????????????????????penMIPS???????em_addr_o?????????????????????????
 				load_store_type: case funct_i is
 					
 					when FUNCT_TYPE_LB =>
@@ -118,7 +194,7 @@ begin
 								ram_data_sel_o <= "0001";
 								reg_wt_data_o <= sign_extend(ram_rd_data_i(BYTE_LEN-1 downto 0), REG_DATA_LEN);
 						    when others =>
-						        reg_wt_data_o <= REG_ZERO_DATA;   -- 为什么要置0呢？不知道，随便写的，反正应该错了。
+						        reg_wt_data_o <= REG_ZERO_DATA;   -- 为什么要�?0呢？不知道，随便写的，反正应该错了�??
 						end case lb_addr;
 						
 					when FUNCT_TYPE_LBU =>
@@ -301,6 +377,32 @@ begin
 					
 				end case load_store_type;
 			end if;
+			is_in_delayslot_o <= is_in_delayslot_i;
+			current_inst_address_o <= current_inst_address_i;
+			cp0_epc_o <= cp0_epc;
+
+			if current_inst_address_i /= ZERO_DATA then
+				if ((cp0_cause(15 downto 8) and cp0_status(15 downto 8)) /= "00000000" )
+				and cp0_status(1) = '0' and  cp0_status(0) = '1' then
+					except_type := EXCEPT_TYPE_INTERRUPT; -- interrupt
+				elsif except_type_i(8) = '1' then
+					except_type := EXCEPT_TYPE_SYSCALL ;-- syscall
+				elsif except_type_i(9) = '1' then
+					except_type := EXCEPT_TYPE_INST_INVALID; -- inst_invalid
+				elsif except_type_i(10) = '1' then
+					except_type := EXCEPT_TYPE_TRAP; -- trap
+				elsif except_type_i(11) = '1' then
+					except_type := EXCEPT_TYPE_OVERFLOW; --overflow
+				elsif except_type_i(12) = '1' then
+					except_type := EXCEPT_TYPE_ERET ;-- eret
+				else 
+				end if ;
+			end if ;
+			
+			except_type_o <= except_type;
+			if except_type /= x"00000000" then
+				ram_en_o <= CHIP_DISABLE;
+			end if ;
         end if;
     end process;
 

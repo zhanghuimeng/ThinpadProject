@@ -43,6 +43,7 @@ use WORK.INCLUDE.ALL;
 
 entity EX is
     Port ( rst :            			in STD_LOGIC;                                       -- Reset
+           inst_i:                      in std_logic_vector(INST_LEN-1 downto 0);
            op_i :           			in STD_LOGIC_VECTOR(OP_LEN-1 downto 0);             -- input custom op type from ID/EX
            funct_i :        			in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input custom op type from ID/EX
            operand_1_i :    			in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input operand 1 from ID/EX
@@ -74,7 +75,35 @@ entity EX is
            lo_o :           			out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output LO data to EX/MEM
        	   pause_o :					out STD_LOGIC;										-- output pause information to PAUSE_CTRL
 		   clock_cycle_cnt_o : 			out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
-		   mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0));	-- output accumulation result to EX/MEM
+           mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
+           
+           --访存阶段指令是否要写cp0中的寄存器，用于�????测数据相�????
+           mem_cp0_reg_we_i :           in STD_LOGIC;
+           mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+           --回写阶段指令是否要写cp0中的寄存器，用于�????测数据相�????
+           wb_cp0_reg_we_i :           in STD_LOGIC;
+           wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+           --与CP0直接相连，用于读取其中指定寄存器的�??
+           cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
+           cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
+
+           --向流水线下一级传递，用于写cp0中的指定的寄存器
+           cp0_reg_we_o :              out std_logic;
+           cp0_reg_write_addr_o :      out std_logic_vector(REG_ADDR_LEN-1 downto 0);
+           cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0);
+
+           --异常处理
+           current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           is_in_delayslot_o :          out std_logic
+           );
+
 end EX;
 
 architecture Behavioral of EX is
@@ -82,10 +111,7 @@ architecture Behavioral of EX is
 begin
 	-- process (all)
 	-- Remeber to add all signals
-	process (rst, op_i, funct_i, operand_1_i, operand_2_i, reg_wt_en_i, reg_wt_addr_i, hi_i, lo_i, 
-		mem_hilo_en_i, mem_hi_i, mem_lo_i, wb_hilo_en_i, wb_hi_i, wb_lo_i, clock_cycle_cnt_i, mul_cur_result_i,
-		is_in_delayslot_i, link_addr_i
-	)
+	process (all)
     variable output: LINE;
     variable operand_1: UNSIGNED(DATA_LEN-1 downto 0);
     variable operand_2: UNSIGNED(DATA_LEN-1 downto 0);
@@ -99,6 +125,10 @@ begin
     variable mult_accum_result: UNSIGNED(DOUBLE_DATA_LEN downto 0);
     variable hi: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     variable lo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+    
+    variable trap_assert : STD_LOGIC_VECTOR(0 downto 0);
+    variable over_assert : STD_LOGIC_VECTOR(0 downto 0);
+
     -- TODO Add division support
     -- variable dividend_float: sfixed(REG_DATA_LEN-1 downto 0);
     -- variable divisor_float: sfixed(REG_DATA_LEN-1 downto 0);
@@ -118,6 +148,13 @@ begin
             pause_o <= PAUSE_NOT;
             clock_cycle_cnt_o <= b"00";
             mul_cur_result_o <= DOUBLE_ZERO_DATA;
+            cp0_reg_write_addr_o <= REG_ZERO_ADDR;
+            cp0_reg_we_o <= REG_WT_DISABLE;
+            cp0_reg_data_o <= ZERO_DATA;
+            current_inst_address_o <= INST_ZERO_ADDR;
+            except_type_o <= ZERO_DATA;
+            is_in_delayslot_o <= DELAYSLOT_NOT;
+            trap_assert := FALSE;
         else
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
@@ -129,6 +166,8 @@ begin
             clock_cycle_cnt_o <= b"00";
             mul_cur_result_o <= DOUBLE_ZERO_DATA;
             hilo_en_o <= CHIP_DISABLE;
+            trap_assert := FALSE;
+            over_assert := FALSE;
             
             -- So that the HILO register can immediately get value?
             hi := hi_i;
@@ -146,7 +185,10 @@ begin
             
             -- For addition, subtraction and signed comparation instructions
             operand_1 := unsigned(operand_1_i);
-            if (funct_i = FUNCT_TYPE_SUB) or (funct_i = FUNCT_TYPE_SUBU) or (funct_i = FUNCT_TYPE_SLT) or(funct_i = FUNCT_TYPE_SLTI) then
+            if (funct_i = FUNCT_TYPE_SUB) or (funct_i = FUNCT_TYPE_SUBU) or (funct_i = FUNCT_TYPE_SLT) or(funct_i = FUNCT_TYPE_SLTI) 
+            or(funct_i = FUNCT_TYPE_TLT) or(funct_i = FUNCT_TYPE_TLTI) or(funct_i = FUNCT_TYPE_TGE) or(funct_i = FUNCT_TYPE_TGEI)
+            or(funct_i = FUNCT_TYPE_TLTU) or(funct_i = FUNCT_TYPE_TLTIU) or(funct_i = FUNCT_TYPE_TGEU) or(funct_i = FUNCT_TYPE_TGEIU)
+            then
             	operand_2 := unsigned((not operand_2_i) + b"1");
             else
             	operand_2 := unsigned(operand_2_i);
@@ -163,13 +205,15 @@ begin
             
             -- For compare instructions (less than)
             compare_result := '0';
-            if (funct_i = FUNCT_TYPE_SLT) or (funct_i = FUNCT_TYPE_SLTI) then  -- signed comparation
+            if (funct_i = FUNCT_TYPE_SLT) or (funct_i = FUNCT_TYPE_SLTI) 
+            or(funct_i = FUNCT_TYPE_TLT) or(funct_i = FUNCT_TYPE_TLTI) or(funct_i = FUNCT_TYPE_TGE) or(funct_i = FUNCT_TYPE_TGEI) then  -- signed comparation
                 if (operand_1_i(DATA_LEN-1) = '1') and (operand_2_i(DATA_LEN-1) = '0') then
                     compare_result := '1';
                 elsif (operand_1_i(DATA_LEN-1) = operand_2_i(DATA_LEN-1)) and (sum_result(DATA_LEN-1) = '1') then
                     compare_result := '1';
                 end if;
-            elsif (funct_i = FUNCT_TYPE_SLTU) or (funct_i = FUNCT_TYPE_SLTIU) then  -- unsigned comparation
+            elsif (funct_i = FUNCT_TYPE_SLTU) or (funct_i = FUNCT_TYPE_SLTIU) 
+            or(funct_i = FUNCT_TYPE_TLTU) or(funct_i = FUNCT_TYPE_TLTIU) or(funct_i = FUNCT_TYPE_TGEU) or(funct_i = FUNCT_TYPE_TGEIU) then-- unsigned comparation
                 if unsigned(operand_1_i) < unsigned (operand_2_i) then
                     compare_result := '1';
                 end if;
@@ -198,13 +242,14 @@ begin
             op_code: case op_i is
                 -- Do nothing
                 when OP_TYPE_NOP =>
-                
+
                 when OP_TYPE_ARITH =>
                     arith_funct: case funct_i is
                         -- Addition with exception
                     	when FUNCT_TYPE_ADD | FUNCT_TYPE_ADDI =>
                             if overflow = '1' then
                                 reg_wt_en_o <= REG_WT_DISABLE;
+                                over_assert := TRUE;
                             else
                                 reg_wt_data_o <= std_logic_vector(sum_result(REG_DATA_LEN-1 downto 0));
                             end if;
@@ -221,6 +266,7 @@ begin
                         when FUNCT_TYPE_SUB =>
                             if overflow = '1' then
                                 reg_wt_en_o <= REG_WT_DISABLE;
+                                over_assert := TRUE;
                             else
                                 reg_wt_data_o <= std_logic_vector(sum_result(REG_DATA_LEN-1 downto 0));
                             end if;
@@ -290,18 +336,7 @@ begin
                         
                         when FUNCT_TYPE_DIV =>
                         	-- TODO
---                        	dividend_float := to_sfixed(signed(operand_1_i), REG_DATA_LEN-1, 0);
---    						divisor_float := to_sfixed(signed(operand_2_i), REG_DATA_LEN-1, 0);
---    						quotient_float := dividend_float / divisor_float;
---    						deallocate(output);
---                        	write(output, string'("dividend = "));
---                        	write(output, to_integer(dividend_float));
---                        	write(output, string'("divisor = "));
---                        	write(output, to_integer(divisor_float));
---                        	write(output, string'("quotient = "));
---                        	write(output, to_integer(quotient_float));
---                        	report output.all;
-                        
+
                         when others =>
                         
                     end case arith_funct;
@@ -370,7 +405,7 @@ begin
                         -- MTHI
                         when FUNCT_TYPE_MOVE_TO_HI =>
                             hilo_en_o <= CHIP_ENABLE;
-                            hi_o <= operand_1_i;
+                            hi := operand_1_i;
                         
                         -- MFLO
                         when FUNCT_TYPE_MOVE_FROM_LO =>
@@ -379,7 +414,7 @@ begin
                         -- MTLO
                         when FUNCT_TYPE_MOVE_TO_LO =>
                             hilo_en_o <= CHIP_ENABLE;
-                            lo_o <= operand_1_i;
+                            lo := operand_1_i;
                         
                         when others =>
                         
@@ -417,14 +452,66 @@ begin
 				        
 				        when others =>
                 		
-                	end case load_store_funct;
+                    end case load_store_funct;
+                    
+                when OP_TYPE_CP0 =>
+                    cp0_func: case( funct_i ) is
+                    
+                        when FUNCT_TYPE_MFC0 =>
+                            cp0_reg_read_addr_o <= inst_i(15 downto 11);--rd的地�???? 5�????
+                            
+                            if (mem_cp0_reg_we_i = REG_WT_ENABLE) and (mem_cp0_reg_write_addr_i = inst_i(15 downto 11)) then
+                                reg_wt_data_o <= mem_cp0_reg_data_i; --数据冲突：访存阶段要写的寄存器地�???? = 要读的寄存器地址
+                            elsif (wb_cp0_reg_we_i = REG_WT_ENABLE)and (wb_cp0_reg_write_addr_i = inst_i(15 downto 11))then
+                                reg_wt_data_o <= wb_cp0_reg_data_i; --数据冲突：写回阶段要写的寄存器地�???? = 要读的寄存器地址                                
+                            else
+                                reg_wt_data_o <= cp0_reg_data_i;--读取到的cp0中指定寄存器的�??
+                            end if;
+                        
+                        when FUNCT_TYPE_MTC0 =>
+                            cp0_reg_write_addr_o <= inst_i(15 downto 11);
+                            cp0_reg_we_o <= REG_WT_ENABLE;
+                            cp0_reg_data_o <= operand_2_i;
+                            
+                        when others =>
+    
+                    end case cp0_func;
+
+                when OP_TYPE_TRAP =>
+                    trap_func: case( funct_i ) is
+                        when FUNCT_TYPE_TEQ | FUNCT_TYPE_TEQI =>
+                            if operand_1_i = operand_2_i then
+                                trap_assert := TRUE;
+                            end if ;
+
+                        when FUNCT_TYPE_TGE | FUNCT_TYPE_TGEI | FUNCT_TYPE_TGEU | FUNCT_TYPE_TGEIU =>
+                            if compare_result = '0' then
+                                trap_assert := TRUE;
+                            end if ;
+                    
+                        when FUNCT_TYPE_TLT | FUNCT_TYPE_TLTI | FUNCT_TYPE_TLTIU | FUNCT_TYPE_TLTU =>
+                            if compare_result = '1' then
+                                trap_assert := TRUE;
+                            end if ;
+
+                        when FUNCT_TYPE_TNE | FUNCT_TYPE_TNEI =>
+                            if operand_1_i /= operand_2_i then
+                                trap_assert := TRUE;
+                            end if ;
+                        when others =>
+                    end case ;
+
                 when others =>
-                
+            
             end case op_code;
             
             -- Use signal to give hi/lo output a correct value
             hi_o <= hi;
             lo_o <= lo;
+
+            except_type_o <= except_type_i(31 downto 12) & over_assert & trap_assert & except_type_i(9 downto 8) & x"00";
+            is_in_delayslot_o <= is_in_delayslot_i;
+            current_inst_address_o <= current_inst_address_i;
         end if;
     end process;
 

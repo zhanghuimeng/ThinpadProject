@@ -58,7 +58,16 @@ entity ID_to_EX is
            reg_wt_addr_o :  			out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register write address to EX
            is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to EX
 		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the next instruction in delay slot to ID
-		   link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));	-- output the register address to save return address to EX
+           link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);	-- output the register address to save return address to EX
+           
+           inst_i :                     in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
+           inst_o :                     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
+
+           flush_i :                    in STD_LOGIC;
+           current_inst_address_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_i :              in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0));
 end ID_to_EX;
 
 architecture Behavioral of ID_to_EX is
@@ -67,7 +76,7 @@ begin
     process (clk'event)
     begin
         if rising_edge(clk) then
-            if rst = RST_ENABLE then 
+            if rst = RST_ENABLE or flush_i = FLUSH then 
                 op_o <= OP_TYPE_NOP;
                 funct_o <= FUNCT_TYPE_NOP;
                 operand_1_o <= REG_ZERO_DATA;
@@ -78,8 +87,10 @@ begin
                 is_in_delayslot_o <= DELAYSLOT_NOT;
                 next_inst_in_delayslot_o <= DELAYSLOT_NOT;
                 link_addr_o <= INST_ZERO_ADDR;
-            else
-            	if (pause_i(ID_PAUSE_INDEX) = PAUSE) and (pause_i(EX_PAUSE_INDEX) = PAUSE_NOT) then  -- Give empty output
+                inst_o <= ZERO_INST;
+                current_inst_address_o <= ZERO_INST;
+                except_type_o <= ZERO_DATA;
+            elsif((pause_i(ID_PAUSE_INDEX) = PAUSE) AND (pause_i(EX_PAUSE_INDEX) = PAUSE_NOT)) then  -- Give empty output
             		op_o <= OP_TYPE_NOP;
 	                funct_o <= FUNCT_TYPE_NOP;
 	                operand_1_o <= REG_ZERO_DATA;
@@ -89,7 +100,10 @@ begin
 	                reg_wt_addr_o <= REG_ZERO_ADDR;
 	                is_in_delayslot_o <= DELAYSLOT_NOT;
 	                next_inst_in_delayslot_o <= DELAYSLOT_NOT;
-	                link_addr_o <= INST_ZERO_ADDR;
+                    link_addr_o <= INST_ZERO_ADDR;
+                    inst_o <= ZERO_INST;
+                    current_inst_address_o <= ZERO_INST;
+                    except_type_o <= ZERO_DATA;
                 elsif pause_i(ID_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
 	                op_o <= op_i;
 	                funct_o <= funct_i;
@@ -100,8 +114,10 @@ begin
 	                reg_wt_addr_o <= reg_wt_addr_i;
 	                is_in_delayslot_o <= is_in_delayslot_i;
 	                next_inst_in_delayslot_o <= next_inst_in_delayslot_i;
-	                link_addr_o <= link_addr_i;
-	            end if;
+                    link_addr_o <= link_addr_i;
+                    inst_o <= inst_i;
+                    current_inst_address_o <= current_inst_address_i;
+                    except_type_o <= except_type_i;
             end if;
         end if;
     end process;

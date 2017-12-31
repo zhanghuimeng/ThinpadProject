@@ -41,7 +41,14 @@ entity PAUSE_CTRL is
            ex_pause_i : in STD_LOGIC;											-- Input pause information from EX
            if_pause_i : in STD_LOGIC;
            mem_pause_i: in STD_LOGIC;
-           pause_o : 	out STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0));		-- Output pause information to PC, IF/ID, ID/EX, EX/MEM, MEM_WB
+		   pause_o : 	out STD_LOGIC_VECTOR(CTRL_PAUSE_LEN-1 downto 0);		-- Output pause information to PC, IF/ID, ID/EX, EX/MEM, MEM_WB
+
+		   except_type_i :in STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
+		   cp0_epc_i :  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+		   new_pc_o : out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
+		   flush_o : out STD_LOGIC;
+		   new_pc_en_o: out std_logic
+	);
 end PAUSE_CTRL;
 
 architecture Behavioral of PAUSE_CTRL is
@@ -52,7 +59,34 @@ begin
 	begin
 		if rst = RST_ENABLE then
 			pause_o <= b"000000";
+			flush_o <= FLUSH_NOT;
+			new_pc_o <= INST_ZERO_ADDR;
+			new_pc_en_o <= '0';
+		elsif except_type_i /= ZERO_DATA then
+			flush_o <= '1';
+			pause_o <= b"000000";
+			new_pc_en_o <= '1';
+			case( except_type_i ) is
+			
+				when EXCEPT_TYPE_INTERRUPT =>
+					--new_pc_o <= EXCEPT_HANDLE_ADDRESS;
+					new_pc_o <= x"00000020";
+				when EXCEPT_TYPE_SYSCALL =>
+					new_pc_o <=  x"00000040";
+				when EXCEPT_TYPE_INST_INVALID =>
+					new_pc_o <=  x"00000040";
+				when EXCEPT_TYPE_TRAP =>
+					new_pc_o <=  x"00000040";
+				when EXCEPT_TYPE_OVERFLOW =>
+					new_pc_o <=  x"00000040";
+				when EXCEPT_TYPE_ERET =>
+					new_pc_o <= cp0_epc_i;
+				when others =>
+			
+			end case ;
 		else
+		    new_pc_en_o <= '0';
+			flush_o <= FLUSH_NOT;
 		    if mem_pause_i = PAUSE then
                 pause_o <= b"011111"; 
             elsif ex_pause_i = PAUSE then  -- pause IF, ID and EX

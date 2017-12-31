@@ -1,0 +1,13 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Wed Dec 20 13:31:49 2017
+# Process ID: 3648
+# Current directory: Y:/Desktop/computer/ThinpadProject
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3740 Y:\Desktop\computer\ThinpadProject\ThinpadProject.xpr
+# Log file: Y:/Desktop/computer/ThinpadProject/vivado.log
+# Journal file: Y:/Desktop/computer/ThinpadProject\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project Y:/Desktop/computer/ThinpadProject/ThinpadProject.xpr

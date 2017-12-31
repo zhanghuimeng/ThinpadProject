@@ -50,7 +50,19 @@ entity MEM_to_WB is
            reg_wt_data_o :      out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output register write data to REGISTERS
            hilo_en_o :          out STD_LOGIC;                                      -- output HILO write enable to HILO and EX
            hi_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);      -- output HI data to HILO and EX
-           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0));     -- output lo data to HILO and EX
+           lo_o :               out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);     -- output lo data to HILO and EX
+
+           mem_cp0_reg_we_i :   in STD_LOGIC;
+           mem_cp0_reg_write_addr_i: in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           mem_cp0_reg_data_i:  in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+
+           wb_cp0_reg_we_o :   out STD_LOGIC;
+           wb_cp0_reg_write_addr_o: out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
+           wb_cp0_reg_data_o:  out STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
+           
+           flush_i : in std_logic
+           );
+
 end MEM_to_WB;
 
 architecture Behavioral of MEM_to_WB is
@@ -60,13 +72,17 @@ begin
     process (clk'event)
     begin
         if rising_edge(clk) then
-            if rst = RST_ENABLE then
+            if rst = RST_ENABLE or flush_i = FLUSH then
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
                 reg_wt_data_o <= REG_ZERO_DATA;
                 hilo_en_o <= CHIP_DISABLE;
                 hi_o <= REG_ZERO_DATA;
                 lo_o <= REG_ZERO_DATA;
+                wb_cp0_reg_we_o <= REG_WT_DISABLE;
+                wb_cp0_reg_write_addr_o <= REG_ZERO_ADDR;
+                wb_cp0_reg_data_o <= REG_ZERO_DATA;
+
             else
             	if (pause_i(MEM_PAUSE_INDEX) = PAUSE) and (pause_i(WB_PAUSE_INDEX) = PAUSE_NOT) then  -- Give empty output
             		reg_wt_en_o <= REG_WT_DISABLE;
@@ -74,14 +90,22 @@ begin
 	                reg_wt_data_o <= REG_ZERO_DATA;
 	                hilo_en_o <= CHIP_DISABLE;
 	                hi_o <= REG_ZERO_DATA;
-	                lo_o <= REG_ZERO_DATA;
+                    lo_o <= REG_ZERO_DATA;
+
+                    wb_cp0_reg_we_o <= REG_WT_DISABLE;
+                    wb_cp0_reg_write_addr_o <= REG_ZERO_ADDR;
+                    wb_cp0_reg_data_o <= REG_ZERO_DATA;
             	elsif pause_i(MEM_PAUSE_INDEX) = PAUSE_NOT then  -- Does not stop
 	                reg_wt_en_o <= reg_wt_en_i;
 	                reg_wt_addr_o <= reg_wt_addr_i;
 	                reg_wt_data_o <= reg_wt_data_i;
 	                hilo_en_o <= hilo_en_i;
 	                hi_o <= hi_i;
-	                lo_o <= lo_i;
+                    lo_o <= lo_i;
+                    
+                    wb_cp0_reg_we_o <= mem_cp0_reg_we_i;
+                    wb_cp0_reg_write_addr_o <= mem_cp0_reg_write_addr_i;
+                    wb_cp0_reg_data_o <= mem_cp0_reg_data_i;
 	            end if;
             end if;
         end if;

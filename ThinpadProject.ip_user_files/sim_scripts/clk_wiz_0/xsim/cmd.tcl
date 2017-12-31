@@ -8,5 +8,9 @@ if { [string length $curr_wave] == 0 } {
   }
 }
 
+<<<<<<< HEAD:ThinpadProject.ip_user_files/sim_scripts/clk_wiz_0/xsim/cmd.tcl
 run -all
 quit
+=======
+run 1000ns
+>>>>>>> origin/cp0:ThinpadProject.sim/sim_1/behav/MIPS_CPU_min_sopc_testbench.tcl
