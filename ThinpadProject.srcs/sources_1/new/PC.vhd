@@ -63,12 +63,6 @@ begin
                 is_start := '1';
             else
                 en_o <= CHIP_ENABLE;   -- ROM is enabled in general
-<<<<<<< HEAD
-                -- When ROM is enabled, PC increase by 4 every clock cycle
-            	if pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
-            		if branch_i = BRANCH then
-            			pc_o <= branch_target_addr_i;
-=======
             end if;
             -- If I rewrite it, the first instruction might not be read
             if en_o = CHIP_DISABLE then   -- When ROM is disabled, PC = 0
@@ -79,10 +73,9 @@ begin
                     pc_o <= new_pc_i;
             	elsif pause_i(PC_PAUSE_INDEX) = PAUSE_NOT then
             		if branch_i = BRANCH then
-            			pc_o <= branch_target_address_i;
+            			pc_o <= branch_target_addr_i;
             		elsif new_pc_en_i = '1' then
             		    pc_o <= new_pc_i;
->>>>>>> origin/cp0
             		else
             		    if is_start = '0' then
             			    pc_o <= pc_o + x"00000004";  -- IEEE.STD_LOGIC_SIGNED library
