@@ -34,7 +34,7 @@ use IEEE.STD_LOGIC_1164.ALL;
 use WORK.INCLUDE.ALL;
 
 entity MIPS_CPU is
-    Port ( --clk :            in STD_LOGIC;                                   -- Clock
+    Port ( clk :            in STD_LOGIC;                                   -- Clock
            --rst : in STD_LOGIC;
            clk_uart : in STD_LOGIC;
            touch_btn :      in STD_LOGIC_VECTOR(5 downto 0);
@@ -63,6 +63,12 @@ entity MIPS_CPU is
 end MIPS_CPU;
 
 architecture Behavioral of MIPS_CPU is
+
+component clk_wiz_0
+    Port(
+        clk_in1: in STD_LOGIC;
+        clk_out1: out STD_LOGIC);
+end component;
 
 component PC
     Port ( rst :    					in STD_LOGIC;                                       -- Reset
@@ -600,24 +606,24 @@ signal osegh : STD_LOGIC_VECTOR(7 downto 0);
 
 signal input_rst : STD_LOGIC;
 
--- for debug
-signal clk : STD_LOGIC;
+signal clk_out : STD_LOGIC := '0';
 
 begin
-    clk <= touch_btn(4);
-
-    -- rom_addr_o <= pc_from_pc;  -- Output 
+    -- clk_out <= touch_btn(4);
+    CLOCK : clk_wiz_0 port map(
+        clk_in1 => clk,
+        clk_out1 => clk_out);
+ 
     input_rst <= touch_btn(5);
-    --input_rst <= rst;
 
     PC_0 : PC port map(
-        rst => input_rst, clk => clk, pause_i => pause, 
+        rst => input_rst, clk => clk_out, pause_i => pause, 
         branch_i => branch_from_id, branch_target_addr_i => branch_target_addr_from_id,
         
         pc_o => pc_from_pc, en_o => inst_en_from_pc);
     
     IF_to_ID_0 : IF_to_ID port map(
-        rst => input_rst, clk => clk, 
+        rst => input_rst, clk => clk_out, 
         pc_i => pc_from_pc, inst_i => inst_from_mem_controll, 
         pause_i => pause, 
         
@@ -643,7 +649,7 @@ begin
         is_in_delayslot_o => is_in_delayslot_from_id, next_inst_in_delayslot_o => next_inst_in_delayslot_from_id, link_addr_o => link_addr_from_id);
 
     ID_to_EX_0 : ID_to_EX port map(
-        rst => input_rst, clk => clk,
+        rst => input_rst, clk => clk_out,
         op_i => op_from_id, funct_i => funct_from_id,
         operand_1_i => oprand_1_from_id, operand_2_i => oprand_2_from_id,
         extended_offset_i => extended_offset_from_id, 
@@ -678,7 +684,7 @@ begin
         clock_cycle_cnt_o => clock_cycle_cnt_from_ex, mul_cur_result_o => mul_cur_result_from_ex);
     
     EX_to_MEM_0 : EX_to_MEM port map(
-        rst => input_rst, clk => clk,
+        rst => input_rst, clk => clk_out,
         reg_wt_en_i => reg_wt_en_from_ex, reg_wt_addr_i => reg_wt_addr_from_ex, reg_wt_data_i => reg_wt_data_from_ex,
         is_load_store_i => is_load_store_from_ex, funct_i => funct_from_ex, 
         load_store_addr_i => load_store_addr_from_ex, store_data_i => store_data_from_ex, 
@@ -709,7 +715,7 @@ begin
         ram_data_sel_o => sel_from_mem);
     
     MEM_to_WB_0 : MEM_to_WB port map(
-        rst => input_rst, clk => clk,
+        rst => input_rst, clk => clk_out,
         reg_wt_en_i => reg_wt_en_from_mem, reg_wt_addr_i => reg_wt_addr_from_mem, reg_wt_data_i => reg_wt_data_from_mem,
         hilo_en_i => hilo_en_from_mem, hi_i => hi_from_mem, lo_i => lo_from_mem,
         pause_i => pause, 
@@ -718,7 +724,7 @@ begin
         hilo_en_o => hilo_en_to_hilo, hi_o => hi_to_hilo, lo_o => lo_to_hilo);
     
     REGISTERS_0 : REGISTERS port map(
-        rst => input_rst, clk => clk,
+        rst => input_rst, clk => clk_out,
         reg_rd_en_1_i => reg_rd_en_1_to_register, reg_rd_en_2_i => reg_rd_en_2_to_register,
         reg_rd_addr_1_i => reg_rd_addr_1_to_register, reg_rd_addr_2_i => reg_rd_addr_2_to_register,
         reg_wt_en_i => reg_wt_en_to_register, reg_wt_addr_i => reg_wt_addr_to_register, reg_wt_data_i => reg_wt_data_to_register,
@@ -726,7 +732,7 @@ begin
         reg_rd_data_1_o => reg_rd_data_1_from_register, reg_rd_data_2_o => reg_rd_data_2_from_register);
         
     HI_LO_0 : HI_LO port map (
-        rst => input_rst, clk => clk,
+        rst => input_rst, clk => clk_out,
         en => hilo_en_to_hilo, hi_i => hi_to_hilo, lo_i => lo_to_hilo,
         
         hi_o => hi_from_hilo, lo_o => lo_from_hilo);
@@ -740,7 +746,7 @@ begin
 
     MEM_CONTROLL_0 : MEM_CONTROLL port map (
         rst => input_rst,
-        clk => clk,
+        clk => clk_out,
         inst_ce_i => inst_en_from_pc,
         inst_addr_i => pc_from_pc,
         mem_ce_i => en_from_mem,
@@ -800,7 +806,7 @@ begin
         data_o => data_from_mmu);
                 
     BASE_SRAM_CONTROLL : SRAM_CONTROLL port map(
-        clk => clk, rst => input_rst,
+        clk => clk_out, rst => input_rst,
         ce_i => ce_to_ram1,
         we_i => we_to_ram1,
         addr_i => addr_to_ram1,
@@ -818,7 +824,7 @@ begin
         ram_data => ram1_data);
         
     EXTEND_RAM_CONTROLL : SRAM_CONTROLL port map(
-        clk => clk, rst => input_rst,
+        clk => clk_out, rst => input_rst,
         ce_i => ce_to_ram2,
         we_i => we_to_ram2,
         addr_i => addr_to_ram2,
@@ -836,7 +842,7 @@ begin
         ram_data => ram2_data);
         
     SERIAL_CONTROLL_0 : SERIAL_CONTROLL port map (
-        clk => clk,
+        clk => clk_out,
         clk_uart => clk_uart,
         rst => input_rst,
         ce_i => ce_to_serial,
