@@ -15,8 +15,7 @@
 -- Revision:
 -- Revision 0.01 - File Created
 -- Additional Comments:
--- ddddddddd
----------
+-- 
 ----------------------------------------------------------------------------------
 
 
@@ -55,13 +54,10 @@ entity ID is
            mem_reg_wt_addr_i :  		in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);       -- input MEM register write address from MEM (push forward data to solve data conflict)
            mem_reg_wt_data_i :  		in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);       -- input MEM register write data from MEM (push forward data to solve data conflict)
            is_in_delayslot_i :			in STD_LOGIC;										-- input if the current instruction is in delay slot from ID/EX
-
            last_is_load_store_i :       in STD_LOGIC;                                       -- input if the last instructiuon is load/store from EX
            last_funct_i :               in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input the funct_o of the last instruction from EX
-           inst_o:                      out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);           -- output instruction from IF_to_ID
-           op_o :               		out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to ID_to_EX
-           funct_o :            		out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to ID_to_EX
-
+           op_o :               		out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to ID/EX
+           funct_o :            		out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to ID/EX
            reg_rd_en_1_o :      		out STD_LOGIC;                                      -- output register 1 read enable to REGISTERS
            reg_rd_en_2_o :      		out STD_LOGIC;                                      -- output register 2 read enable to REGISTERS
            reg_rd_addr_1_o :    		out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register 1 read address to REGISTERS
@@ -76,9 +72,9 @@ entity ID is
 		   branch_target_addr_o : 		out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);		-- output the branch target address to PC
 		   is_in_delayslot_o :			out STD_LOGIC;										-- output the current instruction in delay slot to ID/EX
 		   next_inst_in_delayslot_o :	out STD_LOGIC;										-- output the next instruction in delay slot to ID/EX
-           link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);	-- output the return address to save to ID/EX
-           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);
-           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));
+		   link_addr_o :				out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);	    -- output the return address to save to ID/EX
+           except_type_o :              out STD_LOGIC_VECTOR(EXCEPT_TYPE_LEN-1 downto 0);   -- output CP0异常类型 to ?
+           current_inst_address_o :     out STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0));    -- output 当前指令地址 to ?
 end ID;
 
 architecture Behavioral of ID is
@@ -102,7 +98,6 @@ architecture Behavioral of ID is
     alias base :		STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) is inst_i(INST_LEN-OP_LEN-1 downto INST_LEN-OP_LEN-REG_ADDR_LEN);
     -- [15, 0] (16)
     alias offset :      STD_LOGIC_VECTOR(IMM_LEN-1 downto 0) is inst_i(IMM_LEN-1 downto 0);
-<<<<<<< HEAD
     
     signal extended_imm : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     alias extended_offset : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) is extended_imm;
@@ -114,7 +109,7 @@ begin
         mem_reg_wt_en_i, mem_reg_wt_addr_i, mem_reg_wt_data_i, 
         reg_rd_data_1_i, reg_rd_data_2_i, 
         extended_imm)
-        variable operand_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);  -- 看看能不能解�?1变x的问题�?��??
+        variable operand_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);  -- 看看能不能解决1变x的问题……
         variable operand_2: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
         variable output: LINE;
     begin
@@ -172,8 +167,8 @@ begin
         variable pause: STD_LOGIC;
         variable output: LINE;
         variable last_inst_is_load : STD_LOGIC;         -- 上一条指令是否为加载指令
-        variable reg_1_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存�?1是否与上�?条指令存在数据相�?
-        variable reg_2_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存�?2是否与上�?条指令存在数据相�?
+        variable reg_1_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存器1是否与上一条指令存在数据相关
+        variable reg_2_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存器2是否与上一条指令存在数据相关
     begin
         if rst = RST_ENABLE then
             reg_1_load_relate := PAUSE_NOT;
@@ -200,7 +195,7 @@ begin
                 end if;
             end if;
                         
-            -- 如果EX阶段的指令要load到该寄存器，则需要暂�?
+            -- 如果EX阶段的指令要load到该寄存器，则需要暂停
             pause := reg_1_load_relate or reg_2_load_relate;
         end if;
         
@@ -217,23 +212,9 @@ begin
         variable output :       LINE;
         variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
         variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-=======
-
-    alias cp0_sel :      STD_LOGIC_VECTOR(CP0_SEL_LEN-1 downto 0) is inst_i(CP0_SEL_LEN-1 downto 0);
-
-begin
-    process (all)
-    variable output :       LINE;
-    variable extended_imm : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
-    alias extended_offset : STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0) is extended_imm;
-    variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-    variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-    
-    variable except_type_is_syscall: STD_LOGIC_VECTOR(0 downto 0);
-    variable except_type_is_eret: STD_LOGIC_VECTOR(0 downto 0);
-    variable inst_valid :   STD_LOGIC_VECTOR(0 downto 0);
-
->>>>>>> origin/cp0
+        variable except_type_is_syscall: STD_LOGIC_VECTOR(0 downto 0);  -- 异常类型是否为系统调用
+        variable except_type_is_eret: STD_LOGIC_VECTOR(0 downto 0);  -- 异常类型是否为ERET
+        variable inst_valid :   STD_LOGIC_VECTOR(0 downto 0);  -- 指令是否合法
     begin
         if rst = RST_ENABLE then
             op_o <= OP_TYPE_NOP;
@@ -252,12 +233,11 @@ begin
             is_in_delayslot_o <= DELAYSLOT_NOT;
             next_inst_in_delayslot_o <= DELAYSLOT_NOT;
             link_addr_o <= INST_ZERO_ADDR;
-            inst_o <= ZERO_DATA;
-            except_type_o <= ZERO_DATA;
-            current_inst_address_o <= INST_ZERO_ADDR;
+            -- CP0相关
             inst_valid := INST_VALID;
+            
         else
-
+            
             op_o <= OP_TYPE_NOP;
             funct_o <= FUNCT_TYPE_NOP;
             reg_rd_en_1_o <= REG_RD_DISABLE;
@@ -276,11 +256,11 @@ begin
             branch_addr_offset(IMM_LEN+1 downto 0) := imm & b"00";
             -- sign extend branch_addr_offset
             branch_addr_offset(INST_ADDR_LEN-1 downto IMM_LEN+2) := (others => branch_addr_offset(IMM_LEN+1));
-            inst_o <= inst_i;
+            -- CP0相关
             inst_valid := INST_INVALID;
             except_type_is_syscall := FALSE;
             except_type_is_eret := FALSE;
-        
+
             -- Decide OP type
             op_code: case op is
             
@@ -291,7 +271,7 @@ begin
                         -- ?????
                         when FUNCT_MOVCI =>
                         
-                        -- SLL rd, rt, sa           rd �? rt << sa
+                        -- SLL rd, rt, sa           rd <- rt << sa
                         when FUNCT_SLL => 
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_LEFT_LOGIC;
@@ -301,7 +281,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SRL rd, rt, sa           rd �? rt >> sa (logical)
+                        -- SRL rd, rt, sa           rd <- rt >> sa (logical)
                         when FUNCT_SRL =>
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_RIGHT_LOGIC;
@@ -309,13 +289,9 @@ begin
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             extended_imm <= x"000000" & b"000" & shamt;
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
-<<<<<<< HEAD
-                        
-=======
                             inst_valid := INST_VALID;
-
->>>>>>> origin/cp0
-                        -- SRA rd, rt, sa           rd �? rt >> sa (arithmatic)
+                        
+                        -- SRA rd, rt, sa           rd <- rt >> sa (arithmatic)
                         when FUNCT_SRA =>
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_RIGHT_ARITH;
@@ -325,7 +301,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SLLV rd, rt, rs          rd �? rt << rs
+                        -- SLLV rd, rt, rs          rd <- rt << rs
                         when FUNCT_SLLV =>
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_LEFT_LOGIC;
@@ -334,7 +310,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SRLV rd, rt, rs          rd �? rt >> rs (logical)
+                        -- SRLV rd, rt, rs          rd <- rt >> rs (logical)
                         when FUNCT_SRLV =>
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_RIGHT_LOGIC;
@@ -343,7 +319,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SRAV rd, rt, rs          rd �? rt >> rs (arithmetic)
+                        -- SRAV rd, rt, rs          rd <- rt >> rs (arithmetic)
                         when FUNCT_SRAV => 
                             op_o <= OP_TYPE_SHIFT;
                             funct_o <= FUNCT_TYPE_SHIFT_RIGHT_ARITH;
@@ -352,7 +328,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- JR rs                    PC �? rs
+                        -- JR rs                    PC <- rs
                     	when FUNCT_JR => 
                     		op_o <= OP_TYPE_BRANCH;
                             funct_o <= FUNCT_TYPE_JR;
@@ -360,11 +336,11 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= operand_1_o;
+                            branch_target_addr_o <= reg_rd_data_1_i;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             inst_valid := INST_VALID;
                         
-                        -- JALR (rd, = 31) rs       rd �? return_addr, PC �? rs
+                        -- JALR (rd, = 31) rs       rd <- return_addr, PC <- rs
 	                    when FUNCT_JALR =>
 	                    	op_o <= OP_TYPE_BRANCH;
                             funct_o <= FUNCT_TYPE_JALR;
@@ -372,12 +348,12 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= operand_1_o;
+                            branch_target_addr_o <= reg_rd_data_1_i;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             link_addr_o <= pc_i + b"1000";
                             inst_valid := INST_VALID;
                         
-                        -- MOVZ rd, rs, rt          if rt = 0 then rd �? rs
+                        -- MOVZ rd, rs, rt          if rt = 0 then rd <- rs
                         -- Note data problem
                         when FUNCT_MOVZ =>
                             op_o <= OP_TYPE_MOVE;
@@ -387,7 +363,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- write rd? (EX module solves it)
                             inst_valid := INST_VALID;
                         
-                        -- MOVN rd, rs, rt          if rt �? 0 then rd �? rs
+                        -- MOVN rd, rs, rt          if rt != 0 then rd <- rs
                         when FUNCT_MOVN =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_NOT_ZERO;
@@ -396,7 +372,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- write rd? (EX module solves it)
                             inst_valid := INST_VALID;
                         
-                        -- MFHI rd                  rd �? HI
+                        -- MFHI rd                  rd <- HI
                         when FUNCT_MFHI =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_FROM_HI;
@@ -405,7 +381,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- MTHI rs                  HI �? rs
+                        -- MTHI rs                  HI <- rs
                         when FUNCT_MTHI =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_TO_HI;
@@ -414,7 +390,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- MFLO rd                  rd �? LO
+                        -- MFLO rd                  rd <- LO
                         when FUNCT_MFLO =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_FROM_LO;
@@ -423,7 +399,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- MTLO rs                  LO �? rs
+                        -- MTLO rs                  LO <- rs
                         when FUNCT_MTLO =>
                             op_o <= OP_TYPE_MOVE;
                             funct_o <= FUNCT_TYPE_MOVE_TO_LO;
@@ -431,6 +407,17 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- do not write
                             inst_valid := INST_VALID;
+                        
+                        -- SYSCALL                  A system call exception occurs
+                        -- CP0指令
+                        when FUNCT_SYSCALL =>
+                            op_o <= OP_TYPE_SYSCALL;
+                            funct_o <= FUNCT_TYPE_SYSCALL;
+                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- read rs
+                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- read rt
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
+                            inst_valid := INST_VALID;
+                            except_type_is_syscall := TRUE;
                         
                         -- BREAK                    A breakpoint exception occurs
                         when FUNCT_BREAK =>
@@ -445,7 +432,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- do not write
                             inst_valid := INST_VALID;
 
-                        -- MULT rs, rt              (LO, HI) �? rs × rt
+                        -- MULT rs, rt              (LO, HI) <- rs × rt
                         -- Signed
                         when FUNCT_MULT =>
                             op_o <= OP_TYPE_ARITH;
@@ -455,7 +442,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- MULTU rs, rt             (LO, HI) �? rs × rt
+                        -- MULTU rs, rt             (LO, HI) <- rs × rt
                         -- Unsigned
                         when FUNCT_MULTU =>
                             op_o <= OP_TYPE_ARITH;
@@ -465,7 +452,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- DIV rs, rt               (LO, HI) �? rs / rt
+                        -- DIV rs, rt               (LO, HI) <- rs / rt
                     	when FUNCT_DIV =>
                     		op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_DIV;
@@ -474,7 +461,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- DIVU rs, rt              (LO, HI) �? rs / rt
+                        -- DIVU rs, rt              (LO, HI) <- rs / rt
                     	when FUNCT_DIVU =>
                     		op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_DIVU;
@@ -483,7 +470,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- ADD rd, rs, rt           rd �? rs + rt
+                        -- ADD rd, rs, rt           rd <- rs + rt
                         -- Generate exception when overflow
                         when FUNCT_ADD =>
                             op_o <= OP_TYPE_ARITH;
@@ -493,7 +480,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- ADDU rd, rs, rt          rd �? rs + rt
+                        -- ADDU rd, rs, rt          rd <- rs + rt
                         -- Do not generate exception
                         when FUNCT_ADDU =>
                             op_o <= OP_TYPE_ARITH;
@@ -503,7 +490,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SUB rd, rs, rt           rd �? rs - rt
+                        -- SUB rd, rs, rt           rd <- rs - rt
                         -- Generate exception when overflow
                         when FUNCT_SUB =>
                             op_o <= OP_TYPE_ARITH;
@@ -513,7 +500,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SUBU rd, rs, rt          rd �? rs - rt
+                        -- SUBU rd, rs, rt          rd <- rs - rt
                         -- Do not generate exception
                         when FUNCT_SUBU =>
                             op_o <= OP_TYPE_ARITH;
@@ -523,7 +510,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- AND rd, rs, rt           rd �? rs AND rt
+                        -- AND rd, rs, rt           rd <- rs AND rt
                         when FUNCT_AND =>
                             op_o <= OP_TYPE_LOGIC;
                             funct_o <= FUNCT_TYPE_AND;
@@ -532,7 +519,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
         
-                        -- OR rd, rs, rt            rd �? rs or rt
+                        -- OR rd, rs, rt            rd <- rs or rt
                         when FUNCT_OR =>
                             op_o <= OP_TYPE_LOGIC;
                             funct_o <= FUNCT_TYPE_OR;
@@ -541,7 +528,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                                                     
-                        -- XOR rd, rs, rt           rd �? rs XOR rt
+                        -- XOR rd, rs, rt           rd <- rs XOR rt
                         when FUNCT_XOR =>
                             op_o <= OP_TYPE_LOGIC;
                             funct_o <= FUNCT_TYPE_XOR;
@@ -550,7 +537,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- NOR rd, rs, rt           rd �? rs NOR rt
+                        -- NOR rd, rs, rt           rd <- rs NOR rt
                         when FUNCT_NOR =>
                             op_o <= OP_TYPE_LOGIC;
                             funct_o <= FUNCT_TYPE_NOR;
@@ -559,7 +546,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SLT rd, rs, rt           rd �? (rs < rt)
+                        -- SLT rd, rs, rt           rd <- (rs < rt)
                         -- Signed
                         when FUNCT_SLT =>
                             op_o <= OP_TYPE_ARITH;
@@ -569,7 +556,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- SLTU rd, rs, rt          rd �? (rs < rt)
+                        -- SLTU rd, rs, rt          rd <- (rs < rt)
                         -- Unsigned
                         when FUNCT_SLTU =>
                             op_o <= OP_TYPE_ARITH;
@@ -579,20 +566,16 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- TGE rs, rt               if rs �? rt then Trap
+                        -- TGE rs, rt               if rs >= rt then Trap
                         when FUNCT_TGE =>
-<<<<<<< HEAD
-                        
-=======
                             op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TGE;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-
->>>>>>> origin/cp0
-                        -- TGEU rs, rt              if rs �? rt then Trap
+                        
+                        -- TGEU rs, rt              if rs >= rt then Trap
                         when FUNCT_TGEU =>
                             op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TGEU;
@@ -609,7 +592,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            
+                        
                         -- TLTU rs, rt              if rs < rt then Trap
                         when FUNCT_TLTU =>
                             op_o <= OP_TYPE_TRAP;
@@ -618,23 +601,17 @@ begin
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            
+                        
                         -- TEQ rs, rt               if rs = rt then Trap
                         when FUNCT_TEQ =>
-<<<<<<< HEAD
-                        
-                        -- TNE rs, rt               if rs �? rt then Trap
-                        when FUNCT_TNE =>
-=======
                             op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TEQ;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
->>>>>>> origin/cp0
-                            
-                        -- TNE rs, rt               if rs �? rt then Trap
+                        
+                        -- TNE rs, rt               if rs != rt then Trap
                         when FUNCT_TNE =>
                             op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TNE;
@@ -642,21 +619,11 @@ begin
                             reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                        
-                        --syscall
-                        when FUNCT_SYSCALL =>
-                            op_o <= OP_TYPE_SYSCALL;
-                            funct_o <= FUNCT_TYPE_SYSCALL;
-                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- read rs
-                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- read rt
-                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
-                            inst_valid := INST_VALID;
-                            except_type_is_syscall := TRUE;
-
+                            
                         when others =>
                             
                     end case special_funct;
-
+                
                 -- REGIMM type instructions
             	when OP_REGIMM =>
             		regimm_rt: case reg_t is
@@ -675,7 +642,7 @@ begin
                             end if;
                             inst_valid := INST_VALID;
 	            		
-	            		-- BGEZ rs, offset					if rs �? 0 then branch
+	            		-- BGEZ rs, offset					if rs >= 0 then branch
 	            		when RT_BGEZ =>
 	            			op_o <= OP_TYPE_BRANCH;
                             funct_o <= FUNCT_TYPE_BGEZ;
@@ -692,83 +659,69 @@ begin
 	            		-- BLTZL rs, offset					if rs < 0 then branch_likely
 	            		when RT_BLTZL =>
 	            		
-	            		-- BGEZL rs, offset					if rs �? 0 then branch_likely
+	            		-- BGEZL rs, offset					if rs >= 0 then branch_likely
 	            		when RT_BGEZL =>
 	            		
-	            		-- TGEI rs, immediate				if rs �? immediate then Trap
+	            		-- TGEI rs, immediate				if rs >= immediate then Trap
 	            		when RT_TGEI =>
-<<<<<<< HEAD
-	            		
-=======
-                            op_o <= OP_TYPE_TRAP;
+	            		    op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TGEI;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
-                        
->>>>>>> origin/cp0
-	            		-- TGEIU rs, immediate				if rs �? immediate then Trap
+                            extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
+	            		
+	            		-- TGEIU rs, immediate				if rs >= immediate then Trap
 	            		when RT_TGEIU =>
-                            op_o <= OP_TYPE_TRAP;
+	            		    op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TGEIU;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
-                    
+                            extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
+	            		
 	            		-- TLTI rs, immediate				if rs < immediate then Trap
 	            		when RT_TLTI =>
-                            op_o <= OP_TYPE_TRAP;
+	            		    op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TLTI;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
-                    
+                            extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
+	            		
 	            		-- TLTIU rs, immediate				if rs < immediate then Trap
 	            		when RT_TLTIU =>
-                            op_o <= OP_TYPE_TRAP;
+	            		    op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TLTIU;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
-                    
+                            extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
+						
 						-- TEQI rs, immediate				if rs = immediate then Trap
 						when RT_TEQI =>
-<<<<<<< HEAD
-						
-=======
-                            op_o <= OP_TYPE_TRAP;
+						    op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TEQI;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
-                    
->>>>>>> origin/cp0
-						-- TNEI rs, immediate				if rs �? immediate then Trap
+                            extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
+						
+						-- TNEI rs, immediate				if rs != immediate then Trap
 						when RT_TNEI =>
-                            op_o <= OP_TYPE_TRAP;
+						    op_o <= OP_TYPE_TRAP;
                             funct_o <= FUNCT_TYPE_TNEI;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  --do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            extended_imm(REG_DATA_LEN-1 downto IMM_LEN) := (others => imm(IMM_LEN-1));
-                            extended_imm(IMM_LEN-1 downto 0) := imm;  -- sign extend imm
-                    
+                            extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
+						
 						-- BLTZAL rs, offset				if rs < 0 then procedure_call
 						when RT_BLTZAL =>
 							op_o <= OP_TYPE_BRANCH;
@@ -785,7 +738,7 @@ begin
                             end if;
                             inst_valid := INST_VALID;
 						
-						-- BGEZAL rs, offset				if rs �? 0 then procedure_call
+						-- BGEZAL rs, offset				if rs >= 0 then procedure_call
 						when RT_BGEZAL =>
 							op_o <= OP_TYPE_BRANCH;
                             funct_o <= FUNCT_TYPE_BGEZAL;
@@ -804,7 +757,7 @@ begin
 						-- BLTZALL rs, offset				if rs < 0 then procedure_call_likely
 						when RT_BLTZALL =>
 	
-						-- BGEZALL rs, offset				if rs �? 0 then procedure_call_likely
+						-- BGEZALL rs, offset				if rs >= 0 then procedure_call_likely
 						when RT_BGEZALL =>
 							
 						when others =>
@@ -814,7 +767,7 @@ begin
                 -- SPECIAL2 type instructions
                 when OP_SPECIAL2 =>
                     special2_funct: case funct is
-                        -- MADD rs, rt              (LO,HI) �? (rs x rt) + (LO,HI)
+                        -- MADD rs, rt              (LO,HI) <- (rs x rt) + (LO,HI)
                         when FUNCT_MADD =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MADD;
@@ -823,7 +776,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- MADDU rs, rt             (LO,HI) �? (rs x rt) + (LO,HI)
+                        -- MADDU rs, rt             (LO,HI) <- (rs x rt) + (LO,HI)
                         when FUNCT_MADDU =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MADDU;
@@ -832,7 +785,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- MSUB rs, rt              (LO,HI) �? (rs x rt) - (LO,HI)
+                        -- MSUB rs, rt              (LO,HI) <- (rs x rt) - (LO,HI)
                         when FUNCT_MSUB =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MSUB;
@@ -841,7 +794,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- MSUBU rs, rt             (LO,HI) �? (rs x rt) - (LO,HI)
+                        -- MSUBU rs, rt             (LO,HI) <- (rs x rt) - (LO,HI)
                         when FUNCT_MSUBU =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MSUBU;
@@ -850,7 +803,7 @@ begin
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
-                        -- MUL rd, rs, rt           rd �? rs × rt
+                        -- MUL rd, rs, rt           rd <- rs × rt
                         when FUNCT_MUL =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_MUL;
@@ -859,7 +812,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- CLZ rd, rs               rd �? count_leading_zeros rs
+                        -- CLZ rd, rs               rd <- count_leading_zeros rs
                         when FUNCT_CLZ =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_CLZ;
@@ -868,7 +821,7 @@ begin
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             inst_valid := INST_VALID;
                         
-                        -- CLO rd, rs               rd �? count_leading_ones rs
+                        -- CLO rd, rs               rd <- count_leading_ones rs
                         when FUNCT_CLO =>
                             op_o <= OP_TYPE_ARITH;
                             funct_o <= FUNCT_TYPE_CLO;
@@ -886,29 +839,30 @@ begin
                 
                 -- COP0 type instructions
                 when OP_COP0 =>
-                    cop0_func:case( reg_s ) is
-                        -- mtc0 rt td           CPR[0,rd] �? rt
+                    cop0_func: case reg_s is
+                        -- mtc0 rt td           CPR[0,rd] �? rt
                         when RS_MTC0 =>
-                            op_o <= OP_TYPE_CP0;
-                            funct_o <= FUNCT_TYPE_MTC0;
-                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rd     
-                            reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rt
-                            inst_valid := INST_VALID;
+                           op_o <= OP_TYPE_CP0;
+                           funct_o <= FUNCT_TYPE_MTC0;
+                           reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rd     
+                           reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
+                           reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rt
+                           inst_valid := INST_VALID;
                         
-                        -- mfc0 rt td           CPR[rt] �? CPR[0,rd]
+                        -- mfc0 rt td           CPR[rt] �? CPR[0,rd]
                         when RS_MFC0 =>           
-                            op_o <= OP_TYPE_CP0;
-                            funct_o <= FUNCT_TYPE_MFC0;
-                            reg_rd_en_1_o <= REG_RD_DISABLE;  -- read rd
-                            reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                            reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
-                            reg_wt_addr_o <= reg_t;
-                            inst_valid := INST_VALID;
-                    
+                           op_o <= OP_TYPE_CP0;
+                           funct_o <= FUNCT_TYPE_MFC0;
+                           reg_rd_en_1_o <= REG_RD_DISABLE;  -- read rd
+                           reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
+                           reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
+                           reg_wt_addr_o <= reg_t;
+                           inst_valid := INST_VALID;
+                        
                         when others =>
-            
-                    end case ;
+                    
+                    end case cop0_func;
+                    
                     --eret
                     if inst_i = b"01000010000000000000000000011000" then
                         op_o <= OP_TYPE_CP0;
@@ -919,7 +873,7 @@ begin
                         inst_valid := INST_VALID;
                         except_type_is_eret := TRUE;
                     end if ;
-
+                
                 -- COP1 type instructions                                
                 when OP_COP1 =>
                 
@@ -929,7 +883,7 @@ begin
                 -- COP3 type instructions
                 when OP_COP3 =>
                 
-                -- ADDI rt, rs, immediate               rt �? rs + immediate
+                -- ADDI rt, rs, immediate               rt <- rs + immediate
                 -- Exception
                 when OP_ADDI =>
                     op_o <= OP_TYPE_ARITH;
@@ -939,13 +893,9 @@ begin
                     extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- ADDIU rt, rs, immediate              rt �? rs + immediate
+                
+                -- ADDIU rt, rs, immediate              rt <- rs + immediate
                 -- No Exception
                 when OP_ADDIU =>
                     op_o <= OP_TYPE_ARITH;
@@ -955,13 +905,9 @@ begin
                     extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- ANDI rt, rs, immediate               rt �? rs AND immediate
+                
+                -- ANDI rt, rs, immediate               rt <- rs AND immediate
                 when OP_ANDI =>
                     op_o <= OP_TYPE_LOGIC;
                     funct_o <= FUNCT_TYPE_AND;
@@ -970,13 +916,9 @@ begin
                     extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- ORI rt, rs, immediate                rt �? rs or immediate
+                
+                -- ORI rt, rs, immediate                rt <- rs or immediate
                 when OP_ORI =>
                     op_o <= OP_TYPE_LOGIC;
                     funct_o <= FUNCT_TYPE_OR;
@@ -985,13 +927,9 @@ begin
                     extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- XORI rt, rs, immediate               rt �? rs XOR immediate
+                
+                -- XORI rt, rs, immediate               rt <- rs XOR immediate
                 when OP_XORI =>
                     op_o <= OP_TYPE_LOGIC;
                     funct_o <= FUNCT_TYPE_XOR;
@@ -1000,26 +938,21 @@ begin
                     extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
-                
-                -- LUI rt, immediate                    rt �? immediate || 0^16
-                -- TODO：搞明白�?近的bug是�?�么回事
-=======
                     inst_valid := INST_VALID;
-                        
-                -- LUI rt, immediate                    rt �? immediate || 0^16
->>>>>>> origin/cp0
+                
+                -- LUI rt, immediate                    rt <- immediate || 0^16
+                -- TODO：搞明白最近的bug是怎么回事
                 when OP_LUI =>
                     op_o <= OP_TYPE_LOGIC;
                     funct_o <= FUNCT_TYPE_OR;  -- LUI rt, immediate = ORI rt, $0, (immediate || 0^16)  
                     reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                    extended_imm <= imm & x"0000";  -- zero extend imm
+                    extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
                     -- write rt
                     reg_wt_en_o <= REG_WT_ENABLE;
                     reg_wt_addr_o <= reg_t;
                     inst_valid := INST_VALID;
-                        
+                
                 -- J target                             To branch within the current 256 MB-aligned region
             	when OP_J =>
             		op_o <= OP_TYPE_BRANCH;
@@ -1031,7 +964,7 @@ begin
                     branch_target_addr_o <= next_pc(31 downto 28) & jump_addr & b"00";
                     next_inst_in_delayslot_o <= DELAYSLOT;
                     inst_valid := INST_VALID;
-                        
+                
                 -- JAL target                           To execute a procedure call within the current 256 MB-aligned region
                 when OP_JAL =>
                 	op_o <= OP_TYPE_BRANCH;
@@ -1045,7 +978,7 @@ begin
                     link_addr_o <= pc_i + b"1000";
                     next_inst_in_delayslot_o <= DELAYSLOT;
                     inst_valid := INST_VALID;
-                        
+                	
                 -- BEQ rs, rt, offset                   if rs = rt then branch
 	            when OP_BEQ =>
 	            	op_o <= OP_TYPE_BRANCH;
@@ -1058,13 +991,9 @@ begin
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
                     end if;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- BNE rs, rt, offset                   if rs �? rt then branch
+                
+                -- BNE rs, rt, offset                   if rs != rt then branch
                 when OP_BNE =>
                 	op_o <= OP_TYPE_BRANCH;
                     funct_o <= FUNCT_TYPE_BNE;
@@ -1076,13 +1005,9 @@ begin
                     	branch_target_addr_o <= branch_addr_offset + next_pc;
                     	next_inst_in_delayslot_o <= DELAYSLOT;
                     end if;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- BLEZ rs, offset                      if rs �? 0 then branch
+                
+                -- BLEZ rs, offset                      if rs ≤ 0 then branch
            	 	when OP_BLEZ =>
             		op_o <= OP_TYPE_BRANCH;
                     funct_o <= FUNCT_TYPE_BEQ;
@@ -1095,7 +1020,7 @@ begin
                     	next_inst_in_delayslot_o <= DELAYSLOT;
                     end if;
                     inst_valid := INST_VALID;
-                        
+                
                 -- BGTZ rs, offset                      if rs > 0 then branch
                 when OP_BGTZ =>
                 	op_o <= OP_TYPE_BRANCH;
@@ -1109,20 +1034,20 @@ begin
                     	next_inst_in_delayslot_o <= DELAYSLOT;
                     end if;
                     inst_valid := INST_VALID;
-                        
+                    
                 -- BEQL rs, rt, offset                  if rs = rt then branch_likely
                 when OP_BEQL =>
                 
-                -- BNEL rs, rt, offset                  if rs �? rt then branch_likely
+                -- BNEL rs, rt, offset                  if rs != rt then branch_likely
                 when OP_BNEL =>
                 
-                -- BLEZL rs, rt, offset                 if rs �? 0 then branch_likely
+                -- BLEZL rs, rt, offset                 if rs ≤ 0 then branch_likely
                 when OP_BLEZL =>
                 
                 -- BGTZL rs, rt, offset                 if rs > 0 then branch_likely
                 when OP_BGTZL =>
                 
-                -- SLTI rt, rs, immediate               rt �? (rs < immediate)
+                -- SLTI rt, rs, immediate               rt <- (rs < immediate)
                 when OP_SLTI =>
                     op_o <= OP_TYPE_ARITH;
                     funct_o <= FUNCT_TYPE_SLTI;
@@ -1131,13 +1056,9 @@ begin
                     extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- SLTIU rt, rs, immediate              rt �? (rs < immediate)
+                
+                -- SLTIU rt, rs, immediate              rt <- (rs < immediate)
                 when OP_SLTIU =>
                     op_o <= OP_TYPE_ARITH;
                     funct_o <= FUNCT_TYPE_SLTIU;
@@ -1146,13 +1067,9 @@ begin
                     extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
-                
-=======
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- LB rt, offset(base)                  rt �? memory[base+offset]
+                
+                -- LB rt, offset(base)                  rt <- memory[base+offset]
             	when OP_LB =>
             		op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_LB;
@@ -1160,16 +1077,10 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- LBU rt, offset(base)                 rt �? memory[base+offset]
+                
+                -- LBU rt, offset(base)                 rt <- memory[base+offset]
 	            when OP_LBU =>
 	            	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_LBU;
@@ -1177,16 +1088,10 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- LH rt, offset(base)                  rt �? memory[base+offset]
+                
+                -- LH rt, offset(base)                  rt <- memory[base+offset]
                 when OP_LH =>
                 	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_LH;
@@ -1194,16 +1099,10 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                	
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- LHU rt, offset(base)                 rt �? memory[base+offset]
+                	
+                -- LHU rt, offset(base)                 rt <- memory[base+offset]
                 when OP_LHU =>
                 	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_LHU;
@@ -1211,16 +1110,10 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                	
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- LW rt, offset(base)                  rt �? memory[base+offset]
+                	
+                -- LW rt, offset(base)                  rt <- memory[base+offset]
                 when OP_LW =>
                 	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_LW;
@@ -1228,16 +1121,10 @@ begin
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- LWL rt, offset(base)                 rt �? rt MERGE memory[base+offset]
+                
+                -- LWL rt, offset(base)                 rt <- rt MERGE memory[base+offset]
                 when OP_LWL =>
                 	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_LWL;
@@ -1245,16 +1132,10 @@ begin
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- LWR rt, offset(base)                 rt �? rt MERGE memory[base+offset]
+                
+                -- LWR rt, offset(base)                 rt <- rt MERGE memory[base+offset]
                 when OP_LWR =>
                 	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_LWR;
@@ -1262,142 +1143,66 @@ begin
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- SB rt, offset(base)                  memory[base+offset] �? rt
+                
+                -- SB rt, offset(base)                  memory[base+offset] <- rt
 	            when OP_SB =>
 	            	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_SB;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                    
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- SH rt, offset(base)                  memory[base+offset] �? rt
+                    
+                -- SH rt, offset(base)                  memory[base+offset] <- rt
                 when OP_SH =>
                 	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_SH;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                	
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- SW rt, offset(base)                  memory[base+offset] �? rt
+                	
+                -- SW rt, offset(base)                  memory[base+offset] <- rt
            	 	when OP_SW =>
             		op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_SW;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-                
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- SWL rt, offset(base)                 memory[base+offset] �? rt
+                
+                -- SWL rt, offset(base)                 memory[base+offset] <- rt
                 when OP_SWL => 
 					op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_SWL;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-<<<<<<< HEAD
                     extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
-
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset
                     inst_valid := INST_VALID;
-                        
->>>>>>> origin/cp0
-                -- SWR rt, offset(base)                 memory[base+offset] �? rt
+
+                -- SWR rt, offset(base)                 memory[base+offset] <- rt
                 when OP_SWR =>
                 	op_o <= OP_TYPE_LOAD_STORE;
                     funct_o <= FUNCT_TYPE_SWR;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read base (rs)
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
                     reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
-<<<<<<< HEAD
-                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset                          
+                    extended_offset <= sign_extend(offset, DATA_LEN);  -- sign extend offset
+                    inst_valid := INST_VALID;                     
                 
                 when others =>
                                    
             end case op_code;
-=======
-                    extended_offset(DATA_LEN-1 downto IMM_LEN) := (others => offset(IMM_LEN-1));
-                    extended_offset(IMM_LEN-1 downto 0) := offset;  -- sign extend offset                          
-                    inst_valid := INST_VALID;
-                        
-                when others =>
-                                   
-            end case op_code;
             
+            -- 输出异常处理所需内容
             except_type_o <= x"0000" & b"000" & except_type_is_eret & b"00" & inst_valid & except_type_is_syscall & x"00" ;
             current_inst_address_o <= pc_i;
-
-            if reg_rd_en_1_o = REG_RD_ENABLE then
-                if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_1_o) then  -- Solve data conflict
-                    operand_1_o <= ex_reg_wt_data_i;
-                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_1_o) then  -- Solve data conflict
-                    operand_1_o <= mem_reg_wt_data_i;
-                else
-                	operand_1_o <= reg_rd_data_1_i;
-                	-- Special case for $0
-                	if reg_rd_addr_1_o = REG_ZERO_ADDR then
-                		operand_1_o <= ZERO_DATA;
-                	end if;
-                end if;
-            elsif reg_rd_en_1_o = REG_RD_DISABLE then
-                operand_1_o <= extended_imm;
-            else
-                operand_1_o <= REG_ZERO_DATA;
-            end if;
-            
-            if reg_rd_en_2_o = REG_RD_ENABLE then
-                if (ex_reg_wt_en_i = REG_WT_ENABLE) and (ex_reg_wt_addr_i = reg_rd_addr_2_o) then  -- Solve data conflict
-                    operand_2_o <= ex_reg_wt_data_i;
-                elsif (mem_reg_wt_en_i = REG_WT_ENABLE) and (mem_reg_wt_addr_i = reg_rd_addr_2_o) then  -- Solve data conflict
-                    operand_2_o <= mem_reg_wt_data_i;
-                else
-                	operand_2_o <= reg_rd_data_2_i;
-                	-- Special case for $0
-                	if reg_rd_addr_2_o = REG_ZERO_ADDR then
-                		operand_2_o <= ZERO_DATA;
-                	end if;
-                end if;
-            elsif reg_rd_en_2_o = REG_RD_DISABLE then
-                operand_2_o <= extended_imm;
-            else
-                operand_2_o <= REG_ZERO_DATA;
-            end if;
-            
-            extended_offset_o <= extended_offset;
->>>>>>> origin/cp0
 	        
             /*
             deallocate(output);
@@ -1417,7 +1222,7 @@ begin
         end if;
     end process main_process;
     
-    -- 给extended_offset赋�?�（好像是Load/Store用？不记得了�?
+    -- 给extended_offset赋值（好像是Load/Store用？不记得了）
     assign_offset_process: process(extended_offset)
     begin
         extended_offset_o <= extended_offset;
