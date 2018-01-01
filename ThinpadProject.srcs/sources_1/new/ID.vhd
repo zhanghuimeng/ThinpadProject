@@ -948,7 +948,7 @@ begin
                     funct_o <= FUNCT_TYPE_OR;  -- LUI rt, immediate = ORI rt, $0, (immediate || 0^16)  
                     reg_rd_en_1_o <= REG_RD_DISABLE;  -- do not read rs
                     reg_rd_en_2_o <= REG_RD_ENABLE;  -- read rt
-                    extended_imm <= zero_extend(imm, DATA_LEN);  -- zero extend imm
+                    extended_imm <= imm & x"0000";  -- zero extend imm
                     -- write rt
                     reg_wt_en_o <= REG_WT_ENABLE;
                     reg_wt_addr_o <= reg_t;

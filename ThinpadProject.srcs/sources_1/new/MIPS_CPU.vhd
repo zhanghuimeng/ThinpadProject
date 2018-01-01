@@ -1192,10 +1192,13 @@ begin
 --    leds(14) <= ack_from_mmu;
 --    leds(13) <= ce_to_serial;
         
-     leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
+--     leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
    --leds(14 downto 11) <= sel_from_mem_controll; 
     -- leds(10 downto 9) <= state_from_mem_controll; 
+    leds(7 downto 0) <= oprand_1_from_id(7 downto 0);
+    leds(15 downto 8) <= oprand_2_from_id(7 downto 0);
+    leds(31) <= branch_from_id;
     
 --    number(7 downto 0) <= num_to_leds(7 downto 0);
 --    leds(15 downto 0) <= leds_to_leds(15 downto 0);

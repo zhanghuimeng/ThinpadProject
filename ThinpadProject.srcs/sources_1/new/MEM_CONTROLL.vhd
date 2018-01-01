@@ -116,7 +116,7 @@ begin
 						we_o <= '0';
 						sel_o <= b"1111";
 						addr_o <= inst_addr_i;
-						data_o <= ZERO_DATA;
+						-- data_o <= ZERO_DATA;
 					end if;
 				end if;
 			end if;
