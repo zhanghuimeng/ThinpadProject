@@ -337,7 +337,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= reg_rd_data_1_i;
+                            branch_target_addr_o <= operand_1_o;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             inst_valid := INST_VALID;
                         
@@ -349,7 +349,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= reg_rd_data_1_i;
+                            branch_target_addr_o <= operand_1_o;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             link_addr_o <= pc_i + b"1000";
                             inst_valid := INST_VALID;
