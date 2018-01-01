@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Mon Jan  1 16:38:17 2018
+| Date         : Mon Jan  1 16:44:45 2018
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_utilization -file MIPS_CPU_utilization_synth.rpt -pb MIPS_CPU_utilization_synth.pb
 | Design       : MIPS_CPU
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 645   |          Yes |           - |        Reset |
-| 5     |          Yes |         Set |            - |
-| 819   |          Yes |       Reset |            - |
+| 6     |          Yes |         Set |            - |
+| 818   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -153,7 +153,7 @@ Table of Contents
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
 | LUT6     | 1120 |                 LUT |
-| FDRE     |  819 |        Flop & Latch |
+| FDRE     |  818 |        Flop & Latch |
 | LUT2     |  655 |                 LUT |
 | LDCE     |  645 |        Flop & Latch |
 | LUT5     |  357 |                 LUT |
@@ -169,7 +169,7 @@ Table of Contents
 | MUXF7    |   20 |               MuxFx |
 | BUFG     |   12 |               Clock |
 | DSP48E1  |    8 |    Block Arithmetic |
-| FDSE     |    5 |        Flop & Latch |
+| FDSE     |    6 |        Flop & Latch |
 +----------+------+---------------------+
 
 

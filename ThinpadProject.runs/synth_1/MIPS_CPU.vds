@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Mon Jan  1 16:36:37 2018
-# Process ID: 18596
+# Start of session at: Mon Jan  1 16:43:14 2018
+# Process ID: 18180
 # Current directory: E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7392 
+INFO: Helper process launched with PID 21408 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 348.070 ; gain = 82.426
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 347.684 ; gain = 82.207
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:65]
 INFO: [Synth 8-3491] module 'PC' declared at 'E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:804]
@@ -373,7 +373,7 @@ WARNING: [Synth 8-3331] design EX has unconnected port inst_i[26]
 WARNING: [Synth 8-3331] design EX has unconnected port inst_i[25]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 406.184 ; gain = 140.539
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 405.797 ; gain = 140.320
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -449,7 +449,7 @@ WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[2] to constant 
 WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[1] to constant 0 [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:867]
 WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[0] to constant 0 [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:867]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 406.184 ; gain = 140.539
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 405.797 ; gain = 140.320
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -769,22 +769,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 728.676 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 728.277 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 728.676 ; gain = 463.031
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 728.277 ; gain = 462.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 728.676 ; gain = 463.031
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 728.277 ; gain = 462.801
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 728.676 ; gain = 463.031
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 728.277 ; gain = 462.801
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -944,7 +944,7 @@ WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E
 INFO: [Synth 8-3354] encoded FSM with state register 'TxD_state_reg' using encoding 'sequential' in module 'async_transmitter'
 WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 728.676 ; gain = 463.031
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 728.277 ; gain = 462.801
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1557,7 +1557,7 @@ WARNING: [Synth 8-3332] Sequential element (except_type_o_reg[30]) is unused and
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:01:02 . Memory (MB): peak = 764.355 ; gain = 498.711
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 764.047 ; gain = 498.570
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1617,13 +1617,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 833.297 ; gain = 567.652
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 832.891 ; gain = 567.414
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:19 ; elapsed = 00:01:22 . Memory (MB): peak = 846.445 ; gain = 580.801
+Finished Timing Optimization : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 847.047 ; gain = 581.570
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1637,7 +1637,7 @@ Start Technology Mapping
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\CP0_REG_0/status_o_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\CP0_REG_0/status_o_reg[10] )
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:22 ; elapsed = 00:01:25 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished Technology Mapping : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1661,7 +1661,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:23 ; elapsed = 00:01:26 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished IO Insertion : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1674,7 +1674,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:23 ; elapsed = 00:01:26 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:16 ; elapsed = 00:01:19 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1686,25 +1686,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:24 ; elapsed = 00:01:26 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:24 ; elapsed = 00:01:27 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:24 ; elapsed = 00:01:27 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1732,8 +1732,8 @@ Report Cell Usage:
 |10    |LUT6      |  1120|
 |11    |MUXF7     |    20|
 |12    |RAM32M    |    12|
-|13    |FDRE      |   819|
-|14    |FDSE      |     5|
+|13    |FDRE      |   818|
+|14    |FDSE      |     6|
 |15    |LD        |   276|
 |16    |LDC       |   369|
 |17    |IBUF      |     4|
@@ -1769,14 +1769,14 @@ Report Instance Areas:
 |21    |    tickgen           |BaudTickGen__parameterized0 |    36|
 +------+----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:24 ; elapsed = 00:01:27 . Memory (MB): peak = 898.426 ; gain = 632.781
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 899.020 ; gain = 633.543
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 763 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:09 ; elapsed = 00:01:18 . Memory (MB): peak = 898.426 ; gain = 310.289
-Synthesis Optimization Complete : Time (s): cpu = 00:01:24 ; elapsed = 00:01:27 . Memory (MB): peak = 898.426 ; gain = 632.781
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:02 ; elapsed = 00:01:11 . Memory (MB): peak = 899.020 ; gain = 311.063
+Synthesis Optimization Complete : Time (s): cpu = 00:01:17 ; elapsed = 00:01:19 . Memory (MB): peak = 899.020 ; gain = 633.543
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 878 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 35 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -1789,7 +1789,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 
 262 Infos, 579 Warnings, 100 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:29 ; elapsed = 00:01:32 . Memory (MB): peak = 898.426 ; gain = 637.613
+synth_design: Time (s): cpu = 00:01:21 ; elapsed = 00:01:24 . Memory (MB): peak = 899.020 ; gain = 638.117
 INFO: [Common 17-1381] The checkpoint 'E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.056 . Memory (MB): peak = 898.426 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Jan  1 16:38:17 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.048 . Memory (MB): peak = 899.020 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Jan  1 16:44:45 2018...
