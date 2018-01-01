@@ -208,12 +208,12 @@ component EX is
     clock_cycle_cnt_o : 		out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
     mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
     
-    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
     mem_cp0_reg_we_i :           in STD_LOGIC;
     mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
     wb_cp0_reg_we_i :           in STD_LOGIC;
     wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
@@ -222,7 +222,7 @@ component EX is
     cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
     cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
 
-    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎�?�樺�?
+    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎�?�樺�??
     cp0_reg_we_o :              out std_logic;
     cp0_reg_write_addr_o :      out std_logic_vector(REG_ADDR_LEN-1 downto 0);
     cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0);
@@ -793,17 +793,17 @@ signal input_rst : STD_LOGIC;
 signal clk_out : STD_LOGIC := '0';
 
 begin
---    clk <= touch_btn(4);
+    clk_out <= touch_btn(4);
 
-    CLOCK : clk_wiz_0 port map (
-        clk_in1 => clk,
-        clk_out1 => clk_out);
+--    CLOCK : clk_wiz_0 port map (
+--        clk_in1 => clk,
+--        clk_out1 => clk_out);
  
     input_rst <= touch_btn(5);
 
     PC_0 : PC port map(
         rst => input_rst, clk => clk_out, pause_i => pause, 
-        branch_i => branch_from_id, branch_target_address_i => branch_target_addr_from_id,
+        branch_i => branch_from_id, branch_target_addr_i => branch_target_addr_from_id,
         
         pc_o => pc_from_pc, en_o => inst_en_from_pc,
         new_pc_en_i => new_pc_en_from_pause,new_pc_i => new_pc_from_pause, flush_i => flush_from_pause);
@@ -887,12 +887,12 @@ begin
 
         inst_i => inst_to_ex,
         cp0_reg_data_i => data_from_cp0,
-        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
         mem_cp0_reg_we_i => cp0_reg_we_from_mem,
         mem_cp0_reg_write_addr_i => cp0_reg_write_addr_from_mem,
         mem_cp0_reg_data_i => cp0_reg_data_from_mem,
 
-        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
@@ -998,8 +998,11 @@ begin
         wb_cp0_reg_write_addr_o => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_o => wb_cp0_reg_data_from_wb, flush_i => flush_from_pause);
     
+    -- No serial
+    int_for_cp0(5 downto 1) <= b"00000";
+    int_for_cp0(0) <= timer_int_from_cp0;
     CP0_REG_0 : CP0_REG port map(
-        rst => input_rst, clk => clk,
+        rst => input_rst, clk => clk_out,
         raddr_i => cp0_reg_read_addr_from_ex,
         waddr_i => wb_cp0_reg_write_addr_from_wb,
         data_i => wb_cp0_reg_data_from_wb,
@@ -1037,8 +1040,6 @@ begin
         
         hi_o => hi_from_hilo, lo_o => lo_from_hilo);
     
-    inst_pause_from_mem_controll <= PAUSE_NOT;
-    mem_pause_from_mem_controll <= PAUSE_NOT;
     PAUSE_CTRL_0 : PAUSE_CTRL port map (
     	rst => input_rst,
     	id_pause_i => id_pause_from_id, ex_pause_i => ex_pause_from_ex,
@@ -1186,25 +1187,17 @@ begin
         TxD => txd,
         TxD_start => TxD_start,
         TxD_data => TxD_data);
-
-	leds(7 downto 0) <= mem_data_from_mem_controll(7 downto 0);
-	leds(15 downto 8) <= data_to_serial(7 downto 0);
-	
-	process (clk_out'event)
-	begin
-	   leds(31) <= '1';
-	end process;
 	
 --    leds(15) <= ack_from_serial;
 --    leds(14) <= ack_from_mmu;
 --    leds(13) <= ce_to_serial;
         
-    -- leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
+     leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
    --leds(14 downto 11) <= sel_from_mem_controll; 
     -- leds(10 downto 9) <= state_from_mem_controll; 
     
-    -- number(7 downto 0) <= num_to_leds(7 downto 0);
+--    number(7 downto 0) <= num_to_leds(7 downto 0);
 --    leds(15 downto 0) <= leds_to_leds(15 downto 0);
         
 --    segL : SEG7_LUT port map(

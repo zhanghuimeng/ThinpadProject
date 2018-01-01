@@ -1,0 +1,11 @@
+#-----------------------------------------------------------
+# Vivado v2017.1 (64-bit)
+# SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
+# IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
+# Start of session at: Mon Jan  1 16:40:40 2018
+# Process ID: 10620
+# Current directory: E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2
+# Command line: vivado.exe -log MIPS_CPU.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source MIPS_CPU.tcl -notrace
+# Log file: E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2/MIPS_CPU.vdi
+# Journal file: E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2\vivado.jou
+#-----------------------------------------------------------

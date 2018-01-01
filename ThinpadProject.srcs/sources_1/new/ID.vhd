@@ -58,6 +58,7 @@ entity ID is
            last_funct_i :               in STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);          -- input the funct_o of the last instruction from EX
            op_o :               		out STD_LOGIC_VECTOR(OP_LEN-1 downto 0);            -- output custom op type to ID/EX
            funct_o :            		out STD_LOGIC_VECTOR(FUNCT_LEN-1 downto 0);         -- output custom funct type to ID/EX
+           inst_o :                     out STD_LOGIC_VECTOR(INST_LEN - 1 downto 0);
            reg_rd_en_1_o :      		out STD_LOGIC;                                      -- output register 1 read enable to REGISTERS
            reg_rd_en_2_o :      		out STD_LOGIC;                                      -- output register 2 read enable to REGISTERS
            reg_rd_addr_1_o :    		out STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);      -- output register 1 read address to REGISTERS
@@ -109,7 +110,7 @@ begin
         mem_reg_wt_en_i, mem_reg_wt_addr_i, mem_reg_wt_data_i, 
         reg_rd_data_1_i, reg_rd_data_2_i, 
         extended_imm)
-        variable operand_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);  -- 看看能不能解决1变x的问题……
+        variable operand_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);  -- 看看能不能解�?1变x的问题�?��??
         variable operand_2: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
         variable output: LINE;
     begin
@@ -167,8 +168,8 @@ begin
         variable pause: STD_LOGIC;
         variable output: LINE;
         variable last_inst_is_load : STD_LOGIC;         -- 上一条指令是否为加载指令
-        variable reg_1_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存器1是否与上一条指令存在数据相关
-        variable reg_2_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存器2是否与上一条指令存在数据相关
+        variable reg_1_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存�?1是否与上�?条指令存在数据相�?
+        variable reg_2_load_relate : STD_LOGIC;         -- 这条指令要读取的寄存�?2是否与上�?条指令存在数据相�?
     begin
         if rst = RST_ENABLE then
             reg_1_load_relate := PAUSE_NOT;
@@ -195,7 +196,7 @@ begin
                 end if;
             end if;
                         
-            -- 如果EX阶段的指令要load到该寄存器，则需要暂停
+            -- 如果EX阶段的指令要load到该寄存器，则需要暂�?
             pause := reg_1_load_relate or reg_2_load_relate;
         end if;
         
@@ -212,7 +213,7 @@ begin
         variable output :       LINE;
         variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
         variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-        variable except_type_is_syscall: STD_LOGIC_VECTOR(0 downto 0);  -- 异常类型是否为系统调用
+        variable except_type_is_syscall: STD_LOGIC_VECTOR(0 downto 0);  -- 异常类型是否为系统调�?
         variable except_type_is_eret: STD_LOGIC_VECTOR(0 downto 0);  -- 异常类型是否为ERET
         variable inst_valid :   STD_LOGIC_VECTOR(0 downto 0);  -- 指令是否合法
     begin
@@ -840,7 +841,7 @@ begin
                 -- COP0 type instructions
                 when OP_COP0 =>
                     cop0_func: case reg_s is
-                        -- mtc0 rt td           CPR[0,rd] �? rt
+                        -- mtc0 rt td           CPR[0,rd] �?? rt
                         when RS_MTC0 =>
                            op_o <= OP_TYPE_CP0;
                            funct_o <= FUNCT_TYPE_MTC0;
@@ -849,7 +850,7 @@ begin
                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rt
                            inst_valid := INST_VALID;
                         
-                        -- mfc0 rt td           CPR[rt] �? CPR[0,rd]
+                        -- mfc0 rt td           CPR[rt] �?? CPR[0,rd]
                         when RS_MFC0 =>           
                            op_o <= OP_TYPE_CP0;
                            funct_o <= FUNCT_TYPE_MFC0;
@@ -941,7 +942,7 @@ begin
                     inst_valid := INST_VALID;
                 
                 -- LUI rt, immediate                    rt <- immediate || 0^16
-                -- TODO：搞明白最近的bug是怎么回事
+                -- TODO：搞明白�?近的bug是�?�么回事
                 when OP_LUI =>
                     op_o <= OP_TYPE_LOGIC;
                     funct_o <= FUNCT_TYPE_OR;  -- LUI rt, immediate = ORI rt, $0, (immediate || 0^16)  
@@ -1007,7 +1008,7 @@ begin
                     end if;
                     inst_valid := INST_VALID;
                 
-                -- BLEZ rs, offset                      if rs ≤ 0 then branch
+                -- BLEZ rs, offset                      if rs �? 0 then branch
            	 	when OP_BLEZ =>
             		op_o <= OP_TYPE_BRANCH;
                     funct_o <= FUNCT_TYPE_BEQ;
@@ -1041,7 +1042,7 @@ begin
                 -- BNEL rs, rt, offset                  if rs != rt then branch_likely
                 when OP_BNEL =>
                 
-                -- BLEZL rs, rt, offset                 if rs ≤ 0 then branch_likely
+                -- BLEZL rs, rt, offset                 if rs �? 0 then branch_likely
                 when OP_BLEZL =>
                 
                 -- BGTZL rs, rt, offset                 if rs > 0 then branch_likely
@@ -1200,7 +1201,7 @@ begin
                                    
             end case op_code;
             
-            -- 输出异常处理所需内容
+            -- 输出异常处理�?�?内容
             except_type_o <= x"0000" & b"000" & except_type_is_eret & b"00" & inst_valid & except_type_is_syscall & x"00" ;
             current_inst_address_o <= pc_i;
 	        
@@ -1222,7 +1223,7 @@ begin
         end if;
     end process main_process;
     
-    -- 给extended_offset赋值（好像是Load/Store用？不记得了）
+    -- 给extended_offset赋�?�（好像是Load/Store用？不记得了�?
     assign_offset_process: process(extended_offset)
     begin
         extended_offset_o <= extended_offset;

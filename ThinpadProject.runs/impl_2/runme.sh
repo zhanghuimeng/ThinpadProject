@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1'
+HD_PWD='E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
@@ -40,4 +40,8 @@ EAStep()
      fi
 }
 
-EAStep vivado -log MIPS_CPU.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
+# pre-commands:
+/bin/touch .write_bitstream.begin.rst
+EAStep vivado -log MIPS_CPU.vdi -applog -m64 -product Vivado -messageDb vivado.pb -mode batch -source MIPS_CPU.tcl -notrace
+
+
