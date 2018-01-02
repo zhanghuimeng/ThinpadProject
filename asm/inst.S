@@ -2,12 +2,22 @@
 .global _start  
 .set noat  
 _start:  
-lui  $1,0x0101           # $1 = 0x01010000  
-ori  $1,$1,0x0101        # $1 = $1 | 0x0101 = 0x01010101  
-ori  $2,$1,0x1100        # $2 = $1 | 0x1100 = 0x01011101  
-or   $1,$1,$2            # $1 = $1 | $2     = 0x01011101  
-andi $3,$1,0x00fe        # $3 = $1 & 0x00fe = 0x00000000  
-and  $1,$3,$1            # $1 = $3 & $1     = 0x00000000  
-xori $4,$1,0xff00        # $4 = $1 ^ 0xff00 = 0x0000ff00  
-xor  $1,$4,$1            # $1 = $4 ^ $1     = 0x0000ff00  
-nor  $1,$4,$1            # $1 = $4 ~^ $1    = 0xffff00ff  
+	li $t0, 0x0480ff04
+	li $t1, 0x40933204
+	add $s0, $t0, $t1
+	li $s2, 0x45143108
+	bne $s0, $s2, inst_error
+	nop
+	lui $1, 0x0003
+
+	li $t0, 0x0480ff03
+	li $t1, 0x40933203
+	add $s0, $t0, $t1
+	li $s2, 0x45143106
+	bne $s0, $s2, inst_error
+	nop
+	lui $1, 0x0002
+inst_error:
+	lui $1, 0x0001
+
+nop

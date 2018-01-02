@@ -21,6 +21,8 @@
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
+use STD.TEXTIO.ALL;
+use IEEE.STD_LOGIC_TEXTIO.ALL;
 
 -- Uncomment the following library declaration if using
 -- arithmetic functions with Signed or Unsigned values
@@ -51,9 +53,10 @@ architecture Behavioral of IF_to_ID is
 begin
 
     process (clk'event)
+    variable output: LINE;
     begin
         if rising_edge(clk) then
-            if rst = RST_ENABLE or flush_i = FLUSH then  -- When rst is enabled, output 0
+            if (rst = RST_ENABLE) or (flush_i = P_FLUSH) then  -- When rst is enabled, output 0
                 pc_o <= x"00000000";
                 inst_o <= x"00000000";
             else
@@ -65,6 +68,14 @@ begin
 	                inst_o <= inst_i;
 	            end if;  -- Keep the output same
             end if;
+            /*
+            deallocate(output);
+            write(output, string'("IF/ID: inst_i="));
+            write(output, inst_i);
+            write(output, string'(", inst_o="));
+            write(output, inst_o);
+            report output.all;
+            */
         end if;
     end process;
 

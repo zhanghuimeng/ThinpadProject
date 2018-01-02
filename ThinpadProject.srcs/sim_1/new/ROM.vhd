@@ -49,17 +49,18 @@ architecture Behavioral of ROM is
 begin
     
     process
-    type rom_array_type is array(ROM_SIZE-1 downto 0) of STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
+    type rom_array_type is array(240000 downto 0) of STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
     variable rom_array : rom_array_type := (others => (others => '0'));  -- Note the 'others' syntax
     file filein : text;
     variable fstatus : FILE_OPEN_STATUS;
     variable buf : LINE;
     variable output : LINE;
     variable data : STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-    variable index : STD_LOGIC_VECTOR(ROM_SIZE_LOG2-1 downto 0) := b"00000000000000000";
+    variable index : STD_LOGIC_VECTOR(31 downto 0) := x"00000000";
     begin
         -- In the process, first open the file
-        file_open(fstatus, filein, "../../../asm/rom.data", read_mode);
+        -- file_open(fstatus, filein, "../../../asm/rom.data", read_mode);
+        file_open(fstatus, filein, "../../../asm/main.mem", read_mode);
             while not endfile(filein) loop
                 readline(filein, buf);
                 if buf'length = 0 then
@@ -72,7 +73,7 @@ begin
                 -- print the value of rom_array(index)
                 
                 
-                index := index + b"0000000000000001";
+                index := index + b"1";
             end loop;
         
         -- Wait for en_i to change
@@ -81,7 +82,7 @@ begin
             if en_i = CHIP_DISABLE then
                 inst_o <= x"00000000";
             else
-                inst_o <= rom_array(to_integer(unsigned(addr_i(ROM_SIZE_LOG2+1 downto 2))));
+                inst_o <= rom_array(to_integer(unsigned(addr_i(31 downto 2))));
                 deallocate(output);
                                 write(output, string'("inst_o = "));
                                 
