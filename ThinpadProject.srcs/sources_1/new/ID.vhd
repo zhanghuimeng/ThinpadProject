@@ -105,13 +105,9 @@ architecture Behavioral of ID is
    
 begin
     -- 注意还有extended_imm，虽然在branch系列指令里应该用不到
-    solve_data_conflict_process: process(reg_rd_en_1_o, reg_rd_en_2_o, last_funct_i, 
-        ex_reg_wt_en_i, ex_reg_wt_addr_i, ex_reg_wt_data_i, 
-        mem_reg_wt_en_i, mem_reg_wt_addr_i, mem_reg_wt_data_i, 
-        reg_rd_data_1_i, reg_rd_data_2_i, 
-        extended_imm)
-        variable operand_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);  -- 看看能不能解�?1变x的问题�?��??
-        variable operand_2: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
+    solve_data_conflict_process: process(all)
+        variable operand_1: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0) := x"00000000";  -- 看看能不能解�?1变x的问题�?��??
+        variable operand_2: STD_LOGIC_VECTOR(DATA_LEN-1 downto 0) := x"00000000";
         variable output: LINE;
     begin
         -- 以下解决数据冲突问题和load冲突问题
@@ -205,11 +201,7 @@ begin
     end process pause_process;
 
     -- 把数据前推的工作移到了上面的process里面，所以需要改敏感信号
-    main_process: process (rst, pc_i, inst_i, reg_rd_data_1_i, reg_rd_data_2_i, 
-        ex_reg_wt_en_i, ex_reg_wt_addr_i, ex_reg_wt_data_i, 
-        mem_reg_wt_en_i, mem_reg_wt_addr_i, mem_reg_wt_data_i, 
-        is_in_delayslot_i, last_is_load_store_i, last_funct_i,
-        operand_1_o, operand_2_o)
+    main_process: process (all)
         variable output :       LINE;
         variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
         variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
@@ -337,7 +329,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= reg_rd_data_1_i;
+                            branch_target_addr_o <= operand_1_o;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             inst_valid := INST_VALID;
                         
@@ -349,7 +341,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                             reg_wt_en_o <= REG_WT_ENABLE;  -- write rd
                             branch_o <= BRANCH;
-                            branch_target_addr_o <= reg_rd_data_1_i;
+                            branch_target_addr_o <= operand_1_o;
                             next_inst_in_delayslot_o <= DELAYSLOT;
                             link_addr_o <= pc_i + b"1000";
                             inst_valid := INST_VALID;

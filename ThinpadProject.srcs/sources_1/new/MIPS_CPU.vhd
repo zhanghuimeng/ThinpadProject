@@ -1196,8 +1196,8 @@ begin
    -- leds(15) <= ce_from_mem_controll;
    --leds(14 downto 11) <= sel_from_mem_controll; 
     -- leds(10 downto 9) <= state_from_mem_controll; 
-    leds(7 downto 0) <= oprand_1_from_id(7 downto 0);
-    leds(15 downto 8) <= oprand_2_from_id(7 downto 0);
+    leds(7 downto 0) <= reg_wt_data_from_ex(7 downto 0);
+    leds(15 downto 8) <= oprand_1_from_id(7 downto 0);
     leds(31) <= branch_from_id;
     
 --    number(7 downto 0) <= num_to_leds(7 downto 0);
