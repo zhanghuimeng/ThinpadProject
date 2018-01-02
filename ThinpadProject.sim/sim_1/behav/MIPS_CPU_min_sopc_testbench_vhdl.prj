@@ -12,14 +12,12 @@ vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/PC.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/REGISTERS.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd"
-<<<<<<< HEAD
-vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd"
-vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MMU.vhd"
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd"
-=======
-vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/CP0_REG.vhd"
->>>>>>> origin/cp0
+vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd"
+vhdl xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/CP0_REG.vhd"
+vhdl xil_defaultlib  "../../../ThinpadProject.srcs/sources_1/new/fixed_generic_pkg_mod.vhdl"
 vhdl xil_defaultlib  "../../../ThinpadProject.srcs/sim_1/new/MIPS_CPU_min_sopc.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sim_1/new/ROM.vhd"
 vhdl2008 xil_defaultlib  "../../../ThinpadProject.srcs/sim_1/new/RAM.vhd"

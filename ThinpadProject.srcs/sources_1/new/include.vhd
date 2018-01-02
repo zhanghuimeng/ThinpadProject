@@ -47,8 +47,8 @@ package INCLUDE is
 	constant CTRL_PAUSE_LEN  : integer   := 6;
 	constant PAUSE			 : STD_LOGIC := '1';
 	constant PAUSE_NOT		 : STD_LOGIC := '0';
-	constant FLUSH			 : STD_LOGIC := '1';
-    constant FLUSH_NOT		 : STD_LOGIC := '0';
+	constant P_FLUSH		 : STD_LOGIC := '1';
+    constant P_FLUSH_NOT	 : STD_LOGIC := '0';
     constant PC_PAUSE_INDEX  : integer   := 0;
     constant IF_PAUSE_INDEX  : integer   := 1;
     constant ID_PAUSE_INDEX  : integer   := 2;
@@ -226,40 +226,40 @@ package INCLUDE is
 	constant OP_J        : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000010"; -- J target                             To branch within the current 256 MB-aligned region
 	constant OP_JAL      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000011"; -- JAL target                           To execute a procedure call within the current 256 MB-aligned region
 	constant OP_BEQ      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000100"; -- BEQ rs, rt, offset                   if rs = rt then branch
-	constant OP_BNE      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000101"; -- BNE rs, rt, offset                   if rs ï¿?? rt then branch
-	constant OP_BLEZ     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000110"; -- BLEZ rs, offset                      if rs ï¿?? 0 then branch
+	constant OP_BNE      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000101"; -- BNE rs, rt, offset                   if rs ï¿½?? rt then branch
+	constant OP_BLEZ     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000110"; -- BLEZ rs, offset                      if rs ï¿½?? 0 then branch
 	constant OP_BGTZ     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"000111"; -- BGTZ rs, offset                      if rs > 0 then branch
-	constant OP_ADDI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001000"; -- ADDI rt, rs, immediate               rt ï¿?? rs + immediate
-	constant OP_ADDIU    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001001"; -- ADDIU rt, rs, immediate              rt ï¿?? rs + immediate
-	constant OP_SLTI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001010"; -- SLTI rt, rs, immediate               rt ï¿?? (rs < immediate)
-	constant OP_SLTIU    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001011"; -- SLTIU rt, rs, immediate              rt ï¿?? (rs < immediate)
-	constant OP_ANDI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001100"; -- ANDI rt, rs, immediate               rt ï¿?? rs AND immediate
-	constant OP_ORI      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001101"; -- ORI rt, rs, immediate                rt ï¿?? rs or immediate
-	constant OP_XORI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001110"; -- XORI rt, rs, immediate               rt ï¿?? rs XOR immediate
-	constant OP_LUI      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001111"; -- LUI rt, immediate                    rt ï¿?? immediate || 0^16
+	constant OP_ADDI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001000"; -- ADDI rt, rs, immediate               rt ï¿½?? rs + immediate
+	constant OP_ADDIU    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001001"; -- ADDIU rt, rs, immediate              rt ï¿½?? rs + immediate
+	constant OP_SLTI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001010"; -- SLTI rt, rs, immediate               rt ï¿½?? (rs < immediate)
+	constant OP_SLTIU    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001011"; -- SLTIU rt, rs, immediate              rt ï¿½?? (rs < immediate)
+	constant OP_ANDI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001100"; -- ANDI rt, rs, immediate               rt ï¿½?? rs AND immediate
+	constant OP_ORI      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001101"; -- ORI rt, rs, immediate                rt ï¿½?? rs or immediate
+	constant OP_XORI     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001110"; -- XORI rt, rs, immediate               rt ï¿½?? rs XOR immediate
+	constant OP_LUI      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"001111"; -- LUI rt, immediate                    rt ï¿½?? immediate || 0^16
 
 	constant OP_COP0     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010000";
 	constant OP_COP1     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010001";
 	constant OP_COP2     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010010";
 	constant OP_COP3     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010011";
 	constant OP_BEQL     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010100"; -- BEQL rs, rt, offset                  if rs = rt then branch_likely
-	constant OP_BNEL     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010101"; -- BNEL rs, rt, offset                  if rs ï¿?? rt then branch_likely
-	constant OP_BLEZL    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010110"; -- BLEZL rs, rt, offset                 if rs ï¿?? 0 then branch_likely
+	constant OP_BNEL     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010101"; -- BNEL rs, rt, offset                  if rs ï¿½?? rt then branch_likely
+	constant OP_BLEZL    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010110"; -- BLEZL rs, rt, offset                 if rs ï¿½?? 0 then branch_likely
 	constant OP_BGTZL    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"010111"; -- BGTZL rs, rt, offset                 if rs > 0 then branch_likely
 	constant OP_SPECIAL2 : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"011100";
 	constant OP_JALX     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"011101";
-	constant OP_LB       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100000"; -- LB rt, offset(base)                  rt ï¿?? memory[base+offset]
-	constant OP_LH       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100001"; -- LH rt, offset(base)                  rt ï¿?? memory[base+offset]
-	constant OP_LWL      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100010"; -- LWL rt, offset(base)                 rt ï¿?? rt MERGE memory[base+offset]
-	constant OP_LW       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100011"; -- LW rt, offset(base)                  rt ï¿?? memory[base+offset]
-	constant OP_LBU      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100100"; -- LBU rt, offset(base)                 rt ï¿?? memory[base+offset]
-	constant OP_LHU      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100101"; -- LHU rt, offset(base)                 rt ï¿?? memory[base+offset]
-	constant OP_LWR      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100110"; -- LWR rt, offset(base)                 rt ï¿?? rt MERGE memory[base+offset]
-	constant OP_SB       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101000"; -- SB rt, offset(base)                  memory[base+offset] ï¿?? rt
-	constant OP_SH       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101001"; -- SH rt, offset(base)                  memory[base+offset] ï¿?? rt
-	constant OP_SWL      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101010"; -- SWL rt, offset(base)                 memory[base+offset] ï¿?? rt
-	constant OP_SW       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101011"; -- SW rt, offset(base)                  memory[base+offset] ï¿?? rt
-	constant OP_SWR      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101110"; -- SWR rt, offset(base)                 memory[base+offset] ï¿?? rt
+	constant OP_LB       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100000"; -- LB rt, offset(base)                  rt ï¿½?? memory[base+offset]
+	constant OP_LH       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100001"; -- LH rt, offset(base)                  rt ï¿½?? memory[base+offset]
+	constant OP_LWL      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100010"; -- LWL rt, offset(base)                 rt ï¿½?? rt MERGE memory[base+offset]
+	constant OP_LW       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100011"; -- LW rt, offset(base)                  rt ï¿½?? memory[base+offset]
+	constant OP_LBU      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100100"; -- LBU rt, offset(base)                 rt ï¿½?? memory[base+offset]
+	constant OP_LHU      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100101"; -- LHU rt, offset(base)                 rt ï¿½?? memory[base+offset]
+	constant OP_LWR      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"100110"; -- LWR rt, offset(base)                 rt ï¿½?? rt MERGE memory[base+offset]
+	constant OP_SB       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101000"; -- SB rt, offset(base)                  memory[base+offset] ï¿½?? rt
+	constant OP_SH       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101001"; -- SH rt, offset(base)                  memory[base+offset] ï¿½?? rt
+	constant OP_SWL      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101010"; -- SWL rt, offset(base)                 memory[base+offset] ï¿½?? rt
+	constant OP_SW       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101011"; -- SW rt, offset(base)                  memory[base+offset] ï¿½?? rt
+	constant OP_SWR      : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101110"; -- SWR rt, offset(base)                 memory[base+offset] ï¿½?? rt
 	constant OP_CACHE    : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"101111";
 	constant OP_LL       : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"110000";
 	constant OP_LWC1     : STD_LOGIC_VECTOR(OP_LEN - 1 downto 0) := b"110001";
@@ -275,44 +275,44 @@ package INCLUDE is
 
 	-- Introduction to the MIPS32 Architecture
 	-- Table A-3 MIPS32 SPECIAL Opcode Encoding of Function Field (bits 5..0)
-	constant FUNCT_SLL     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000000"; -- SLL $rd, $rt, imm        rd é–??? rt << sa
+	constant FUNCT_SLL     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000000"; -- SLL $rd, $rt, imm        rd ï¿½??? rt << sa
 	constant FUNCT_MOVCI   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
-	constant FUNCT_SRL     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010"; -- SRL rd, rt, sa           rd é–??? rt >> sa (logical)
-	constant FUNCT_SRA     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011"; -- SRA rd, rt, sa           rd é–??? rt >> sa (arithmatic)
-	constant FUNCT_SLLV    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100"; -- SLLV rd, rt, rs          rd é–??? rt << rs
-	constant FUNCT_SRLV    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000110"; -- SRLV rd, rt, rs          rd é–??? rt >> rs (logical)
-	constant FUNCT_SRAV    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000111"; -- SRAV rd, rt, rs          rd é–??? rt >> rs (arithmetic)
-	constant FUNCT_JR      : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001000"; -- JR rs                    PC é–??? rs
-	constant FUNCT_JALR    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001001"; -- JALR (rd, = 31) rs       rd é–??? return_addr, PC é–??? rs
-	constant FUNCT_MOVZ    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001010"; -- MOVZ rd, rs, rt          if rt = 0 then rd é–??? rs
-	constant FUNCT_MOVN    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011"; -- MOVN rd, rs, rt          if rt é–??? 0 then rd é–??? rs
+	constant FUNCT_SRL     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010"; -- SRL rd, rt, sa           rd ï¿½??? rt >> sa (logical)
+	constant FUNCT_SRA     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011"; -- SRA rd, rt, sa           rd ï¿½??? rt >> sa (arithmatic)
+	constant FUNCT_SLLV    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100"; -- SLLV rd, rt, rs          rd ï¿½??? rt << rs
+	constant FUNCT_SRLV    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000110"; -- SRLV rd, rt, rs          rd ï¿½??? rt >> rs (logical)
+	constant FUNCT_SRAV    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000111"; -- SRAV rd, rt, rs          rd ï¿½??? rt >> rs (arithmetic)
+	constant FUNCT_JR      : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001000"; -- JR rs                    PC ï¿½??? rs
+	constant FUNCT_JALR    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001001"; -- JALR (rd, = 31) rs       rd ï¿½??? return_addr, PC ï¿½??? rs
+	constant FUNCT_MOVZ    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001010"; -- MOVZ rd, rs, rt          if rt = 0 then rd ï¿½??? rs
+	constant FUNCT_MOVN    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011"; -- MOVN rd, rs, rt          if rt ï¿½??? 0 then rd ï¿½??? rs
 	constant FUNCT_SYSCALL : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001100"; -- SYSCALL                  A system call exception occurs
 	constant FUNCT_BREAK   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001101"; -- BREAK                    A breakpoint exception occurs
 	constant FUNCT_SYNC    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001111"; -- SYNC (stype = 0 implied) To order loads and stores.
-	constant FUNCT_MFHI    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010000"; -- MFHI rd                  rd é–??? HI
-	constant FUNCT_MTHI    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010001"; -- MTHI rs                  HI é–??? rs
-	constant FUNCT_MFLO    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010010"; -- MFLO rd                  rd é–??? LO
-	constant FUNCT_MTLO    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010011"; -- MTLO rs                  LO é–??? rs
-	constant FUNCT_MULT    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011000"; -- MULT rs, rt              (LO, HI) é–??? rs é‘?? rt
-	constant FUNCT_MULTU   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011001"; -- MULTU rs, rt             (LO, HI) é–??? rs é‘?? rt
-	constant FUNCT_DIV     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011010"; -- DIV rs, rt               (LO, HI) é–??? rs / rt
-	constant FUNCT_DIVU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011011"; -- DIVU rs, rt              (LO, HI) é–??? rs / rt
-	constant FUNCT_ADD     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100000"; -- ADD rd, rs, rt           rd é–??? rs + rt
-	constant FUNCT_ADDU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100001"; -- ADDU rd, rs, rt          rd é–??? rs + rt
-	constant FUNCT_SUB     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100010"; -- SUB rd, rs, rt           rd é–??? rs - rt
-	constant FUNCT_SUBU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100011"; -- SUBU rd, rs, rt          rd é–??? rs - rt
-	constant FUNCT_AND     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100100"; -- AND rd, rs, rt           rd é–??? rs AND rt
-	constant FUNCT_OR      : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100101"; -- OR rd, rs, rt            rd é–??? rs or rt
-	constant FUNCT_XOR     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100110"; -- XOR rd, rs, rt           rd é–??? rs XOR rt
-	constant FUNCT_NOR     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100111"; -- NOR rd, rs, rt           rd é–??? rs NOR rt
-	constant FUNCT_SLT     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"101010"; -- SLT rd, rs, rt           rd é–??? (rs < rt)
-	constant FUNCT_SLTU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"101011"; -- SLTU rd, rs, rt          rd é–??? (rs < rt)
-	constant FUNCT_TGE     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110000"; -- TGE rs, rt               if rs é–??? rt then Trap
-	constant FUNCT_TGEU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110001"; -- TGEU rs, rt              if rs é–??? rt then Trap
+	constant FUNCT_MFHI    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010000"; -- MFHI rd                  rd ï¿½??? HI
+	constant FUNCT_MTHI    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010001"; -- MTHI rs                  HI ï¿½??? rs
+	constant FUNCT_MFLO    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010010"; -- MFLO rd                  rd ï¿½??? LO
+	constant FUNCT_MTLO    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"010011"; -- MTLO rs                  LO ï¿½??? rs
+	constant FUNCT_MULT    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011000"; -- MULT rs, rt              (LO, HI) ï¿½??? rs ï¿½?? rt
+	constant FUNCT_MULTU   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011001"; -- MULTU rs, rt             (LO, HI) ï¿½??? rs ï¿½?? rt
+	constant FUNCT_DIV     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011010"; -- DIV rs, rt               (LO, HI) ï¿½??? rs / rt
+	constant FUNCT_DIVU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"011011"; -- DIVU rs, rt              (LO, HI) ï¿½??? rs / rt
+	constant FUNCT_ADD     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100000"; -- ADD rd, rs, rt           rd ï¿½??? rs + rt
+	constant FUNCT_ADDU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100001"; -- ADDU rd, rs, rt          rd ï¿½??? rs + rt
+	constant FUNCT_SUB     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100010"; -- SUB rd, rs, rt           rd ï¿½??? rs - rt
+	constant FUNCT_SUBU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100011"; -- SUBU rd, rs, rt          rd ï¿½??? rs - rt
+	constant FUNCT_AND     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100100"; -- AND rd, rs, rt           rd ï¿½??? rs AND rt
+	constant FUNCT_OR      : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100101"; -- OR rd, rs, rt            rd ï¿½??? rs or rt
+	constant FUNCT_XOR     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100110"; -- XOR rd, rs, rt           rd ï¿½??? rs XOR rt
+	constant FUNCT_NOR     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100111"; -- NOR rd, rs, rt           rd ï¿½??? rs NOR rt
+	constant FUNCT_SLT     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"101010"; -- SLT rd, rs, rt           rd ï¿½??? (rs < rt)
+	constant FUNCT_SLTU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"101011"; -- SLTU rd, rs, rt          rd ï¿½??? (rs < rt)
+	constant FUNCT_TGE     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110000"; -- TGE rs, rt               if rs ï¿½??? rt then Trap
+	constant FUNCT_TGEU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110001"; -- TGEU rs, rt              if rs ï¿½??? rt then Trap
 	constant FUNCT_TLT     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110010"; -- TLT rs, rt               if rs < rt then Trap
 	constant FUNCT_TLTU    : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110011"; -- TLTU rs, rt              if rs < rt then Trap
 	constant FUNCT_TEQ     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110100"; -- TEQ rs, rt               if rs = rt then Trap
-	constant FUNCT_TNE     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110110"; -- TNE rs, rt               if rs é–??? rt then Trap
+	constant FUNCT_TNE     : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110110"; -- TNE rs, rt               if rs ï¿½??? rt then Trap
 	constant FUNCT_ERET    : STD_Logic_vector(FUNCT_LEN - 1 downto 0) := b"011000";
 	-- mfc0 mtc0
 	constant RS_MTC0    : STD_LOGIC_VECTOR(REG_ADDR_LEN - 1 downto 0) := b"00100";
@@ -337,13 +337,13 @@ package INCLUDE is
 
 	-- Introduction to the MIPS32 Architecture
 	-- Table A-5 MIPS32 SPECIAL2 Encoding of Function Field (bits 5..0)
-	constant FUNCT_MADD  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000000";	-- MADD rs, rt              (LO,HI) ï¿?? (rs x rt) + (LO,HI)
-	constant FUNCT_MADDU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";	-- MADDU rs, rt             (LO,HI) ï¿?? (rs x rt) + (LO,HI)
-	constant FUNCT_MUL   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";	-- MUL rd, rs, rt           rd ï¿?? rs Ã— rt
-	constant FUNCT_MSUB  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";	-- MSUB rs, rt              (LO,HI) ï¿?? (rs x rt) - (LO,HI)
-	constant FUNCT_MSUBU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";	-- MSUBU rs, rt             (LO,HI) ï¿?? (rs x rt) - (LO,HI)
-	constant FUNCT_CLZ   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100000";	-- CLZ rd, rs               rd ï¿?? count_leading_zeros rs
-	constant FUNCT_CLO   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100001";	-- CLO rd, rs               rd ï¿?? count_leading_ones rs
+	constant FUNCT_MADD  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000000";	-- MADD rs, rt              (LO,HI) ï¿½?? (rs x rt) + (LO,HI)
+	constant FUNCT_MADDU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";	-- MADDU rs, rt             (LO,HI) ï¿½?? (rs x rt) + (LO,HI)
+	constant FUNCT_MUL   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";	-- MUL rd, rs, rt           rd ï¿½?? rs Ã— rt
+	constant FUNCT_MSUB  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";	-- MSUB rs, rt              (LO,HI) ï¿½?? (rs x rt) - (LO,HI)
+	constant FUNCT_MSUBU : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";	-- MSUBU rs, rt             (LO,HI) ï¿½?? (rs x rt) - (LO,HI)
+	constant FUNCT_CLZ   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100000";	-- CLZ rd, rs               rd ï¿½?? count_leading_zeros rs
+	constant FUNCT_CLO   : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100001";	-- CLO rd, rs               rd ï¿½?? count_leading_ones rs
 	constant FUNCT_SDBBP : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"111111";
 
 	-- Introduction to the MIPS32 Architecture
@@ -409,10 +409,10 @@ package INCLUDE is
 	constant CP0_REG_COUNT :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01001"; --é™îˆî‡°é?
 	constant CP0_REG_COMPARE :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0 ) := b"01011";      --é™îˆî‡°é?
 	constant CP0_REG_STATUS  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01100";       --é™îˆî‡°é?
-	constant CP0_REG_CAUSE  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01101";      --é™î‡î‡?
+	constant CP0_REG_CAUSE  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01101";      --é™î‡ï¿½?
 	constant CP0_REG_EPC :   STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01110"     ;     --é™îˆî‡°é?
-	constant CP0_REG_PrId   : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01111"     ;    --é™î‡î‡?
-	constant CP0_REG_CONFIG  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10000"    ;   --é™î‡î‡?
+	constant CP0_REG_PrId   : STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"01111"     ;    --é™î‡ï¿½?
+	constant CP0_REG_CONFIG  :  STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0) := b"10000"    ;   --é™î‡ï¿½?
 
 	constant STATUS_EXL_INDEX : integer := 1;
 	constant STATUS_IE_INDEX  : integer := 0;
@@ -492,7 +492,7 @@ package body INCLUDE is
 		if newLen <= vector'length then
 			return vector(newLen-1 downto 0);
 		end if;
-		bit := vector(vector'high);  -- æ³¨æ„è¿™é‡Œçš„è¯­æ³•ï¼Œå¦‚æžœç›´æŽ¥å†™vector(vector'length-1)ä¼šæŒ‚æŽ‰ã?‚ã??
+		bit := vector(vector'high);  -- æ³¨æ„è¿™é‡Œçš„è¯­æ³•ï¼Œå¦‚æžœç›´æŽ¥å†™vector(vector'length-1)ä¼šæŒ‚æŽ‰ï¿½?ï¿½ï¿½??
 		extended(newLen-1 downto vector'length) := (others => bit);
         extended(vector'length-1 downto 0) := vector;  -- sign extend vector
         return extended;

@@ -53,7 +53,7 @@ begin
     process (clk'event)
     begin
         if rising_edge(clk) then
-            if rst = RST_ENABLE or flush_i = FLUSH then  -- When rst is enabled, output 0
+            if (rst = RST_ENABLE) or (flush_i = P_FLUSH) then  -- When rst is enabled, output 0
                 pc_o <= x"00000000";
                 inst_o <= x"00000000";
             else

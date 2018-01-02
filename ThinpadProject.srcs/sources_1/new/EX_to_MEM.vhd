@@ -92,7 +92,7 @@ begin
     process (clk'event)
     begin
         if rising_edge(clk) then
-            if rst = RST_ENABLE or flush_i = FLUSH then
+            if (rst = RST_ENABLE) or (flush_i = P_FLUSH) then
                 reg_wt_en_o <= REG_WT_DISABLE;
                 reg_wt_addr_o <= REG_ZERO_ADDR;
                 reg_wt_data_o <= REG_ZERO_DATA;

@@ -59,7 +59,7 @@ begin
 	begin
 		if rst = RST_ENABLE then
 			pause_o <= b"000000";
-			flush_o <= FLUSH_NOT;
+			flush_o <= P_FLUSH_NOT;
 			new_pc_o <= INST_ZERO_ADDR;
 			new_pc_en_o <= '0';
 		elsif except_type_i /= ZERO_DATA then
@@ -86,7 +86,7 @@ begin
 			end case ;
 		else
 		    new_pc_en_o <= '0';
-			flush_o <= FLUSH_NOT;
+			flush_o <= P_FLUSH_NOT;
 		    if mem_pause_i = PAUSE then
                 pause_o <= b"011111"; 
             elsif ex_pause_i = PAUSE then  -- pause IF, ID and EX
