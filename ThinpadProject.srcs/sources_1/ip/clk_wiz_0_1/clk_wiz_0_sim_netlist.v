@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-// Date        : Mon Jan  1 17:12:12 2018
+// Date        : Tue Jan  2 18:57:18 2018
 // Host        : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               e:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_1/clk_wiz_0_sim_netlist.v
@@ -15,34 +15,28 @@
 (* NotValidForBitStream *)
 module clk_wiz_0
    (clk_out1,
-    reset,
     locked,
     clk_in1);
   output clk_out1;
-  input reset;
   output locked;
   input clk_in1;
 
   (* IBUF_LOW_PWR *) wire clk_in1;
   wire clk_out1;
   wire locked;
-  wire reset;
 
   clk_wiz_0_clk_wiz_0_clk_wiz inst
        (.clk_in1(clk_in1),
         .clk_out1(clk_out1),
-        .locked(locked),
-        .reset(reset));
+        .locked(locked));
 endmodule
 
 (* ORIG_REF_NAME = "clk_wiz_0_clk_wiz" *) 
 module clk_wiz_0_clk_wiz_0_clk_wiz
    (clk_out1,
-    reset,
     locked,
     clk_in1);
   output clk_out1;
-  input reset;
   output locked;
   input clk_in1;
 
@@ -53,7 +47,6 @@ module clk_wiz_0_clk_wiz_0_clk_wiz
   wire clkfbout_buf_clk_wiz_0;
   wire clkfbout_clk_wiz_0;
   wire locked;
-  wire reset;
   wire NLW_mmcm_adv_inst_CLKFBOUTB_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKFBSTOPPED_UNCONNECTED;
   wire NLW_mmcm_adv_inst_CLKINSTOPPED_UNCONNECTED;
@@ -171,7 +164,7 @@ module clk_wiz_0_clk_wiz_0_clk_wiz
         .PSEN(1'b0),
         .PSINCDEC(1'b0),
         .PWRDWN(1'b0),
-        .RST(reset));
+        .RST(1'b0));
 endmodule
 `ifndef GLBL
 `define GLBL

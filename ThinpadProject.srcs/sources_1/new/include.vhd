@@ -202,19 +202,19 @@ package INCLUDE is
 	constant FUNCT_TYPE_ERET				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011";
 
 	--trap
-	constant FUNCT_TYPE_TEQ				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
-	constant FUNCT_TYPE_TGE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000010";
-	constant FUNCT_TYPE_TGEU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000011";
-	constant FUNCT_TYPE_TLT				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000100";
-	constant FUNCT_TYPE_TLTU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000101";
-	constant FUNCT_TYPE_TNE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000110";
+	constant FUNCT_TYPE_TEQ				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100001";
+	constant FUNCT_TYPE_TGE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100010";
+	constant FUNCT_TYPE_TGEU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100011";
+	constant FUNCT_TYPE_TLT				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100100";
+	constant FUNCT_TYPE_TLTU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100101";
+	constant FUNCT_TYPE_TNE				  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"100110";
 
-	constant FUNCT_TYPE_TEQI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000111";
-	constant FUNCT_TYPE_TGEI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001000";
-	constant FUNCT_TYPE_TGEIU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001001";
-	constant FUNCT_TYPE_TLTI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001010";
-	constant FUNCT_TYPE_TLTIU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001011";
-	constant FUNCT_TYPE_TNEI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"001100";
+	constant FUNCT_TYPE_TEQI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"110111";
+	constant FUNCT_TYPE_TGEI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"111000";
+	constant FUNCT_TYPE_TGEIU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"111001";
+	constant FUNCT_TYPE_TLTI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"111010";
+	constant FUNCT_TYPE_TLTIU			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"111011";
+	constant FUNCT_TYPE_TNEI			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"111100";
 
 	--syscall
 	constant FUNCT_TYPE_SYSCALL			  : STD_LOGIC_VECTOR(FUNCT_LEN - 1 downto 0) := b"000001";
