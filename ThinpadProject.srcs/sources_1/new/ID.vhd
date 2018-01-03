@@ -109,9 +109,9 @@ begin
     variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
     variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
     
-    variable except_type_is_syscall: STD_LOGIC_VECTOR(0 downto 0);
-    variable except_type_is_eret: STD_LOGIC_VECTOR(0 downto 0);
-    variable inst_valid :   STD_LOGIC_VECTOR(0 downto 0);
+    variable except_type_is_syscall: STD_LOGIC;
+    variable except_type_is_eret: STD_LOGIC;
+    variable inst_valid :   STD_LOGIC;
 
     begin
         if rst = RST_ENABLE then
@@ -168,8 +168,8 @@ begin
             branch_addr_offset(INST_ADDR_LEN-1 downto IMM_LEN+2) := (others => branch_addr_offset(IMM_LEN+1));
             inst_o <= inst_i;
             inst_valid := INST_INVALID;
-            except_type_is_syscall := FALSE;
-            except_type_is_eret := FALSE;
+            except_type_is_syscall := TRAP_FALSE;
+            except_type_is_eret := TRAP_FALSE;
         
             -- Decide OP type
             op_code: case op is
@@ -315,7 +315,7 @@ begin
                             funct_o <= FUNCT_TYPE_MOVE_TO_LO;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                            reg_wt_en_o <= REG_WT_ENABLE;  -- do not write
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
                         -- BREAK                    A breakpoint exception occurs
@@ -527,7 +527,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            except_type_is_syscall := TRUE;
+                            except_type_is_syscall := TRAP_TRUE;
 
                         when others =>
                             
@@ -785,7 +785,7 @@ begin
                         reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                         reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rt
                         inst_valid := INST_VALID;
-                        except_type_is_eret := TRUE;
+                        except_type_is_eret := TRAP_TRUE;
                     end if ;
 
                 -- COP1 type instructions                                
@@ -1171,6 +1171,10 @@ begin
             
             extended_offset_o <= extended_offset;
 	        
+	        deallocate(output);
+	        write(output, string'("inst_valid = "));
+	        write(output, inst_valid);
+	        report output.all;
             /*
             deallocate(output);
             write(output, string'("inst = "));

@@ -9,4 +9,4 @@ then
 exit $RETVAL
 fi
 }
-ExecStep $xv_path/bin/xsim MIPS_CPU_min_sopc_testbench_behav -key {Behavioral:sim_1:Functional:MIPS_CPU_min_sopc_testbench} -tclbatch MIPS_CPU_min_sopc_testbench.tcl -view /home/zhanghuimeng/Computer_Architecture/cp0/ThinpadProject/MIPS_CPU_min_sopc_testbench_behav.wcfg -log simulate.log
+ExecStep $xv_path/bin/xsim MIPS_CPU_min_sopc_testbench_behav -key {Behavioral:sim_1:Functional:MIPS_CPU_min_sopc_testbench} -tclbatch MIPS_CPU_min_sopc_testbench.tcl -view /home/zhanghuimeng/Computer_Architecture/cp0/ThinpadProject/MIPS_CPU_min_sopc_testbench_behav.wcfg -view /home/zhanghuimeng/Computer_Architecture/cp0/ThinpadProject/MIPS_CPU_min_sopc_testbench_behav1.wcfg -log simulate.log

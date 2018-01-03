@@ -182,21 +182,21 @@ component EX is
     clock_cycle_cnt_o : 		out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
     mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
     
-    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
     mem_cp0_reg_we_i :           in STD_LOGIC;
     mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
     wb_cp0_reg_we_i :           in STD_LOGIC;
     wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --涓嶤P0鐩存帴鐩歌繛锛岀敤浜庤鍙栧叾涓寚瀹氬瘎�?�樺櫒鐨勶拷??
+    --涓嶤P0鐩存帴鐩歌繛锛岀敤浜庤鍙栧叾涓寚瀹氬瘎�?�樺櫒鐨勶拷??
     cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
     cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
 
-    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎�?�樺�?
+    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎�?�樺�?
     cp0_reg_we_o :              out std_logic;
     cp0_reg_write_addr_o :      out std_logic_vector(REG_ADDR_LEN-1 downto 0);
     cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0);
@@ -623,7 +623,9 @@ signal input_rst : STD_LOGIC;
 
 begin
 
-     rom_addr_o <= pc_from_pc;  -- Output 
+     --rom_addr_o <= pc_from_pc;  -- Output 
+     rom_addr_o <= "00" & pc_from_pc(29 downto 0);
+     int_for_cp0 <= "000000";
      input_rst <= rst;
 
     PC_0 : PC port map(
@@ -711,12 +713,12 @@ begin
 
         inst_i => inst_to_ex,
         cp0_reg_data_i => data_from_cp0,
-        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
         mem_cp0_reg_we_i => cp0_reg_we_from_mem,
         mem_cp0_reg_write_addr_i => cp0_reg_write_addr_from_mem,
         mem_cp0_reg_data_i => cp0_reg_data_from_mem,
 
-        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
+        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�????娴嬫暟鎹浉锟�???
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
