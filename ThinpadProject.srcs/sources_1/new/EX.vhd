@@ -196,10 +196,10 @@ begin
             sum_result := unsigned(b"0" & operand_1) + unsigned(b"0" & operand_2);
             overflow := '0';
             -- Overflow
-            if (operand_1(REG_DATA_LEN-1) = '0') and (operand_2(REG_DATA_LEN-1) = '0') and (sum_result(REG_DATA_LEN-1) = '1') then
+            if (operand_1(REG_DATA_LEN-1) = '0') and (operand_2(REG_DATA_LEN-1) = '0') and (sum_result(REG_DATA_LEN) = '1') then
                 overflow := '1';
             end if;
-            if (operand_1(REG_DATA_LEN-1) = '1') and (operand_2(REG_DATA_LEN-1) = '1') and (sum_result(REG_DATA_LEN-1) = '0') then
+            if (operand_1(REG_DATA_LEN-1) = '1') and (operand_2(REG_DATA_LEN-1) = '1') and (sum_result(REG_DATA_LEN) = '0') then
                 overflow := '1';
             end if;
             
