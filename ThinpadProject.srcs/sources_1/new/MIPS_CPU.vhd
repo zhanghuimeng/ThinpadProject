@@ -793,7 +793,7 @@ signal input_rst : STD_LOGIC;
 
 signal clk_out : STD_LOGIC := '0';
 
-signal clk_array : STD_LOGIC_VECTOR(2 downto 0) := b"000";
+signal clk_array : STD_LOGIC_VECTOR(3 downto 0) := b"0000";
 
 begin
 --    clk_out <= touch_btn(4);
@@ -804,10 +804,10 @@ begin
     process (clk'event)
     begin
         if (rising_edge(clk)) then
-            clk_array <= clk_array + b"001";
+            clk_array <= clk_array + b"0001";
         end if;
     end process;
-    clk_out <= clk_array(2);
+    clk_out <= clk_array(3);
  
     input_rst <= touch_btn(5);
 

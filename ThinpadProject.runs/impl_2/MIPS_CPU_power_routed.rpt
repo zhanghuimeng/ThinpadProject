@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Wed Jan  3 12:47:06 2018
+| Date             : Wed Jan  3 13:57:05 2018
 | Host             : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command          : report_power -file MIPS_CPU_power_routed.rpt -pb MIPS_CPU_power_summary_routed.pb -rpx MIPS_CPU_power_routed.rpx
 | Design           : MIPS_CPU
@@ -51,14 +51,14 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        4 |       --- |             --- |
 | Slice Logic              |    <0.001 |     4794 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     2483 |     63400 |            3.92 |
+|   LUT as Logic           |    <0.001 |     2476 |     63400 |            3.91 |
+|   Register               |    <0.001 |     1504 |    126800 |            1.19 |
+|   CARRY4                 |    <0.001 |      146 |     15850 |            0.92 |
 |   BUFG                   |    <0.001 |       10 |        32 |           31.25 |
-|   Register               |    <0.001 |     1503 |    126800 |            1.19 |
-|   CARRY4                 |    <0.001 |      145 |     15850 |            0.91 |
 |   Others                 |     0.000 |       38 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |       21 |     63400 |            0.03 |
+|   F7/F8 Muxes            |     0.000 |       22 |     63400 |            0.03 |
 |   LUT as Distributed RAM |     0.000 |       48 |     19000 |            0.25 |
-| Signals                  |    <0.001 |     4712 |       --- |             --- |
+| Signals                  |    <0.001 |     4711 |       --- |             --- |
 | DSPs                     |     0.000 |        8 |       240 |            3.33 |
 | I/O                      |    <0.001 |      155 |       300 |           51.67 |
 | Static Power             |     0.097 |          |           |                 |

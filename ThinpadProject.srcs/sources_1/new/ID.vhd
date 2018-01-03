@@ -398,7 +398,7 @@ begin
                             funct_o <= FUNCT_TYPE_MOVE_TO_LO;
                             reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                            reg_wt_en_o <= REG_WT_ENABLE;  -- do not write
+                            reg_wt_en_o <= REG_WT_DISABLE;  -- do not write
                             inst_valid := INST_VALID;
                         
                         -- SYSCALL                  A system call exception occurs
@@ -895,7 +895,7 @@ begin
                     funct_o <= FUNCT_TYPE_ADDIU;
                     reg_rd_en_1_o <= REG_RD_ENABLE;  -- read rs
                     reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
-                    extended_imm <= zero_extend(imm, DATA_LEN);  -- sign extend imm
+                    extended_imm <= sign_extend(imm, DATA_LEN);  -- sign extend imm
                     reg_wt_en_o <= REG_WT_ENABLE;  -- write rt
                     reg_wt_addr_o <= reg_t;
                     inst_valid := INST_VALID;

@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Jan  3 12:43:53 2018
-# Process ID: 19636
+# Start of session at: Wed Jan  3 13:53:56 2018
+# Process ID: 8872
 # Current directory: E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado.exe -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
 # Log file: E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
@@ -15,9 +15,9 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 7464 
+INFO: Helper process launched with PID 9140 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 347.824 ; gain = 82.852
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 348.016 ; gain = 82.793
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:66]
 WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:804]
@@ -377,7 +377,7 @@ WARNING: [Synth 8-3331] design EX has unconnected port inst_i[26]
 WARNING: [Synth 8-3331] design EX has unconnected port inst_i[25]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 405.938 ; gain = 140.965
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 406.129 ; gain = 140.906
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -453,7 +453,7 @@ WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[2] to constant 
 WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[1] to constant 0 [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:877]
 WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[0] to constant 0 [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:877]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 405.938 ; gain = 140.965
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 406.129 ; gain = 140.906
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -773,22 +773,22 @@ Completed Processing XDC Constraints
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 728.434 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 728.621 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 728.434 ; gain = 463.461
+Finished Constraint Validation : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 728.621 ; gain = 463.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 728.434 ; gain = 463.461
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 728.621 ; gain = 463.398
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:19 ; elapsed = 00:00:21 . Memory (MB): peak = 728.434 ; gain = 463.461
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 728.621 ; gain = 463.398
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -860,6 +860,7 @@ INFO: [Synth 8-5544] ROM "OversamplingCnt0" won't be mapped to Block RAM because
 WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:170]
 INFO: [Synth 8-802] inferred FSM for state register 'TxD_state_reg' in module 'async_transmitter'
 WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+WARNING: [Synth 8-6014] Unused sequential element clk_array_reg was removed.  [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:807]
 WARNING: [Synth 8-327] inferring latch for variable 'extended_imm_reg' [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:104]
 WARNING: [Synth 8-327] inferring latch for variable 'branch_target_addr_o_reg' [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:225]
 WARNING: [Synth 8-327] inferring latch for variable 'link_addr_o_reg' [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:228]
@@ -946,7 +947,7 @@ WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E
 INFO: [Synth 8-3354] encoded FSM with state register 'TxD_state_reg' using encoding 'sequential' in module 'async_transmitter'
 WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:23 ; elapsed = 00:00:24 . Memory (MB): peak = 728.434 ; gain = 463.461
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 728.621 ; gain = 463.398
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -961,13 +962,14 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     64 Bit       Adders := 3     
 	   3 Input     64 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 13    
+	   2 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 12    
 	   2 Input     16 Bit       Adders := 2     
 	   2 Input      6 Bit       Adders := 3     
 	   2 Input      5 Bit       Adders := 4     
 	   3 Input      4 Bit       Adders := 4     
-	   2 Input      4 Bit       Adders := 4     
-	   2 Input      3 Bit       Adders := 6     
+	   2 Input      4 Bit       Adders := 5     
+	   2 Input      3 Bit       Adders := 5     
 	   3 Input      3 Bit       Adders := 8     
 	   2 Input      2 Bit       Adders := 25    
 +---XORs : 
@@ -979,7 +981,8 @@ Detailed RTL Component Info :
 	                8 Bit    Registers := 3     
 	                6 Bit    Registers := 4     
 	                5 Bit    Registers := 5     
-	                3 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
 	                1 Bit    Registers := 19    
 +---RAMs : 
@@ -1023,7 +1026,7 @@ Detailed RTL Component Info :
 	  12 Input      4 Bit        Muxes := 2     
 	   4 Input      3 Bit        Muxes := 1     
 	   9 Input      3 Bit        Muxes := 1     
-	  38 Input      3 Bit        Muxes := 4     
+	  38 Input      3 Bit        Muxes := 3     
 	   5 Input      3 Bit        Muxes := 1     
 	   2 Input      3 Bit        Muxes := 8     
 	  13 Input      3 Bit        Muxes := 1     
@@ -1037,14 +1040,14 @@ Detailed RTL Component Info :
 	   2 Input      1 Bit        Muxes := 95    
 	   9 Input      1 Bit        Muxes := 3     
 	  15 Input      1 Bit        Muxes := 7     
-	   5 Input      1 Bit        Muxes := 3     
+	  38 Input      1 Bit        Muxes := 6     
 	   3 Input      1 Bit        Muxes := 11    
-	  38 Input      1 Bit        Muxes := 5     
 	   6 Input      1 Bit        Muxes := 15    
 	  39 Input      1 Bit        Muxes := 4     
 	   7 Input      1 Bit        Muxes := 7     
 	  10 Input      1 Bit        Muxes := 8     
 	  13 Input      1 Bit        Muxes := 5     
+	   5 Input      1 Bit        Muxes := 2     
 	   4 Input      1 Bit        Muxes := 2     
 	   8 Input      1 Bit        Muxes := 1     
 	  11 Input      1 Bit        Muxes := 1     
@@ -1059,9 +1062,9 @@ Hierarchical RTL Component report
 Module MIPS_CPU 
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input      3 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
-	                3 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
 Module PC 
 Detailed RTL Component Info : 
 +---Adders : 
@@ -1099,14 +1102,13 @@ Detailed RTL Component Info :
 	   2 Input      4 Bit        Muxes := 1     
 	   4 Input      3 Bit        Muxes := 1     
 	   9 Input      3 Bit        Muxes := 1     
-	  38 Input      3 Bit        Muxes := 4     
+	  38 Input      3 Bit        Muxes := 3     
 	   4 Input      2 Bit        Muxes := 1     
 	   9 Input      1 Bit        Muxes := 3     
 	  15 Input      1 Bit        Muxes := 6     
-	   5 Input      1 Bit        Muxes := 1     
+	  38 Input      1 Bit        Muxes := 6     
 	   2 Input      1 Bit        Muxes := 2     
 	   3 Input      1 Bit        Muxes := 2     
-	  38 Input      1 Bit        Muxes := 5     
 	   6 Input      1 Bit        Muxes := 1     
 	  39 Input      1 Bit        Muxes := 4     
 Module ID_to_EX 
@@ -1123,7 +1125,8 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input     64 Bit       Adders := 3     
 	   3 Input     64 Bit       Adders := 1     
-	   2 Input     32 Bit       Adders := 4     
+	   2 Input     33 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 3     
 	   2 Input      6 Bit       Adders := 2     
 	   2 Input      5 Bit       Adders := 4     
 	   3 Input      4 Bit       Adders := 4     
@@ -1358,6 +1361,7 @@ DSP Report: Generating DSP hi0, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: operator hi0 is absorbed into DSP hi0.
 WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:170]
+WARNING: [Synth 8-6014] Unused sequential element clk_array_reg was removed.  [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:807]
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ID_to_EX_0/is_in_delayslot_o_reg )
 INFO: [Synth 8-3886] merging instance 'ID_0/branch_addr_offset_reg[1]' (LD) to 'ID_0/except_type_o_reg[9]'
 INFO: [Synth 8-3886] merging instance 'ID_0/branch_addr_offset_reg[0]' (LD) to 'ID_0/except_type_o_reg[9]'
@@ -1536,7 +1540,7 @@ INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instan
 INFO: [Synth 8-3886] merging instance 'EX_to_MEM_0/funct_o_reg[5]' (FDRE) to 'EX_to_MEM_0/funct_o_reg[4]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:57 ; elapsed = 00:00:59 . Memory (MB): peak = 771.223 ; gain = 506.250
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 798.461 ; gain = 533.238
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1596,13 +1600,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:13 ; elapsed = 00:01:15 . Memory (MB): peak = 831.047 ; gain = 566.074
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:09 ; elapsed = 00:01:11 . Memory (MB): peak = 856.281 ; gain = 591.059
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 837.059 ; gain = 572.086
+Finished Timing Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:13 . Memory (MB): peak = 861.293 ; gain = 596.070
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1616,7 +1620,7 @@ Start Technology Mapping
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\CP0_REG_0/status_o_reg[10] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\CP0_REG_0/status_o_reg[0] )
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:18 ; elapsed = 00:01:21 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished Technology Mapping : Time (s): cpu = 00:01:14 ; elapsed = 00:01:16 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1640,7 +1644,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:19 ; elapsed = 00:01:21 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished IO Insertion : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1653,7 +1657,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:19 ; elapsed = 00:01:22 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:15 ; elapsed = 00:01:17 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1665,25 +1669,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:19 ; elapsed = 00:01:22 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:16 ; elapsed = 00:01:17 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:20 ; elapsed = 00:01:22 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:20 ; elapsed = 00:01:22 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:20 ; elapsed = 00:01:22 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1700,18 +1704,18 @@ Report Cell Usage:
 |      |Cell      |Count |
 +------+----------+------+
 |1     |BUFG      |    12|
-|2     |CARRY4    |   145|
+|2     |CARRY4    |   146|
 |3     |DSP48E1   |     4|
 |4     |DSP48E1_1 |     4|
-|5     |LUT1      |   292|
-|6     |LUT2      |   664|
-|7     |LUT3      |   275|
-|8     |LUT4      |   414|
-|9     |LUT5      |   475|
-|10    |LUT6      |  1003|
-|11    |MUXF7     |    21|
+|5     |LUT1      |   263|
+|6     |LUT2      |   679|
+|7     |LUT3      |   256|
+|8     |LUT4      |   362|
+|9     |LUT5      |   440|
+|10    |LUT6      |  1091|
+|11    |MUXF7     |    22|
 |12    |RAM32M    |    12|
-|13    |FDRE      |   837|
+|13    |FDRE      |   838|
 |14    |FDSE      |     6|
 |15    |LD        |   355|
 |16    |LDC       |   305|
@@ -1725,21 +1729,21 @@ Report Instance Areas:
 +------+----------------------+----------------------------+------+
 |      |Instance              |Module                      |Cells |
 +------+----------------------+----------------------------+------+
-|1     |top                   |                            |  4979|
+|1     |top                   |                            |  4950|
 |2     |  CP0_REG_0           |CP0_REG                     |    33|
 |3     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL               |    84|
 |4     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0             |    84|
-|5     |  EX_0                |EX                          |   346|
-|6     |  EX_to_MEM_0         |EX_to_MEM                   |  1080|
+|5     |  EX_0                |EX                          |   345|
+|6     |  EX_to_MEM_0         |EX_to_MEM                   |   921|
 |7     |  HI_LO_0             |HI_LO                       |    64|
-|8     |  ID_0                |ID                          |   158|
-|9     |  ID_to_EX_0          |ID_to_EX                    |  1337|
-|10    |  IF_to_ID_0          |IF_to_ID                    |   531|
-|11    |  MEM_CONTROLL_0      |MEM_CONTROLL                |   476|
-|12    |  MEM_to_WB_0         |MEM_to_WB                   |   178|
+|8     |  ID_0                |ID                          |   287|
+|9     |  ID_to_EX_0          |ID_to_EX                    |  1297|
+|10    |  IF_to_ID_0          |IF_to_ID                    |   512|
+|11    |  MEM_CONTROLL_0      |MEM_CONTROLL                |   472|
+|12    |  MEM_to_WB_0         |MEM_to_WB                   |   179|
 |13    |  MMU_0               |MMU                         |   139|
-|14    |  PAUSE_CTRL_0        |PAUSE_CTRL                  |    33|
-|15    |  PC_0                |PC                          |    77|
+|14    |  PAUSE_CTRL_0        |PAUSE_CTRL                  |    63|
+|15    |  PC_0                |PC                          |   109|
 |16    |  REGISTERS_0         |REGISTERS                   |    12|
 |17    |  SERIAL_CONTROLL_0   |SERIAL_CONTROLL             |    24|
 |18    |  SERIAL_RECEIVER     |async_receiver              |    83|
@@ -1748,13 +1752,13 @@ Report Instance Areas:
 |21    |    tickgen           |BaudTickGen__parameterized0 |    36|
 +------+----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:20 ; elapsed = 00:01:22 . Memory (MB): peak = 895.172 ; gain = 630.199
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 913.395 ; gain = 648.172
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 680 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:04 ; elapsed = 00:01:14 . Memory (MB): peak = 895.172 ; gain = 307.703
-Synthesis Optimization Complete : Time (s): cpu = 00:01:20 ; elapsed = 00:01:22 . Memory (MB): peak = 895.172 ; gain = 630.199
+Synthesis finished with 0 errors, 0 critical warnings and 682 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:02 ; elapsed = 00:01:10 . Memory (MB): peak = 913.395 ; gain = 325.680
+Synthesis Optimization Complete : Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 913.395 ; gain = 648.172
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 893 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 894 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 1 inverter(s) to 35 load pin(s).
@@ -1766,9 +1770,9 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   LDC => LDCE: 305 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
-236 Infos, 577 Warnings, 100 Critical Warnings and 0 Errors encountered.
+236 Infos, 579 Warnings, 100 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:23 ; elapsed = 00:01:27 . Memory (MB): peak = 895.172 ; gain = 634.164
+synth_design: Time (s): cpu = 00:01:20 ; elapsed = 00:01:23 . Memory (MB): peak = 913.395 ; gain = 651.887
 INFO: [Common 17-1381] The checkpoint 'E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.049 . Memory (MB): peak = 895.172 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Wed Jan  3 12:45:27 2018...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.047 . Memory (MB): peak = 913.395 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Jan  3 13:55:25 2018...
