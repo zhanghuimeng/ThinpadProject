@@ -796,18 +796,18 @@ signal clk_out : STD_LOGIC := '0';
 signal clk_array : STD_LOGIC_VECTOR(3 downto 0) := b"0000";
 
 begin
---    clk_out <= touch_btn(4);
+    clk_out <= touch_btn(4);
 
 --    CLOCK : clk_wiz_0 port map (
 --        clk_in1 => clk,
 --        clk_out1 => clk_out);
-    process (clk'event)
-    begin
-        if (rising_edge(clk)) then
-            clk_array <= clk_array + b"0001";
-        end if;
-    end process;
-    clk_out <= clk_array(3);
+--    process (clk'event)
+--    begin
+--        if (rising_edge(clk)) then
+--            clk_array <= clk_array + b"0001";
+--        end if;
+--    end process;
+--    clk_out <= clk_array(3);
  
     input_rst <= touch_btn(5);
 
@@ -1197,11 +1197,7 @@ begin
         TxD => txd,
         TxD_start => TxD_start,
         TxD_data => TxD_data);
-	
---    leds(15) <= ack_from_serial;
---    leds(14) <= ack_from_mmu;
---    leds(13) <= ce_to_serial;
-        
+
 --     leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
    -- leds(15) <= ce_from_mem_controll;
    --leds(14 downto 11) <= sel_from_mem_controll; 
@@ -1211,36 +1207,29 @@ begin
 --    leds(7 downto 4) <= reg_wt_addr_from_ex(3 downto 0);
 --    leds(3 downto 0) <= reg_rd_addr_1_to_register(3 downto 0);
 --    leds(31) <= branch_from_id;
+    leds(7 downto 0) <= reg_wt_data_to_register(7 downto 0);
+    leds(31) <= en_from_mem;
     
-    number(7 downto 0) <= num_to_leds(7 downto 0);
-    leds(7 downto 0) <= num_to_leds(31 downto 24);
+--    number(7 downto 0) <= num_to_leds(7 downto 0);
+--    leds(7 downto 0) <= num_to_leds(31 downto 24);
         
-    segL : SEG7_LUT port map(
-         oSEG1 => osegl,
-         iDIG => number(3 downto 0));
+--    segL : SEG7_LUT port map(
+--         oSEG1 => osegl,
+--         iDIG => number(3 downto 0));
                 
-    segH : SEG7_LUT port map(
-         oSEG1 => osegh,
-         iDIG => number(7 downto 4));
+--    segH : SEG7_LUT port map(
+--         oSEG1 => osegh,
+--         iDIG => number(7 downto 4));
                 
-    leds(23 downto 22) <= osegl(7 downto 6);
-    leds(19 downto 17) <= osegl(5 downto 3);
-    leds(20) <= osegl(2);
-    leds(21) <= osegl(1);
-    leds(16) <= osegl(0);
-    leds(31 downto 30) <= osegh(7 downto 6);
-    leds(27 downto 25) <= osegh(5 downto 3);
-    leds(28) <= osegh(2);
-    leds(29) <= osegh(1);
-    leds(24) <= osegh(0);   
---    process(clk_out'event)
---    begin
---        leds(31) <= '1';
---    end process;
-    
---    leds(15) <= ce_to_ram1;
---    leds(14) <= '1';
---    leds(13) <= we_to_ram1;
---    leds(12 downto 9) <= sel_to_ram1;
+--    leds(23 downto 22) <= osegl(7 downto 6);
+--    leds(19 downto 17) <= osegl(5 downto 3);
+--    leds(20) <= osegl(2);
+--    leds(21) <= osegl(1);
+--    leds(16) <= osegl(0);
+--    leds(31 downto 30) <= osegh(7 downto 6);
+--    leds(27 downto 25) <= osegh(5 downto 3);
+--    leds(28) <= osegh(2);
+--    leds(29) <= osegh(1);
+--    leds(24) <= osegh(0);   
     
 end Behavioral;

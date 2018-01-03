@@ -2,8 +2,8 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Jan  3 13:55:32 2018
-# Process ID: 20880
+# Start of session at: Wed Jan  3 16:49:08 2018
+# Process ID: 23360
 # Current directory: E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2
 # Command line: vivado.exe -log MIPS_CPU.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source MIPS_CPU.tcl -notrace
 # Log file: E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2/MIPS_CPU.vdi
@@ -18,9 +18,6 @@ INFO: [Project 1-479] Netlist was created with Vivado 2017.1
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
 Parsing XDC File [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
-WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[4]'. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
 WARNING: [Vivado 12-584] No ports matched 'uart_wrn'. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
@@ -318,9 +315,11 @@ Resolution: If [get_<value>] was used to populate the object, check to make sure
 WARNING: [Vivado 12-584] No ports matched 'flash_a[9]'. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:174]
 CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:174]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-INFO: [Common 17-14] Message 'Common 17-55' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:174]
 WARNING: [Vivado 12-584] No ports matched 'flash_a[10]'. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:175]
 INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:175]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:175]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+INFO: [Common 17-14] Message 'Common 17-55' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:175]
 Finished Parsing XDC File [E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -328,7 +327,7 @@ INFO: [Project 1-111] Unisim Transformation Summary:
   IOBUF => IOBUF (IBUF, OBUFT): 64 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
-link_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 549.863 ; gain = 280.656
+link_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 549.605 ; gain = 279.949
 Command: opt_design -directive RuntimeOptimized
 INFO: [Vivado_Tcl 4-136] Directive used for opt_design is: RuntimeOptimized
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t-fgg676'
@@ -342,7 +341,7 @@ report_drc (run_mandatory_drcs) completed successfully
 INFO: [Project 1-461] DRC finished with 0 Errors
 INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
 
-Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.690 . Memory (MB): peak = 556.500 ; gain = 6.637
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.824 . Memory (MB): peak = 558.246 ; gain = 8.641
 
 Starting Logic Optimization Task
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -350,50 +349,50 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Phase 1 Retarget
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Opt 31-49] Retargeted 0 cell(s).
-Phase 1 Retarget | Checksum: 263cf44e0
+Phase 1 Retarget | Checksum: 25e56abf6
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.117 ; gain = 474.617
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.859 ; gain = 473.613
 INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 113 cells
 
 Phase 2 Constant propagation
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Phase 2 Constant propagation | Checksum: 263cf44e0
+Phase 2 Constant propagation | Checksum: 25e56abf6
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.117 ; gain = 474.617
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.859 ; gain = 473.613
 INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
 
 Phase 3 Sweep
-Phase 3 Sweep | Checksum: 1d1767791
+Phase 3 Sweep | Checksum: 1fe3e833b
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.117 ; gain = 474.617
-INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.859 ; gain = 473.613
+INFO: [Opt 31-389] Phase Sweep created 8 cells and removed 0 cells
 
 Phase 4 BUFG optimization
-Phase 4 BUFG optimization | Checksum: 1d1767791
+Phase 4 BUFG optimization | Checksum: 1fe3e833b
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.117 ; gain = 474.617
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.859 ; gain = 473.613
 INFO: [Opt 31-389] Phase BUFG optimization created 0 cells and removed 0 cells
 
 Phase 5 Shift Register Optimization
-Phase 5 Shift Register Optimization | Checksum: 1d1767791
+Phase 5 Shift Register Optimization | Checksum: 1fe3e833b
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.117 ; gain = 474.617
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.859 ; gain = 473.613
 INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
 
 Starting Connectivity Check Task
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1031.117 ; gain = 0.000
-Ending Logic Optimization Task | Checksum: 1d1767791
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1031.859 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: 1fe3e833b
 
-Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.117 ; gain = 474.617
-23 Infos, 101 Warnings, 100 Critical Warnings and 0 Errors encountered.
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:14 . Memory (MB): peak = 1031.859 ; gain = 473.613
+23 Infos, 100 Warnings, 100 Critical Warnings and 0 Errors encountered.
 opt_design completed successfully
-opt_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 1031.117 ; gain = 481.254
+opt_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:15 . Memory (MB): peak = 1031.859 ; gain = 482.254
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.078 . Memory (MB): peak = 1031.859 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2/MIPS_CPU_opt.dcp' has been generated.
 Command: report_drc -file MIPS_CPU_drc_opted.rpt
 INFO: [DRC 23-27] Running DRC with 2 threads
@@ -424,13 +423,13 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1031.117 ; gain = 0.000
-Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 1908e0638
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1031.859 ; gain = 0.000
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: 157df0402
 
-Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.013 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1031.859 ; gain = 0.000
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1031.859 ; gain = 0.000
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 INFO: [Timing 38-35] Done setting XDC timing constraints.
@@ -441,75 +440,80 @@ WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. T
 Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
 WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
+	touch_btn_IBUF[4]_inst (IBUF.O) is locked to IOB_X0Y135
+	touch_btn_IBUF_BUFG[4]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y0
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+WARNING: [Place 30-574] Poor placement for routing between an IO pin and BUFG. This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
 	touch_btn_IBUF[5]_inst (IBUF.O) is locked to IOB_X0Y119
 	touch_btn_IBUF_BUFG[5]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y1
 Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
-Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 182859581
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 8e78ab29
 
-Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 1031.859 ; gain = 0.000
 
 Phase 1.3 Build Placer Netlist Model
-Phase 1.3 Build Placer Netlist Model | Checksum: 25d0d3290
+Phase 1.3 Build Placer Netlist Model | Checksum: 114f8c358
 
-Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 1.4 Constrain Clocks/Macros
-Phase 1.4 Constrain Clocks/Macros | Checksum: 25d0d3290
+Phase 1.4 Constrain Clocks/Macros | Checksum: 114f8c358
 
-Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 1031.117 ; gain = 0.000
-Phase 1 Placer Initialization | Checksum: 25d0d3290
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 1032.504 ; gain = 0.645
+Phase 1 Placer Initialization | Checksum: 114f8c358
 
-Time (s): cpu = 00:00:12 ; elapsed = 00:00:08 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 2 Global Placement
-Phase 2 Global Placement | Checksum: 2990808f4
+Phase 2 Global Placement | Checksum: 169fcc2dc
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3 Detail Placement
 
 Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 2990808f4
+Phase 3.1 Commit Multi Column Macros | Checksum: 169fcc2dc
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1d9c6b8c6
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 1058c9e32
 
-Time (s): cpu = 00:00:16 ; elapsed = 00:00:11 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3.3 Area Swap Optimization
-Phase 3.3 Area Swap Optimization | Checksum: 1e277695f
+Phase 3.3 Area Swap Optimization | Checksum: 7bcea005
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3.4 Pipeline Register Optimization
-Phase 3.4 Pipeline Register Optimization | Checksum: 1e277695f
+Phase 3.4 Pipeline Register Optimization | Checksum: 7bcea005
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3.5 Timing Path Optimizer
-Phase 3.5 Timing Path Optimizer | Checksum: 27088f491
+Phase 3.5 Timing Path Optimizer | Checksum: 1021ce546
 
-Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:17 ; elapsed = 00:00:11 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3.6 Small Shape Detail Placement
-Phase 3.6 Small Shape Detail Placement | Checksum: 1e83f477d
+Phase 3.6 Small Shape Detail Placement | Checksum: dc692666
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:12 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3.7 Re-assign LUT pins
-Phase 3.7 Re-assign LUT pins | Checksum: 22c71fc8b
+Phase 3.7 Re-assign LUT pins | Checksum: 6062d952
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 3.8 Pipeline Register Optimization
-Phase 3.8 Pipeline Register Optimization | Checksum: 22c71fc8b
+Phase 3.8 Pipeline Register Optimization | Checksum: 6062d952
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1031.117 ; gain = 0.000
-Phase 3 Detail Placement | Checksum: 22c71fc8b
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1032.504 ; gain = 0.645
+Phase 3 Detail Placement | Checksum: 6062d952
 
-Time (s): cpu = 00:00:18 ; elapsed = 00:00:13 . Memory (MB): peak = 1031.117 ; gain = 0.000
+Time (s): cpu = 00:00:19 ; elapsed = 00:00:13 . Memory (MB): peak = 1032.504 ; gain = 0.645
 
 Phase 4 Post Placement Optimization and Clean-Up
 
@@ -517,54 +521,54 @@ Phase 4.1 Post Commit Optimization
 INFO: [Timing 38-35] Done setting XDC timing constraints.
 
 Phase 4.1.1 Post Placement Optimization
-Post Placement Optimization Initialization | Checksum: 1ff4ff331
+Post Placement Optimization Initialization | Checksum: 132c97e0e
 
 Phase 4.1.1.1 BUFG Insertion
 INFO: [Physopt 32-721] Multithreading enabled for phys_opt_design using a maximum of 2 CPUs
 INFO: [Place 46-41] BUFG insertion identified 0 candidate nets, 0 success, 0 skipped for placement/routing, 0 skipped for timing, 0 skipped for netlist change reason.
-Phase 4.1.1.1 BUFG Insertion | Checksum: 1ff4ff331
+Phase 4.1.1.1 BUFG Insertion | Checksum: 132c97e0e
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
-INFO: [Place 30-746] Post Placement Timing Summary WNS=18.648. For the most accurate timing information please run report_timing.
-Phase 4.1.1 Post Placement Optimization | Checksum: 1d3d23d9d
+Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
+INFO: [Place 30-746] Post Placement Timing Summary WNS=87.723. For the most accurate timing information please run report_timing.
+Phase 4.1.1 Post Placement Optimization | Checksum: dd559b22
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
-Phase 4.1 Post Commit Optimization | Checksum: 1d3d23d9d
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
+Phase 4.1 Post Commit Optimization | Checksum: dd559b22
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
 
 Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1d3d23d9d
+Phase 4.2 Post Placement Cleanup | Checksum: dd559b22
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
 
 Phase 4.3 Placer Reporting
-Phase 4.3 Placer Reporting | Checksum: 1d3d23d9d
+Phase 4.3 Placer Reporting | Checksum: dd559b22
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
 
 Phase 4.4 Final Placement Cleanup
-Phase 4.4 Final Placement Cleanup | Checksum: 1dc4204bf
+Phase 4.4 Final Placement Cleanup | Checksum: 882c3c61
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 1dc4204bf
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 882c3c61
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
-Ending Placer Task | Checksum: 1246622d4
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
+Ending Placer Task | Checksum: 5f8c66a4
 
-Time (s): cpu = 00:00:20 ; elapsed = 00:00:14 . Memory (MB): peak = 1058.996 ; gain = 27.879
+Time (s): cpu = 00:00:21 ; elapsed = 00:00:14 . Memory (MB): peak = 1063.984 ; gain = 32.125
 43 Infos, 103 Warnings, 100 Critical Warnings and 0 Errors encountered.
 place_design completed successfully
-place_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:15 . Memory (MB): peak = 1058.996 ; gain = 27.879
+place_design: Time (s): cpu = 00:00:23 ; elapsed = 00:00:15 . Memory (MB): peak = 1063.984 ; gain = 32.125
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.533 . Memory (MB): peak = 1058.996 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.569 . Memory (MB): peak = 1063.984 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2/MIPS_CPU_placed.dcp' has been generated.
-report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.164 . Memory (MB): peak = 1062.070 ; gain = 3.074
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.066 . Memory (MB): peak = 1062.070 ; gain = 0.000
-report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1062.070 ; gain = 0.000
+report_io: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.195 . Memory (MB): peak = 1066.996 ; gain = 3.012
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.064 . Memory (MB): peak = 1066.996 ; gain = 0.000
+report_control_sets: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1066.996 ; gain = 0.000
 Command: route_design -directive RuntimeOptimized
 Attempting to get a license for feature 'Implementation' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a100t-fgg676'
@@ -581,108 +585,113 @@ WARNING: [DRC PLCK-12] Clock Placer Checks: Poor placement for routing between a
 Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
  This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
 
+	touch_btn_IBUF[4]_inst (IBUF.O) is locked to IOB_X0Y135
+	touch_btn_IBUF_BUFG[4]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y0
+WARNING: [DRC PLCK-12] Clock Placer Checks: Poor placement for routing between an IO pin and BUFG. 
+Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
+ This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
+
 	touch_btn_IBUF[5]_inst (IBUF.O) is locked to IOB_X0Y119
 	touch_btn_IBUF_BUFG[5]_inst (BUFG.I) is provisionally placed by clockplacer on BUFGCTRL_X0Y1
 report_drc (run_mandatory_drcs) completed successfully
-INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 2 Warnings
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors, 3 Warnings
 INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
 
 
 Starting Routing Task
 INFO: [Route 35-270] Using Router directive 'RuntimeOptimized'.
 INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 2 CPUs
-Checksum: PlaceDB: c7824cb8 ConstDB: 0 ShapeSum: 5ce3d61c RouteDB: 0
+Checksum: PlaceDB: c67d676 ConstDB: 0 ShapeSum: 5324902e RouteDB: 0
 
 Phase 1 Build RT Design
-Phase 1 Build RT Design | Checksum: 1b80af7e4
+Phase 1 Build RT Design | Checksum: be663c70
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:28 . Memory (MB): peak = 1218.543 ; gain = 156.473
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:30 . Memory (MB): peak = 1217.156 ; gain = 150.160
 
 Phase 2 Router Initialization
 
 Phase 2.1 Create Timer
-Phase 2.1 Create Timer | Checksum: 1b80af7e4
+Phase 2.1 Create Timer | Checksum: be663c70
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:28 . Memory (MB): peak = 1218.543 ; gain = 156.473
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:30 . Memory (MB): peak = 1217.156 ; gain = 150.160
 
 Phase 2.2 Fix Topology Constraints
-Phase 2.2 Fix Topology Constraints | Checksum: 1b80af7e4
+Phase 2.2 Fix Topology Constraints | Checksum: be663c70
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:28 . Memory (MB): peak = 1218.543 ; gain = 156.473
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:30 . Memory (MB): peak = 1217.156 ; gain = 150.160
 
 Phase 2.3 Pre Route Cleanup
-Phase 2.3 Pre Route Cleanup | Checksum: 1b80af7e4
+Phase 2.3 Pre Route Cleanup | Checksum: be663c70
 
-Time (s): cpu = 00:00:33 ; elapsed = 00:00:28 . Memory (MB): peak = 1218.543 ; gain = 156.473
+Time (s): cpu = 00:00:35 ; elapsed = 00:00:30 . Memory (MB): peak = 1217.156 ; gain = 150.160
  Number of Nodes with overlaps = 0
 
 Phase 2.4 Update Timing
-Phase 2.4 Update Timing | Checksum: f8bb5c27
+Phase 2.4 Update Timing | Checksum: 1299460c5
 
-Time (s): cpu = 00:00:37 ; elapsed = 00:00:31 . Memory (MB): peak = 1225.492 ; gain = 163.422
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=18.661 | TNS=0.000  | WHS=-0.117 | THS=-4.288 |
+Time (s): cpu = 00:00:39 ; elapsed = 00:00:33 . Memory (MB): peak = 1222.035 ; gain = 155.039
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=87.720 | TNS=0.000  | WHS=-0.157 | THS=-4.014 |
 
-Phase 2 Router Initialization | Checksum: 127206f7a
+Phase 2 Router Initialization | Checksum: 1b5b0e9b9
 
-Time (s): cpu = 00:00:38 ; elapsed = 00:00:32 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:40 ; elapsed = 00:00:33 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 3 Initial Routing
-Phase 3 Initial Routing | Checksum: 1c4d43728
+Phase 3 Initial Routing | Checksum: 1476ae668
 
-Time (s): cpu = 00:00:39 ; elapsed = 00:00:32 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 4 Rip-up And Reroute
 
 Phase 4.1 Global Iteration 0
- Number of Nodes with overlaps = 429
- Number of Nodes with overlaps = 1
+ Number of Nodes with overlaps = 444
  Number of Nodes with overlaps = 0
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=18.721 | TNS=0.000  | WHS=N/A    | THS=N/A    |
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=87.223 | TNS=0.000  | WHS=N/A    | THS=N/A    |
 
-Phase 4.1 Global Iteration 0 | Checksum: 17360490c
+Phase 4.1 Global Iteration 0 | Checksum: 14342671b
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
-Phase 4 Rip-up And Reroute | Checksum: 17360490c
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:35 . Memory (MB): peak = 1240.645 ; gain = 173.648
+Phase 4 Rip-up And Reroute | Checksum: 14342671b
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:35 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 5 Delay and Skew Optimization
 
 Phase 5.1 Delay CleanUp
-Phase 5.1 Delay CleanUp | Checksum: 17360490c
+Phase 5.1 Delay CleanUp | Checksum: 14342671b
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:35 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 5.2 Clock Skew Optimization
-Phase 5.2 Clock Skew Optimization | Checksum: 17360490c
+Phase 5.2 Clock Skew Optimization | Checksum: 14342671b
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
-Phase 5 Delay and Skew Optimization | Checksum: 17360490c
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:35 . Memory (MB): peak = 1240.645 ; gain = 173.648
+Phase 5 Delay and Skew Optimization | Checksum: 14342671b
 
-Time (s): cpu = 00:00:41 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:35 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 6 Post Hold Fix
 
 Phase 6.1 Hold Fix Iter
 
 Phase 6.1.1 Update Timing
-Phase 6.1.1 Update Timing | Checksum: fb40ae55
+Phase 6.1.1 Update Timing | Checksum: 1f6660d97
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
-INFO: [Route 35-416] Intermediate Timing Summary | WNS=18.806 | TNS=0.000  | WHS=0.159  | THS=0.000  |
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
+INFO: [Route 35-416] Intermediate Timing Summary | WNS=87.290 | TNS=0.000  | WHS=0.138  | THS=0.000  |
 
-Phase 6.1 Hold Fix Iter | Checksum: fb40ae55
+Phase 6.1 Hold Fix Iter | Checksum: 1f6660d97
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
-Phase 6 Post Hold Fix | Checksum: fb40ae55
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
+Phase 6 Post Hold Fix | Checksum: 1f6660d97
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 7 Route finalize
 
 Router Utilization Summary
-  Global Vertical Routing Utilization    = 1.28398 %
-  Global Horizontal Routing Utilization  = 1.10628 %
+  Global Vertical Routing Utilization    = 1.20381 %
+  Global Horizontal Routing Utilization  = 1.03751 %
   Routable Net Status*
   *Does not include unroutable nets such as driverless and loadless.
   Run report_route_status for detailed report.
@@ -691,42 +700,42 @@ Router Utilization Summary
   Number of Partially Routed Nets     = 0
   Number of Node Overlaps             = 0
 
-Phase 7 Route finalize | Checksum: fb40ae55
+Phase 7 Route finalize | Checksum: 1919b63fe
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 8 Verifying routed nets
 
  Verification completed successfully
-Phase 8 Verifying routed nets | Checksum: fb40ae55
+Phase 8 Verifying routed nets | Checksum: 1919b63fe
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:44 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 9 Depositing Routes
-Phase 9 Depositing Routes | Checksum: 10b560a92
+Phase 9 Depositing Routes | Checksum: 24f8bbaf9
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Phase 10 Post Router Timing
-INFO: [Route 35-57] Estimated Timing Summary | WNS=18.806 | TNS=0.000  | WHS=0.159  | THS=0.000  |
+INFO: [Route 35-57] Estimated Timing Summary | WNS=87.290 | TNS=0.000  | WHS=0.138  | THS=0.000  |
 
 INFO: [Route 35-327] The final timing numbers are based on the router estimated timing analysis. For a complete and accurate timing signoff, please run report_timing_summary.
-Phase 10 Post Router Timing | Checksum: 10b560a92
+Phase 10 Post Router Timing | Checksum: 24f8bbaf9
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
 INFO: [Route 35-16] Router Completed Successfully
 
-Time (s): cpu = 00:00:42 ; elapsed = 00:00:34 . Memory (MB): peak = 1244.039 ; gain = 181.969
+Time (s): cpu = 00:00:45 ; elapsed = 00:00:36 . Memory (MB): peak = 1240.645 ; gain = 173.648
 
 Routing Is Done.
-56 Infos, 105 Warnings, 100 Critical Warnings and 0 Errors encountered.
+56 Infos, 106 Warnings, 100 Critical Warnings and 0 Errors encountered.
 route_design completed successfully
-route_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:36 . Memory (MB): peak = 1244.039 ; gain = 181.969
+route_design: Time (s): cpu = 00:00:48 ; elapsed = 00:00:38 . Memory (MB): peak = 1240.645 ; gain = 173.648
 Writing placer database...
 Writing XDEF routing.
 Writing XDEF routing logical nets.
 Writing XDEF routing special nets.
-Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.732 . Memory (MB): peak = 1244.039 ; gain = 0.000
+Write XDEF Complete: Time (s): cpu = 00:00:02 ; elapsed = 00:00:00.723 . Memory (MB): peak = 1240.645 ; gain = 0.000
 INFO: [Common 17-1381] The checkpoint 'E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2/MIPS_CPU_routed.dcp' has been generated.
 Command: report_drc -file MIPS_CPU_drc_routed.rpt -pb MIPS_CPU_drc_routed.pb -rpx MIPS_CPU_drc_routed.rpx
 INFO: [DRC 23-27] Running DRC with 2 threads
@@ -742,7 +751,7 @@ INFO: [Timing 38-35] Done setting XDC timing constraints.
 Running Vector-less Activity Propagation...
 
 Finished Running Vector-less Activity Propagation
-63 Infos, 105 Warnings, 100 Critical Warnings and 0 Errors encountered.
+63 Infos, 106 Warnings, 100 Critical Warnings and 0 Errors encountered.
 report_power completed successfully
 INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2L, Delay Type: min_max.
 INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
@@ -776,24 +785,23 @@ WARNING: [DRC DPOP-2] MREG Output pipelining: DSP EX_0/hi0 multiplier stage EX_0
 WARNING: [DRC DPOP-2] MREG Output pipelining: DSP EX_0/hi0__0 multiplier stage EX_0/hi0__0/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 WARNING: [DRC DPOP-2] MREG Output pipelining: DSP EX_0/hi0__1 multiplier stage EX_0/hi0__1/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
 WARNING: [DRC DPOP-2] MREG Output pipelining: DSP EX_0/hi0__2 multiplier stage EX_0/hi0__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-WARNING: [DRC PDRC-153] Gated clock check: Net ID_to_EX_0/reg_wt_data_o_reg[31][0] is a gated clock net sourced by a combinational pin ID_to_EX_0/reg_wt_data_o_reg[31]_i_2/O, cell ID_to_EX_0/reg_wt_data_o_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net IF_to_ID_0/extended_offset_o_reg[0][0] is a gated clock net sourced by a combinational pin IF_to_ID_0/extended_imm_reg[31]_i_2/O, cell IF_to_ID_0/extended_imm_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net IF_to_ID_0/link_addr_o_reg[0][0] is a gated clock net sourced by a combinational pin IF_to_ID_0/link_addr_o_reg[31]_i_2/O, cell IF_to_ID_0/link_addr_o_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/TxD_data_reg[7] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/serial_data_o_reg[7]_i_2/O, cell MEM_CONTROLL_0/serial_data_o_reg[7]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/data_o_reg[31]_i_2_n_8 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/data_o_reg[31]_i_2/O, cell MEM_CONTROLL_0/data_o_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/data_o_reg[31]_i_2_n_9 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/data_o_reg[31]_i_2/O, cell MEM_CONTROLL_0/data_o_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_data_o_reg[31]_i_2_n_9 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/inst_data_o_reg[31]_i_2/O, cell MEM_CONTROLL_0/inst_data_o_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_o_reg[0][0] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/data_o_reg[31]_i_1__1/O, cell MEM_CONTROLL_0/data_o_reg[31]_i_1__1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_o_reg[0]_0[0] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/data_o_reg[31]_i_1__2/O, cell MEM_CONTROLL_0/data_o_reg[31]_i_1__2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_o_reg[31][0] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/leds_o_reg[31]_i_1/O, cell MEM_CONTROLL_0/leds_o_reg[31]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_o_reg[31]_0[0] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/data_o_reg[31]_i_2__0/O, cell MEM_CONTROLL_0/data_o_reg[31]_i_2__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_o_reg[7][0] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/num_o_reg[31]_i_1/O, cell MEM_CONTROLL_0/num_o_reg[31]_i_1. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_pause_o_reg_i_2_n_8 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/inst_pause_o_reg_i_2/O, cell MEM_CONTROLL_0/inst_pause_o_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/mem_data_o_reg[31]_i_2_n_8 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/mem_data_o_reg[31]_i_2/O, cell MEM_CONTROLL_0/mem_data_o_reg[31]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/mem_pause_o_reg_i_2_n_8 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/mem_pause_o_reg_i_2/O, cell MEM_CONTROLL_0/mem_pause_o_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/inst_pause_o_reg_i_2_n_9 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/inst_pause_o_reg_i_2/O, cell MEM_CONTROLL_0/inst_pause_o_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/mem_pause_o_reg_i_2_n_9 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/mem_pause_o_reg_i_2/O, cell MEM_CONTROLL_0/mem_pause_o_reg_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/ram1_addr_o[0][0] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/ram_addr_o_reg[19]_i_2__0/O, cell MEM_CONTROLL_0/ram_addr_o_reg[19]_i_2__0. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/ram2_addr_o[0][0] is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/ram_addr_o_reg[19]_i_2/O, cell MEM_CONTROLL_0/ram_addr_o_reg[19]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
-WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/state_reg[1]_i_2_n_8 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/state_reg[1]_i_2/O, cell MEM_CONTROLL_0/state_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
+WARNING: [DRC PDRC-153] Gated clock check: Net MEM_CONTROLL_0/state_reg[1]_i_2_n_9 is a gated clock net sourced by a combinational pin MEM_CONTROLL_0/state_reg[1]_i_2/O, cell MEM_CONTROLL_0/state_reg[1]_i_2. This is not good design practice and will likely impact performance. For SLICE registers, for example, use the CE pin to control the loading of data.
 report_drc (run_mandatory_drcs) completed successfully
-INFO: [Vivado 12-3199] DRC finished with 0 Errors, 40 Warnings
+INFO: [Vivado 12-3199] DRC finished with 0 Errors, 39 Warnings
 INFO: [Vivado 12-3200] Please refer to the DRC report (report_drc) for more information.
 INFO: [Project 1-821] Please set project.enableDesignId to be 'true'.
 INFO: [Designutils 20-2272] Running write_bitstream with 2 threads.
@@ -806,8 +814,8 @@ Creating bitstream...
 Writing bitstream ./MIPS_CPU.bit...
 INFO: [Vivado 12-1842] Bitgen Completed Successfully.
 INFO: [Project 1-120] WebTalk data collection is mandatory when using a WebPACK part without a full Vivado license. To see the specific WebTalk data collected for your design, open the usage_statistics_webtalk.html or usage_statistics_webtalk.xml file in the implementation directory.
-INFO: [Common 17-186] 'E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Wed Jan  3 13:57:28 2018. For additional details about this file, please refer to the WebTalk help file at D:/Xilinx/Vivado/2017.1/doc/webtalk_introduction.html.
+INFO: [Common 17-186] 'E:/THU/merge/ThinpadProject/ThinpadProject.runs/impl_2/usage_statistics_webtalk.xml' has been successfully sent to Xilinx on Wed Jan  3 16:51:08 2018. For additional details about this file, please refer to the WebTalk help file at D:/Xilinx/Vivado/2017.1/doc/webtalk_introduction.html.
 74 Infos, 145 Warnings, 100 Critical Warnings and 0 Errors encountered.
 write_bitstream completed successfully
-write_bitstream: Time (s): cpu = 00:00:25 ; elapsed = 00:00:23 . Memory (MB): peak = 1613.832 ; gain = 358.531
-INFO: [Common 17-206] Exiting Vivado at Wed Jan  3 13:57:28 2018...
+write_bitstream: Time (s): cpu = 00:00:23 ; elapsed = 00:00:23 . Memory (MB): peak = 1608.402 ; gain = 358.859
+INFO: [Common 17-206] Exiting Vivado at Wed Jan  3 16:51:08 2018...

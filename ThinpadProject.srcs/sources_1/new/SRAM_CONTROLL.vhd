@@ -71,7 +71,7 @@ begin
                 ram_oe_n_o <= '0';
                 ram_ce_n_o <= '0';
                 ram_we_n_o <= '0';
-                ram_be_n_o <= not reverse_vector(sel_i);
+                ram_be_n_o <= not sel_i;
             else 
                 ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
                 ram_be_n_o <= b"0000";
