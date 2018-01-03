@@ -395,7 +395,8 @@ package INCLUDE is
     constant EXTEND_RAM_ADDR_MAX : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"807FFFFF";
     constant LED_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"bfd0f000"; -- For test
     constant NUM_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"bfd0f010"; -- For test
-    constant SERIAL_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"BFD003F8";
+    constant SERIAL_DATA_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"BFD003F8";
+    constant SERIAL_STATE_ADDR : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) :=  x"BFD003FC";
 
 	-- constant for cp0
 	constant INTERRUPT_ASSERT      : STD_LOGIC := '1';

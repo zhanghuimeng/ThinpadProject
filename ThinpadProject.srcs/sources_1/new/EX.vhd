@@ -165,6 +165,9 @@ begin
             pause_o <= PAUSE_NOT;
             clock_cycle_cnt_o <= b"00";
             mul_cur_result_o <= DOUBLE_ZERO_DATA;
+            cp0_reg_write_addr_o <= REG_ZERO_ADDR;
+            cp0_reg_we_o <= REG_WT_DISABLE;
+            cp0_reg_data_o <= ZERO_DATA;
             hilo_en_o <= CHIP_DISABLE;
             trap_assert := FALSE;
             over_assert := FALSE;

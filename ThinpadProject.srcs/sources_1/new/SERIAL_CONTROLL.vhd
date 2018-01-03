@@ -40,11 +40,13 @@ entity SERIAL_CONTROLL is
         rst : in STD_LOGIC;
         ce_i : in STD_LOGIC;
         we_i : in STD_LOGIC;
+        is_state_i : in STD_LOGIC;
         data_from_mmu_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         
 		RxD_data_ready : in STD_LOGIC;
 		RxD_data : in STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 		RxD_idle : in STD_LOGIC;
+		TxD_busy : in STD_LOGIC;
 		TxD_start : out STD_LOGIC;
 		TxD_data : out STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 		
@@ -53,70 +55,36 @@ entity SERIAL_CONTROLL is
 end SERIAL_CONTROLL;
 
 architecture Behavioral of SERIAL_CONTROLL is
-    type SERIAL_WRITE_TYPE is (SERIAL_IDLE, SERIAL_WRITE);
-    signal write_state : SERIAL_WRITE_TYPE := SERIAL_IDLE;
-    type SERIAL_READ_TYPE is (SERIAL_IDLE, SERIAL_WAIT, SERIAL_READING, SERIAL_READ);
-    signal read_state : SERIAL_READ_TYPE := SERIAL_IDLE;
+    signal data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"00000000";
+    signal state : STD_LOGIC_VECTOR(1 downto 0) := b"10"; -- write_enable & read_enable
 begin
+
+    state(0) <= RxD_data_ready;
+    state(1) <= not TxD_busy;
         
-    process (clk_uart'event) 
+    process (all)
     begin
-        if (rising_edge(clk_uart)) then
-            if (ce_i = CE_DISABLE) then
-                write_state <= SERIAL_IDLE;
-                read_state <= SERIAL_IDLE;
-                TxD_start <= '0';
-            else
-                case write_state is
-                    when SERIAL_WRITE => 
-                        write_state <= SERIAL_WRITE;
-                        TxD_data <= data_from_mmu_i(BYTE_LEN - 1 downto 0);
-                        TxD_start <= '0';
-                    when others =>
-                        if (we_i = '1') then
-                            write_state <= SERIAL_WRITE;
-                            TxD_data <= data_from_mmu_i(BYTE_LEN - 1 downto 0);
-                            TxD_start <= '1';
-                        else
-                            write_state <= SERIAL_IDLE;
-                            TxD_start <= '0';
-                        end if;
-                end case;
-                case read_state is
-                    when SERIAL_READ =>
-                        read_state <= SERIAL_READ;
-                    when SERIAL_READING =>
-                        if (RxD_idle = '1') then
-                            data_from_serial_o <= zero_extend(RxD_data, DATA_LEN);
-                            read_state <= SERIAL_READ;
-                        else
-                            read_state <= SERIAL_READING;
-                        end if;
-                    when SERIAL_WAIT =>
-                        if (RxD_idle = '0') then
-                            read_state <= SERIAL_READING;
-                        else
-                            read_state <= SERIAL_WAIT;
-                        end if;
-                    when others =>
-                        if (we_i = '0') then
-                            read_state <= SERIAL_WAIT;
-                        else
-                            read_state <= SERIAL_IDLE;
-                        end if;
-                end case;
+        if (TxD_busy = '1') then
+            TxD_start <= '0';
+        else
+            if ((ce_i = '1') and (we_i = '1')) then
+                state(1) <= '0';
+                TxD_data <= data_from_mmu_i(7 downto 0);
+                TxD_start <= '1';
             end if;
         end if;
     end process;
-	
-	process (all)
-	begin
-		case read_state is
-		    when SERIAL_WAIT | SERIAL_READING =>
-		        ack_o <= ACK_NOT;
-		    when others =>
-		        ack_o <= ACK; 
-		end case;
-	end process;
+    
+    process (all)
+    begin
+        if ((ce_i = '1') and (we_i = '0')) then
+            if (is_state_i = '1') then
+                data_from_serial_o <= zero_extend(state, DATA_LEN);
+            else
+                data_from_serial_o <= zero_extend(data, DATA_LEN);
+            end if;
+        end if;
+        ack_o <= '1';
+    end process;
    
 end Behavioral;

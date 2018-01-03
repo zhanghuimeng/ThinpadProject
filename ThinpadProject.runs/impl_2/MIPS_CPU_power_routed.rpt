@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date             : Wed Jan  3 16:50:44 2018
+| Date             : Wed Jan  3 23:53:44 2018
 | Host             : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command          : report_power -file MIPS_CPU_power_routed.rpt -pb MIPS_CPU_power_summary_routed.pb -rpx MIPS_CPU_power_routed.rpx
 | Design           : MIPS_CPU
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.097 |
-| Dynamic (W)              | 0.000 |
+| Total On-Chip Power (W)  | 0.098 |
+| Dynamic (W)              | 0.001 |
 | Device Static (W)        | 0.097 |
 | Effective TJA (C/W)      | 2.6   |
 | Max Ambient (C)          | 99.7  |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        4 |       --- |             --- |
-| Slice Logic              |    <0.001 |     4781 |       --- |             --- |
-|   LUT as Logic           |    <0.001 |     2467 |     63400 |            3.89 |
+| Slice Logic              |    <0.001 |     4833 |       --- |             --- |
+|   LUT as Logic           |    <0.001 |     2550 |     63400 |            4.02 |
+|   Register               |    <0.001 |     1448 |    126800 |            1.14 |
 |   CARRY4                 |    <0.001 |      146 |     15850 |            0.92 |
-|   Register               |    <0.001 |     1508 |    126800 |            1.19 |
-|   BUFG                   |    <0.001 |       11 |        32 |           34.38 |
-|   Others                 |     0.000 |       38 |       --- |             --- |
-|   F7/F8 Muxes            |     0.000 |       22 |     63400 |            0.03 |
+|   BUFG                   |    <0.001 |       10 |        32 |           31.25 |
+|   Others                 |     0.000 |       40 |       --- |             --- |
+|   F7/F8 Muxes            |     0.000 |       18 |     63400 |            0.03 |
 |   LUT as Distributed RAM |     0.000 |       48 |     19000 |            0.25 |
-| Signals                  |    <0.001 |     4700 |       --- |             --- |
+| Signals                  |    <0.001 |     4695 |       --- |             --- |
 | DSPs                     |     0.000 |        8 |       240 |            3.33 |
 | I/O                      |    <0.001 |      155 |       300 |           51.67 |
 | Static Power             |     0.097 |          |           |                 |
-| Total                    |     0.097 |          |           |                 |
+| Total                    |     0.098 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.015 |       0.000 |      0.015 |
+| Vccint    |       1.000 |     0.016 |       0.001 |      0.015 |
 | Vccaux    |       1.800 |     0.018 |       0.000 |      0.018 |
 | Vcco33    |       3.300 |     0.004 |       0.000 |      0.004 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -128,6 +128,7 @@ Table of Contents
 +----------+----------+-----------------+
 | Clock    | Domain   | Constraint (ns) |
 +----------+----------+-----------------+
+| clk      | clk      |            20.0 |
 | clk_uart | clk_uart |            90.4 |
 +----------+----------+-----------------+
 
@@ -141,11 +142,11 @@ Table of Contents
 +---------------------------------+-----------+
 | Name                            | Power (W) |
 +---------------------------------+-----------+
-| MIPS_CPU                        |    <0.001 |
+| MIPS_CPU                        |     0.001 |
 |   BASE_SRAM_CONTROLL            |     0.000 |
 |   CP0_REG_0                     |     0.000 |
 |   EXTEND_RAM_CONTROLL           |     0.000 |
-|   EX_0                          |     0.000 |
+|   EX_0                          |    <0.001 |
 |   EX_to_MEM_0                   |    <0.001 |
 |   HI_LO_0                       |     0.000 |
 |   ID_0                          |    <0.001 |
@@ -153,7 +154,7 @@ Table of Contents
 |   IF_to_ID_0                    |    <0.001 |
 |   MEM_CONTROLL_0                |    <0.001 |
 |   MEM_to_WB_0                   |    <0.001 |
-|   MMU_0                         |     0.000 |
+|   MMU_0                         |    <0.001 |
 |   PAUSE_CTRL_0                  |     0.000 |
 |   PC_0                          |    <0.001 |
 |   REGISTERS_0                   |     0.000 |

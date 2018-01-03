@@ -480,6 +480,7 @@ component MMU is
 		
 		serial_ce_o : out STD_LOGIC;
         serial_we_o : out STD_LOGIC;
+        serial_is_state_o : out STD_LOGIC;
         serial_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         serial_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 		serial_ack_i : in STD_LOGIC;
@@ -519,11 +520,13 @@ component SERIAL_CONTROLL IS
         rst : in STD_LOGIC;
         ce_i : in STD_LOGIC;
         we_i : in STD_LOGIC;
+        is_state_i : in STD_LOGIC;
         data_from_mmu_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 		
 		RxD_data_ready : in STD_LOGIC;
 		RxD_data : in STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 		RxD_idle : in STD_LOGIC;
+		TxD_busy : in STD_LOGIC;
 		TxD_start : out STD_LOGIC;
 		TxD_data : out STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
             
@@ -550,6 +553,7 @@ component ASYNC_TRANSMITTER is
     port (
         clk : in STD_LOGIC;
         TxD : out STD_LOGIC;
+        TxD_busy : out STD_LOGIC;
         TxD_start : in STD_LOGIC;
         TxD_data : in STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0));
 end component;
@@ -772,11 +776,13 @@ signal data_from_serial : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 signal ack_from_serial: STD_LOGIC;
 signal ce_to_serial : STD_LOGIC;
 signal we_to_serial : STD_LOGIC;
+signal is_state_to_serial : STD_LOGIC;
 signal data_to_serial : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);  
 
 signal RxD_data_ready : STD_LOGIC;
 signal RxD_data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 signal RxD_idle : STD_LOGIC;
+signal TxD_busy : STD_LOGIC;
 signal TxD_start : STD_LOGIC;
 signal TxD_data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 
@@ -796,18 +802,18 @@ signal clk_out : STD_LOGIC := '0';
 signal clk_array : STD_LOGIC_VECTOR(3 downto 0) := b"0000";
 
 begin
-    clk_out <= touch_btn(4);
+--    clk_out <= touch_btn(4);
 
 --    CLOCK : clk_wiz_0 port map (
 --        clk_in1 => clk,
 --        clk_out1 => clk_out);
---    process (clk'event)
---    begin
---        if (rising_edge(clk)) then
---            clk_array <= clk_array + b"0001";
---        end if;
---    end process;
---    clk_out <= clk_array(3);
+    process (clk'event)
+    begin
+        if (rising_edge(clk)) then
+            clk_array <= clk_array + b"0001";
+        end if;
+    end process;
+    clk_out <= clk_array(3);
  
     input_rst <= touch_btn(5);
 
@@ -1116,6 +1122,7 @@ begin
 		serial_ack_i => ack_from_serial,
 		serial_ce_o => ce_to_serial,
         serial_we_o => we_to_serial,
+        serial_is_state_o => is_state_to_serial,
         serial_data_o => data_to_serial,
         
         leds_o => leds_to_leds,
@@ -1166,11 +1173,13 @@ begin
         rst => input_rst,
         ce_i => ce_to_serial,
         we_i => we_to_serial,
+        is_state_i => is_state_to_serial,
         data_from_mmu_i => data_to_serial,
          
         RxD_data_ready => RxD_data_ready,
 		RxD_data => RxD_data,
 		RxD_idle => RxD_idle,
+		TxD_busy => TxD_busy,
 		TxD_start => TxD_start,
 		TxD_data => TxD_data,
           
@@ -1207,29 +1216,29 @@ begin
 --    leds(7 downto 4) <= reg_wt_addr_from_ex(3 downto 0);
 --    leds(3 downto 0) <= reg_rd_addr_1_to_register(3 downto 0);
 --    leds(31) <= branch_from_id;
-    leds(7 downto 0) <= reg_wt_data_to_register(7 downto 0);
-    leds(31) <= en_from_mem;
+--    leds(7 downto 0) <= reg_wt_data_to_register(7 downto 0);
+--    leds(31) <= en_from_mem;
     
---    number(7 downto 0) <= num_to_leds(7 downto 0);
---    leds(7 downto 0) <= num_to_leds(31 downto 24);
+    number(7 downto 0) <= num_to_leds(7 downto 0);
+    leds(7 downto 0) <= num_to_leds(31 downto 24);
         
---    segL : SEG7_LUT port map(
---         oSEG1 => osegl,
---         iDIG => number(3 downto 0));
+    segL : SEG7_LUT port map(
+         oSEG1 => osegl,
+         iDIG => number(3 downto 0));
                 
---    segH : SEG7_LUT port map(
---         oSEG1 => osegh,
---         iDIG => number(7 downto 4));
+    segH : SEG7_LUT port map(
+         oSEG1 => osegh,
+         iDIG => number(7 downto 4));
                 
---    leds(23 downto 22) <= osegl(7 downto 6);
---    leds(19 downto 17) <= osegl(5 downto 3);
---    leds(20) <= osegl(2);
---    leds(21) <= osegl(1);
---    leds(16) <= osegl(0);
---    leds(31 downto 30) <= osegh(7 downto 6);
---    leds(27 downto 25) <= osegh(5 downto 3);
---    leds(28) <= osegh(2);
---    leds(29) <= osegh(1);
---    leds(24) <= osegh(0);   
+    leds(23 downto 22) <= osegl(7 downto 6);
+    leds(19 downto 17) <= osegl(5 downto 3);
+    leds(20) <= osegl(2);
+    leds(21) <= osegl(1);
+    leds(16) <= osegl(0);
+    leds(31 downto 30) <= osegh(7 downto 6);
+    leds(27 downto 25) <= osegh(5 downto 3);
+    leds(28) <= osegh(2);
+    leds(29) <= osegh(1);
+    leds(24) <= osegh(0);   
     
 end Behavioral;

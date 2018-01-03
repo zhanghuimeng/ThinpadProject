@@ -60,6 +60,7 @@ entity MMU is
         
         serial_ce_o : out STD_LOGIC;
         serial_we_o : out STD_LOGIC;
+        serial_is_state_o : out STD_LOGIC;
         serial_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         serial_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 		serial_ack_i : in STD_LOGIC;
@@ -72,7 +73,7 @@ entity MMU is
 end MMU;
 
 architecture Behavioral of MMU is
-	type STATE_TYPE_TYPE is (TYPE_NULL, TYPE_BASE_RAM, TYPE_EXTEND_RAM, TYPE_LED, TYPE_NUM, TYPE_SERIAL);
+	type STATE_TYPE_TYPE is (TYPE_NULL, TYPE_BASE_RAM, TYPE_EXTEND_RAM, TYPE_LED, TYPE_NUM, TYPE_SERIAL_STATE, TYPE_SERIAL_DATA);
     signal inout_type : STATE_TYPE_TYPE := TYPE_NULL;
     signal led_data : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := ZERO_DATA;
     signal num_data : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0) := ZERO_DATA;
@@ -95,8 +96,10 @@ begin
                     inout_type <= TYPE_LED;
                 elsif (addr_i = NUM_ADDR) then
                     inout_type <= TYPE_NUM;
-                elsif (addr_i = SERIAL_ADDR) then
-                    inout_type <= TYPE_SERIAL;
+                elsif (addr_i = SERIAL_STATE_ADDR) then
+                    inout_type <= TYPE_SERIAL_STATE;
+                elsif (addr_i = SERIAL_DATA_ADDR) then
+                    inout_type <= TYPE_SERIAL_DATA;
                 else
                     inout_type <= TYPE_NULL;
                 end if;
@@ -225,7 +228,7 @@ begin
 						data_o <= num_o;
 					end if;
 					ack_o <= '1';
-			    when TYPE_SERIAL => 
+			    when TYPE_SERIAL_DATA => 
 			        ram1_ce_o <= CE_DISABLE;
                     ram1_we_o <= '0';
                     ram1_data_o <= HIGH_Z;
@@ -248,6 +251,31 @@ begin
                     end if; 
 					serial_we_o <= we_i;
 					serial_ce_o <= '1';
+					serial_is_state_o <= '0';
+			    when TYPE_SERIAL_STATE => 
+                    ram1_ce_o <= CE_DISABLE;
+                    ram1_we_o <= '0';
+                    ram1_data_o <= HIGH_Z;
+                    ram1_addr_o <= ZERO_DATA;
+                    ram1_sel_o <= b"0000";
+                    ram2_ce_o <= CE_DISABLE;
+                    ram2_we_o <= '0';
+                    ram2_data_o <= HIGH_Z;
+                    ram2_addr_o <= ZERO_DATA;
+                    ram2_sel_o <= b"0000";
+                    leds_o <= leds_o;
+                    num_o <= num_o;
+                                        
+                    ack_o <= serial_ack_i;
+                    if (we_i = '1') then
+                        data_o <= ZERO_DATA;
+                        serial_data_o <= data_i;
+                    else
+                        data_o <= serial_data_i;
+                    end if; 
+                    serial_we_o <= we_i;
+                    serial_ce_o <= '1'; 
+                    serial_is_state_o <= '1';
 				when others => 
 					ram1_ce_o <= CE_DISABLE;
 					ram1_we_o <= '0';
