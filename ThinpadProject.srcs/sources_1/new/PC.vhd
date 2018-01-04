@@ -58,14 +58,14 @@ begin
         if rising_edge(clk) then
             if rst = RST_ENABLE then
                 en_o <= CHIP_DISABLE;  -- ROM is disabled when reset
-                pc_o <= x"80000000";
+                pc_o <= BASE_RAM_ADDR_MIN;
                 is_start := '1';
             else
                 en_o <= CHIP_ENABLE;   -- ROM is enabled in general
             end if;
             -- If I rewrite it, the first instruction might not be read
             if en_o = CHIP_DISABLE then   -- When ROM is disabled, PC = 0
-                pc_o <= x"80000000";
+                pc_o <= BASE_RAM_ADDR_MIN;
             else                        -- When ROM is enabled, PC increase by 4 every clock cycle
                 if flush_i = '1' then
                     --pc_o <= x"00000000";
@@ -79,7 +79,7 @@ begin
             		    if is_start = '0' then
             			    pc_o <= pc_o + x"00000004";  -- IEEE.STD_LOGIC_SIGNED library
             			else
-            			    pc_o <= x"80000000";
+            			    pc_o <= BASE_RAM_ADDR_MIN;
             			    is_start := '0';
             			end if;
             		end if;

@@ -102,7 +102,7 @@ architecture Behavioral of CP0_REG is
                                     epc_o <= current_inst_address_i - 4;
                                     cause_o(CAUSE_BD_INDEX) <= '1'; --BD = 1
                                 else
-                                    epc_o <= current_inst_address_i;
+                                    epc_o <= current_inst_address_i + 4;
                                     cause_o(CAUSE_BD_INDEX) <=  '0'; --BD = 0
                                 end if ;
                             end if ;

@@ -51,7 +51,7 @@ begin
 		TxD_shift <= (TxD_shift >> 1);
 
 	case(TxD_state)
-		4'b0000: if(TxD_start) TxD_state <= 4'b0100;
+		4'b0000: if(TxD_start) TxD_state <= 4'b1000;
 		4'b0100: if(BitTick) TxD_state <= 4'b1000;  // start bit
 		4'b1000: if(BitTick) TxD_state <= 4'b1001;  // bit 0
 		4'b1001: if(BitTick) TxD_state <= 4'b1010;  // bit 1

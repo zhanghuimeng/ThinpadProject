@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Wed Jan  3 23:51:58 2018
+| Date         : Thu Jan  4 09:26:21 2018
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_utilization -file MIPS_CPU_utilization_synth.rpt -pb MIPS_CPU_utilization_synth.pb
 | Design       : MIPS_CPU
@@ -30,15 +30,15 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2721 |     0 |     63400 |  4.29 |
-|   LUT as Logic             | 2673 |     0 |     63400 |  4.22 |
+| Slice LUTs*                | 2867 |     0 |     63400 |  4.52 |
+|   LUT as Logic             | 2819 |     0 |     63400 |  4.45 |
 |   LUT as Memory            |   48 |     0 |     19000 |  0.25 |
 |     LUT as Distributed RAM |   48 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
-| Slice Registers            | 1448 |     0 |    126800 |  1.14 |
-|   Register as Flip Flop    |  811 |     0 |    126800 |  0.64 |
-|   Register as Latch        |  637 |     0 |    126800 |  0.50 |
-| F7 Muxes                   |   18 |     0 |     31700 |  0.06 |
+| Slice Registers            | 1627 |     0 |    126800 |  1.28 |
+|   Register as Flip Flop    |  938 |     0 |    126800 |  0.74 |
+|   Register as Latch        |  689 |     0 |    126800 |  0.54 |
+| F7 Muxes                   |   13 |     0 |     31700 |  0.04 |
 | F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -57,9 +57,9 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 637   |          Yes |           - |        Reset |
-| 6     |          Yes |         Set |            - |
-| 805   |          Yes |       Reset |            - |
+| 689   |          Yes |           - |        Reset |
+| 7     |          Yes |         Set |            - |
+| 931   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -152,24 +152,24 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     | 1042 |                 LUT |
-| FDRE     |  805 |        Flop & Latch |
-| LUT2     |  700 |                 LUT |
-| LDCE     |  637 |        Flop & Latch |
-| LUT5     |  487 |                 LUT |
-| LUT4     |  403 |                 LUT |
-| LUT3     |  294 |                 LUT |
-| LUT1     |  268 |                 LUT |
-| CARRY4   |  146 |          CarryLogic |
+| LUT6     | 1115 |                 LUT |
+| FDRE     |  931 |        Flop & Latch |
+| LUT2     |  716 |                 LUT |
+| LDCE     |  689 |        Flop & Latch |
+| LUT5     |  499 |                 LUT |
+| LUT3     |  405 |                 LUT |
+| LUT4     |  340 |                 LUT |
+| LUT1     |  308 |                 LUT |
+| CARRY4   |  154 |          CarryLogic |
 | OBUF     |   79 |                  IO |
 | RAMD32   |   72 |  Distributed Memory |
 | OBUFT    |   72 |                  IO |
 | IBUF     |   68 |                  IO |
 | RAMS32   |   24 |  Distributed Memory |
-| MUXF7    |   18 |               MuxFx |
+| MUXF7    |   13 |               MuxFx |
 | BUFG     |   12 |               Clock |
 | DSP48E1  |    8 |    Block Arithmetic |
-| FDSE     |    6 |        Flop & Latch |
+| FDSE     |    7 |        Flop & Latch |
 +----------+------+---------------------+
 
 

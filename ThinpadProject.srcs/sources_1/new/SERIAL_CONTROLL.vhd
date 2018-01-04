@@ -56,21 +56,23 @@ end SERIAL_CONTROLL;
 
 architecture Behavioral of SERIAL_CONTROLL is
     signal data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0) := b"00000000";
-    signal state : STD_LOGIC_VECTOR(1 downto 0) := b"10"; -- write_enable & read_enable
+    signal state : STD_LOGIC_VECTOR(1 downto 0) := b"01"; -- read_enable & write_enable
 begin
 
-    state(0) <= RxD_data_ready;
-    state(1) <= not TxD_busy;
+    state(1) <= RxD_data_ready;
+    state(0) <= not TxD_busy;
         
     process (all)
     begin
-        if (TxD_busy = '1') then
-            TxD_start <= '0';
+        if (RxD_data_ready = '1') then
+            data <= RxD_data;
+        end if;
+        if ((ce_i = '1') and (we_i = '1')) then
+            TxD_data <= data_from_mmu_i(7 downto 0);
+            TxD_start <= '1';
         else
-            if ((ce_i = '1') and (we_i = '1')) then
-                state(1) <= '0';
-                TxD_data <= data_from_mmu_i(7 downto 0);
-                TxD_start <= '1';
+            if (TxD_start = '1') and (TxD_busy = '1') then
+                TxD_start <= '0';
             end if;
         end if;
     end process;

@@ -90,10 +90,10 @@ package INCLUDE is
 	constant CHIP_DISABLE    : STD_LOGIC := '0';
 	constant REG_RD_ENABLE   : STD_LOGIC := '1';
 	constant REG_RD_DISABLE  : STD_LOGIC := '0';
-	constant INST_VALID      : STD_LOGIC_vector(0 downto 0) := b"1";
-	constant INST_INVALID    : STD_LOGIC_vector(0 downto 0) := b"0";
-	constant TRUE			 : STD_LOGIC_vector(0 downto 0) := b"1";
-	constant FALSE		     : STD_LOGIC_vector(0 downto 0) := b"0";
+	constant INST_VALID      : STD_LOGIC := '1';
+	constant INST_INVALID    : STD_LOGIC := '0';
+	constant TRAP_TRUE	     : STD_LOGIC := '1';
+	constant TRAP_FALSE	     : STD_LOGIC := '0';
 	constant REG_WT_ENABLE   : STD_LOGIC := '1';
 	constant REG_WT_DISABLE  : STD_LOGIC := '0';
 	constant IS_LOAD_STORE	 : STD_LOGIC := '1';
