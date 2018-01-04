@@ -37,7 +37,6 @@ use WORK.INCLUDE.ALL;
 entity MIPS_CPU is
     Port ( clk :            in STD_LOGIC;                                   -- Clock
            --rst : in STD_LOGIC;
-           clk_uart : in STD_LOGIC;
            touch_btn :      in STD_LOGIC_VECTOR(5 downto 0);
 --           inst_i :         in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       -- input instruction from ROM
 --           rom_en_o :       out STD_LOGIC;                                  -- output enable to ROM
@@ -69,6 +68,7 @@ component clk_wiz_0
     Port (
         clk_in1: in STD_LOGIC;
         clk_out1: out STD_LOGIC;
+        clk_out2: out STD_LOGIC;
         reset : in STD_LOGIC;
         locked : out STD_LOGIC);
 end component;
@@ -518,7 +518,6 @@ end component;
 component SERIAL_CONTROLL IS
     Port (
         clk : in STD_LOGIC;
-        clk_uart : in STD_LOGIC;
         rst : in STD_LOGIC;
         ce_i : in STD_LOGIC;
         we_i : in STD_LOGIC;
@@ -800,6 +799,7 @@ signal osegh : STD_LOGIC_VECTOR(7 downto 0);
 signal input_rst : STD_LOGIC;
 
 signal clk_out : STD_LOGIC := '0';
+signal clk_out2 : STD_LOGIC := '0';
 
 signal clk_array : STD_LOGIC_VECTOR(3 downto 0) := b"0000";
 
@@ -810,6 +810,7 @@ begin
 
     CLOCK : clk_wiz_0 port map (
         clk_in1 => clk,
+        clk_out2 => clk_out2,
         reset => touch_btn(5),
         locked => rst_from_clk,
         clk_out1 => clk_out);
@@ -821,7 +822,8 @@ begin
 --    end process;
 --    clk_out <= clk_array(1);
  
-    input_rst <= not rst_from_clk;
+    input_rst <= touch_btn(5);
+--    input_rst <= touch_btn(5);
 
     PC_0 : PC port map(
         rst => input_rst, clk => clk_out, pause_i => pause, 
@@ -1077,7 +1079,7 @@ begin
 
     MEM_CONTROLL_0 : MEM_CONTROLL port map (
         rst => input_rst,
-        clk => clk_out,
+        clk => clk_out2,
         inst_ce_i => inst_en_from_pc,
         inst_addr_i => pc_from_pc,
         mem_ce_i => en_from_mem,
@@ -1175,7 +1177,6 @@ begin
         
     SERIAL_CONTROLL_0 : SERIAL_CONTROLL port map (
         clk => clk_out,
-        clk_uart => clk_uart,
         rst => input_rst,
         ce_i => ce_to_serial,
         we_i => we_to_serial,
@@ -1217,7 +1218,8 @@ begin
     leds(7 downto 0) <= TxD_data;
     leds(15) <= ce_to_serial;
     leds(14) <= we_to_serial;
-    leds(31) <= TxD_start;
+    leds(31) <= inst_pause_from_mem_controll;
+    leds(30) <= mem_pause_from_mem_controll;
     
 --    number(7 downto 0) <= num_to_leds(7 downto 0);
 --    leds(7 downto 0) <= num_to_leds(31 downto 24);

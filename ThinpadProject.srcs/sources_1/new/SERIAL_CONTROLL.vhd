@@ -36,7 +36,6 @@ entity SERIAL_CONTROLL is
 --  Port ( );
     Port(
         clk : in STD_LOGIC;
-        clk_uart : in STD_LOGIC;
         rst : in STD_LOGIC;
         ce_i : in STD_LOGIC;
         we_i : in STD_LOGIC;
@@ -65,16 +64,22 @@ begin
 
     process (clk'event)
     begin
-        if ((ce_i = '1') and (we_i = '1')) then
-            TxD_start <= '1';
-            count <= 1;
-            TxD_data <= b"01000001";
-        else
-            if (TxD_start = '1') then
-                count <= count + 1;
-            end if;
-            if (count > 6) then
-                TxD_start <= '0';
+        if (falling_edge(clk)) then
+            if ((ce_i = '1') and (we_i = '1')) then
+                TxD_start <= '1';
+                count <= 1;
+                TxD_data <= b"01000001";
+            else
+                if (TxD_start = '1') then
+                    count <= count + 1;
+                else
+                    count <= 0;
+                end if;
+                if (count > 3) then
+                    TxD_start <= '0';
+                else
+                    TxD_start <= TxD_start;
+                end if;
             end if;
         end if;
     end process;
@@ -83,13 +88,17 @@ begin
     begin       
         if (RxD_data_ready = '1') then
             data <= RxD_data;
-        end if; 
+        else
+            data <= data;
+        end if;
         if ((ce_i = '1') and (we_i = '0')) then
             if (is_state_i = '1') then
                 data_from_serial_o <= zero_extend(state, DATA_LEN);
             else
                 data_from_serial_o <= zero_extend(data, DATA_LEN);
             end if;
+        else
+            data_from_serial_o <= data_from_serial_o;
         end if;
         ack_o <= '1';
     end process;

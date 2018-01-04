@@ -58,13 +58,13 @@ begin
 
     process (all)
     begin
-        if (clk = '1' or ce_i = CE_DISABLE) then -- half period after rising edge
+        if (ce_i = CE_DISABLE) then -- half period after rising edge
             ram_data <= HIGH_Z;
             ram_ce_n_o <= '1';
             ram_oe_n_o <= '1';
             ram_be_n_o <= b"1111";
             ram_we_n_o <= '1';
-        elsif (clk = '0') then -- execute read/write
+        else
             if (we_i = '1') then
                 ram_addr_o <= zero_extend(addr_i, RAM_ADDR_LEN);
                 ram_data <= data_i;

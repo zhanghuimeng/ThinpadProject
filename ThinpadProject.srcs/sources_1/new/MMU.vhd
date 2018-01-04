@@ -124,6 +124,7 @@ begin
             ram2_sel_o <= b"0000";
 			serial_ce_o <= CE_DISABLE;
 			serial_we_o <= '0';
+			serial_is_state_o <= '0';
 			serial_data_o <= ZERO_DATA;
 			led_data <= ZERO_DATA;
 			num_data <= ZERO_DATA;
@@ -137,6 +138,7 @@ begin
 					ram2_sel_o <= b"0000";
 					serial_ce_o <= CE_DISABLE;
 					serial_we_o <= '0';
+					serial_is_state_o <= '0';
 					serial_data_o <= ZERO_DATA;
 					num_o <= num_o;
                     leds_o <= leds_o;
@@ -161,6 +163,7 @@ begin
 					ram1_sel_o <= b"0000";
 					serial_ce_o <= CE_DISABLE;
 					serial_we_o <= '0';
+					serial_is_state_o <= '0';
 					serial_data_o <= ZERO_DATA;
 					led_data <= led_data;
 					num_o <= num_o;
@@ -191,6 +194,7 @@ begin
 					ram2_sel_o <= b"0000";
 					serial_ce_o <= CE_DISABLE;
 					serial_we_o <= '0';
+					serial_is_state_o <= '0';
 					serial_data_o <= ZERO_DATA;
 					num_o <= num_o;
 					
@@ -216,6 +220,7 @@ begin
 					ram2_sel_o <= b"0000";
 					serial_ce_o <= CE_DISABLE;
 					serial_we_o <= '0';
+					serial_is_state_o <= '0';
 					serial_data_o <= ZERO_DATA;
 					leds_o <= leds_o;
 					

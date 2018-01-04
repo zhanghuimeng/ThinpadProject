@@ -41,61 +41,79 @@ end MIPS_CPU_min_sopc;
 architecture Behavioral of MIPS_CPU_min_sopc is
 
 component MIPS_CPU is
-    Port ( rst :            	in STD_LOGIC;                                   	-- Reset
-           clk :            	in STD_LOGIC;                                   	-- Clock
-           inst_i :         	in STD_LOGIC_VECTOR(INST_LEN-1 downto 0);       	-- input instruction from ROM
-           ram_rd_data_i :		in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- input data read from RAM
-           rom_en_o :       	out STD_LOGIC;                                  	-- output enable to ROM
-           rom_addr_o :     	out STD_LOGIC_VECTOR(INST_LEN-1 downto 0);     		-- output instruction address to ROM
-           ram_en_o :			out STD_LOGIC;										-- output RAM enable to RAM
-           ram_is_read_o :		out STD_LOGIC;										-- output if this instruction is reading to RAM
-           ram_addr_o :			out STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);			-- output data address to RAM
-           ram_data_o :			out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);			-- output data to write to RAM
-           ram_data_sel_o : 	out STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0));		-- output RAM data selection to RAM
+    Port ( clk :            in STD_LOGIC;                                   -- Clock
+           touch_btn : in STD_LOGIC_VECTOR(5 downto 0);
+           
+           ram1_ce_n_o : out STD_LOGIC;
+           ram1_oe_n_o : out STD_LOGIC;
+           ram1_we_n_o : out STD_LOGIC;
+           ram1_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+           ram1_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
+           ram1_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+           
+           ram2_ce_n_o : out STD_LOGIC;
+           ram2_oe_n_o : out STD_LOGIC;
+           ram2_we_n_o : out STD_LOGIC;
+           ram2_be_n_o : out STD_LOGIC_VECTOR(BYTE_IN_DATA - 1 downto 0);
+           ram2_addr_o : out STD_LOGIC_VECTOR(RAM_ADDR_LEN - 1 downto 0);
+           ram2_data   : inout STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
+           
+           rxd : in STD_LOGIC;
+           txd : out STD_LOGIC;
+           
+           leds : out STD_LOGIC_VECTOR(31 downto 0));		-- output RAM data selection to RAM
 end component;
 
-component ROM is
-    Port ( en_i :       in STD_LOGIC;                                   -- input rom enable from PC
-           addr_i :     in STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);  -- input instruction address from PC
-           inst_o :     out STD_LOGIC_VECTOR(INST_LEN-1 downto 0));     -- output instruction to IF/ID
+component sram_controller is
+    Port (
+        sram_addr_in : in STD_LOGIC_VECTOR(19 downto 0);
+        oe_n : in STD_LOGIC;
+        ce_n : in STD_LOGIC;
+        we_n: in STD_LOGIC;
+        sram_data_inout : inout STD_LOGIC_VECTOR(31 downto 0));
 end component;
 
-component RAM is
-    Port ( clk :                in STD_LOGIC;                                       -- Clock
-           en_i :               in STD_LOGIC;                                       -- input enable from MEM
-           is_read_i :          in STD_LOGIC;                                       -- input if this instruction is reading from MEM
-           addr_i :             in STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);           -- input data address from MEM
-           data_i :             in STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);           -- input data to write from MEM
-           data_sel_i :         in STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0);       -- input RAM data selection from MEM
-           data_o :             out STD_LOGIC_VECTOR(DATA_LEN-1 downto 0));			-- ouput data read to MEM
-end component;
+signal ce_to_ram1 : STD_LOGIC;
+signal oe_to_ram1 : STD_LOGIC;
+signal we_to_ram1 : STD_LOGIC;
+signal addr_to_ram1 : STD_LOGIC_VECTOR(19 downto 0);
+signal data_ram1 : STD_LOGIC_VECTOR(31 downto 0);
 
-signal rom_en_from_cpu:             STD_LOGIC;
-signal inst_to_cpu:                 STD_LOGIC_VECTOR(INST_LEN-1 downto 0);
-signal rom_addr_from_cpu:           STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-signal ram_rd_data_to_cpu:          STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
-signal ram_en_from_cpu:             STD_LOGIC;
-signal ram_is_read_from_cpu:        STD_LOGIC;
-signal ram_addr_from_cpu:           STD_LOGIC_VECTOR(ADDR_LEN-1 downto 0);
-signal ram_data_from_cpu:           STD_LOGIC_VECTOR(DATA_LEN-1 downto 0);
-signal ram_data_sel_from_cpu:       STD_LOGIC_VECTOR(BYTE_IN_DATA-1 downto 0);
+signal ce_to_ram2 : STD_LOGIC;
+signal oe_to_ram2 : STD_LOGIC;
+signal we_to_ram2 : STD_LOGIC;
+signal addr_to_ram2 : STD_LOGIC_VECTOR(19 downto 0);
+signal data_ram2 : STD_LOGIC_VECTOR(31 downto 0);
 
 begin
 
     MIPS_CPU0: MIPS_CPU port map(
-        rst => rst, clk => clk,
-        inst_i => inst_to_cpu, 
-        ram_rd_data_i => ram_rd_data_to_cpu, 
-        rom_en_o => rom_en_from_cpu, rom_addr_o => rom_addr_from_cpu, 
-        ram_en_o => ram_en_from_cpu, ram_is_read_o => ram_is_read_from_cpu, 
-        ram_addr_o => ram_addr_from_cpu, ram_data_o => ram_data_from_cpu, ram_data_sel_o => ram_data_sel_from_cpu);
+        clk => clk,
+        ram1_ce_n_o => ce_to_ram1,
+        ram1_oe_n_o => oe_to_ram1,
+        ram1_we_n_o => we_to_ram1,
+        ram1_addr_o => addr_to_ram1,
+        ram1_data => data_ram1,
+        ram2_ce_n_o => ce_to_ram2,
+        ram2_oe_n_o => oe_to_ram2,
+        ram2_we_n_o => we_to_ram2,
+        ram2_addr_o => addr_to_ram2,
+        ram2_data => data_ram2,
+        rxd => '1',
+        touch_btn => b"000000");
     
-    ROM_0: ROM port map(
-        en_i => rom_en_from_cpu, addr_i => rom_addr_from_cpu,
-        inst_o => inst_to_cpu);
+    RAM1: sram_controller port map(
+        sram_addr_in => addr_to_ram1,
+        oe_n => oe_to_ram1,
+        ce_n => ce_to_ram1,
+        we_n => we_to_ram1,
+        sram_data_inout => data_ram1);
 
-    RAM_0: RAM port map(
-        clk => clk, en_i => ram_en_from_cpu, is_read_i => ram_is_read_from_cpu, 
-        addr_i => ram_addr_from_cpu, data_i => ram_data_from_cpu, data_sel_i => ram_data_sel_from_cpu, data_o => ram_rd_data_to_cpu);
+    RAM2: sram_controller port map(
+        sram_addr_in => addr_to_ram2,
+        oe_n => oe_to_ram2,
+        ce_n => ce_to_ram2,
+        we_n => we_to_ram2,
+        sram_data_inout => data_ram2);
     
 end Behavioral;

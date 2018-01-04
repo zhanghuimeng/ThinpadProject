@@ -65,7 +65,7 @@ begin
 
     process (clk'event)
     begin
-        if (clk = '1') then
+        if (falling_edge(clk)) then
 			if (rst = RST_ENABLE) then
 				state <= STATE_IDLE;
 				ce_o <= '0';
@@ -75,50 +75,61 @@ begin
 				data_o <= ZERO_DATA;
 			else 
 				case state is
-					when STATE_INST | STATE_DATA =>
-						if (ack_i = ACK) then
-							state <= STATE_IDLE;
-							ce_o <= '0';
-							we_o <= '0';
-							sel_o <= b"0000";
-							addr_o <= ZERO_DATA;
-						end if;
-					when others => 
-						state <= STATE_IDLE;
-						ce_o <= '0';
-						we_o <= '0';
-						sel_o <= b"0000";
-						addr_o <= ZERO_DATA;
+				    when STATE_INST =>
+				        if (ack_i = ACK) then
+				            state <= STATE_IDLE;
+				            ce_o <= '0';
+				            we_o <= '0';
+				            sel_o <= b"0000";
+				            addr_o <= ZERO_DATA;
+				        else
+				            state <= STATE_INST;
+                            ce_o <= '1';
+                            we_o <= '0';
+                            sel_o <= b"1111";
+                            addr_o <= inst_addr_i;
+				        end if;
+				    when STATE_DATA =>
+				        if (ack_i = ACK) then
+				            state <= STATE_IDLE;
+				            ce_o <= '0';
+				            we_o <= '0';
+				            sel_o <= b"0000";
+				            addr_o <= ZERO_DATA;
+				        else
+				            state <= STATE_DATA;
+                            ce_o <= '1';
+                            we_o <= not mem_is_read_i;
+                            sel_o <= mem_sel_i;
+                            addr_o <= mem_addr_i;
+                            data_o <= mem_data_i;
+				        end if;
+				    when others =>
+				        if (mem_ce_i = '1') then
+				            state <= STATE_DATA;
+				            ce_o <= '1';
+                            we_o <= not mem_is_read_i;
+                            sel_o <= mem_sel_i;
+                            addr_o <= mem_addr_i;
+                            data_o <= mem_data_i;
+				        else
+				            if (inst_ce_i = '1') then
+				                state <= STATE_INST;
+                                ce_o <= '1';
+                                we_o <= '0';
+                                sel_o <= b"1111";
+                                addr_o <= inst_addr_i;
+                            else
+                                state <= STATE_IDLE;
+                                ce_o <= '0';
+                                we_o <= '0';
+                                sel_o <= b"0000";
+                                addr_o <= ZERO_DATA;
+				            end if;
+				        end if;
 				end case;
-			end if;
-        else
-			if (rst = RST_ENABLE) then
-				state <= STATE_IDLE;
-				ce_o <= '0';
-				we_o <= '0';
-				sel_o <= b"0000";
-				addr_o <= ZERO_DATA;
-				data_o <= ZERO_DATA;
-			else 
-				if (state = STATE_IDLE) then
-					if (mem_ce_i = CE_ENABLE) then
-						state <= STATE_DATA;
-						ce_o <= '1';
-						we_o <= not mem_is_read_i;
-						sel_o <= mem_sel_i;
-						addr_o <= mem_addr_i;
-						data_o <= mem_data_i;
-					elsif (inst_ce_i = CE_ENABLE) then
-						state <= STATE_INST;
-						ce_o <= '1';
-						we_o <= '0';
-						sel_o <= b"1111";
-						addr_o <= inst_addr_i;
-						-- data_o <= ZERO_DATA;
-					end if;
-				end if;
-			end if;
-        end if;  
+	       end if;
+        end if;
     end process;
     
     process (all)
