@@ -182,17 +182,17 @@ begin
 						ram_addr_o <= load_store_addr_i;
 						lb_addr: case load_store_addr_i(1 downto 0) is
 							when "00" =>
-								ram_data_sel_o <= "1000";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-BYTE_LEN), REG_DATA_LEN);
-							when "01" =>
-								ram_data_sel_o <= "0100";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(DATA_LEN-BYTE_LEN-1 downto DATA_LEN-2*BYTE_LEN), REG_DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0010";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(2*BYTE_LEN-1 downto BYTE_LEN), REG_DATA_LEN);
-							when "11" =>
 								ram_data_sel_o <= "0001";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(BYTE_LEN-1 downto 0), REG_DATA_LEN);
+								reg_wt_data_o <= sign_extend(ram_rd_data_i(7 downto 0), REG_DATA_LEN);
+							when "01" =>
+								ram_data_sel_o <= "0010";
+								reg_wt_data_o <= sign_extend(ram_rd_data_i(15 downto 8), REG_DATA_LEN);
+							when "10" =>
+								ram_data_sel_o <= "0100";
+								reg_wt_data_o <= sign_extend(ram_rd_data_i(23 downto 16), REG_DATA_LEN);
+							when "11" =>
+								ram_data_sel_o <= "1000";
+								reg_wt_data_o <= sign_extend(ram_rd_data_i(31 downto 24), REG_DATA_LEN);
 						    when others =>
 						        reg_wt_data_o <= REG_ZERO_DATA;   -- 为什么要�?0呢？不知道，随便写的，反正应该错了�??
 						end case lb_addr;
@@ -202,17 +202,17 @@ begin
 						ram_addr_o <= load_store_addr_i;
 						lbu_addr: case load_store_addr_i(1 downto 0) is
 							when "00" =>
-								ram_data_sel_o <= "1000";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-BYTE_LEN), REG_DATA_LEN);
-							when "01" =>
-								ram_data_sel_o <= "0100";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(DATA_LEN-BYTE_LEN-1 downto DATA_LEN-2*BYTE_LEN), REG_DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0010";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(2*BYTE_LEN-1 downto BYTE_LEN), REG_DATA_LEN);
-							when "11" =>
-								ram_data_sel_o <= "0001";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(BYTE_LEN-1 downto 0), REG_DATA_LEN);
+                                                        ram_data_sel_o <= "0001";
+                                                        reg_wt_data_o <= sign_extend(ram_rd_data_i(7 downto 0), REG_DATA_LEN);
+                                                    when "01" =>
+                                                        ram_data_sel_o <= "0010";
+                                                        reg_wt_data_o <= sign_extend(ram_rd_data_i(15 downto 8), REG_DATA_LEN);
+                                                    when "10" =>
+                                                        ram_data_sel_o <= "0100";
+                                                        reg_wt_data_o <= sign_extend(ram_rd_data_i(23 downto 16), REG_DATA_LEN);
+                                                    when "11" =>
+                                                        ram_data_sel_o <= "1000";
+                                                        reg_wt_data_o <= sign_extend(ram_rd_data_i(31 downto 24), REG_DATA_LEN);
 							when others =>
 								reg_wt_data_o <= REG_ZERO_DATA;
 						end case lbu_addr;
@@ -222,11 +222,11 @@ begin
 						ram_addr_o <= load_store_addr_i;
 						lh_addr: case load_store_addr_i(1 downto 0) is
 							when "00" =>
-								ram_data_sel_o <= "1100";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-HALF_LEN), REG_DATA_LEN);
-							when "10" =>
 								ram_data_sel_o <= "0011";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(HALF_LEN-1 downto 0), REG_DATA_LEN);
+								reg_wt_data_o <= sign_extend(ram_rd_data_i(15 downto 0), REG_DATA_LEN);
+							when "10" =>
+								ram_data_sel_o <= "1100";
+								reg_wt_data_o <= sign_extend(ram_rd_data_i(31 downto 16), REG_DATA_LEN);
 							when others =>
 								reg_wt_data_o <= REG_ZERO_DATA;
 						end case lh_addr;
@@ -236,11 +236,11 @@ begin
 						ram_addr_o <= load_store_addr_i;
 						lhu_addr: case load_store_addr_i(1 downto 0) is
 							when "00" =>
-								ram_data_sel_o <= "1100";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-HALF_LEN), REG_DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0011";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(HALF_LEN-1 downto 0), REG_DATA_LEN);
+                                                        ram_data_sel_o <= "0011";
+                                                        reg_wt_data_o <= sign_extend(ram_rd_data_i(15 downto 0), REG_DATA_LEN);
+                                                    when "10" =>
+                                                        ram_data_sel_o <= "1100";
+                                                        reg_wt_data_o <= sign_extend(ram_rd_data_i(31 downto 16), REG_DATA_LEN);
 							when others =>
 								reg_wt_data_o <= REG_ZERO_DATA;
 						end case lhu_addr;
