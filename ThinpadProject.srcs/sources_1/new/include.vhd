@@ -389,7 +389,7 @@ package INCLUDE is
     constant TYPE_NUM : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"100";
     constant TYPE_SERIAL : STD_LOGIC_VECTOR(TYPE_LEN - 1 downto 0) := b"101";
     
-    constant BASE_RAM_ADDR_MIN : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"80000000";
+    constant BASE_RAM_ADDR_MIN : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"80001180";
     constant BASE_RAM_ADDR_MAX : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"803FFFFF";
     constant EXTEND_RAM_ADDR_MIN : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"80400000";
     constant EXTEND_RAM_ADDR_MAX : STD_LOGIC_VECTOR(ADDR_LEN - 1 downto 0) := x"807FFFFF";

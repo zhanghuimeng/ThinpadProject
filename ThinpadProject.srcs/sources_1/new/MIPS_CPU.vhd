@@ -68,7 +68,9 @@ architecture Behavioral of MIPS_CPU is
 component clk_wiz_0
     Port (
         clk_in1: in STD_LOGIC;
-        clk_out1: out STD_LOGIC);
+        clk_out1: out STD_LOGIC;
+        reset : in STD_LOGIC;
+        locked : out STD_LOGIC);
 end component;
 
 component PC
@@ -801,21 +803,25 @@ signal clk_out : STD_LOGIC := '0';
 
 signal clk_array : STD_LOGIC_VECTOR(3 downto 0) := b"0000";
 
+signal rst_from_clk: STD_LOGIC;
+
 begin
 --    clk_out <= touch_btn(4);
 
---    CLOCK : clk_wiz_0 port map (
---        clk_in1 => clk,
---        clk_out1 => clk_out);
-    process (clk'event)
-    begin
-        if (rising_edge(clk)) then
-            clk_array <= clk_array + b"0001";
-        end if;
-    end process;
-    clk_out <= clk_array(3);
+    CLOCK : clk_wiz_0 port map (
+        clk_in1 => clk,
+        reset => touch_btn(5),
+        locked => rst_from_clk,
+        clk_out1 => clk_out);
+--    process (clk'event)
+--    begin
+--        if (rising_edge(clk)) then
+--            clk_array <= clk_array + b"0001";
+--        end if;
+--    end process;
+--    clk_out <= clk_array(1);
  
-    input_rst <= touch_btn(5);
+    input_rst <= not rst_from_clk;
 
     PC_0 : PC port map(
         rst => input_rst, clk => clk_out, pause_i => pause, 
@@ -1188,10 +1194,10 @@ begin
 	
 	SERIAL_RECEIVER : ASYNC_RECEIVER 
 	generic map (
-		ClkFrequency => 11059200,
+		ClkFrequency => 10000000,
 		Baud => 115200)
 	port map (
-        clk => clk_uart,
+        clk => clk_out,
         RxD => rxd,
         RxD_data_ready => RxD_data_ready,
         RxD_data => RxD_data,
@@ -1199,46 +1205,40 @@ begin
     
     SERIAL_TRANSMITTER : ASYNC_TRANSMITTER 
 	generic map (
-		ClkFrequency => 11059200,
+		ClkFrequency => 10000000,
 		Baud => 115200)
 	port map (
-        clk => clk_uart,
+        clk => clk_out,
         TxD => txd,
         TxD_start => TxD_start,
-        TxD_data => TxD_data);
+        TxD_data => TxD_data,
+        TxD_busy => TxD_busy);
 
---     leds(7 downto 0) <= addr_from_mem_controll(7 downto 0);
-   -- leds(15) <= ce_from_mem_controll;
-   --leds(14 downto 11) <= sel_from_mem_controll; 
-    -- leds(10 downto 9) <= state_from_mem_controll; 
---    leds(7 downto 0) <= reg_wt_data_from_ex(7 downto 0);
---    leds(15 downto 8) <= reg_rd_data_1_from_register(7 downto 0);
---    leds(7 downto 4) <= reg_wt_addr_from_ex(3 downto 0);
---    leds(3 downto 0) <= reg_rd_addr_1_to_register(3 downto 0);
---    leds(31) <= branch_from_id;
---    leds(7 downto 0) <= reg_wt_data_to_register(7 downto 0);
---    leds(31) <= en_from_mem;
+    leds(7 downto 0) <= TxD_data;
+    leds(15) <= ce_to_serial;
+    leds(14) <= we_to_serial;
+    leds(31) <= TxD_start;
     
-    number(7 downto 0) <= num_to_leds(7 downto 0);
-    leds(7 downto 0) <= num_to_leds(31 downto 24);
+--    number(7 downto 0) <= num_to_leds(7 downto 0);
+--    leds(7 downto 0) <= num_to_leds(31 downto 24);
         
-    segL : SEG7_LUT port map(
-         oSEG1 => osegl,
-         iDIG => number(3 downto 0));
+--    segL : SEG7_LUT port map(
+--         oSEG1 => osegl,
+--         iDIG => number(3 downto 0));
                 
-    segH : SEG7_LUT port map(
-         oSEG1 => osegh,
-         iDIG => number(7 downto 4));
+--    segH : SEG7_LUT port map(
+--         oSEG1 => osegh,
+--         iDIG => number(7 downto 4));
                 
-    leds(23 downto 22) <= osegl(7 downto 6);
-    leds(19 downto 17) <= osegl(5 downto 3);
-    leds(20) <= osegl(2);
-    leds(21) <= osegl(1);
-    leds(16) <= osegl(0);
-    leds(31 downto 30) <= osegh(7 downto 6);
-    leds(27 downto 25) <= osegh(5 downto 3);
-    leds(28) <= osegh(2);
-    leds(29) <= osegh(1);
-    leds(24) <= osegh(0);   
+--    leds(23 downto 22) <= osegl(7 downto 6);
+--    leds(19 downto 17) <= osegl(5 downto 3);
+--    leds(20) <= osegl(2);
+--    leds(21) <= osegl(1);
+--    leds(16) <= osegl(0);
+--    leds(31 downto 30) <= osegh(7 downto 6);
+--    leds(27 downto 25) <= osegh(5 downto 3);
+--    leds(28) <= osegh(2);
+--    leds(29) <= osegh(1);
+--    leds(24) <= osegh(0);   
     
 end Behavioral;

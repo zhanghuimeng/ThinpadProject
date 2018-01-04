@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-| Date         : Thu Jan  4 09:27:01 2018
+| Date         : Thu Jan  4 17:25:48 2018
 | Host         : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
 | Command      : report_drc -file MIPS_CPU_drc_opted.rpt
 | Design       : MIPS_CPU
@@ -24,18 +24,23 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
              Max violations: <unlimited>
-             Violations found: 26
-+---------+----------+------------------------+------------+
-| Rule    | Severity | Description            | Violations |
-+---------+----------+------------------------+------------+
-| DPIP-1  | Warning  | Input pipelining       | 8          |
-| DPOP-1  | Warning  | PREG Output pipelining | 8          |
-| DPOP-2  | Warning  | MREG Output pipelining | 8          |
-| PLCK-12 | Warning  | Clock Placer Checks    | 2          |
-+---------+----------+------------------------+------------+
+             Violations found: 25
++--------+----------+-------------------------------------------------+------------+
+| Rule   | Severity | Description                                     | Violations |
++--------+----------+-------------------------------------------------+------------+
+| CKLD-1 | Warning  | Clock Net has non-BUF driver and too many loads | 1          |
+| DPIP-1 | Warning  | Input pipelining                                | 8          |
+| DPOP-1 | Warning  | PREG Output pipelining                          | 8          |
+| DPOP-2 | Warning  | MREG Output pipelining                          | 8          |
++--------+----------+-------------------------------------------------+------------+
 
 2. REPORT DETAILS
 -----------------
+CKLD-1#1 Warning
+Clock Net has non-BUF driver and too many loads  
+Clock net CLOCK/inst/locked is not driven by a Clock Buffer and has more than 512 loads. Driver(s): CLOCK/inst/mmcm_adv_inst/LOCKED
+Related violations: <none>
+
 DPIP-1#1 Warning
 Input pipelining  
 DSP EX_0/L0 input EX_0/L0/A[29:0] is not pipelined. Pipelining DSP48 input will improve performance.
@@ -154,28 +159,6 @@ Related violations: <none>
 DPOP-2#8 Warning
 MREG Output pipelining  
 DSP EX_0/hi0__2 multiplier stage EX_0/hi0__2/P[47:0] is not pipelined (MREG=0). Pipelining the multiplier function will improve performance and will save significant power so it is suggested whenever possible to fully pipeline this function.  If this multiplier was inferred, it is suggested to describe an additional register stage after this function.  If there is no registered adder/accumulator following the multiply function, two pipeline stages are suggested to allow both the MREG and PREG registers to be used.  If the DSP48 was instantiated in the design, it is suggested to set both the MREG and PREG attributes to 1 when performing multiply functions.
-Related violations: <none>
-
-PLCK-12#1 Warning
-Clock Placer Checks  
-Poor placement for routing between an IO pin and BUFG. 
-Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
- This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
-
-	clk_uart_IBUF_inst (IBUF.O) is locked to C18
-	clk_uart_IBUF_BUFG_inst (BUFG.I) cannot be placed
-
-Related violations: <none>
-
-PLCK-12#2 Warning
-Clock Placer Checks  
-Poor placement for routing between an IO pin and BUFG. 
-Resolution: Poor placement of an IO pin and a BUFG has resulted in the router using a non-dedicated path between the two.  There are several things that could trigger this DRC, each of which can cause unpredictable clock insertion delays that result in poor timing.  This DRC could be caused by any of the following: (a) a clock port was placed on a pin that is not a CCIO-pin (b)the BUFG has not been placed in the same half of the device or SLR as the CCIO-pin (c) a single ended clock has been placed on the N-Side of a differential pair CCIO-pin.
- This is normally an ERROR but the CLOCK_DEDICATED_ROUTE constraint is set to FALSE allowing your design to continue. The use of this override is highly discouraged as it may lead to very poor timing results. It is recommended that this error condition be corrected in the design.
-
-	touch_btn_IBUF[5]_inst (IBUF.O) is locked to F22
-	touch_btn_IBUF_BUFG[5]_inst (BUFG.I) cannot be placed
-
 Related violations: <none>
 
 

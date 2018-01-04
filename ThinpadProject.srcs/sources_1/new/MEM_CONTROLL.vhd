@@ -65,7 +65,7 @@ begin
 
     process (clk'event)
     begin
-        if (clk = '1') then -- rising edge
+        if (clk = '1') then
 			if (rst = RST_ENABLE) then
 				state <= STATE_IDLE;
 				ce_o <= '0';
@@ -82,7 +82,6 @@ begin
 							we_o <= '0';
 							sel_o <= b"0000";
 							addr_o <= ZERO_DATA;
-							-- data_o <= ZERO_DATA;
 						end if;
 					when others => 
 						state <= STATE_IDLE;
@@ -90,7 +89,6 @@ begin
 						we_o <= '0';
 						sel_o <= b"0000";
 						addr_o <= ZERO_DATA;
-						-- data_o <= ZERO_DATA;
 				end case;
 			end if;
         else

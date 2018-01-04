@@ -176,80 +176,80 @@ begin
 				-- ????????????????????em_addr_o????????????????em_addr_o???????????????0??
 				-- ???????????????????????penMIPS???????em_addr_o?????????????????????????
 				load_store_type: case funct_i is
-					
-					when FUNCT_TYPE_LB =>
-						ram_en_o <= CHIP_ENABLE;
-						ram_addr_o <= load_store_addr_i;
-						lb_addr: case load_store_addr_i(1 downto 0) is
-							when "00" =>
-								ram_data_sel_o <= "1000";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-BYTE_LEN), REG_DATA_LEN);
-							when "01" =>
-								ram_data_sel_o <= "0100";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(DATA_LEN-BYTE_LEN-1 downto DATA_LEN-2*BYTE_LEN), REG_DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0010";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(2*BYTE_LEN-1 downto BYTE_LEN), REG_DATA_LEN);
-							when "11" =>
-								ram_data_sel_o <= "0001";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(BYTE_LEN-1 downto 0), REG_DATA_LEN);
-						    when others =>
-						        reg_wt_data_o <= REG_ZERO_DATA;   -- 涓轰粈涔堣缃?0鍛紵涓嶇煡閬擄紝闅忎究鍐欑殑锛屽弽姝ｅ簲璇ラ敊浜嗐??
-						end case lb_addr;
-						
-					when FUNCT_TYPE_LBU =>
-						ram_en_o <= CHIP_ENABLE;
-						ram_addr_o <= load_store_addr_i;
-						lbu_addr: case load_store_addr_i(1 downto 0) is
-							when "00" =>
-								ram_data_sel_o <= "1000";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-BYTE_LEN), REG_DATA_LEN);
-							when "01" =>
-								ram_data_sel_o <= "0100";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(DATA_LEN-BYTE_LEN-1 downto DATA_LEN-2*BYTE_LEN), REG_DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0010";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(2*BYTE_LEN-1 downto BYTE_LEN), REG_DATA_LEN);
-							when "11" =>
-								ram_data_sel_o <= "0001";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(BYTE_LEN-1 downto 0), REG_DATA_LEN);
-							when others =>
-								reg_wt_data_o <= REG_ZERO_DATA;
-						end case lbu_addr;
-					
-					when FUNCT_TYPE_LH =>
-						ram_en_o <= CHIP_ENABLE;
-						ram_addr_o <= load_store_addr_i;
-						lh_addr: case load_store_addr_i(1 downto 0) is
-							when "00" =>
-								ram_data_sel_o <= "1100";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-HALF_LEN), REG_DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0011";
-								reg_wt_data_o <= sign_extend(ram_rd_data_i(HALF_LEN-1 downto 0), REG_DATA_LEN);
-							when others =>
-								reg_wt_data_o <= REG_ZERO_DATA;
-						end case lh_addr;
-					
-					when FUNCT_TYPE_LHU =>
-						ram_en_o <= CHIP_ENABLE;
-						ram_addr_o <= load_store_addr_i;
-						lhu_addr: case load_store_addr_i(1 downto 0) is
-							when "00" =>
-								ram_data_sel_o <= "1100";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(DATA_LEN-1 downto DATA_LEN-HALF_LEN), REG_DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0011";
-								reg_wt_data_o <= zero_extend(ram_rd_data_i(HALF_LEN-1 downto 0), REG_DATA_LEN);
-							when others =>
-								reg_wt_data_o <= REG_ZERO_DATA;
-						end case lhu_addr;
-					
-					when FUNCT_TYPE_LW =>
-						ram_en_o <= CHIP_ENABLE;
-						ram_addr_o <= load_store_addr_i;
-						ram_data_sel_o <= "1111";
-						reg_wt_data_o <= ram_rd_data_i;
+                                    
+                    when FUNCT_TYPE_LB =>
+                        ram_en_o <= CHIP_ENABLE;
+                        ram_addr_o <= load_store_addr_i(31 downto 2) & "00";  -- An aligned address
+                        lb_addr: case load_store_addr_i(1 downto 0) is
+                            when "00" =>
+                                ram_data_sel_o <= "0001";  -- order
+                                reg_wt_data_o <= sign_extend(ram_rd_data_i(7 downto 0), REG_DATA_LEN);
+                            when "01" =>
+                                ram_data_sel_o <= "0010"; -- change
+                                reg_wt_data_o <= sign_extend(ram_rd_data_i(15 downto 8), REG_DATA_LEN);
+                            when "10" =>
+                                ram_data_sel_o <= "0100"; -- change
+                                reg_wt_data_o <= sign_extend(ram_rd_data_i(23 downto 16), REG_DATA_LEN);
+                            when "11" =>
+                                ram_data_sel_o <= "1000"; -- order
+                                reg_wt_data_o <= sign_extend(ram_rd_data_i(31 downto 24), REG_DATA_LEN);
+                            when others =>
+                                reg_wt_data_o <= REG_ZERO_DATA;   -- 为什么要??0呢？不知道，随便写的，反正应该错了???
+                            end case lb_addr;
+                                        
+                            when FUNCT_TYPE_LBU =>
+                                ram_en_o <= CHIP_ENABLE;
+                                ram_addr_o <= load_store_addr_i(31 downto 2) & "00";  -- An aligned address
+                                lbu_addr: case load_store_addr_i(1 downto 0) is
+                                    when "00" =>
+                                        ram_data_sel_o <= "0001"; -- order
+                                        reg_wt_data_o <= zero_extend(ram_rd_data_i(7 downto 0), REG_DATA_LEN);
+                                    when "01" =>
+                                        ram_data_sel_o <= "0010";-- order
+                                        reg_wt_data_o <= zero_extend(ram_rd_data_i(15 downto 8), REG_DATA_LEN);
+                                    when "10" =>
+                                        ram_data_sel_o <= "0100";-- order
+                                        reg_wt_data_o <= zero_extend(ram_rd_data_i(23 downto 16), REG_DATA_LEN);
+                                    when "11" =>
+                                        ram_data_sel_o <= "1000";-- order
+                                        reg_wt_data_o <= zero_extend(ram_rd_data_i(31 downto 24), REG_DATA_LEN);
+                                    when others =>
+                                        reg_wt_data_o <= REG_ZERO_DATA;
+                                    end case lbu_addr;
+                                    
+                               when FUNCT_TYPE_LH =>
+                                        ram_en_o <= CHIP_ENABLE;
+                                        ram_addr_o <= load_store_addr_i;
+                                        lh_addr: case load_store_addr_i(1 downto 0) is
+                                            when "00" =>
+                                                ram_data_sel_o <= "0011";-- order
+                                                reg_wt_data_o <= sign_extend(ram_rd_data_i(15 downto 0), REG_DATA_LEN);
+                                            when "10" =>
+                                                ram_data_sel_o <= "1100";-- order
+                                                reg_wt_data_o <= sign_extend(ram_rd_data_i(31 downto 16), REG_DATA_LEN);
+                                            when others =>
+                                                reg_wt_data_o <= REG_ZERO_DATA;
+                                        end case lh_addr;
+                                    
+                                    when FUNCT_TYPE_LHU =>
+                                        ram_en_o <= CHIP_ENABLE;
+                                        ram_addr_o <= load_store_addr_i;
+                                        lhu_addr: case load_store_addr_i(1 downto 0) is
+                                            when "00" =>
+                                                ram_data_sel_o <= "0011";-- order
+                                                reg_wt_data_o <= zero_extend(ram_rd_data_i(15 downto 0), REG_DATA_LEN);
+                                            when "10" =>
+                                                ram_data_sel_o <= "1100";-- order
+                                                reg_wt_data_o <= zero_extend(ram_rd_data_i(31 downto 16), REG_DATA_LEN);
+                                            when others =>
+                                                reg_wt_data_o <= REG_ZERO_DATA;
+                                        end case lhu_addr;
+                                    
+                                    when FUNCT_TYPE_LW =>
+                                        ram_en_o <= CHIP_ENABLE;
+                                        ram_addr_o <= load_store_addr_i;
+                                        ram_data_sel_o <= "1111";
+                                        reg_wt_data_o <= ram_rd_data_i;
 					
 					when FUNCT_TYPE_LWL =>
 						-- store_data_i is rt
@@ -327,51 +327,6 @@ begin
 						ram_addr_o <= load_store_addr_i;
 						ram_data_o <= store_data_i;
 					
-					when FUNCT_TYPE_SWL =>
-						ram_en_o <= CHIP_ENABLE;
-						ram_is_read_o <= IS_WRITE;
-						ram_addr_o <= load_store_addr_i(ADDR_LEN-1 downto 2) & "00";
-						
-						-- ram_data_o <= store_data_i(2*BYTE_LEN-1 downto 0) & store_data_i(2*BYTE_LEN-1 downto 0);
-						swl_addr: case load_store_addr_i(1 downto 0) is
-							when "00" =>
-								ram_data_sel_o <= "1111";
-								ram_data_o <= store_data_i;
-							when "01" =>
-								ram_data_sel_o <= "0111";
-								ram_data_o <= zero_extend(store_data_i(DATA_LEN-1 downto BYTE_LEN), DATA_LEN);
-							when "10" =>
-								ram_data_sel_o <= "0011";
-								ram_data_o <= zero_extend(store_data_i(DATA_LEN-1 downto 2*BYTE_LEN), DATA_LEN);
-							when "11" =>
-								ram_data_sel_o <= "0001";
-								ram_data_o <= zero_extend(store_data_i(DATA_LEN-1 downto 3*BYTE_LEN), DATA_LEN);
-							when others =>
-								ram_data_sel_o <= "0000";
-						end case swl_addr;
-					
-					when FUNCT_TYPE_SWR =>
-						ram_en_o <= CHIP_ENABLE;
-						ram_is_read_o <= IS_WRITE;
-						ram_addr_o <= load_store_addr_i(ADDR_LEN-1 downto 2) & "00";
-						
-						-- ram_data_o <= store_data_i(2*BYTE_LEN-1 downto 0) & store_data_i(2*BYTE_LEN-1 downto 0);
-						swr_addr: case load_store_addr_i(1 downto 0) is
-							when "00" =>
-								ram_data_sel_o <= "1000";
-								ram_data_o <= store_data_i(BYTE_LEN-1 downto 0) & x"000000";
-							when "01" =>
-								ram_data_sel_o <= "1100";
-								ram_data_o <= store_data_i(2*BYTE_LEN-1 downto 0) & x"0000";
-							when "10" =>
-								ram_data_sel_o <= "1110";
-								ram_data_o <= store_data_i(3*BYTE_LEN-1 downto 0) & x"00";
-							when "11" =>
-								ram_data_sel_o <= "1111";
-								ram_data_o <= store_data_i;
-							when others =>
-								ram_data_sel_o <= "0000";
-						end case swr_addr;
 					
 					when others =>
 					

@@ -51,7 +51,7 @@ begin
 		TxD_shift <= (TxD_shift >> 1);
 
 	case(TxD_state)
-		4'b0000: if(TxD_start) TxD_state <= 4'b1000;
+		4'b0000: if(TxD_start) TxD_state <= 4'b0100;
 		4'b0100: if(BitTick) TxD_state <= 4'b1000;  // start bit
 		4'b1000: if(BitTick) TxD_state <= 4'b1001;  // bit 0
 		4'b1001: if(BitTick) TxD_state <= 4'b1010;  // bit 1
@@ -61,7 +61,8 @@ begin
 		4'b1101: if(BitTick) TxD_state <= 4'b1110;  // bit 5
 		4'b1110: if(BitTick) TxD_state <= 4'b1111;  // bit 6
 		4'b1111: if(BitTick) TxD_state <= 4'b0010;  // bit 7
-		4'b0010: if(BitTick) TxD_state <= 4'b0000;  // stop1
+		4'b0010: if(BitTick) TxD_state <= 4'b0011;  // stop1
+		4'b0011: if(BitTick) TxD_state <= 4'b0000;  // stop2
 		default: if(BitTick) TxD_state <= 4'b0000;
 	endcase
 end
@@ -74,7 +75,6 @@ endmodule
 module async_receiver(
 	input clk,
 	input RxD,
-	input rd_uart,
 	output reg RxD_data_ready = 0,
 	output reg [7:0] RxD_data = 0,  // data received, valid only (for one clock cycle) when RxD_data_ready is asserted
 
@@ -159,10 +159,7 @@ if(sampleNow && RxD_state[3]) RxD_data <= {RxD_bit, RxD_data[7:1]};
 //reg RxD_data_error = 0;
 always @(posedge clk)
 begin
-    if (rd_uart)
-       RxD_data_ready <= 0;
-    else
-	   RxD_data_ready <= RxD_data_ready|(sampleNow && RxD_state==4'b0010 && RxD_bit);  // make sure a stop bit is received
+	RxD_data_ready <= (sampleNow && RxD_state==4'b0010 && RxD_bit);  // make sure a stop bit is received
 	//RxD_data_error <= (sampleNow && RxD_state==4'b0010 && ~RxD_bit);  // error if a stop bit is not received
 end
 
