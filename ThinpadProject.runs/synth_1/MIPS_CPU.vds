@@ -1393,3 +1393,187 @@ Report RTL Partitions:
 | |RTL Partition |Replication |Instances |
 +-+--------------+------------+----------+
 +-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'CLOCK/clk_out1' to pin 'CLOCK/bbstub_clk_out1/O'
+INFO: [Synth 8-5578] Moved timing constraint from pin 'CLOCK/clk_out2' to pin 'CLOCK/bbstub_clk_out2/O'
+WARNING: [Synth 8-565] redefining clock 'clk'
+INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:03 ; elapsed = 00:01:05 . Memory (MB): peak = 1737.605 ; gain = 595.758 ; free physical = 8902 ; free virtual = 27750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:01:08 . Memory (MB): peak = 1775.418 ; gain = 633.570 ; free physical = 8884 ; free virtual = 27731
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8864 ; free virtual = 27711
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:11 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27710
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:11 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27710
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:12 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:12 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+--------------+----------+
+|      |BlackBox name |Instances |
++------+--------------+----------+
+|1     |clk_wiz_0     |         1|
++------+--------------+----------+
+
+Report Cell Usage: 
++------+---------------+------+
+|      |Cell           |Count |
++------+---------------+------+
+|1     |clk_wiz_0_bbox |     1|
+|2     |BUFG           |    12|
+|3     |CARRY4         |   166|
+|4     |DSP48E1        |     4|
+|5     |DSP48E1_1      |     4|
+|6     |LUT1           |   337|
+|7     |LUT2           |   741|
+|8     |LUT3           |   329|
+|9     |LUT4           |   323|
+|10    |LUT5           |   442|
+|11    |LUT6           |  1008|
+|12    |MUXF7          |    13|
+|13    |RAM32M         |    12|
+|14    |FDRE           |  1029|
+|15    |FDSE           |     8|
+|16    |LD             |   399|
+|17    |LDC            |   196|
+|18    |IBUF           |     2|
+|19    |IOBUF          |    64|
+|20    |OBUF           |    67|
+|21    |OBUFT          |    20|
++------+---------------+------+
+
+Report Instance Areas: 
++------+----------------------+----------------------------+------+
+|      |Instance              |Module                      |Cells |
++------+----------------------+----------------------------+------+
+|1     |top                   |                            |  5179|
+|2     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL               |    82|
+|3     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0             |    82|
+|4     |  CP0_REG_0           |CP0_REG                     |   208|
+|5     |  EX_0                |EX                          |   380|
+|6     |  EX_to_MEM_0         |EX_to_MEM                   |   878|
+|7     |  HI_LO_0             |HI_LO                       |    64|
+|8     |  ID_0                |ID                          |   245|
+|9     |  ID_to_EX_0          |ID_to_EX                    |  1436|
+|10    |  IF_to_ID_0          |IF_to_ID                    |   509|
+|11    |  MEM_0               |MEM                         |     1|
+|12    |  MEM_CONTROLL_0      |MEM_CONTROLL                |   384|
+|13    |  MEM_to_WB_0         |MEM_to_WB                   |   242|
+|14    |  MMU_0               |MMU                         |   115|
+|15    |  PAUSE_CTRL_0        |PAUSE_CTRL                  |    32|
+|16    |  PC_0                |PC                          |    77|
+|17    |  REGISTERS_0         |REGISTERS                   |    12|
+|18    |  SERIAL_CONTROLL_0   |SERIAL_CONTROLL             |   131|
+|19    |  SERIAL_RECEIVER     |async_receiver              |    72|
+|20    |    tickgen           |BaudTickGen                 |    48|
+|21    |  SERIAL_TRANSMITTER  |async_transmitter           |    57|
+|22    |    tickgen           |BaudTickGen__parameterized0 |    36|
++------+----------------------+----------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 534 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1820.441 ; gain = 339.133 ; free physical = 8921 ; free virtual = 27770
+Synthesis Optimization Complete : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.449 ; gain = 678.594 ; free physical = 8923 ; free virtual = 27772
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 847 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 671 instances were transformed.
+  IOBUF => IOBUF (IBUF, OBUFT): 64 instances
+  LD => LDCE: 399 instances
+  LDC => LDCE: 196 instances
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
+
+261 Infos, 558 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 1820.449 ; gain = 700.184 ; free physical = 9012 ; free virtual = 27859
+INFO: [Common 17-1381] The checkpoint '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1844.453 ; gain = 0.000 ; free physical = 9009 ; free virtual = 27858
+INFO: [Common 17-206] Exiting Vivado at Fri Jan  5 01:32:30 2018...
