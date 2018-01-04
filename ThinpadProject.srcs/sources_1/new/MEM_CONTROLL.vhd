@@ -165,10 +165,6 @@ begin
                         mem_pause_o <= PAUSE;
                     end if;
                 when others => 
-                    inst_data_o <= ZERO_DATA;
-                    mem_data_o <= ZERO_DATA;
-                    inst_pause_o <= PAUSE_NOT;
-                    mem_pause_o <= PAUSE_NOT;
             end case;
         end if;
     end process;

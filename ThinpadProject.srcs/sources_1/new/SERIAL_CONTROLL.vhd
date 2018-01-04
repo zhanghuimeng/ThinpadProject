@@ -45,6 +45,7 @@ entity SERIAL_CONTROLL is
 		RxD_data_ready : in STD_LOGIC;
 		RxD_data : in STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 		RxD_idle : in STD_LOGIC;
+		rd_uart : out STD_LOGIC;
 		TxD_busy : in STD_LOGIC;
 		TxD_start : out STD_LOGIC;
 		TxD_data : out STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
@@ -88,8 +89,6 @@ begin
     begin       
         if (RxD_data_ready = '1') then
             data <= RxD_data;
-        else
-            data <= data;
         end if;
         if ((ce_i = '1') and (we_i = '0')) then
             if (is_state_i = '1') then
@@ -102,5 +101,6 @@ begin
         end if;
         ack_o <= '1';
     end process;
+    rd_uart <= ce_i and (not we_i) and (not is_state_i);
    
 end Behavioral;

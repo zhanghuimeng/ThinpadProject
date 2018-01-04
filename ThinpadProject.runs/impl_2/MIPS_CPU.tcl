@@ -50,15 +50,17 @@ set rc [catch {
   create_project -in_memory -part xc7a100tfgg676-2L
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir E:/THU/merge/ThinpadProject/ThinpadProject.cache/wt [current_project]
-  set_property parent.project_path E:/THU/merge/ThinpadProject/ThinpadProject.xpr [current_project]
-  set_property ip_output_repo E:/THU/merge/ThinpadProject/ThinpadProject.cache/ip [current_project]
+  set_property webtalk.parent_dir /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.cache/wt [current_project]
+  set_property parent.project_path /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.xpr [current_project]
+  set_property ip_output_repo /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES XPM_CDC [current_project]
-  add_files -quiet E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp
-  read_ip -quiet e:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0.xci
-  set_property is_locked true [get_files e:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0.xci]
-  read_xdc E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc
+  add_files -quiet /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp
+  read_ip -quiet /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0.xci
+  set_property is_locked true [get_files /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0.xci]
+  read_ip -quiet /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/ip/vio_0/vio_0.xci
+  set_property is_locked true [get_files /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/ip/vio_0/vio_0.xci]
+  read_xdc /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc
   link_design -top MIPS_CPU -part xc7a100tfgg676-2L
   close_msg_db -file init_design.pb
 } RESULT]

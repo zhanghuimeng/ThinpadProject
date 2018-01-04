@@ -211,12 +211,12 @@ component EX is
     clock_cycle_cnt_o : 		out STD_LOGIC_VECTOR(ACCU_CNT_LEN-1 downto 0);		-- output clock cycle count to EX/MEM
     mul_cur_result_o : 			out STD_LOGIC_VECTOR(DOUBLE_DATA_LEN-1 downto 0);	-- output accumulation result to EX/MEM
     
-    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
+    --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
     mem_cp0_reg_we_i :           in STD_LOGIC;
     mem_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     mem_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
 
-    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
+    --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
     wb_cp0_reg_we_i :           in STD_LOGIC;
     wb_cp0_reg_write_addr_i :   in STD_LOGIC_VECTOR(REG_ADDR_LEN-1 downto 0);
     wb_cp0_reg_data_i :         in STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
@@ -225,7 +225,7 @@ component EX is
     cp0_reg_data_i :            in std_logic_vector(REG_DATA_LEN-1 downto 0);
     cp0_reg_read_addr_o :       out std_logic_vector(REG_ADDR_LEN-1 downto 0);
 
-    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎�?�樺�??
+    --鍚戞祦姘寸嚎涓嬩竴绾т紶閫掞紝鐢ㄤ簬鍐檆p0涓殑鎸囧畾鐨勫瘎�?�樺�??
     cp0_reg_we_o :              out std_logic;
     cp0_reg_write_addr_o :      out std_logic_vector(REG_ADDR_LEN-1 downto 0);
     cp0_reg_data_o :            out std_logic_vector(REG_DATA_LEN-1 downto 0);
@@ -527,6 +527,7 @@ component SERIAL_CONTROLL IS
 		RxD_data_ready : in STD_LOGIC;
 		RxD_data : in STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 		RxD_idle : in STD_LOGIC;
+		rd_uart : out STD_LOGIC;
 		TxD_busy : in STD_LOGIC;
 		TxD_start : out STD_LOGIC;
 		TxD_data : out STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
@@ -542,6 +543,7 @@ component ASYNC_RECEIVER is
     port (
         clk : in STD_LOGIC;
         RxD : in STD_LOGIC;
+        rd_uart: in STD_LOGIC;
         RxD_data_ready : out STD_LOGIC;
         RxD_data : out STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
         RxD_idle : out STD_LOGIC);
@@ -783,6 +785,7 @@ signal data_to_serial : STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 signal RxD_data_ready : STD_LOGIC;
 signal RxD_data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
 signal RxD_idle : STD_LOGIC;
+signal rd_uart : STD_LOGIC;
 signal TxD_busy : STD_LOGIC;
 signal TxD_start : STD_LOGIC;
 signal TxD_data : STD_LOGIC_VECTOR(BYTE_LEN - 1 downto 0);
@@ -822,7 +825,8 @@ begin
 --    end process;
 --    clk_out <= clk_array(1);
  
-    input_rst <= touch_btn(5);
+    --input_rst <= touch_btn(5);
+    input_rst <= not rst_from_clk;
 --    input_rst <= touch_btn(5);
 
     PC_0 : PC port map(
@@ -911,12 +915,12 @@ begin
 
         inst_i => inst_to_ex,
         cp0_reg_data_i => data_from_cp0,
-        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
+        --璁垮瓨闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
         mem_cp0_reg_we_i => cp0_reg_we_from_mem,
         mem_cp0_reg_write_addr_i => cp0_reg_write_addr_from_mem,
         mem_cp0_reg_data_i => cp0_reg_data_from_mem,
 
-        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
+        --鍥炲啓闃舵鎸囦护鏄惁瑕佸啓cp0涓殑�?�勫瓨鍣紝鐢ㄤ簬锟�?????娴嬫暟鎹浉锟�???
         wb_cp0_reg_we_i => wb_cp0_reg_we_from_wb,
         wb_cp0_reg_write_addr_i => wb_cp0_reg_write_addr_from_wb,
         wb_cp0_reg_data_i => wb_cp0_reg_data_from_wb,
@@ -1186,6 +1190,7 @@ begin
         RxD_data_ready => RxD_data_ready,
 		RxD_data => RxD_data,
 		RxD_idle => RxD_idle,
+		rd_uart => rd_uart,
 		TxD_busy => TxD_busy,
 		TxD_start => TxD_start,
 		TxD_data => TxD_data,
@@ -1200,6 +1205,7 @@ begin
 	port map (
         clk => clk_out,
         RxD => rxd,
+        rd_uart => rd_uart,
         RxD_data_ready => RxD_data_ready,
         RxD_data => RxD_data,
         RxD_idle => RxD_idle);

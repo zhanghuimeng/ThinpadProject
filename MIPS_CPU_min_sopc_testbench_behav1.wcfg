@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="MIPS_CPU_min_sopc_testbench_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="MIPS_CPU_min_sopc_testbench" />
+            <top_module name="glbl" />
+            <top_module name="include" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="4947000000fs"></ZoomStartTime>
+      <ZoomEndTime time="5260000001fs"></ZoomEndTime>
+      <Cursor1Time time="5139000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="227"></NameColumnWidth>
+      <ValueColumnWidth column_width="61"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/PC_0/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/rst">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/IF_to_ID_0/pc_i">
+      <obj_property name="ElementShortName">pc_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/IF_to_ID_0/inst_i">
+      <obj_property name="ElementShortName">inst_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/inst_addr_i">
+      <obj_property name="ElementShortName">inst_addr_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_addr_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/inst_data_o">
+      <obj_property name="ElementShortName">inst_data_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">inst_data_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/inst_pause_o">
+      <obj_property name="ElementShortName">inst_pause_o</obj_property>
+      <obj_property name="ObjectShortName">inst_pause_o</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_addr_i">
+      <obj_property name="ElementShortName">mem_addr_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_data_i">
+      <obj_property name="ElementShortName">mem_data_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_data_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_pause_o">
+      <obj_property name="ElementShortName">mem_pause_o</obj_property>
+      <obj_property name="ObjectShortName">mem_pause_o</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/clk">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject type="group" fp_name="group100">
+      <obj_property name="label">MMU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/addr_i">
+         <obj_property name="ElementShortName">addr_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/data_i">
+         <obj_property name="ElementShortName">data_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram1_data_i">
+         <obj_property name="ElementShortName">ram1_data_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ram1_data_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram1_ack_i">
+         <obj_property name="ElementShortName">ram1_ack_i</obj_property>
+         <obj_property name="ObjectShortName">ram1_ack_i</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram1_ce_o">
+         <obj_property name="ElementShortName">ram1_ce_o</obj_property>
+         <obj_property name="ObjectShortName">ram1_ce_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram1_we_o">
+         <obj_property name="ElementShortName">ram1_we_o</obj_property>
+         <obj_property name="ObjectShortName">ram1_we_o</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram1_data_o">
+         <obj_property name="ElementShortName">ram1_data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ram1_data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram1_addr_o">
+         <obj_property name="ElementShortName">ram1_addr_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ram1_addr_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram1_sel_o">
+         <obj_property name="ElementShortName">ram1_sel_o[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ram1_sel_o[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram2_data_i">
+         <obj_property name="ElementShortName">ram2_data_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ram2_data_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram2_ack_i">
+         <obj_property name="ElementShortName">ram2_ack_i</obj_property>
+         <obj_property name="ObjectShortName">ram2_ack_i</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram2_ce_o">
+         <obj_property name="ElementShortName">ram2_ce_o</obj_property>
+         <obj_property name="ObjectShortName">ram2_ce_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram2_we_o">
+         <obj_property name="ElementShortName">ram2_we_o</obj_property>
+         <obj_property name="ObjectShortName">ram2_we_o</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram2_data_o">
+         <obj_property name="ElementShortName">ram2_data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ram2_data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram2_addr_o">
+         <obj_property name="ElementShortName">ram2_addr_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ram2_addr_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/ram2_sel_o">
+         <obj_property name="ElementShortName">ram2_sel_o[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ram2_sel_o[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MMU_0/data_o">
+         <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group191">
+      <obj_property name="label">BASE RAM</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/data_o">
+         <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/ack_o">
+         <obj_property name="ElementShortName">ack_o</obj_property>
+         <obj_property name="ObjectShortName">ack_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/ram_ce_n_o">
+         <obj_property name="ElementShortName">ram_ce_n_o</obj_property>
+         <obj_property name="ObjectShortName">ram_ce_n_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/ram_oe_n_o">
+         <obj_property name="ElementShortName">ram_oe_n_o</obj_property>
+         <obj_property name="ObjectShortName">ram_oe_n_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/ram_we_n_o">
+         <obj_property name="ElementShortName">ram_we_n_o</obj_property>
+         <obj_property name="ObjectShortName">ram_we_n_o</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/ram_be_n_o">
+         <obj_property name="ElementShortName">ram_be_n_o[3:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_be_n_o[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/ram_addr_o">
+         <obj_property name="ElementShortName">ram_addr_o[19:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_addr_o[19:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/BASE_SRAM_CONTROLL/ram_data">
+         <obj_property name="ElementShortName">ram_data[31:0]</obj_property>
+         <obj_property name="ObjectShortName">ram_data[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group478">
+      <obj_property name="label">MEM CONTROL</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/inst_ce_i">
+         <obj_property name="ElementShortName">inst_ce_i</obj_property>
+         <obj_property name="ObjectShortName">inst_ce_i</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/inst_addr_i">
+         <obj_property name="ElementShortName">inst_addr_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">inst_addr_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_ce_i">
+         <obj_property name="ElementShortName">mem_ce_i</obj_property>
+         <obj_property name="ObjectShortName">mem_ce_i</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_is_read_i">
+         <obj_property name="ElementShortName">mem_is_read_i</obj_property>
+         <obj_property name="ObjectShortName">mem_is_read_i</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_sel_i">
+         <obj_property name="ElementShortName">mem_sel_i[3:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_sel_i[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_addr_i">
+         <obj_property name="ElementShortName">mem_addr_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_addr_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_data_i">
+         <obj_property name="ElementShortName">mem_data_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_data_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/inst_data_o">
+         <obj_property name="ElementShortName">inst_data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">inst_data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/inst_pause_o">
+         <obj_property name="ElementShortName">inst_pause_o</obj_property>
+         <obj_property name="ObjectShortName">inst_pause_o</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_data_o">
+         <obj_property name="ElementShortName">mem_data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/mem_pause_o">
+         <obj_property name="ElementShortName">mem_pause_o</obj_property>
+         <obj_property name="ObjectShortName">mem_pause_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/ack_i">
+         <obj_property name="ElementShortName">ack_i</obj_property>
+         <obj_property name="ObjectShortName">ack_i</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/data_i">
+         <obj_property name="ElementShortName">data_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/ce_o">
+         <obj_property name="ElementShortName">ce_o</obj_property>
+         <obj_property name="ObjectShortName">ce_o</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/we_o">
+         <obj_property name="ElementShortName">we_o</obj_property>
+         <obj_property name="ObjectShortName">we_o</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/sel_o">
+         <obj_property name="ElementShortName">sel_o[3:0]</obj_property>
+         <obj_property name="ObjectShortName">sel_o[3:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/addr_o">
+         <obj_property name="ElementShortName">addr_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">addr_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/data_o">
+         <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject type="other" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/MEM_CONTROLL_0/state">
+         <obj_property name="ElementShortName">state</obj_property>
+         <obj_property name="ObjectShortName">state</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group63">
+      <obj_property name="label">PAUSE</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/PAUSE_CTRL_0/id_pause_i">
+         <obj_property name="ElementShortName">id_pause_i</obj_property>
+         <obj_property name="ObjectShortName">id_pause_i</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/PAUSE_CTRL_0/ex_pause_i">
+         <obj_property name="ElementShortName">ex_pause_i</obj_property>
+         <obj_property name="ObjectShortName">ex_pause_i</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/PAUSE_CTRL_0/if_pause_i">
+         <obj_property name="ElementShortName">if_pause_i</obj_property>
+         <obj_property name="ObjectShortName">if_pause_i</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/MIPS_CPU_min_sopc_testbench/MIPS_CPU_min_sopc0/MIPS_CPU0/PAUSE_CTRL_0/mem_pause_i">
+         <obj_property name="ElementShortName">mem_pause_i</obj_property>
+         <obj_property name="ObjectShortName">mem_pause_i</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

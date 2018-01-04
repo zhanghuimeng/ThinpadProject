@@ -4,9 +4,10 @@
 // inputs UB_n and LB_n are not present
 // NOT synthesizable!
 //---------------------------- 
-`timescale 1ns/100ps
+`timescale 1ns / 1ps
 module sram_controller
   #(parameter
+    PATH = "/home/zhanghuimeng/Computer_Architecture/neptunus/monitor/rom1.data",
     SRAM_DATA_WIDTH = 32,
     SRAM_ADDR_WIDTH = 20,
 
@@ -59,6 +60,7 @@ module sram_controller
   
   initial
   begin
+    $readmemh(PATH,mem_array);
     z_state_oe = 1'b1;
 	 z_state_ce = 1'b1; 
 	 z_state_we = 1'b0;

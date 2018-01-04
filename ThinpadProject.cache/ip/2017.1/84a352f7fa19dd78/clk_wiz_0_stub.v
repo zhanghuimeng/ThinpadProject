@@ -1,8 +1,8 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
-// Tool Version: Vivado v.2017.1 (win64) Build 1846317 Fri Apr 14 18:55:03 MDT 2017
-// Date        : Thu Jan  4 18:42:03 2018
-// Host        : LAPTOP-QH5RPP8J running 64-bit major release  (build 9200)
+// Tool Version: Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
+// Date        : Thu Jan  4 22:06:49 2018
+// Host        : zhanghuimeng-ThinkPad-T430 running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -force -mode synth_stub -rename_top decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix -prefix
 //               decalper_eb_ot_sdeen_pot_pi_dehcac_xnilix_ clk_wiz_0_stub.v
 // Design      : clk_wiz_0

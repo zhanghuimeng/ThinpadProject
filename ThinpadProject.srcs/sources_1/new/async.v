@@ -75,6 +75,7 @@ endmodule
 module async_receiver(
 	input clk,
 	input RxD,
+	input rd_uart,
 	output reg RxD_data_ready = 0,
 	output reg [7:0] RxD_data = 0,  // data received, valid only (for one clock cycle) when RxD_data_ready is asserted
 
@@ -159,7 +160,10 @@ if(sampleNow && RxD_state[3]) RxD_data <= {RxD_bit, RxD_data[7:1]};
 //reg RxD_data_error = 0;
 always @(posedge clk)
 begin
-	RxD_data_ready <= (sampleNow && RxD_state==4'b0010 && RxD_bit);  // make sure a stop bit is received
+    if (rd_uart)
+        RxD_data_ready <= 0;
+    else
+	   RxD_data_ready <= RxD_data_ready | (sampleNow && RxD_state==4'b0010 && RxD_bit);  // make sure a stop bit is received
 	//RxD_data_error <= (sampleNow && RxD_state==4'b0010 && ~RxD_bit);  // error if a stop bit is not received
 end
 

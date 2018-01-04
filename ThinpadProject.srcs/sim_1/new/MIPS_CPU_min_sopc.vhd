@@ -73,6 +73,15 @@ component sram_controller is
         sram_data_inout : inout STD_LOGIC_VECTOR(31 downto 0));
 end component;
 
+component sram_controller2 is
+    Port (
+        sram_addr_in : in STD_LOGIC_VECTOR(19 downto 0);
+        oe_n : in STD_LOGIC;
+        ce_n : in STD_LOGIC;
+        we_n: in STD_LOGIC;
+        sram_data_inout : inout STD_LOGIC_VECTOR(31 downto 0));
+end component;
+
 signal ce_to_ram1 : STD_LOGIC;
 signal oe_to_ram1 : STD_LOGIC;
 signal we_to_ram1 : STD_LOGIC;
@@ -102,14 +111,16 @@ begin
         rxd => '1',
         touch_btn => b"000000");
     
-    RAM1: sram_controller port map(
+    RAM1: sram_controller 
+    port map(
         sram_addr_in => addr_to_ram1,
         oe_n => oe_to_ram1,
         ce_n => ce_to_ram1,
         we_n => we_to_ram1,
         sram_data_inout => data_ram1);
 
-    RAM2: sram_controller port map(
+    RAM2: sram_controller2 
+    port map(
         sram_addr_in => addr_to_ram2,
         oe_n => oe_to_ram2,
         ce_n => ce_to_ram2,
