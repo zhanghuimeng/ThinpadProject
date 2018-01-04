@@ -480,6 +480,7 @@ component MMU is
 		
 		serial_ce_o : out STD_LOGIC;
         serial_we_o : out STD_LOGIC;
+        
         serial_data_o : out STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
         serial_data_i : in STD_LOGIC_VECTOR(DATA_LEN - 1 downto 0);
 		serial_ack_i : in STD_LOGIC;
@@ -1210,26 +1211,26 @@ begin
     leds(7 downto 0) <= reg_wt_data_to_register(7 downto 0);
     leds(31) <= en_from_mem;
     
---    number(7 downto 0) <= num_to_leds(7 downto 0);
---    leds(7 downto 0) <= num_to_leds(31 downto 24);
+    number(7 downto 0) <= num_to_leds(7 downto 0);
+    leds(7 downto 0) <= num_to_leds(31 downto 24);
         
---    segL : SEG7_LUT port map(
---         oSEG1 => osegl,
---         iDIG => number(3 downto 0));
+    segL : SEG7_LUT port map(
+         oSEG1 => osegl,
+         iDIG => number(3 downto 0));
                 
---    segH : SEG7_LUT port map(
---         oSEG1 => osegh,
---         iDIG => number(7 downto 4));
+    segH : SEG7_LUT port map(
+         oSEG1 => osegh,
+         iDIG => number(7 downto 4));
                 
---    leds(23 downto 22) <= osegl(7 downto 6);
---    leds(19 downto 17) <= osegl(5 downto 3);
---    leds(20) <= osegl(2);
---    leds(21) <= osegl(1);
---    leds(16) <= osegl(0);
---    leds(31 downto 30) <= osegh(7 downto 6);
---    leds(27 downto 25) <= osegh(5 downto 3);
---    leds(28) <= osegh(2);
---    leds(29) <= osegh(1);
---    leds(24) <= osegh(0);   
+    leds(23 downto 22) <= osegl(7 downto 6);
+    leds(19 downto 17) <= osegl(5 downto 3);
+    leds(20) <= osegl(2);
+    leds(21) <= osegl(1);
+    leds(16) <= osegl(0);
+    leds(31 downto 30) <= osegh(7 downto 6);
+    leds(27 downto 25) <= osegh(5 downto 3);
+    leds(28) <= osegh(2);
+    leds(29) <= osegh(1);
+    leds(24) <= osegh(0);   
     
 end Behavioral;

@@ -2,59 +2,13 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:55:03 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Wed Jan  3 12:38:45 2018
-# Process ID: 19108
-# Current directory: E:/THU/merge/ThinpadProject
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent20044 E:\THU\merge\ThinpadProject\ThinpadProject.xpr
-# Log file: E:/THU/merge/ThinpadProject/vivado.log
-# Journal file: E:/THU/merge/ThinpadProject\vivado.jou
+# Start of session at: Fri Jan  5 06:54:43 2018
+# Process ID: 16124
+# Current directory: E:/THU/renewed/ThinpadProject
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent15612 E:\THU\renewed\ThinpadProject\ThinpadProject.xpr
+# Log file: E:/THU/renewed/ThinpadProject/vivado.log
+# Journal file: E:/THU/renewed/ThinpadProject\vivado.jou
 #-----------------------------------------------------------
 start_gui
-open_project E:/THU/merge/ThinpadProject/ThinpadProject.xpr
-reset_run synth_1
-launch_runs synth_1 -jobs 2
-wait_on_run synth_1
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-add_files -norecurse E:/THU/merge/ThinpadProject/ThinpadProject.srcs/sources_1/new/SEG7_LUT.v
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
-reset_run synth_1
-launch_runs impl_2 -to_step write_bitstream -jobs 2
-wait_on_run impl_2
+open_project E:/THU/renewed/ThinpadProject/ThinpadProject.xpr
+launch_simulation
