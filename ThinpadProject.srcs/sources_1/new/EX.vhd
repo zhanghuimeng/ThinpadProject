@@ -126,8 +126,8 @@ begin
     variable hi: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     variable lo: STD_LOGIC_VECTOR(REG_DATA_LEN-1 downto 0);
     
-    variable trap_assert : STD_LOGIC_VECTOR(0 downto 0);
-    variable over_assert : STD_LOGIC_VECTOR(0 downto 0);
+   variable trap_assert : STD_LOGIC;
+   variable over_assert : STD_LOGIC;
 
     -- TODO Add division support
     -- variable dividend_float: sfixed(REG_DATA_LEN-1 downto 0);
@@ -154,7 +154,7 @@ begin
             current_inst_address_o <= INST_ZERO_ADDR;
             except_type_o <= ZERO_DATA;
             is_in_delayslot_o <= DELAYSLOT_NOT;
-            trap_assert := FALSE;
+            trap_assert := TRAP_FALSE;
         else
             reg_wt_addr_o <= reg_wt_addr_i;
             reg_wt_en_o <= reg_wt_en_i;
@@ -169,8 +169,8 @@ begin
                         cp0_reg_write_addr_o <= REG_ZERO_ADDR;
                         cp0_reg_we_o <= REG_WT_DISABLE;
                         cp0_reg_data_o <= ZERO_DATA;
-            trap_assert := FALSE;
-            over_assert := FALSE;
+             trap_assert := TRAP_FALSE;
+              over_assert := TRAP_FALSE;
             
             -- So that the HILO register can immediately get value?
             hi := hi_i;
@@ -252,7 +252,7 @@ begin
                     	when FUNCT_TYPE_ADD | FUNCT_TYPE_ADDI =>
                             if overflow = '1' then
                                 reg_wt_en_o <= REG_WT_DISABLE;
-                                over_assert := TRUE;
+                                over_assert := TRAP_TRUE;
                             else
                                 reg_wt_data_o <= std_logic_vector(sum_result(REG_DATA_LEN-1 downto 0));
                             end if;
@@ -269,7 +269,7 @@ begin
                         when FUNCT_TYPE_SUB =>
                             if overflow = '1' then
                                 reg_wt_en_o <= REG_WT_DISABLE;
-                                over_assert := TRUE;
+                                over_assert := TRAP_TRUE;
                             else
                                 reg_wt_data_o <= std_logic_vector(sum_result(REG_DATA_LEN-1 downto 0));
                             end if;
@@ -484,22 +484,22 @@ begin
                     trap_func: case( funct_i ) is
                         when FUNCT_TYPE_TEQ | FUNCT_TYPE_TEQI =>
                             if operand_1_i = operand_2_i then
-                                trap_assert := TRUE;
+                                trap_assert := TRAP_TRUE;
                             end if ;
 
                         when FUNCT_TYPE_TGE | FUNCT_TYPE_TGEI | FUNCT_TYPE_TGEU | FUNCT_TYPE_TGEIU =>
                             if compare_result = '0' then
-                                trap_assert := TRUE;
+                                trap_assert := TRAP_TRUE;
                             end if ;
                     
                         when FUNCT_TYPE_TLT | FUNCT_TYPE_TLTI | FUNCT_TYPE_TLTIU | FUNCT_TYPE_TLTU =>
                             if compare_result = '1' then
-                                trap_assert := TRUE;
+                                trap_assert := TRAP_TRUE;
                             end if ;
 
                         when FUNCT_TYPE_TNE | FUNCT_TYPE_TNEI =>
                             if operand_1_i /= operand_2_i then
-                                trap_assert := TRUE;
+                                trap_assert := TRAP_TRUE;
                             end if ;
                         when others =>
                     end case ;

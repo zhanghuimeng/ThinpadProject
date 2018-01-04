@@ -205,9 +205,9 @@ begin
         variable output :       LINE;
         variable next_pc :		STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
         variable branch_addr_offset : STD_LOGIC_VECTOR(INST_ADDR_LEN-1 downto 0);
-        variable except_type_is_syscall: STD_LOGIC_VECTOR(0 downto 0);  -- 异常类型是否为系统调�??
-        variable except_type_is_eret: STD_LOGIC_VECTOR(0 downto 0);  -- 异常类型是否为ERET
-        variable inst_valid :   STD_LOGIC_VECTOR(0 downto 0);  -- 指令是否合法
+        variable except_type_is_syscall: STD_LOGIC;  -- 异常类型是否为系统调�??
+        variable except_type_is_eret: STD_LOGIC;  -- 异常类型是否为ERET
+        variable inst_valid :   STD_LOGIC;  -- 指令是否合法
     begin
         if rst = RST_ENABLE then
             op_o <= OP_TYPE_NOP;
@@ -227,6 +227,7 @@ begin
             next_inst_in_delayslot_o <= DELAYSLOT_NOT;
             link_addr_o <= INST_ZERO_ADDR;
             -- CP0相关
+            inst_o <= ZERO_DATA;
             inst_valid := INST_VALID;
             
         else
@@ -250,9 +251,10 @@ begin
             -- sign extend branch_addr_offset
             branch_addr_offset(INST_ADDR_LEN-1 downto IMM_LEN+2) := (others => branch_addr_offset(IMM_LEN+1));
             -- CP0相关
+            inst_o <= inst_i;
             inst_valid := INST_INVALID;
-            except_type_is_syscall := FALSE;
-            except_type_is_eret := FALSE;
+            except_type_is_syscall := TRAP_FALSE;
+            except_type_is_eret := TRAP_FALSE;
 
             -- Decide OP type
             op_code: case op is
@@ -410,7 +412,7 @@ begin
                             reg_rd_en_2_o <= REG_RD_DISABLE;  -- read rt
                             reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rd
                             inst_valid := INST_VALID;
-                            except_type_is_syscall := TRUE;
+                            except_type_is_syscall := TRAP_TRUE;
                         
                         -- BREAK                    A breakpoint exception occurs
                         when FUNCT_BREAK =>
@@ -864,7 +866,7 @@ begin
                         reg_rd_en_2_o <= REG_RD_DISABLE;  -- do not read rt
                         reg_wt_en_o <= REG_WT_DISABLE;  -- do not write rt
                         inst_valid := INST_VALID;
-                        except_type_is_eret := TRUE;
+                        except_type_is_eret := TRAP_TRUE;
                     end if ;
                 
                 -- COP1 type instructions                                
