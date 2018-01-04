@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Fri Jan  5 01:32:30 2018
+| Date         : Fri Jan  5 04:06:21 2018
 | Host         : zhanghuimeng-ThinkPad-T430 running 64-bit Ubuntu 16.04.3 LTS
 | Command      : report_utilization -file MIPS_CPU_utilization_synth.rpt -pb MIPS_CPU_utilization_synth.pb
 | Design       : MIPS_CPU
@@ -30,14 +30,14 @@ Table of Contents
 +----------------------------+------+-------+-----------+-------+
 |          Site Type         | Used | Fixed | Available | Util% |
 +----------------------------+------+-------+-----------+-------+
-| Slice LUTs*                | 2701 |     0 |     63400 |  4.26 |
-|   LUT as Logic             | 2653 |     0 |     63400 |  4.18 |
+| Slice LUTs*                | 2703 |     0 |     63400 |  4.26 |
+|   LUT as Logic             | 2655 |     0 |     63400 |  4.19 |
 |   LUT as Memory            |   48 |     0 |     19000 |  0.25 |
 |     LUT as Distributed RAM |   48 |     0 |           |       |
 |     LUT as Shift Register  |    0 |     0 |           |       |
-| Slice Registers            | 1632 |     0 |    126800 |  1.29 |
+| Slice Registers            | 1638 |     0 |    126800 |  1.29 |
 |   Register as Flip Flop    | 1037 |     0 |    126800 |  0.82 |
-|   Register as Latch        |  595 |     0 |    126800 |  0.47 |
+|   Register as Latch        |  601 |     0 |    126800 |  0.47 |
 | F7 Muxes                   |   13 |     0 |     31700 |  0.04 |
 | F8 Muxes                   |    0 |     0 |     15850 |  0.00 |
 +----------------------------+------+-------+-----------+-------+
@@ -57,7 +57,7 @@ Table of Contents
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
-| 595   |          Yes |           - |        Reset |
+| 601   |          Yes |           - |        Reset |
 | 8     |          Yes |         Set |            - |
 | 1029  |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
@@ -155,11 +155,11 @@ Table of Contents
 | FDRE     | 1029 |        Flop & Latch |
 | LUT6     | 1008 |                 LUT |
 | LUT2     |  741 |                 LUT |
-| LDCE     |  595 |        Flop & Latch |
+| LDCE     |  601 |        Flop & Latch |
 | LUT5     |  442 |                 LUT |
 | LUT1     |  337 |                 LUT |
-| LUT3     |  329 |                 LUT |
-| LUT4     |  323 |                 LUT |
+| LUT3     |  331 |                 LUT |
+| LUT4     |  325 |                 LUT |
 | CARRY4   |  166 |          CarryLogic |
 | OBUFT    |   84 |                  IO |
 | RAMD32   |   72 |  Distributed Memory |

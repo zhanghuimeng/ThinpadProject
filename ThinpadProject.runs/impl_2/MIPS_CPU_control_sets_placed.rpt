@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-| Date         : Fri Jan  5 01:33:23 2018
+| Date         : Fri Jan  5 04:07:14 2018
 | Host         : zhanghuimeng-ThinkPad-T430 running 64-bit Ubuntu 16.04.3 LTS
 | Command      : report_control_sets -verbose -file MIPS_CPU_control_sets_placed.rpt
 | Design       : MIPS_CPU
@@ -23,7 +23,7 @@ Table of Contents
 |                          Status                          | Count |
 +----------------------------------------------------------+-------+
 | Number of unique control sets                            |    50 |
-| Unused register locations in slices containing registers |   120 |
+| Unused register locations in slices containing registers |   114 |
 +----------------------------------------------------------+-------+
 
 
@@ -33,12 +33,12 @@ Table of Contents
 +--------------+-----------------------+------------------------+-----------------+--------------+
 | Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
 +--------------+-----------------------+------------------------+-----------------+--------------+
-| No           | No                    | No                     |             428 |          150 |
+| No           | No                    | No                     |             434 |          198 |
 | No           | No                    | Yes                    |               0 |            0 |
-| No           | Yes                   | No                     |             317 |          123 |
-| Yes          | No                    | No                     |              17 |            7 |
+| No           | Yes                   | No                     |             317 |          134 |
+| Yes          | No                    | No                     |              17 |            5 |
 | Yes          | No                    | Yes                    |               0 |            0 |
-| Yes          | Yes                   | No                     |             870 |          336 |
+| Yes          | Yes                   | No                     |             870 |          308 |
 +--------------+-----------------------+------------------------+-----------------+--------------+
 
 
@@ -51,53 +51,53 @@ Table of Contents
 |  MEM_CONTROLL_0/inst_pause_o_reg_i_2_n_12 |                                             | MEM_CONTROLL_0/SR[0]                           |                1 |              1 |
 |  MEM_CONTROLL_0/mem_pause_o_reg_i_2_n_12  |                                             | MEM_CONTROLL_0/SR[0]                           |                1 |              1 |
 |  CLOCK/inst/clk_out1                      | SERIAL_RECEIVER/tickgen/OversamplingTick    |                                                |                1 |              1 |
-|  n_2_3314_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |                1 |              1 |
+|  n_2_3318_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |                1 |              1 |
 |  MEM_to_WB_0/we_o_reg_0                   |                                             | MEM_CONTROLL_0/SR[0]                           |                1 |              1 |
 | ~CLOCK/inst/clk_out1                      |                                             |                                                |                1 |              2 |
-|  CLOCK/inst/clk_out1                      | EX_to_MEM_0/cause_o_reg[2][0]               | MEM_CONTROLL_0/SR[0]                           |                1 |              4 |
-|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/cause_o_reg[22][0]              | MEM_CONTROLL_0/SR[0]                           |                3 |              4 |
-|  CLOCK/inst/clk_out1                      | SERIAL_RECEIVER/tickgen/E[0]                |                                                |                2 |              4 |
-|  CLOCK/inst/clk_out1                      | SERIAL_TRANSMITTER//i__n_12                 |                                                |                2 |              4 |
+|  CLOCK/inst/clk_out1                      | EX_to_MEM_0/cause_o_reg[2][0]               | MEM_CONTROLL_0/SR[0]                           |                2 |              4 |
+|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/cause_o_reg[22][0]              | MEM_CONTROLL_0/SR[0]                           |                1 |              4 |
+|  CLOCK/inst/clk_out1                      | SERIAL_RECEIVER/tickgen/E[0]                |                                                |                1 |              4 |
+|  CLOCK/inst/clk_out1                      | SERIAL_TRANSMITTER//i__n_12                 |                                                |                1 |              4 |
 |  ID_to_EX_0/reg_wt_data_o_reg[22][0]      |                                             |                                                |                2 |              5 |
 |  CLOCK/inst/clk_out1                      | SERIAL_TRANSMITTER/tickgen/TxD_shift_reg[1] | SERIAL_TRANSMITTER/TxD_shift[5]_i_1_n_12       |                1 |              5 |
-|  SERIAL_RECEIVER/RxD_data_ready_reg_0[0]  |                                             |                                                |                2 |              8 |
+|  SERIAL_RECEIVER/RxD_data_ready_reg_0[0]  |                                             |                                                |                3 |              8 |
 |  CLOCK/inst/clk_out1                      | SERIAL_RECEIVER/tickgen/RxD_data_reg[0][0]  |                                                |                2 |              8 |
-|  MEM_CONTROLL_0/E[0]                      |                                             |                                                |                2 |              8 |
+|  MEM_CONTROLL_0/E[0]                      |                                             |                                                |                4 |              8 |
 |  CLOCK/inst/clk_out1                      |                                             | SERIAL_TRANSMITTER/Acc_reg[1]                  |                5 |             16 |
-|  n_0_2349_BUFG                            |                                             |                                                |                7 |             18 |
-|  MEM_CONTROLL_0/ram2_addr_o[0][0]         |                                             |                                                |                5 |             18 |
-|  MEM_CONTROLL_0/ram1_addr_o[0][0]         |                                             |                                                |                6 |             18 |
-|  CLOCK/inst/clk_out1                      |                                             |                                                |               10 |             27 |
+|  n_0_2349_BUFG                            |                                             |                                                |                6 |             20 |
+|  MEM_CONTROLL_0/ram2_addr_o[0][0]         |                                             |                                                |                7 |             20 |
+|  MEM_CONTROLL_0/ram1_addr_o[0][0]         |                                             |                                                |               12 |             20 |
+|  CLOCK/inst/clk_out1                      |                                             |                                                |               11 |             27 |
 | ~CLOCK/inst/clk_out1                      |                                             | MEM_CONTROLL_0/count_reg[1][0]                 |                8 |             31 |
-|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/status_o_reg[2]                 | MEM_CONTROLL_0/SR[0]                           |                7 |             31 |
-|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/epc_o_reg[31]_0[0]              | MEM_CONTROLL_0/SR[0]                           |               14 |             32 |
-|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/compare_o_reg[31][0]            | MEM_CONTROLL_0/SR[0]                           |               10 |             32 |
-| ~CLOCK/inst/clk_out2                      | MEM_CONTROLL_0/data_o[31]_i_1_n_12          | MEM_CONTROLL_0/SR[0]                           |                7 |             32 |
-|  ID_to_EX_0/reg_wt_data_o_reg[31]_0[0]    |                                             | MEM_CONTROLL_0/SR[0]                           |               21 |             32 |
+|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/status_o_reg[2]                 | MEM_CONTROLL_0/SR[0]                           |               10 |             31 |
+|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/epc_o_reg[31]_0[0]              | MEM_CONTROLL_0/SR[0]                           |               13 |             32 |
+|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/compare_o_reg[31][0]            | MEM_CONTROLL_0/SR[0]                           |               11 |             32 |
+| ~CLOCK/inst/clk_out2                      | MEM_CONTROLL_0/data_o[31]_i_1_n_12          | MEM_CONTROLL_0/SR[0]                           |                9 |             32 |
+|  ID_to_EX_0/reg_wt_data_o_reg[31]_0[0]    |                                             | MEM_CONTROLL_0/SR[0]                           |               25 |             32 |
 |  CLOCK/inst/clk_out1                      | EX_to_MEM_0/E[0]                            | PC_0/p_0_in                                    |               10 |             32 |
 |  n_9_196_BUFG                             |                                             |                                                |               12 |             32 |
 |  IF_to_ID_0/link_addr_o_reg[0][0]         |                                             | MEM_CONTROLL_0/SR[0]                           |               10 |             32 |
-|  MEM_CONTROLL_0/inst_o_reg[31][0]         |                                             |                                                |               11 |             32 |
-|  MEM_CONTROLL_0/inst_o_reg[31]_0[0]       |                                             |                                                |               11 |             32 |
-|  n_10_3316_BUFG                           |                                             |                                                |                9 |             32 |
-|  n_11_3315_BUFG                           |                                             |                                                |               14 |             32 |
-|  n_1_103_BUFG                             |                                             | MEM_CONTROLL_0/SR[0]                           |               11 |             32 |
-|  n_2_3314_BUFG                            |                                             |                                                |               10 |             32 |
-|  n_5_3339_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |               13 |             32 |
-|  n_6_2070_BUFG                            |                                             |                                                |               11 |             32 |
-|  n_7_2204_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |               11 |             32 |
-|  n_8_2924_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |               12 |             32 |
-|  n_4_3311_BUFG                            |                                             |                                                |               12 |             33 |
-|  n_3_3285_BUFG                            |                                             |                                                |               12 |             33 |
-|  CLOCK/inst/clk_out1                      |                                             | MEM_CONTROLL_0/SR[0]                           |               10 |             34 |
+|  MEM_CONTROLL_0/inst_o_reg[31][0]         |                                             |                                                |               16 |             32 |
+|  MEM_CONTROLL_0/inst_o_reg[31]_0[0]       |                                             |                                                |               13 |             32 |
+|  n_10_3320_BUFG                           |                                             |                                                |               10 |             32 |
+|  n_11_3319_BUFG                           |                                             |                                                |               15 |             32 |
+|  n_1_103_BUFG                             |                                             | MEM_CONTROLL_0/SR[0]                           |               16 |             32 |
+|  n_2_3318_BUFG                            |                                             |                                                |               13 |             32 |
+|  n_5_3343_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |               13 |             32 |
+|  n_6_2070_BUFG                            |                                             |                                                |               13 |             32 |
+|  n_7_2204_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |               14 |             32 |
+|  n_8_2924_BUFG                            |                                             | MEM_CONTROLL_0/SR[0]                           |               13 |             32 |
+|  n_4_3315_BUFG                            |                                             |                                                |               23 |             33 |
+|  n_3_3287_BUFG                            |                                             |                                                |               24 |             33 |
+|  CLOCK/inst/clk_out1                      |                                             | MEM_CONTROLL_0/SR[0]                           |                8 |             34 |
 |  CLOCK/inst/locked                        |                                             |                                                |               13 |             34 |
 | ~CLOCK/inst/clk_out2                      |                                             | MEM_CONTROLL_0/SR[0]                           |               18 |             40 |
-|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/hilo_en_to_hilo                 | MEM_CONTROLL_0/SR[0]                           |               38 |             64 |
-|  CLOCK/inst/clk_out1                      | EX_to_MEM_0/pc_o_reg[31]_4[0]               | EX_to_MEM_0/SR[0]                              |               22 |             64 |
+|  CLOCK/inst/clk_out1                      | MEM_to_WB_0/hilo_en_to_hilo                 | MEM_CONTROLL_0/SR[0]                           |               30 |             64 |
+|  CLOCK/inst/clk_out1                      | EX_to_MEM_0/pc_o_reg[31]_4[0]               | EX_to_MEM_0/SR[0]                              |               19 |             64 |
 |  CLOCK/inst/clk_out1                      | MEM_to_WB_0/p_0_in2_out                     |                                                |               12 |             96 |
-|  CLOCK/inst/clk_out1                      | MEM_CONTROLL_0/wb_cp0_reg_data_o_reg[0][0]  | EX_to_MEM_0/wb_cp0_reg_data_o_reg[0]           |               66 |            141 |
-|  CLOCK/inst/clk_out1                      | EX_to_MEM_0/pc_o_reg[31]_4[0]               | EX_to_MEM_0/current_inst_address_o_reg[0]_0[0] |               66 |            183 |
-|  CLOCK/inst/clk_out1                      | MEM_CONTROLL_0/reg_wt_en_o_reg[0]           | EX_to_MEM_0/reg_wt_en_o_i_1__1_n_12            |               91 |            246 |
+|  CLOCK/inst/clk_out1                      | MEM_CONTROLL_0/wb_cp0_reg_data_o_reg[0][0]  | EX_to_MEM_0/wb_cp0_reg_data_o_reg[0]           |               49 |            141 |
+|  CLOCK/inst/clk_out1                      | EX_to_MEM_0/pc_o_reg[31]_4[0]               | EX_to_MEM_0/current_inst_address_o_reg[0]_0[0] |               71 |            183 |
+|  CLOCK/inst/clk_out1                      | MEM_CONTROLL_0/reg_wt_en_o_reg[0]           | EX_to_MEM_0/reg_wt_en_o_i_1__1_n_12            |               82 |            246 |
 +-------------------------------------------+---------------------------------------------+------------------------------------------------+------------------+----------------+
 
 

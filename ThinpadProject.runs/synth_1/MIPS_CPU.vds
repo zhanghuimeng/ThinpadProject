@@ -2,12 +2,12 @@
 # Vivado v2017.1 (64-bit)
 # SW Build 1846317 on Fri Apr 14 18:54:47 MDT 2017
 # IP Build 1846188 on Fri Apr 14 20:52:08 MDT 2017
-# Start of session at: Fri Jan  5 01:30:57 2018
-# Process ID: 16790
-# Current directory: /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1
+# Start of session at: Fri Jan  5 04:04:53 2018
+# Process ID: 14494
+# Current directory: /home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1
 # Command line: vivado -log MIPS_CPU.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source MIPS_CPU.tcl
-# Log file: /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
-# Journal file: /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/vivado.jou
+# Log file: /home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.vds
+# Journal file: /home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
 source MIPS_CPU.tcl -notrace
 Command: synth_design -top MIPS_CPU -part xc7a100tfgg676-2L
@@ -15,248 +15,248 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t-fgg676'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 16826 
+INFO: Helper process launched with PID 14507 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1209.848 ; gain = 68.000 ; free physical = 9480 ; free virtual = 28265
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 1198.832 ; gain = 68.000 ; free physical = 8933 ; free virtual = 27910
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:65]
-INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-16790-zhanghuimeng-ThinkPad-T430/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'CLOCK' of component 'clk_wiz_0' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:814]
-INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-16790-zhanghuimeng-ThinkPad-T430/realtime/clk_wiz_0_stub.vhdl:16]
-INFO: [Synth 8-3491] module 'PC' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:832]
-INFO: [Synth 8-638] synthesizing module 'PC' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:53]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:55]
-INFO: [Synth 8-256] done synthesizing module 'PC' (1#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:53]
-INFO: [Synth 8-3491] module 'IF_to_ID' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:839]
-INFO: [Synth 8-638] synthesizing module 'IF_to_ID' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:49]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:53]
-INFO: [Synth 8-256] done synthesizing module 'IF_to_ID' (2#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:49]
-INFO: [Synth 8-3491] module 'ID' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:846]
-INFO: [Synth 8-638] synthesizing module 'ID' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:81]
-WARNING: [Synth 8-6014] Unused sequential element operand_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:115]
-WARNING: [Synth 8-6014] Unused sequential element operand_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:116]
-WARNING: [Synth 8-6014] Unused sequential element reg_1_load_relate_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:171]
-WARNING: [Synth 8-6014] Unused sequential element reg_2_load_relate_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:172]
-WARNING: [Synth 8-6014] Unused sequential element pause_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:173]
-WARNING: [Synth 8-6014] Unused sequential element last_inst_is_load_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:178]
-WARNING: [Synth 8-6014] Unused sequential element inst_valid_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:231]
-WARNING: [Synth 8-6014] Unused sequential element next_pc_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:249]
-WARNING: [Synth 8-6014] Unused sequential element except_type_is_syscall_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:256]
-WARNING: [Synth 8-6014] Unused sequential element except_type_is_eret_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:257]
-WARNING: [Synth 8-6014] Unused sequential element next_inst_in_delayslot_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:227]
-INFO: [Synth 8-256] done synthesizing module 'ID' (3#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:81]
-INFO: [Synth 8-3491] module 'ID_to_EX' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:870]
-INFO: [Synth 8-638] synthesizing module 'ID_to_EX' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:73]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:76]
-INFO: [Synth 8-256] done synthesizing module 'ID_to_EX' (4#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:73]
-INFO: [Synth 8-3491] module 'EX' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-INFO: [Synth 8-638] synthesizing module 'EX' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:109]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:262]
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:264]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
-WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+INFO: [Synth 8-638] synthesizing module 'MIPS_CPU' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:65]
+INFO: [Synth 8-3491] module 'clk_wiz_0' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-14494-zhanghuimeng-ThinkPad-T430/realtime/clk_wiz_0_stub.vhdl:5' bound to instance 'CLOCK' of component 'clk_wiz_0' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:814]
+INFO: [Synth 8-638] synthesizing module 'clk_wiz_0' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-14494-zhanghuimeng-ThinkPad-T430/realtime/clk_wiz_0_stub.vhdl:16]
+INFO: [Synth 8-3491] module 'PC' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:39' bound to instance 'PC_0' of component 'PC' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:832]
+INFO: [Synth 8-638] synthesizing module 'PC' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:53]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:55]
+INFO: [Synth 8-256] done synthesizing module 'PC' (1#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PC.vhd:53]
+INFO: [Synth 8-3491] module 'IF_to_ID' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:38' bound to instance 'IF_to_ID_0' of component 'IF_to_ID' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:839]
+INFO: [Synth 8-638] synthesizing module 'IF_to_ID' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:49]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:53]
+INFO: [Synth 8-256] done synthesizing module 'IF_to_ID' (2#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/IF_to_ID.vhd:49]
+INFO: [Synth 8-3491] module 'ID' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:44' bound to instance 'ID_0' of component 'ID' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:846]
+INFO: [Synth 8-638] synthesizing module 'ID' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:81]
+WARNING: [Synth 8-6014] Unused sequential element operand_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:115]
+WARNING: [Synth 8-6014] Unused sequential element operand_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:116]
+WARNING: [Synth 8-6014] Unused sequential element reg_1_load_relate_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:171]
+WARNING: [Synth 8-6014] Unused sequential element reg_2_load_relate_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:172]
+WARNING: [Synth 8-6014] Unused sequential element pause_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:173]
+WARNING: [Synth 8-6014] Unused sequential element last_inst_is_load_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:178]
+WARNING: [Synth 8-6014] Unused sequential element inst_valid_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:231]
+WARNING: [Synth 8-6014] Unused sequential element next_pc_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:249]
+WARNING: [Synth 8-6014] Unused sequential element except_type_is_syscall_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:256]
+WARNING: [Synth 8-6014] Unused sequential element except_type_is_eret_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:257]
+WARNING: [Synth 8-6014] Unused sequential element next_inst_in_delayslot_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:227]
+INFO: [Synth 8-256] done synthesizing module 'ID' (3#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:81]
+INFO: [Synth 8-3491] module 'ID_to_EX' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:38' bound to instance 'ID_to_EX_0' of component 'ID_to_EX' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:870]
+INFO: [Synth 8-638] synthesizing module 'ID_to_EX' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:73]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:76]
+INFO: [Synth 8-256] done synthesizing module 'ID_to_EX' (4#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID_to_EX.vhd:73]
+INFO: [Synth 8-3491] module 'EX' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:44' bound to instance 'EX_0' of component 'EX' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+INFO: [Synth 8-638] synthesizing module 'EX' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:109]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:262]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:264]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:457]
+WARNING: [Synth 8-5639] ignoring null variable initialization [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/include.vhd:458]
 INFO: [Common 17-14] Message 'Synth 8-5639' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:293]
-WARNING: [Synth 8-6014] Unused sequential element trap_assert_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:157]
-WARNING: [Synth 8-6014] Unused sequential element over_assert_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:173]
-WARNING: [Synth 8-6014] Unused sequential element hi_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:176]
-WARNING: [Synth 8-6014] Unused sequential element lo_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:182]
-WARNING: [Synth 8-6014] Unused sequential element operand_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:190]
-WARNING: [Synth 8-6014] Unused sequential element operand_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:195]
-WARNING: [Synth 8-6014] Unused sequential element sum_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:199]
-WARNING: [Synth 8-6014] Unused sequential element overflow_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:200]
-WARNING: [Synth 8-6014] Unused sequential element compare_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:210]
-WARNING: [Synth 8-6014] Unused sequential element mul_sign_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:227]
-WARNING: [Synth 8-6014] Unused sequential element operand_mul_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:229]
-WARNING: [Synth 8-6014] Unused sequential element operand_mul_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:235]
-WARNING: [Synth 8-6014] Unused sequential element mult_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:240]
-WARNING: [Synth 8-6014] Unused sequential element mult_accum_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:323]
-INFO: [Synth 8-256] done synthesizing module 'EX' (5#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:109]
-INFO: [Synth 8-3491] module 'EX_to_MEM' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:941]
-INFO: [Synth 8-638] synthesizing module 'EX_to_MEM' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:88]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:92]
-INFO: [Synth 8-256] done synthesizing module 'EX_to_MEM' (6#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:88]
-INFO: [Synth 8-3491] module 'MEM' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:971]
-INFO: [Synth 8-638] synthesizing module 'MEM' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:91]
-INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:183]
-INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:203]
-INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:297]
-WARNING: [Synth 8-6014] Unused sequential element zero32_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:122]
-WARNING: [Synth 8-6014] Unused sequential element cp0_status_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:123]
-WARNING: [Synth 8-6014] Unused sequential element cp0_epc_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:125]
-WARNING: [Synth 8-6014] Unused sequential element except_type_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:148]
-INFO: [Synth 8-256] done synthesizing module 'MEM' (7#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:91]
-INFO: [Synth 8-3491] module 'MEM_to_WB' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1012]
-INFO: [Synth 8-638] synthesizing module 'MEM_to_WB' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:68]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:72]
-INFO: [Synth 8-256] done synthesizing module 'MEM_to_WB' (8#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:68]
-INFO: [Synth 8-3491] module 'CP0_REG' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:9' bound to instance 'CP0_REG_0' of component 'CP0_REG' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1032]
-INFO: [Synth 8-638] synthesizing module 'CP0_REG' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:37]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:39]
-INFO: [Synth 8-256] done synthesizing module 'CP0_REG' (9#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:37]
-INFO: [Synth 8-3491] module 'REGISTERS' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1057]
-INFO: [Synth 8-638] synthesizing module 'REGISTERS' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
-WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
-INFO: [Synth 8-256] done synthesizing module 'REGISTERS' (10#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
-INFO: [Synth 8-3491] module 'HI_LO' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1065]
-INFO: [Synth 8-638] synthesizing module 'HI_LO' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:52]
-INFO: [Synth 8-256] done synthesizing module 'HI_LO' (11#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
-INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1071]
-INFO: [Synth 8-638] synthesizing module 'PAUSE_CTRL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:54]
-WARNING: [Synth 8-6014] Unused sequential element new_pc_en_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:64]
-INFO: [Synth 8-256] done synthesizing module 'PAUSE_CTRL' (12#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:54]
-INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1084]
-INFO: [Synth 8-638] synthesizing module 'MEM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
-INFO: [Synth 8-256] done synthesizing module 'MEM_CONTROLL' (13#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
-INFO: [Synth 8-3491] module 'MMU' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1109]
-INFO: [Synth 8-638] synthesizing module 'MMU' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:75]
-WARNING: [Synth 8-6014] Unused sequential element led_data_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:129]
-WARNING: [Synth 8-6014] Unused sequential element num_data_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:130]
-INFO: [Synth 8-256] done synthesizing module 'MMU' (14#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:75]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1146]
-INFO: [Synth 8-638] synthesizing module 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
-WARNING: [Synth 8-6014] Unused sequential element ram_oe_n_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:64]
-INFO: [Synth 8-256] done synthesizing module 'SRAM_CONTROLL' (15#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
-INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1164]
-INFO: [Synth 8-3491] module 'SERIAL_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:35' bound to instance 'SERIAL_CONTROLL_0' of component 'SERIAL_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1182]
-INFO: [Synth 8-638] synthesizing module 'SERIAL_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:57]
-WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:66]
-INFO: [Synth 8-256] done synthesizing module 'SERIAL_CONTROLL' (16#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:57]
+WARNING: [Synth 8-312] ignoring unsynthesizable construct: non-synthesizable procedure call [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:293]
+WARNING: [Synth 8-6014] Unused sequential element trap_assert_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:157]
+WARNING: [Synth 8-6014] Unused sequential element over_assert_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:173]
+WARNING: [Synth 8-6014] Unused sequential element hi_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:176]
+WARNING: [Synth 8-6014] Unused sequential element lo_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:182]
+WARNING: [Synth 8-6014] Unused sequential element operand_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:190]
+WARNING: [Synth 8-6014] Unused sequential element operand_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:195]
+WARNING: [Synth 8-6014] Unused sequential element sum_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:199]
+WARNING: [Synth 8-6014] Unused sequential element overflow_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:200]
+WARNING: [Synth 8-6014] Unused sequential element compare_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:210]
+WARNING: [Synth 8-6014] Unused sequential element mul_sign_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:227]
+WARNING: [Synth 8-6014] Unused sequential element operand_mul_1_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:229]
+WARNING: [Synth 8-6014] Unused sequential element operand_mul_2_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:235]
+WARNING: [Synth 8-6014] Unused sequential element mult_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:240]
+WARNING: [Synth 8-6014] Unused sequential element mult_accum_result_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:323]
+INFO: [Synth 8-256] done synthesizing module 'EX' (5#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:109]
+INFO: [Synth 8-3491] module 'EX_to_MEM' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:38' bound to instance 'EX_to_MEM_0' of component 'EX_to_MEM' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:941]
+INFO: [Synth 8-638] synthesizing module 'EX_to_MEM' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:88]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:92]
+INFO: [Synth 8-256] done synthesizing module 'EX_to_MEM' (6#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX_to_MEM.vhd:88]
+INFO: [Synth 8-3491] module 'MEM' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:39' bound to instance 'MEM_0' of component 'MEM' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:971]
+INFO: [Synth 8-638] synthesizing module 'MEM' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:91]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:183]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:203]
+INFO: [Synth 8-226] default block is never used [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:297]
+WARNING: [Synth 8-6014] Unused sequential element zero32_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:122]
+WARNING: [Synth 8-6014] Unused sequential element cp0_status_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:123]
+WARNING: [Synth 8-6014] Unused sequential element cp0_epc_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:125]
+WARNING: [Synth 8-6014] Unused sequential element except_type_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:148]
+INFO: [Synth 8-256] done synthesizing module 'MEM' (7#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:91]
+INFO: [Synth 8-3491] module 'MEM_to_WB' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:38' bound to instance 'MEM_to_WB_0' of component 'MEM_to_WB' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1012]
+INFO: [Synth 8-638] synthesizing module 'MEM_to_WB' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:68]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:72]
+INFO: [Synth 8-256] done synthesizing module 'MEM_to_WB' (8#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_to_WB.vhd:68]
+INFO: [Synth 8-3491] module 'CP0_REG' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:9' bound to instance 'CP0_REG_0' of component 'CP0_REG' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1032]
+INFO: [Synth 8-638] synthesizing module 'CP0_REG' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:37]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:39]
+INFO: [Synth 8-256] done synthesizing module 'CP0_REG' (9#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:37]
+INFO: [Synth 8-3491] module 'REGISTERS' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:42' bound to instance 'REGISTERS_0' of component 'REGISTERS' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1057]
+INFO: [Synth 8-638] synthesizing module 'REGISTERS' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
+WARNING: [Synth 8-614] signal 'rst' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:98]
+INFO: [Synth 8-256] done synthesizing module 'REGISTERS' (10#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/REGISTERS.vhd:57]
+INFO: [Synth 8-3491] module 'HI_LO' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:39' bound to instance 'HI_LO_0' of component 'HI_LO' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1065]
+INFO: [Synth 8-638] synthesizing module 'HI_LO' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:52]
+INFO: [Synth 8-256] done synthesizing module 'HI_LO' (11#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/HI_LO.vhd:49]
+INFO: [Synth 8-3491] module 'PAUSE_CTRL' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:38' bound to instance 'PAUSE_CTRL_0' of component 'PAUSE_CTRL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1071]
+INFO: [Synth 8-638] synthesizing module 'PAUSE_CTRL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:54]
+WARNING: [Synth 8-6014] Unused sequential element new_pc_en_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:64]
+INFO: [Synth 8-256] done synthesizing module 'PAUSE_CTRL' (12#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:54]
+INFO: [Synth 8-3491] module 'MEM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:35' bound to instance 'MEM_CONTROLL_0' of component 'MEM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1084]
+INFO: [Synth 8-638] synthesizing module 'MEM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'MEM_CONTROLL' (13#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:61]
+INFO: [Synth 8-3491] module 'MMU' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:36' bound to instance 'MMU_0' of component 'MMU' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1109]
+INFO: [Synth 8-638] synthesizing module 'MMU' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:75]
+WARNING: [Synth 8-6014] Unused sequential element led_data_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:129]
+WARNING: [Synth 8-6014] Unused sequential element num_data_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:130]
+INFO: [Synth 8-256] done synthesizing module 'MMU' (14#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:75]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'BASE_SRAM_CONTROLL' of component 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1146]
+INFO: [Synth 8-638] synthesizing module 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
+WARNING: [Synth 8-6014] Unused sequential element ram_oe_n_o_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:64]
+INFO: [Synth 8-256] done synthesizing module 'SRAM_CONTROLL' (15#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:56]
+INFO: [Synth 8-3491] module 'SRAM_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:35' bound to instance 'EXTEND_RAM_CONTROLL' of component 'SRAM_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1164]
+INFO: [Synth 8-3491] module 'SERIAL_CONTROLL' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:35' bound to instance 'SERIAL_CONTROLL_0' of component 'SERIAL_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1182]
+INFO: [Synth 8-638] synthesizing module 'SERIAL_CONTROLL' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:57]
+WARNING: [Synth 8-614] signal 'clk' is read in the process but is not in the sensitivity list [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:66]
+INFO: [Synth 8-256] done synthesizing module 'SERIAL_CONTROLL' (16#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:57]
 	Parameter ClkFrequency bound to: 10000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
-INFO: [Synth 8-3491] module 'async_receiver' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75' bound to instance 'SERIAL_RECEIVER' of component 'ASYNC_RECEIVER' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1201]
-INFO: [Synth 8-638] synthesizing module 'async_receiver' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
+INFO: [Synth 8-3491] module 'async_receiver' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75' bound to instance 'SERIAL_RECEIVER' of component 'ASYNC_RECEIVER' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1201]
+INFO: [Synth 8-638] synthesizing module 'async_receiver' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
 	Parameter ClkFrequency bound to: 10000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
 	Parameter Oversampling bound to: 8 - type: integer 
 	Parameter l2o bound to: 4 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'BaudTickGen' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
+INFO: [Synth 8-638] synthesizing module 'BaudTickGen' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
 	Parameter ClkFrequency bound to: 10000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
 	Parameter Oversampling bound to: 8 - type: integer 
 	Parameter AccWidth bound to: 15 - type: integer 
 	Parameter ShiftLimiter bound to: 4 - type: integer 
 	Parameter Inc bound to: 3020 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'BaudTickGen' (17#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
-INFO: [Synth 8-256] done synthesizing module 'async_receiver' (18#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
+INFO: [Synth 8-256] done synthesizing module 'BaudTickGen' (17#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
+INFO: [Synth 8-256] done synthesizing module 'async_receiver' (18#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:75]
 	Parameter ClkFrequency bound to: 10000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
-INFO: [Synth 8-3491] module 'async_transmitter' declared at '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14' bound to instance 'SERIAL_TRANSMITTER' of component 'ASYNC_TRANSMITTER' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1213]
-INFO: [Synth 8-638] synthesizing module 'async_transmitter' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
+INFO: [Synth 8-3491] module 'async_transmitter' declared at '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14' bound to instance 'SERIAL_TRANSMITTER' of component 'ASYNC_TRANSMITTER' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:1213]
+INFO: [Synth 8-638] synthesizing module 'async_transmitter' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
 	Parameter ClkFrequency bound to: 10000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
-INFO: [Synth 8-638] synthesizing module 'BaudTickGen__parameterized0' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
+INFO: [Synth 8-638] synthesizing module 'BaudTickGen__parameterized0' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
 	Parameter ClkFrequency bound to: 10000000 - type: integer 
 	Parameter Baud bound to: 115200 - type: integer 
 	Parameter Oversampling bound to: 1 - type: integer 
 	Parameter AccWidth bound to: 15 - type: integer 
 	Parameter ShiftLimiter bound to: 1 - type: integer 
 	Parameter Inc bound to: 377 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'BaudTickGen__parameterized0' (18#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
-INFO: [Synth 8-256] done synthesizing module 'async_transmitter' (19#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
-WARNING: [Synth 8-3848] Net clock_cycle_cnt_to_ex in module/entity MIPS_CPU does not have driver. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:667]
-WARNING: [Synth 8-3848] Net mul_cur_result_to_ex in module/entity MIPS_CPU does not have driver. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:668]
-INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (20#1) [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:65]
+INFO: [Synth 8-256] done synthesizing module 'BaudTickGen__parameterized0' (18#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:189]
+INFO: [Synth 8-256] done synthesizing module 'async_transmitter' (19#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:14]
+WARNING: [Synth 8-3848] Net clock_cycle_cnt_to_ex in module/entity MIPS_CPU does not have driver. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:667]
+WARNING: [Synth 8-3848] Net mul_cur_result_to_ex in module/entity MIPS_CPU does not have driver. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:668]
+INFO: [Synth 8-256] done synthesizing module 'MIPS_CPU' (20#1) [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:65]
 WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port rst
 WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[31]
 WARNING: [Synth 8-3331] design SERIAL_CONTROLL has unconnected port data_from_mmu_i[30]
@@ -359,7 +359,7 @@ WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[2]
 WARNING: [Synth 8-3331] design EX_to_MEM has unconnected port pause_i[1]
 INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1268.348 ; gain = 126.500 ; free physical = 9468 ; free virtual = 28254
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1257.332 ; gain = 126.500 ; free physical = 8922 ; free virtual = 27899
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -368,216 +368,216 @@ Report Check Netlist:
 +------+------------------+-------+---------+-------+------------------+
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
-WARNING: [Synth 8-3295] tying undriven pin EX_0:clock_cycle_cnt_i[1] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:clock_cycle_cnt_i[0] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[63] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[62] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[61] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[60] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[59] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[58] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[57] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[56] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[55] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[54] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[53] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[52] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[51] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[50] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[49] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[48] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[47] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[46] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[45] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[44] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[43] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[42] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[41] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[40] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[39] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[38] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[37] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[36] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[35] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[34] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[33] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[32] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[31] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[30] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[29] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[28] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[27] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[26] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[25] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[24] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[23] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[22] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[21] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[20] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[19] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[18] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[17] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[16] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[15] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[14] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[13] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[12] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[11] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[10] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[9] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[8] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[7] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[6] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[5] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[4] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[3] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[2] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[1] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
-WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[0] to constant 0 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:clock_cycle_cnt_i[1] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:clock_cycle_cnt_i[0] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[63] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[62] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[61] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[60] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[59] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[58] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[57] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[56] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[55] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[54] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[53] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[52] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[51] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[50] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[49] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[48] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[47] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[46] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[45] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[44] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[43] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[42] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[41] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[40] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[39] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[38] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[37] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[36] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[35] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[34] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[33] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[32] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[31] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[30] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[29] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[28] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[27] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[26] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[25] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[24] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[23] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[22] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[21] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[20] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[19] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[18] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[17] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[16] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[15] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[14] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[13] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[12] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[11] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[10] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[9] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[8] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[7] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[6] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[5] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[4] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[3] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[2] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[1] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
+WARNING: [Synth 8-3295] tying undriven pin EX_0:mul_cur_result_i[0] to constant 0 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MIPS_CPU.vhd:895]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1268.348 ; gain = 126.500 ; free physical = 9473 ; free virtual = 28259
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1257.332 ; gain = 126.500 ; free physical = 8927 ; free virtual = 27904
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a100tfgg676-2L
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-16790-zhanghuimeng-ThinkPad-T430/dcp5/clk_wiz_0_in_context.xdc] for cell 'CLOCK'
-Finished Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-16790-zhanghuimeng-ThinkPad-T430/dcp5/clk_wiz_0_in_context.xdc] for cell 'CLOCK'
-Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
-WARNING: [Vivado 12-584] No ports matched 'clk_uart'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:3]
-WARNING: [Vivado 12-507] No nets matched 'clk_uart_IBUF'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
-WARNING: [Constraints 18-619] A clock with name 'clk' already exists, overwriting the previous clock with the same name. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
-WARNING: [Vivado 12-584] No ports matched 'clk_uart'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:7]
-WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[5]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:18]
-WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[4]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
-WARNING: [Vivado 12-584] No ports matched 'uart_wrn'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
-WARNING: [Vivado 12-584] No ports matched 'uart_rdn'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:25]
-WARNING: [Vivado 12-584] No ports matched 'uart_tbre'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:26]
-WARNING: [Vivado 12-584] No ports matched 'uart_tsre'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:27]
-WARNING: [Vivado 12-584] No ports matched 'uart_dataready'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
-WARNING: [Vivado 12-584] No ports matched 'sl811_a0'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
-WARNING: [Vivado 12-584] No ports matched 'sl811_we_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:36]
-WARNING: [Vivado 12-584] No ports matched 'sl811_rd_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:37]
-WARNING: [Vivado 12-584] No ports matched 'sl811_cs_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:38]
-WARNING: [Vivado 12-584] No ports matched 'sl811_rst_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:39]
-WARNING: [Vivado 12-584] No ports matched 'sl811_drq'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:40]
-WARNING: [Vivado 12-584] No ports matched 'sl811_dack'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:41]
-WARNING: [Vivado 12-584] No ports matched 'sl811_int'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:42]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[0]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:43]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[1]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:44]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[2]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:45]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[3]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:46]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[4]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:47]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[5]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:48]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[6]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:49]
-WARNING: [Vivado 12-584] No ports matched 'sl811_data[7]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:50]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_we_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:53]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_rd_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:54]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_cs_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:55]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_rst_n'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:56]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_int'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:57]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_cmd'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:58]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[0]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:59]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[1]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:60]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[2]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:61]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[3]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:62]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[4]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:63]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[5]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:64]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[6]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:65]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[7]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:66]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[8]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:67]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[9]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:68]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[10]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:69]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[11]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:70]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[12]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:71]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[13]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:72]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[14]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:73]
-WARNING: [Vivado 12-584] No ports matched 'dm9k_data[15]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:74]
-WARNING: [Vivado 12-584] No ports matched 'video_clk'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:77]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[7]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:78]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[6]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:79]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[5]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:80]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[4]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:81]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[3]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:82]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[2]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:83]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[1]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:84]
-WARNING: [Vivado 12-584] No ports matched 'video_pixel[0]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:85]
-WARNING: [Vivado 12-584] No ports matched 'video_hsync'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:86]
-WARNING: [Vivado 12-584] No ports matched 'video_vsync'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:87]
-WARNING: [Vivado 12-584] No ports matched 'video_de'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:88]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[*]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:130]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[0]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:131]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[1]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:132]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[2]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:133]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[3]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:134]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[4]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:135]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[5]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:136]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[6]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:137]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[7]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:138]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[8]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:139]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[9]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:140]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[10]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:141]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[11]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:142]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[12]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:143]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[13]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:144]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[14]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:145]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[15]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:146]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[16]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:147]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[17]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:148]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[18]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:149]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[19]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:150]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[20]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:151]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[21]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:152]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[22]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:153]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[23]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:154]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[24]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:155]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[25]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:156]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[26]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:157]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[27]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:158]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[28]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:159]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[29]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:160]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[30]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:161]
-WARNING: [Vivado 12-584] No ports matched 'dip_sw[31]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:162]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[*]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:164]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[0]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:165]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[1]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:166]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[2]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:167]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[3]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[4]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[5]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[6]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[7]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:172]
-WARNING: [Vivado 12-584] No ports matched 'flash_a[8]'. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:173]
-INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:173]
-Finished Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
-WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/MIPS_CPU_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MIPS_CPU_propImpl.xdc].
+Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-14494-zhanghuimeng-ThinkPad-T430/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLOCK'
+Finished Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-14494-zhanghuimeng-ThinkPad-T430/dcp3/clk_wiz_0_in_context.xdc] for cell 'CLOCK'
+Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clk_uart'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:3]
+WARNING: [Vivado 12-507] No nets matched 'clk_uart_IBUF'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:4]
+WARNING: [Constraints 18-619] A clock with name 'clk' already exists, overwriting the previous clock with the same name. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:6]
+WARNING: [Vivado 12-584] No ports matched 'clk_uart'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:7]
+WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[5]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:18]
+WARNING: [Vivado 12-507] No nets matched 'touch_btn_IBUF[4]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:21]
+WARNING: [Vivado 12-584] No ports matched 'uart_wrn'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:24]
+WARNING: [Vivado 12-584] No ports matched 'uart_rdn'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:25]
+WARNING: [Vivado 12-584] No ports matched 'uart_tbre'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:26]
+WARNING: [Vivado 12-584] No ports matched 'uart_tsre'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:27]
+WARNING: [Vivado 12-584] No ports matched 'uart_dataready'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:28]
+WARNING: [Vivado 12-584] No ports matched 'sl811_a0'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:35]
+WARNING: [Vivado 12-584] No ports matched 'sl811_we_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:36]
+WARNING: [Vivado 12-584] No ports matched 'sl811_rd_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:37]
+WARNING: [Vivado 12-584] No ports matched 'sl811_cs_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:38]
+WARNING: [Vivado 12-584] No ports matched 'sl811_rst_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:39]
+WARNING: [Vivado 12-584] No ports matched 'sl811_drq'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:40]
+WARNING: [Vivado 12-584] No ports matched 'sl811_dack'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:41]
+WARNING: [Vivado 12-584] No ports matched 'sl811_int'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:42]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[0]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:43]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[1]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:44]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[2]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:45]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[3]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:46]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[4]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:47]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[5]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:48]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[6]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:49]
+WARNING: [Vivado 12-584] No ports matched 'sl811_data[7]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:50]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_we_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:53]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_rd_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:54]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_cs_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:55]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_rst_n'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:56]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_int'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:57]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_cmd'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:58]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[0]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:59]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[1]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:60]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[2]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:61]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[3]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:62]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[4]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:63]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[5]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:64]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[6]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:65]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[7]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:66]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[8]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:67]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[9]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:68]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[10]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:69]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[11]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:70]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[12]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:71]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[13]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:72]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[14]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:73]
+WARNING: [Vivado 12-584] No ports matched 'dm9k_data[15]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:74]
+WARNING: [Vivado 12-584] No ports matched 'video_clk'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:77]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[7]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:78]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[6]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:79]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[5]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:80]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[4]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:81]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[3]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:82]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[2]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:83]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[1]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:84]
+WARNING: [Vivado 12-584] No ports matched 'video_pixel[0]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:85]
+WARNING: [Vivado 12-584] No ports matched 'video_hsync'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:86]
+WARNING: [Vivado 12-584] No ports matched 'video_vsync'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:87]
+WARNING: [Vivado 12-584] No ports matched 'video_de'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:88]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[*]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:130]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[0]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:131]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[1]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:132]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[2]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:133]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[3]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:134]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[4]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:135]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[5]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:136]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[6]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:137]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[7]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:138]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[8]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:139]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[9]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:140]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[10]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:141]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[11]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:142]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[12]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:143]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[13]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:144]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[14]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:145]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[15]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:146]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[16]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:147]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[17]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:148]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[18]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:149]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[19]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:150]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[20]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:151]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[21]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:152]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[22]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:153]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[23]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:154]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[24]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:155]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[25]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:156]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[26]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:157]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[27]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:158]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[28]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:159]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[29]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:160]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[30]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:161]
+WARNING: [Vivado 12-584] No ports matched 'dip_sw[31]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:162]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[*]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:164]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[0]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:165]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[1]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:166]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[2]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:167]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[3]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:168]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[4]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:169]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[5]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:170]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[6]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:171]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[7]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:172]
+WARNING: [Vivado 12-584] No ports matched 'flash_a[8]'. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:173]
+INFO: [Common 17-14] Message 'Vivado 12-584' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings. [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc:173]
+Finished Parsing XDC File [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/MIPS_CPU_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/MIPS_CPU_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/MIPS_CPU_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.01 . Memory (MB): peak = 1607.809 ; gain = 0.000 ; free physical = 9119 ; free virtual = 27905
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00 . Memory (MB): peak = 1595.793 ; gain = 0.000 ; free physical = 8586 ; free virtual = 27563
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1607.809 ; gain = 465.961 ; free physical = 9284 ; free virtual = 28071
+Finished Constraint Validation : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1595.793 ; gain = 464.961 ; free physical = 8721 ; free virtual = 27699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a100tfgg676-2L
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1607.809 ; gain = 465.961 ; free physical = 9284 ; free virtual = 28071
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1595.793 ; gain = 464.961 ; free physical = 8721 ; free virtual = 27699
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
-Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-16790-zhanghuimeng-ThinkPad-T430/dcp5/clk_wiz_0_in_context.xdc, line 4).
-Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-16790-zhanghuimeng-ThinkPad-T430/dcp5/clk_wiz_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for clk. (constraint file  /home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-14494-zhanghuimeng-ThinkPad-T430/dcp3/clk_wiz_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for clk. (constraint file  /home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/.Xil/Vivado-14494-zhanghuimeng-ThinkPad-T430/dcp3/clk_wiz_0_in_context.xdc, line 5).
 Applied set_property DONT_TOUCH = true for CLOCK. (constraint file  auto generated constraint, line ).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1607.809 ; gain = 465.961 ; free physical = 9286 ; free virtual = 28073
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 1595.793 ; gain = 464.961 ; free physical = 8722 ; free virtual = 27701
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "op_o" won't be mapped to RAM because it is too sparse
@@ -609,7 +609,7 @@ INFO: [Synth 8-5546] ROM "branch_o" won't be mapped to RAM because it is too spa
 INFO: [Synth 8-5546] ROM "link_addr_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "extended_imm" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "except_type_is_syscall" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:324]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:324]
 INFO: [Synth 8-5546] ROM "is_load_store_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "hilo_en_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5546] ROM "cp0_reg_we_o" won't be mapped to RAM because it is too sparse
@@ -618,8 +618,8 @@ INFO: [Synth 8-5546] ROM "reg_wt_data_o" won't be mapped to RAM because it is to
 INFO: [Synth 8-5546] ROM "reg_wt_data_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5587] ROM size for "reg_wt_data_o" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5546] ROM "reg_wt_data_o" won't be mapped to RAM because it is too sparse
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:309]
-INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:240]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:309]
+INFO: [Synth 8-5845] Not enough pipeline registers after wide multiplier. Recommended levels of pipeline registers is 4 [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:240]
 INFO: [Synth 8-5587] ROM size for "ram_en_o" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "ram_is_read_o" is below threshold of ROM address width. It will be mapped to LUTs
 INFO: [Synth 8-5587] ROM size for "ram_en_o" is below threshold of ROM address width. It will be mapped to LUTs
@@ -636,42 +636,42 @@ INFO: [Synth 8-5546] ROM "epc_o" won't be mapped to RAM because it is too sparse
 INFO: [Synth 8-5545] ROM "new_pc_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "new_pc_o" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-802] inferred FSM for state register 'RxD_state_reg' in module 'async_receiver'
-WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
 INFO: [Synth 8-5544] ROM "RxD_bit" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "RxD_bit" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
 INFO: [Synth 8-5544] ROM "OversamplingCnt0" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
-WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:174]
+WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:174]
 INFO: [Synth 8-802] inferred FSM for state register 'TxD_state_reg' in module 'async_transmitter'
-WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
-WARNING: [Synth 8-327] inferring latch for variable 'extended_imm_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:104]
-WARNING: [Synth 8-327] inferring latch for variable 'branch_target_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:225]
-WARNING: [Synth 8-327] inferring latch for variable 'link_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:228]
-WARNING: [Synth 8-327] inferring latch for variable 'except_type_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:1198]
-WARNING: [Synth 8-327] inferring latch for variable 'current_inst_address_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:1199]
-WARNING: [Synth 8-327] inferring latch for variable 'branch_addr_offset_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:250]
-WARNING: [Synth 8-327] inferring latch for variable 'reg_wt_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:138]
-WARNING: [Synth 8-327] inferring latch for variable 'cp0_reg_read_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:464]
-WARNING: [Synth 8-327] inferring latch for variable 'cp0_cause_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:124]
-WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:165]
-WARNING: [Synth 8-327] inferring latch for variable 'new_pc_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:63]
-WARNING: [Synth 8-327] inferring latch for variable 'inst_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:140]
-WARNING: [Synth 8-327] inferring latch for variable 'inst_pause_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:138]
-WARNING: [Synth 8-327] inferring latch for variable 'mem_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:141]
-WARNING: [Synth 8-327] inferring latch for variable 'mem_pause_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:139]
-WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:90]
-WARNING: [Synth 8-327] inferring latch for variable 'serial_is_state_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:127]
-WARNING: [Synth 8-327] inferring latch for variable 'serial_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:128]
-WARNING: [Synth 8-327] inferring latch for variable 'leds_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:144]
-WARNING: [Synth 8-327] inferring latch for variable 'num_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:143]
-WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:157]
-WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:152]
-WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:81]
-WARNING: [Synth 8-327] inferring latch for variable 'ram_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:69]
-WARNING: [Synth 8-327] inferring latch for variable 'ram_data_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:62]
-WARNING: [Synth 8-327] inferring latch for variable 'data_from_serial_o_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:95]
-WARNING: [Synth 8-327] inferring latch for variable 'data_reg' [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:91]
-WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
-WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+WARNING: [Synth 8-327] inferring latch for variable 'extended_imm_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:104]
+WARNING: [Synth 8-327] inferring latch for variable 'branch_target_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:225]
+WARNING: [Synth 8-327] inferring latch for variable 'link_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:228]
+WARNING: [Synth 8-327] inferring latch for variable 'except_type_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:1198]
+WARNING: [Synth 8-327] inferring latch for variable 'current_inst_address_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:1199]
+WARNING: [Synth 8-327] inferring latch for variable 'branch_addr_offset_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/ID.vhd:250]
+WARNING: [Synth 8-327] inferring latch for variable 'reg_wt_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:138]
+WARNING: [Synth 8-327] inferring latch for variable 'cp0_reg_read_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/EX.vhd:464]
+WARNING: [Synth 8-327] inferring latch for variable 'cp0_cause_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM.vhd:124]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/CP0_REG.vhd:165]
+WARNING: [Synth 8-327] inferring latch for variable 'new_pc_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/PAUSE_CTRL.vhd:63]
+WARNING: [Synth 8-327] inferring latch for variable 'inst_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:140]
+WARNING: [Synth 8-327] inferring latch for variable 'inst_pause_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:138]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:141]
+WARNING: [Synth 8-327] inferring latch for variable 'mem_pause_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MEM_CONTROLL.vhd:139]
+WARNING: [Synth 8-327] inferring latch for variable 'addr_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:90]
+WARNING: [Synth 8-327] inferring latch for variable 'serial_is_state_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:127]
+WARNING: [Synth 8-327] inferring latch for variable 'serial_data_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:128]
+WARNING: [Synth 8-327] inferring latch for variable 'leds_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:144]
+WARNING: [Synth 8-327] inferring latch for variable 'num_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:143]
+WARNING: [Synth 8-327] inferring latch for variable 'ack_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:157]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/MMU.vhd:152]
+WARNING: [Synth 8-327] inferring latch for variable 'data_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:81]
+WARNING: [Synth 8-327] inferring latch for variable 'ram_addr_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:69]
+WARNING: [Synth 8-327] inferring latch for variable 'ram_data_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SRAM_CONTROLL.vhd:62]
+WARNING: [Synth 8-327] inferring latch for variable 'data_from_serial_o_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:95]
+WARNING: [Synth 8-327] inferring latch for variable 'data_reg' [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/SERIAL_CONTROLL.vhd:91]
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -688,9 +688,9 @@ WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/
                  iSTATE9 |                             1010 |                             0010
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'RxD_state_reg' using encoding 'sequential' in module 'async_receiver'
-WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
-WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
-WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+WARNING: [Synth 8-6014] Unused sequential element RxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:142]
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
 ---------------------------------------------------------------------------------------------------
                    State |                     New Encoding |                Previous Encoding 
 ---------------------------------------------------------------------------------------------------
@@ -708,9 +708,9 @@ WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/
                 iSTATE10 |                             1011 |                             0011
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'TxD_state_reg' using encoding 'sequential' in module 'async_transmitter'
-WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
+WARNING: [Synth 8-6014] Unused sequential element TxD_state_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:41]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1607.809 ; gain = 465.961 ; free physical = 9267 ; free virtual = 28054
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 1595.793 ; gain = 464.961 ; free physical = 8730 ; free virtual = 27708
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -763,8 +763,8 @@ Detailed RTL Component Info :
 	  11 Input     32 Bit        Muxes := 1     
 	   8 Input     32 Bit        Muxes := 1     
 	   7 Input     24 Bit        Muxes := 1     
-	   2 Input     18 Bit        Muxes := 2     
-	   7 Input     18 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 2     
+	   7 Input     20 Bit        Muxes := 2     
 	   2 Input     16 Bit        Muxes := 2     
 	   2 Input      8 Bit        Muxes := 1     
 	  15 Input      6 Bit        Muxes := 1     
@@ -1020,8 +1020,8 @@ Detailed RTL Component Info :
 +---Muxes : 
 	   2 Input     32 Bit        Muxes := 6     
 	   7 Input     32 Bit        Muxes := 3     
-	   2 Input     18 Bit        Muxes := 2     
-	   7 Input     18 Bit        Muxes := 2     
+	   2 Input     20 Bit        Muxes := 2     
+	   7 Input     20 Bit        Muxes := 2     
 	   2 Input      4 Bit        Muxes := 2     
 	   7 Input      4 Bit        Muxes := 2     
 	   9 Input      3 Bit        Muxes := 1     
@@ -1122,7 +1122,7 @@ DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: Generating DSP hi0, operation Mode is: (PCIN>>17)+A*B.
 DSP Report: operator hi0 is absorbed into DSP hi0.
 DSP Report: operator hi0 is absorbed into DSP hi0.
-WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:174]
+WARNING: [Synth 8-6014] Unused sequential element GapCnt_reg was removed.  [/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/new/async.v:174]
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (\ID_to_EX_0/is_in_delayslot_o_reg )
 INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[8]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
 INFO: [Synth 8-3886] merging instance 'SERIAL_CONTROLL_0/data_from_serial_o_reg[9]' (LD) to 'SERIAL_CONTROLL_0/data_from_serial_o_reg[31]'
@@ -1330,14 +1330,10 @@ WARNING: [Synth 8-3332] Sequential element (except_type_o_reg[31]) is unused and
 WARNING: [Synth 8-3332] Sequential element (except_type_o_reg[30]) is unused and will be removed from module EX_to_MEM.
 WARNING: [Synth 8-3332] Sequential element (except_type_o_reg[29]) is unused and will be removed from module EX_to_MEM.
 INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
-INFO: [Synth 8-3886] merging instance 'EXTEND_RAM_CONTROLL/ram_addr_o_reg[18]' (LD) to 'EXTEND_RAM_CONTROLL/ram_addr_o_reg[19]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (EXTEND_RAM_CONTROLL/\ram_addr_o_reg[19] )
-INFO: [Synth 8-3886] merging instance 'BASE_SRAM_CONTROLL/ram_addr_o_reg[18]' (LD) to 'BASE_SRAM_CONTROLL/ram_addr_o_reg[19]'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (BASE_SRAM_CONTROLL/\ram_addr_o_reg[19] )
 INFO: [Synth 8-3886] merging instance 'EX_to_MEM_0/funct_o_reg[5]' (FDRE) to 'EX_to_MEM_0/funct_o_reg[4]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (EX_to_MEM_0/\funct_o_reg[4] )
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:55 . Memory (MB): peak = 1648.316 ; gain = 506.469 ; free physical = 9115 ; free virtual = 27902
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:53 ; elapsed = 00:00:54 . Memory (MB): peak = 1638.301 ; gain = 507.469 ; free physical = 8577 ; free virtual = 27548
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP and Shift Register Reporting
@@ -1401,13 +1397,13 @@ INFO: [Synth 8-5578] Moved timing constraint from pin 'CLOCK/clk_out2' to pin 'C
 WARNING: [Synth 8-565] redefining clock 'clk'
 INFO: [Synth 8-5819] Moved 2 constraints on hierarchical pins to their respective driving/loading pins
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:03 ; elapsed = 00:01:05 . Memory (MB): peak = 1737.605 ; gain = 595.758 ; free physical = 8902 ; free virtual = 27750
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:02 ; elapsed = 00:01:03 . Memory (MB): peak = 1727.590 ; gain = 596.758 ; free physical = 8430 ; free virtual = 27401
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:01:07 ; elapsed = 00:01:08 . Memory (MB): peak = 1775.418 ; gain = 633.570 ; free physical = 8884 ; free virtual = 27731
+Finished Timing Optimization : Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1765.402 ; gain = 634.570 ; free physical = 8411 ; free virtual = 27383
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1419,7 +1415,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:01:10 ; elapsed = 00:01:12 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8864 ; free virtual = 27711
+Finished Technology Mapping : Time (s): cpu = 00:01:09 ; elapsed = 00:01:11 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8396 ; free virtual = 27367
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1443,7 +1439,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:01:11 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27710
+Finished IO Insertion : Time (s): cpu = 00:01:10 ; elapsed = 00:01:11 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8395 ; free virtual = 27366
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -1456,7 +1452,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:01:11 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27710
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:10 ; elapsed = 00:01:11 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8395 ; free virtual = 27366
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -1468,25 +1464,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:12 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8394 ; free virtual = 27365
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:01:12 ; elapsed = 00:01:13 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8394 ; free virtual = 27365
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8394 ; free virtual = 27365
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8394 ; free virtual = 27365
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -1510,15 +1506,15 @@ Report Cell Usage:
 |5     |DSP48E1_1      |     4|
 |6     |LUT1           |   337|
 |7     |LUT2           |   741|
-|8     |LUT3           |   329|
-|9     |LUT4           |   323|
+|8     |LUT3           |   331|
+|9     |LUT4           |   325|
 |10    |LUT5           |   442|
 |11    |LUT6           |  1008|
 |12    |MUXF7          |    13|
 |13    |RAM32M         |    12|
 |14    |FDRE           |  1029|
 |15    |FDSE           |     8|
-|16    |LD             |   399|
+|16    |LD             |   405|
 |17    |LDC            |   196|
 |18    |IBUF           |     2|
 |19    |IOBUF          |    64|
@@ -1530,9 +1526,9 @@ Report Instance Areas:
 +------+----------------------+----------------------------+------+
 |      |Instance              |Module                      |Cells |
 +------+----------------------+----------------------------+------+
-|1     |top                   |                            |  5179|
-|2     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL               |    82|
-|3     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0             |    82|
+|1     |top                   |                            |  5189|
+|2     |  BASE_SRAM_CONTROLL  |SRAM_CONTROLL               |    84|
+|3     |  EXTEND_RAM_CONTROLL |SRAM_CONTROLL_0             |    84|
 |4     |  CP0_REG_0           |CP0_REG                     |   208|
 |5     |  EX_0                |EX                          |   380|
 |6     |  EX_to_MEM_0         |EX_to_MEM                   |   878|
@@ -1541,9 +1537,9 @@ Report Instance Areas:
 |9     |  ID_to_EX_0          |ID_to_EX                    |  1436|
 |10    |  IF_to_ID_0          |IF_to_ID                    |   509|
 |11    |  MEM_0               |MEM                         |     1|
-|12    |  MEM_CONTROLL_0      |MEM_CONTROLL                |   384|
+|12    |  MEM_CONTROLL_0      |MEM_CONTROLL                |   388|
 |13    |  MEM_to_WB_0         |MEM_to_WB                   |   242|
-|14    |  MMU_0               |MMU                         |   115|
+|14    |  MMU_0               |MMU                         |   117|
 |15    |  PAUSE_CTRL_0        |PAUSE_CTRL                  |    32|
 |16    |  PC_0                |PC                          |    77|
 |17    |  REGISTERS_0         |REGISTERS                   |    12|
@@ -1554,26 +1550,26 @@ Report Instance Areas:
 |22    |    tickgen           |BaudTickGen__parameterized0 |    36|
 +------+----------------------+----------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.441 ; gain = 678.594 ; free physical = 8863 ; free virtual = 27709
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1809.309 ; gain = 678.477 ; free physical = 8394 ; free virtual = 27365
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 534 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:01:06 ; elapsed = 00:01:07 . Memory (MB): peak = 1820.441 ; gain = 339.133 ; free physical = 8921 ; free virtual = 27770
-Synthesis Optimization Complete : Time (s): cpu = 00:01:12 ; elapsed = 00:01:14 . Memory (MB): peak = 1820.449 ; gain = 678.594 ; free physical = 8923 ; free virtual = 27772
+Synthesis finished with 0 errors, 0 critical warnings and 532 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:04 ; elapsed = 00:01:06 . Memory (MB): peak = 1809.309 ; gain = 340.016 ; free physical = 8455 ; free virtual = 27427
+Synthesis Optimization Complete : Time (s): cpu = 00:01:11 ; elapsed = 00:01:12 . Memory (MB): peak = 1809.316 ; gain = 678.477 ; free physical = 8458 ; free virtual = 27429
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 847 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 853 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 671 instances were transformed.
+  A total of 677 instances were transformed.
   IOBUF => IOBUF (IBUF, OBUFT): 64 instances
-  LD => LDCE: 399 instances
+  LD => LDCE: 405 instances
   LDC => LDCE: 196 instances
   RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
 
-261 Infos, 558 Warnings, 0 Critical Warnings and 0 Errors encountered.
+257 Infos, 558 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:01:16 ; elapsed = 00:01:18 . Memory (MB): peak = 1820.449 ; gain = 700.184 ; free physical = 9012 ; free virtual = 27859
-INFO: [Common 17-1381] The checkpoint '/home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
-report_utilization: Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1844.453 ; gain = 0.000 ; free physical = 9009 ; free virtual = 27858
-INFO: [Common 17-206] Exiting Vivado at Fri Jan  5 01:32:30 2018...
+synth_design: Time (s): cpu = 00:01:15 ; elapsed = 00:01:16 . Memory (MB): peak = 1809.316 ; gain = 695.066 ; free physical = 8560 ; free virtual = 27534
+INFO: [Common 17-1381] The checkpoint '/home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00.12 ; elapsed = 00:00:00.15 . Memory (MB): peak = 1833.320 ; gain = 0.000 ; free physical = 8568 ; free virtual = 27533
+INFO: [Common 17-206] Exiting Vivado at Fri Jan  5 04:06:21 2018...

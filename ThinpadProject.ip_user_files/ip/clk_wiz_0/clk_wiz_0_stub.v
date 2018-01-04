@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.1 (lin64) Build 1846317 Fri Apr 14 18:54:47 MDT 2017
-// Date        : Fri Jan  5 01:30:56 2018
+// Date        : Fri Jan  5 04:01:57 2018
 // Host        : zhanghuimeng-ThinkPad-T430 running 64-bit Ubuntu 16.04.3 LTS
 // Command     : write_verilog -force -mode synth_stub
-//               /home/zhanghuimeng/Computer_Architecture/new/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0_stub.v
+//               /home/zhanghuimeng/Computer_Architecture/second/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0_stub.v
 // Design      : clk_wiz_0
 // Purpose     : Stub declaration of top-level module interface
 // Device      : xc7a100tfgg676-2L
