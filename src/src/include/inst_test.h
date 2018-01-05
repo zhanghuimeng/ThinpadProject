@@ -3,9 +3,6 @@
 
 /* 1
  * TEST_ADD(vs, vt, vd)
- * vs, vt are two addends, vd is the sum
- * Register s0 stores the calculated sum
- * if s0 != vd then branch to inst_error in n1_add.s
  */
 #define TEST_ADD(vs, vt, vd) \
     ADD(vs, vt); \

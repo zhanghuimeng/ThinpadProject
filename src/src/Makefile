@@ -15,13 +15,18 @@ endif
 
 export TOPDIR AR CFLAGS
 
-# export CROSS_COMPILE ?= mipsel-linux-gnu-
 export CROSS_COMPILE ?= mips-sde-elf-
 
-all: main.bin main.text main.data
+all: main.bin main.text main.data main.asm main.mem
 
 libinst.a:
 	make -C inst $(TOPDIR)/$@
+
+main.asm: main.elf
+	${CROSS_COMPILE}objdump main.elf -d > main.asm
+
+main.mem: main.bin
+	./bin2mem -f main.bin -o main.mem
 
 %.elf: start.o libinst.a bin.lds
 	${CROSS_COMPILE}ld -g -T  bin.lds  -o $@ start.o -L . -linst
