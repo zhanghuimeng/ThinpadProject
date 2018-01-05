@@ -42,6 +42,7 @@ proc step_failed { step } {
   close $ch
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 start_step init_design
 set ACTIVE_STEP init_design
@@ -50,12 +51,15 @@ set rc [catch {
   create_project -in_memory -part xc7a100tfgg676-2L
   set_property design_mode GateLvl [current_fileset]
   set_param project.singleFileAddWarning.threshold 0
-  set_property webtalk.parent_dir E:/THU/merge/ThinpadProject/ThinpadProject.cache/wt [current_project]
-  set_property parent.project_path E:/THU/merge/ThinpadProject/ThinpadProject.xpr [current_project]
-  set_property ip_output_repo E:/THU/merge/ThinpadProject/ThinpadProject.cache/ip [current_project]
+  set_property webtalk.parent_dir E:/THU/renewed/ThinpadProject/ThinpadProject.cache/wt [current_project]
+  set_property parent.project_path E:/THU/renewed/ThinpadProject/ThinpadProject.xpr [current_project]
+  set_property ip_output_repo E:/THU/renewed/ThinpadProject/ThinpadProject.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
-  add_files -quiet E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp
-  read_xdc E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
+  add_files -quiet E:/THU/renewed/ThinpadProject/ThinpadProject.runs/synth_1/MIPS_CPU.dcp
+  read_ip -quiet e:/THU/renewed/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0.xci
+  set_property is_locked true [get_files e:/THU/renewed/ThinpadProject/ThinpadProject.srcs/sources_1/ip/clk_wiz_0_2/clk_wiz_0.xci]
+  read_xdc E:/THU/renewed/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc
   link_design -top MIPS_CPU -part xc7a100tfgg676-2L
   close_msg_db -file init_design.pb
 } RESULT]
@@ -131,6 +135,7 @@ start_step write_bitstream
 set ACTIVE_STEP write_bitstream
 set rc [catch {
   create_msg_db write_bitstream.pb
+  set_property XPM_LIBRARIES XPM_CDC [current_project]
   catch { write_mem_info -force MIPS_CPU.mmi }
   write_bitstream -force MIPS_CPU.bit 
   catch {write_debug_probes -no_partial_ltxfile -quiet -force debug_nets}

@@ -801,7 +801,7 @@ signal clk_array : STD_LOGIC_VECTOR(3 downto 0) := b"0000";
 signal rst_from_clk: STD_LOGIC;
 
 begin
-    clk_out <= touch_btn(4);
+--    clk_out <= touch_btn(4);
 
     CLOCK : clk_wiz_0 port map (
         clk_in1 => clk,
@@ -1214,8 +1214,8 @@ begin
 --    leds(7 downto 4) <= reg_wt_addr_from_ex(3 downto 0);
 --    leds(3 downto 0) <= reg_rd_addr_1_to_register(3 downto 0);
 --    leds(31) <= branch_from_id;
-    leds(7 downto 0) <= reg_wt_data_to_register(7 downto 0);
-    leds(31) <= en_from_mem;
+    --leds(7 downto 0) <= reg_wt_data_to_register(7 downto 0);
+    --leds(31) <= en_from_mem;
     
     number(7 downto 0) <= num_to_leds(7 downto 0);
     leds(7 downto 0) <= num_to_leds(31 downto 24);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7a100tfgg676-2L" LaunchTime="1514969250">
-  <File Type="PA-TCL" Name="MIPS_CPU.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7a100tfgg676-2L" LaunchTime="1515109129">
   <File Type="RDS-PROPCONSTRS" Name="MIPS_CPU_drc_synth.rpt"/>
+  <File Type="PA-TCL" Name="MIPS_CPU.tcl"/>
   <File Type="RDS-RDS" Name="MIPS_CPU.vds"/>
   <File Type="RDS-UTIL" Name="MIPS_CPU_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="MIPS_CPU_utilization_synth.pb"/>
@@ -153,4 +153,5 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="clk_wiz_0"/>
 </GenRun>

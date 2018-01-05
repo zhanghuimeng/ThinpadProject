@@ -1,4 +1,4 @@
-set_property SRC_FILE_INFO {cfile:E:/THU/merge/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc rfile:../../../ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc id:1} [current_design]
+set_property SRC_FILE_INFO {cfile:E:/THU/renewed/ThinpadProject/ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc rfile:../../../ThinpadProject.srcs/constrs_1/new/MIPS_CPU.xdc id:1} [current_design]
 set_property src_info {type:XDC file:1 line:2 export:INPUT save:INPUT read:READ} [current_design]
 set_property -dict {PACKAGE_PIN D18 IOSTANDARD LVCMOS33} [get_ports clk] ;#50MHz main clock in
 set_property src_info {type:XDC file:1 line:3 export:INPUT save:INPUT read:READ} [current_design]

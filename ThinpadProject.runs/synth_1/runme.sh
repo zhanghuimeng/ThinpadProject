@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/THU/merge/ThinpadProject/ThinpadProject.runs/synth_1'
+HD_PWD='E:/THU/renewed/ThinpadProject/ThinpadProject.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log
